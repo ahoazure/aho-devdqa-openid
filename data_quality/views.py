@@ -45,16 +45,7 @@ def db_connection():
     
 
 def check_data_quality(request):
-    con= db_connection() 
-
-    # try:
-    # with dbEngine.connect() as con:
-    #     con.execute("SELECT 1")
-    #     print('engine is valid')
-    # except Exception as e:
-    #     print(f'Engine invalid: {str(e)}')
-    # import pdb; pdb.set_trace() # checkpoint
-
+    con= db_connection() # create connection to database using sqlalchemy engine
 
     facts_df = pd.DataFrame() # initialize the facts dataframe with a null value
     data = pd.DataFrame()
@@ -181,7 +172,7 @@ def check_data_quality(request):
                 'Country':'location','CategoryOption':'categoryoption',
                 'DataSource':'datasource','measure type':'measure_type',
                 'Year':'period','Value':'value','Year':'period',
-                'Check_Mesure_Type':'measures_remarks'},axis=1)       
+                'Check_Mesure_Type':'remarks'},axis=1)       
        
             # Count each country indicators with more than one measure type per data source
             NumberMesureTypeByIndicatorPerDS = data.groupby(
@@ -206,32 +197,22 @@ def check_data_quality(request):
                 
                 # Concatenate the two frames using columns (axis=1) and save on the database
                 measures_checker_df = pd.concat((multi_measures_df, multi_source_measures_df), axis = 1)
-                data.drop('Check_Mesure_Type', axis=1, inplace=True) # remove remarks from the dataframe
-                multimeasures_json = measures_checker_df.loc[:,~measures_checker_df.T.duplicated(
-                    keep='last')]
-                multimeasures_checker = json.loads(multimeasures_json.to_json(
-                    orient='records',index=True,indent=4))  # converts json to dict
-                try:    
-                    for record in multimeasures_checker:
-                        # import pdb; pdb.set_trace()     
-                        multimeasures = Mutiple_MeasureTypes.objects.update_or_create(
-                            indicator_name=record['indicator_name'],
-                            location=record['location'],
-                            categoryoption=record['categoryoption'],
-                            datasource=record['datasource'],
-                            measure_type=record['measure_type'],
-                            value=record['value'],
-                            period=record['period'],
-                            counts=record['counts'],
-                            remarks=record['remarks'],
-                            user = request.user,                  
-                        )
-                except:
-                    pass        
-    
-        # import pdb; pdb.set_trace() 
+                measures_checker_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                if con: #store similarity scores into similarities table
+                    try:
+                        measures_checker_df.index = range(1,len(measures_checker_df)+1) #set index to start from 1 instead of default 0
+                        measures_checker_df.to_sql(
+                            'dqa_multiple_indicators_checker', con = con, 
+                            if_exists = 'append',index=True,index_label='id',chunksize = 1000) # set index as true to save as id 
+                    except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                        pass
+                    except:
+                        print('Unknown Error has occured')   
+         
+
     # -------------------------------Import algorithm 1 - indicators with wrong measure types--------------------------
         valid_datasources_qs = DataSource_Validator.objects.all().order_by('afrocode')
+        data.drop('Check_Mesure_Type', axis=1, inplace=True) # remove period remarks from the facts dataframe     
         bad_datasource = pd.DataFrame()
         if len(qs) >0:
             DataSourceValid = valid_datasources_qs.to_dataframe(['id', 'afrocode', 'indicator_name',
@@ -263,9 +244,9 @@ def check_data_quality(request):
                     'measure type':'measure_type','Value':'value','Year':'period',
                     'Check_Data_Source':'check_data_source'},axis=1)  
                
-                bad_datasource_df.loc[:,'user_id'] = request.user.id # add logged user id column
                 if con: #store similarity scores into similarities table
                     try:
+                        bad_datasource_df.loc[:,'user_id'] = request.user.id # add logged user id column
                         bad_datasource_df.index = range(1,len(bad_datasource_df)+1) #set index to start from 1 instead of default 0
                         bad_datasource_df.to_sql(
                             'dqa_invalid_datasource_remarks', con = con, 
@@ -274,51 +255,7 @@ def check_data_quality(request):
                         pass
                     except:
                         print('Unknown Error has occured')   
-      
-
-                # datasource_checker = bad_datasource_df.to_records(index=True)
-                # datasource_checker.index = range(1,len(datasource_checker)+1)
-                
-
-                # try:    
-                #     for record in datasource_checker:
-
-                #         datasources = DqaInvalidDatasourceRemarks(
-                #             id = record[0],
-                #             indicator_name=record[1],
-                #             location=record[2],
-                #             categoryoption=record[3],
-                #             datasource=record[4],
-                #             measure_type=record[5],
-                #             value=record[6],
-                #             period=record[7],
-                #             check_data_source=record[8], 
-                #             user = request.user,               
-                #         )
-                #         datasources.save()
-                # except:
-                #     pass  
-                
-            # import pdb; pdb.set_trace() 
-
-                # datasource_checker = json.loads(bad_datasource_df.to_json(
-                #     orient='records',index=True,indent=4))  # converts json to dict
-                # try:    
-                #     for record in datasource_checker:
-                #         datasources = DqaInvalidDatasourceRemarks.objects.update_or_create(
-                #             indicator_name=record['indicator_name'],
-                #             location=record['location'],
-                #             categoryoption=record['categoryoption'],
-                #             datasource=record['datasource'],
-                #             measure_type=record['measure_type'],
-                #             value=record['value'],
-                #             period=record['period'],
-                #             check_data_source=record['check_data_source'],                   
-                #         )
-                # except:
-                #     pass   
-
-        # import pdb; pdb.set_trace() 
+            # import pdb; pdb.set_trace() # checkpoint
 
         # -------------------------------Import algorithm 2 - indicators with wrong category options--------------------------
         valid_categoryoptions_qs = CategoryOptions_Validator.objects.all().order_by('afrocode')
@@ -350,25 +287,22 @@ def check_data_quality(request):
                     {'Indicator Name':'indicator_name','Country':'location',
                     'CategoryOption':'categoryoption','DataSource':'datasource',
                     'measure type':'measure_type','Value':'value','Year':'period',
-                    'Check_Category_Option':'check_category_option'},axis=1)   
+                    'Check_Category_Option':'check_category_option'},axis=1)  
+
+                if con: #store similarity scores into similarities table
+                    try:
+                        bad_categoryoption_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                        bad_categoryoption_df.index = range(1,len(bad_categoryoption_df)+1) #set index to start from 1 instead of default 0
+                        bad_categoryoption_df.to_sql(
+                            'dqa_invalid_categoryoption_remarks', con = con, 
+                            if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
+                    except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                        pass
+                    except:
+                        print('Unknown Error has occured')  
                 
-                categoryoption_checker = json.loads(bad_categoryoption_df.to_json(
-                    orient='records',index=True,indent=4))  # converts json to dict        
-                # try:    
-                #     for record in categoryoption_checker:
-                #         categoryoptions = DqaInvalidCategoryoptionRemarks.objects.update_or_create(
-                #             indicator_name=record['indicator_name'],
-                #             location=record['location'],
-                #             categoryoption=record['categoryoption'],
-                #             datasource=record['datasource'],
-                #             measure_type=record['measure_type'],
-                #             value=record['value'],
-                #             period=record['period'],
-                #             check_category_option=record['check_category_option'],                   
-                #         )
-                # except:
-                #     pass   
-            
+            # import pdb; pdb.set_trace() # checkpoint
+
         # -------------------------------Import algorithm 3 - indicators with wrong measure types--------------------------
         valid_measures_qs = MeasureTypes_Validator.objects.all().order_by('afrocode')
         if len(qs) >0:

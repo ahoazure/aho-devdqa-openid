@@ -264,16 +264,21 @@ class DqaInvalidCategoryoptionRemarks(models.Model):
 class DqaInvalidDatasourceRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    indicator_name = models.CharField(blank=True, null=True,max_length=2000,)
-    location = models.CharField(blank=True, null=True,max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,max_length=2000,)
-    measure_type = models.CharField(db_column='measure type', 
-        blank=True, null=True,max_length=2000,) 
+        verbose_name='User(Email)',default=None) # request helper field
+    indicator_name = models.CharField(blank=True, null=True,
+        max_length=2000,)
+    location = models.CharField(blank=True, null=True,
+        max_length=2000,)
+    categoryoption = models.CharField(blank=True, null=True,
+        max_length=2000,)
+    datasource = models.CharField(blank=True, null=True,
+        max_length=2000,)
+    measure_type = models.CharField(blank=True, null=True,
+        max_length=2000,) 
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True,null=True,max_length=2000,)
+    period = models.CharField(blank=True,null=True,
+        max_length=2000,)
     check_data_source = models.TextField(blank=True, null=True) 
 
     class Meta:

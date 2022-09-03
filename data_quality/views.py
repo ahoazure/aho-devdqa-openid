@@ -28,9 +28,20 @@ def db_connection():
     pw =settings.DQPASS
     db = settings.DQDB
     host = settings.DQHOST
+    # engine = create_engine("mysql+mysqldb://{user}:{pw}@{host}/{db}"
+    #                 .format(user=user,pw=pw,host=host,db=db))
+
     engine = create_engine("mysql+mysqldb://{user}:{pw}@{host}/{db}"
-                    .format(user=user,pw=pw,host=host,db=db))
+                .format(user=user,pw=pw,host=host,db=db),
+                connect_args={
+                        "ssl": {
+                            "ssl_ca": "/home/site/cert/BaltimoreCyberTrustRoot.crt.pem",
+                        }
+                    }
+            )
+
     return engine
+
     
 
 def check_data_quality(request):
@@ -299,8 +310,7 @@ def check_data_quality(request):
                 # except:
                 #     pass   
 
-        import pdb; pdb.set_trace() 
-
+        # import pdb; pdb.set_trace() 
 
         # -------------------------------Import algorithm 2 - indicators with wrong category options--------------------------
         valid_categoryoptions_qs = CategoryOptions_Validator.objects.all().order_by('afrocode')
@@ -336,20 +346,20 @@ def check_data_quality(request):
                 
                 categoryoption_checker = json.loads(bad_categoryoption_df.to_json(
                     orient='records',index=True,indent=4))  # converts json to dict        
-                try:    
-                    for record in categoryoption_checker:
-                        categoryoptions = DqaInvalidCategoryoptionRemarks.objects.update_or_create(
-                            indicator_name=record['indicator_name'],
-                            location=record['location'],
-                            categoryoption=record['categoryoption'],
-                            datasource=record['datasource'],
-                            measure_type=record['measure_type'],
-                            value=record['value'],
-                            period=record['period'],
-                            check_category_option=record['check_category_option'],                   
-                        )
-                except:
-                    pass   
+                # try:    
+                #     for record in categoryoption_checker:
+                #         categoryoptions = DqaInvalidCategoryoptionRemarks.objects.update_or_create(
+                #             indicator_name=record['indicator_name'],
+                #             location=record['location'],
+                #             categoryoption=record['categoryoption'],
+                #             datasource=record['datasource'],
+                #             measure_type=record['measure_type'],
+                #             value=record['value'],
+                #             period=record['period'],
+                #             check_category_option=record['check_category_option'],                   
+                #         )
+                # except:
+                #     pass   
             
         # -------------------------------Import algorithm 3 - indicators with wrong measure types--------------------------
         valid_measures_qs = MeasureTypes_Validator.objects.all().order_by('afrocode')
@@ -382,20 +392,20 @@ def check_data_quality(request):
                     'Check_Mesure_Type':'check_mesure_type'},axis=1)     
                 measuretype_checker = json.loads(bad_measuretype_df.to_json(
                     orient='records',index=True,indent=4))  # converts json to dict
-                try:    
-                    for record in measuretype_checker:
-                        measuretypes = DqaInvalidMeasuretypeRemarks.objects.update_or_create(
-                            indicator_name=record['indicator_name'],
-                            location=record['location'],
-                            categoryoption=record['categoryoption'],
-                            datasource=record['datasource'],
-                            measure_type=record['measure_type'],
-                            value=record['value'],
-                            period=record['period'],
-                            check_mesure_type=record['check_mesure_type'],                   
-                        )
-                except:
-                    pass   
+                # try:    
+                #     for record in measuretype_checker:
+                #         measuretypes = DqaInvalidMeasuretypeRemarks.objects.update_or_create(
+                #             indicator_name=record['indicator_name'],
+                #             location=record['location'],
+                #             categoryoption=record['categoryoption'],
+                #             datasource=record['datasource'],
+                #             measure_type=record['measure_type'],
+                #             value=record['value'],
+                #             period=record['period'],
+                #             check_mesure_type=record['check_mesure_type'],                   
+                #         )
+                # except:
+                #     pass   
 
 
         # -------------------------------------Start of comparing indicators for similarity score----------------------------        
@@ -461,20 +471,20 @@ def check_data_quality(request):
             
             periods_checker = json.loads(bad_periods_df.to_json(
                 orient='records',index=True,indent=4))  # converts json to dict
-            try:    
-                for record in periods_checker:
-                    periods = DqaInvalidPeriodRemarks.objects.update_or_create(
-                        indicator_name=record['indicator_name'],
-                        location=record['location'],
-                        categoryoption=record['categoryoption'],
-                        datasource=record['datasource'],
-                        measure_type=record['measure_type'],
-                        value=record['value'],
-                        period=record['period'],
-                        check_year=record['check_year'],                   
-                    )
-            except:
-                pass   
+            # try:    
+            #     for record in periods_checker:
+            #         periods = DqaInvalidPeriodRemarks.objects.update_or_create(
+            #             indicator_name=record['indicator_name'],
+            #             location=record['location'],
+            #             categoryoption=record['categoryoption'],
+            #             datasource=record['datasource'],
+            #             measure_type=record['measure_type'],
+            #             value=record['value'],
+            #             period=record['period'],
+            #             check_year=record['check_year'],                   
+            #         )
+            # except:
+            #     pass   
         
 
         # --------------Start of consistency inpection algorithms. To be replace with corrected from Didier and Berence---
@@ -512,20 +522,20 @@ def check_data_quality(request):
             axis=1)   
             extraconsistency_checker = json.loads(external_outliers_df.to_json(
                 orient='records',index=True,indent=4))  # converts json to dict
-            try:    
-                for record in extraconsistency_checker:
-                    extraconsistencies = DqaExternalConsistencyOutliersRemarks.objects.update_or_create(
-                        indicator_name=record['indicator_name'],
-                        location=record['location'],
-                        categoryoption=record['categoryoption'],
-                        datasource=record['datasource'],
-                        measure_type=record['measure_type'],
-                        value=record['value'],
-                        period=record['period'],
-                        external_consistency=record['external_consistency'],                   
-                    )
-            except:
-                pass  
+            # try:    
+            #     for record in extraconsistency_checker:
+            #         extraconsistencies = DqaExternalConsistencyOutliersRemarks.objects.update_or_create(
+            #             indicator_name=record['indicator_name'],
+            #             location=record['location'],
+            #             categoryoption=record['categoryoption'],
+            #             datasource=record['datasource'],
+            #             measure_type=record['measure_type'],
+            #             value=record['value'],
+            #             period=record['period'],
+            #             external_consistency=record['external_consistency'],                   
+            #         )
+            # except:
+            #     pass  
 
         # Internal consistency : By Indicator per categoryoption (Considering all data sources )
         CountriesCMT = dataCountMT['Country'].unique().tolist()
@@ -563,20 +573,20 @@ def check_data_quality(request):
             intraconsistency_checker = json.loads(internal_outliers_df.to_json(
                 orient='records',index=True,indent=4))  # converts json to dict
 
-            try:    
-                for record in intraconsistency_checker:
-                    intraconsistencies = DqaInternalConsistencyOutliersRemarks.objects.update_or_create(
-                        indicator_name=record['indicator_name'],
-                        location=record['location'],
-                        categoryoption=record['categoryoption'],
-                        datasource=record['datasource'],
-                        measure_type=record['measure_type'],
-                        value=record['value'],
-                        period=record['period'],
-                        internal_consistency=record['internal_consistency'],                   
-                    )
-            except:
-                pass  
+            # try:    
+            #     for record in intraconsistency_checker:
+            #         intraconsistencies = DqaInternalConsistencyOutliersRemarks.objects.update_or_create(
+            #             indicator_name=record['indicator_name'],
+            #             location=record['location'],
+            #             categoryoption=record['categoryoption'],
+            #             datasource=record['datasource'],
+            #             measure_type=record['measure_type'],
+            #             value=record['value'],
+            #             period=record['period'],
+            #             internal_consistency=record['internal_consistency'],                   
+            #         )
+            # except:
+            #     pass  
         # --------------End of consistency inspection algorithms. To be replace with corrected from Didier and Berence---
 
 
@@ -602,20 +612,20 @@ def check_data_quality(request):
 
             valuetypes_checker = json.loads(combinedvalue_checker.to_json(
                     orient='records',index=True,indent=4))  # converts json to dict
-            try:    
-                for record in valuetypes_checker:
-                    valuetypes = DqaValueTypesConsistencyRemarks.objects.update_or_create(
-                        indicator_name=record['indicator_name'],
-                        location=record['location'],
-                        categoryoption=record['categoryoption'],
-                        datasource=record['datasource'],
-                        measure_type=record['measure_type'],
-                        value=record['value'],
-                        period=record['period'],
-                        check_value=record['check_value'],                   
-                    )
-            except:
-                pass 
+            # try:    
+            #     for record in valuetypes_checker:
+            #         valuetypes = DqaValueTypesConsistencyRemarks.objects.update_or_create(
+            #             indicator_name=record['indicator_name'],
+            #             location=record['location'],
+            #             categoryoption=record['categoryoption'],
+            #             datasource=record['datasource'],
+            #             measure_type=record['measure_type'],
+            #             value=record['value'],
+            #             period=record['period'],
+            #             check_value=record['check_value'],                   
+            #         )
+            # except:
+            #     pass 
 
     else: 
         print('No data') 

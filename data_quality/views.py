@@ -263,7 +263,7 @@ def check_data_quality(request):
                     'measure type':'measure_type','Value':'value','Year':'period',
                     'Check_Data_Source':'check_data_source'},axis=1)  
                
-                # bad_datasource_df.loc[:,'user_id'] = request.user.id # add column user_id
+                bad_datasource_df.loc[:,'user_id'] = request.user.id # add column user_id
                 # if con: #store similarity scores into similarities table
                 #     try:
                 bad_datasource_df.index = range(1,len(bad_datasource_df)+1) #set index to start from 1 instead of default 0

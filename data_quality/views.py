@@ -35,7 +35,7 @@ def db_connection():
                 .format(user=user,pw=pw,host=host,db=db),
                 connect_args={
                         "ssl": {
-                            "ssl_ca": "/site/cert/BaltimoreCyberTrustRoot.crt.pem",
+                            "ssl_ca": "/home/site/cert/BaltimoreCyberTrustRoot.crt.pem",
                         }
                     }
             )
@@ -211,22 +211,23 @@ def check_data_quality(request):
                     keep='last')]
                 multimeasures_checker = json.loads(multimeasures_json.to_json(
                     orient='records',index=True,indent=4))  # converts json to dict
-                # try:    
-                #     for record in multimeasures_checker:
-                #         # import pdb; pdb.set_trace()     
-                #         multimeasures = Mutiple_MeasureTypes.objects.update_or_create(
-                #             indicator_name=record['indicator_name'],
-                #             location=record['location'],
-                #             categoryoption=record['categoryoption'],
-                #             datasource=record['datasource'],
-                #             measure_type=record['measure_type'],
-                #             value=record['value'],
-                #             period=record['period'],
-                #             counts=record['counts'],
-                #             remarks=record['remarks'],                   
-                #         )
-                # except:
-                #     pass        
+                try:    
+                    for record in multimeasures_checker:
+                        # import pdb; pdb.set_trace()     
+                        multimeasures = Mutiple_MeasureTypes.objects.update_or_create(
+                            indicator_name=record['indicator_name'],
+                            location=record['location'],
+                            categoryoption=record['categoryoption'],
+                            datasource=record['datasource'],
+                            measure_type=record['measure_type'],
+                            value=record['value'],
+                            period=record['period'],
+                            counts=record['counts'],
+                            remarks=record['remarks'],
+                            user = request.user,                  
+                        )
+                except:
+                    pass        
     
         # import pdb; pdb.set_trace() 
     # -------------------------------Import algorithm 1 - indicators with wrong measure types--------------------------
@@ -262,17 +263,17 @@ def check_data_quality(request):
                     'measure type':'measure_type','Value':'value','Year':'period',
                     'Check_Data_Source':'check_data_source'},axis=1)  
                
-                bad_datasource_df.loc[:,'user_id'] = request.user.id # add column user_id
-                if con: #store similarity scores into similarities table
-                    try:
-                        bad_datasource_df.index = range(1,len(bad_datasource_df)+1) #set index to start from 1 instead of default 0
-                        bad_datasource_df.to_sql(
-                            'dqa_invalid_datasource_remarks', con = con, 
-                            if_exists = 'append',index=True,index_label='id',chunksize = 1000) # set index as true to save as id 
-                    except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
-                        pass
-                    except:
-                        print('Unknown Error has occured')   
+                # bad_datasource_df.loc[:,'user_id'] = request.user.id # add column user_id
+                # if con: #store similarity scores into similarities table
+                #     try:
+                bad_datasource_df.index = range(1,len(bad_datasource_df)+1) #set index to start from 1 instead of default 0
+                bad_datasource_df.to_sql(
+                    'dqa_invalid_datasource_remarks', con = con, 
+                    if_exists = 'append',index=True,index_label='id',chunksize = 1000) # set index as true to save as id 
+                    # except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    #     pass
+                    # except:
+                    #     print('Unknown Error has occured')   
       
 
                 # datasource_checker = bad_datasource_df.to_records(index=True)
@@ -298,7 +299,7 @@ def check_data_quality(request):
                 # except:
                 #     pass  
                 
-            import pdb; pdb.set_trace() 
+            # import pdb; pdb.set_trace() 
 
                 # datasource_checker = json.loads(bad_datasource_df.to_json(
                 #     orient='records',index=True,indent=4))  # converts json to dict

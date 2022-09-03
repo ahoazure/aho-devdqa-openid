@@ -632,7 +632,7 @@ def check_data_quality(request):
         
 # -----------------End of data validation algorithms derived from Didier's pandas code---------------------------------
     if not data.empty:
-        success ="Data validation reports created and saved into the Database"
+        success = con,"Data validation reports created and saved into the Database"
     else:
         success ="Sorry. The facts table has no datasets to be  validated"     
     context = {              

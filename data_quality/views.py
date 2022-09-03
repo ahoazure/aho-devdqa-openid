@@ -35,7 +35,7 @@ def db_connection():
                 .format(user=user,pw=pw,host=host,db=db),
                 connect_args={
                         "ssl": {
-                            "ssl_ca": "/home/site/cert/BaltimoreCyberTrustRoot.crt.pem",
+                            "ssl_ca": "/site/cert/BaltimoreCyberTrustRoot.crt.pem",
                         }
                     }
             )
@@ -46,6 +46,13 @@ def db_connection():
 
 def check_data_quality(request):
     con= db_connection() 
+
+    # try:
+    # with dbEngine.connect() as con:
+    #     con.execute("SELECT 1")
+    #     print('engine is valid')
+    # except Exception as e:
+    #     print(f'Engine invalid: {str(e)}')
     # import pdb; pdb.set_trace() # checkpoint
 
 
@@ -268,30 +275,30 @@ def check_data_quality(request):
                         print('Unknown Error has occured')   
       
 
-            # datasource_checker = bad_datasource_df.to_records(index=True)
-            # datasource_checker.index = range(1,len(datasource_checker)+1)
-            
-
-            # # try:    
-            # for record in datasource_checker:
-
-            #     datasources = DqaInvalidDatasourceRemarks(
-            #         id = record[0],
-            #         indicator_name=record[1],
-            #         location=record[2],
-            #         categoryoption=record[3],
-            #         datasource=record[4],
-            #         measure_type=record[5],
-            #         value=record[6],
-            #         period=record[7],
-            #         check_data_source=record[8], 
-            #         user = request.user,               
-            #     )
-            #     datasources.save()
-            # except:
-            #     pass  
+                # datasource_checker = bad_datasource_df.to_records(index=True)
+                # datasource_checker.index = range(1,len(datasource_checker)+1)
                 
-            # import pdb; pdb.set_trace() 
+
+                # try:    
+                #     for record in datasource_checker:
+
+                #         datasources = DqaInvalidDatasourceRemarks(
+                #             id = record[0],
+                #             indicator_name=record[1],
+                #             location=record[2],
+                #             categoryoption=record[3],
+                #             datasource=record[4],
+                #             measure_type=record[5],
+                #             value=record[6],
+                #             period=record[7],
+                #             check_data_source=record[8], 
+                #             user = request.user,               
+                #         )
+                #         datasources.save()
+                # except:
+                #     pass  
+                
+            import pdb; pdb.set_trace() 
 
                 # datasource_checker = json.loads(bad_datasource_df.to_json(
                 #     orient='records',index=True,indent=4))  # converts json to dict

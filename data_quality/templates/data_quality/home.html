@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+   Facts Quality 
+{% endblock title %}
+
+{% block content %}
+    {% if success %}
+      {{success}}
+      <!-- <br>
+      {{measures|safe}}
+      <br> -->
+      <!-- {{similarity|safe}}
+      <br>
+      Outliers report
+      {{outliers|safe}} -->
+    {% else %}
+      <h3>No data</h3>
+    {% endif %}   
+{% endblock content %}

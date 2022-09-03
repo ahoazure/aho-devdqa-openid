@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %} <!--Language translation to support english, French and Portuguese-->
+{% block title %}
+    Signed out DCT {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="section-inner clearfix">
+        <p>You are logged out.
+          <a href="{% url 'microsoft_authentication:microsoft_authentication_login' %}">
+            Click Here</a> or <strong>iAHO</strong> to signin again.</p>
+        </div>
+    </div>
+
+{% endblock %}

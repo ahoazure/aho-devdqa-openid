@@ -1,0 +1,1070 @@
+IndicatorId,Indicator Name,DatasourceId,DataSource
+AFR0001,Average life expectancy at birth (in years),2,Country
+AFR0001,Average life expectancy at birth (in years),3,WHO / GHO
+AFR0001,Average life expectancy at birth (in years),6,NIS
+AFR0002,Healthy life expectancy at birth (in years),3,WHO / GHO
+AFR0002,Healthy life expectancy at birth (in years),50,World Health Statistics
+AFR0002,Healthy life expectancy at birth (in years),75,WHO/GHO_2021
+AFR0003,Life expectancy at age 60 years,1,WHO/AFRO
+AFR0003,Life expectancy at age 60 years,17,UN Population
+AFR0003,Life expectancy at age 60 years,75,WHO/GHO_2021
+AFR0004,Population size (in thousands) total,1,WHO/AFRO
+AFR0004,Population size (in thousands) total,3,WHO / GHO
+AFR0004,Population size (in thousands) total,6,NIS
+AFR0004,Population size (in thousands) total,17,UN Population
+AFR0004,Population size (in thousands) total,23,MMEIG
+AFR0004,Population size (in thousands) total,26,NHMIS
+AFR0004,Population size (in thousands) total,50,World Health Statistics
+AFR0005,Crude death rate (per 1 000 mid-year population),3,WHO / GHO
+AFR0005,Crude death rate (per 1 000 mid-year population),4,WB Database
+AFR0005,Crude death rate (per 1 000 mid-year population),6,NIS
+AFR0005,Crude death rate (per 1 000 mid-year population),62,Ministry of Health
+AFR0006,Adolescent mortality rate (per 100 000 adolescent population),3,WHO / GHO
+AFR0006,Adolescent mortality rate (per 100 000 adolescent population),7,DHS
+AFR0007,Adult mortality rate between 15 and 60 years of age (per 1000 population),3,WHO / GHO
+AFR0007,Adult mortality rate between 15 and 60 years of age (per 1000 population),4,WB Database
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],3,WHO / GHO
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],6,NIS
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],7,DHS
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],12,UNICEF / MICS
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],23,MMEIG
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],24,UN IGME
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],26,NHMIS
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],34,CRVS
+AFR0008,Under-five mortality rate (per 1 000 live births)-[SDG 3.2.1],62,Ministry of Health
+AFR0009,Infant mortality rate (per 1 000 live births),3,WHO / GHO
+AFR0009,Infant mortality rate (per 1 000 live births),5,UNICEF
+AFR0009,Infant mortality rate (per 1 000 live births),6,NIS
+AFR0009,Infant mortality rate (per 1 000 live births),7,DHS
+AFR0009,Infant mortality rate (per 1 000 live births),62,Ministry of Health
+AFR0010,Neonatal mortality rate (per 1 000 live births)-[SDG 3.2.2],3,WHO / GHO
+AFR0010,Neonatal mortality rate (per 1 000 live births)-[SDG 3.2.2],5,UNICEF
+AFR0010,Neonatal mortality rate (per 1 000 live births)-[SDG 3.2.2],6,NIS
+AFR0010,Neonatal mortality rate (per 1 000 live births)-[SDG 3.2.2],7,DHS
+AFR0010,Neonatal mortality rate (per 1 000 live births)-[SDG 3.2.2],62,Ministry of Health
+AFR0011,Stillbirth rate (per 1000 total births),7,DHS
+AFR0011,Stillbirth rate (per 1000 total births),26,NHMIS
+AFR0012,"Maternal mortality ratio (per 100,000 live births) [SDG 3.1.1]",3,WHO / GHO
+AFR0012,"Maternal mortality ratio (per 100,000 live births) [SDG 3.1.1]",7,DHS
+AFR0012,"Maternal mortality ratio (per 100,000 live births) [SDG 3.1.1]",23,MMEIG
+AFR0012,"Maternal mortality ratio (per 100,000 live births) [SDG 3.1.1]",26,NHMIS
+AFR0012,"Maternal mortality ratio (per 100,000 live births) [SDG 3.1.1]",62,Ministry of Health
+AFR0013,TB mortality rate (per 100 000 population),2,Country
+AFR0013,TB mortality rate (per 100 000 population),3,WHO / GHO
+AFR0013,TB mortality rate (per 100 000 population),39,National Malaria Control Programme
+AFR0013,TB mortality rate (per 100 000 population),50,World Health Statistics
+AFR0013,TB mortality rate (per 100 000 population),62,Ministry of Health
+AFR0013,TB mortality rate (per 100 000 population),87,WHO Global TB Report
+AFR0014,AIDS-related mortality rate (per 100 000 population),2,Country
+AFR0014,AIDS-related mortality rate (per 100 000 population),3,WHO / GHO
+AFR0014,AIDS-related mortality rate (per 100 000 population),16,UNAIDS
+AFR0014,AIDS-related mortality rate (per 100 000 population),62,Ministry of Health
+AFR0014,AIDS-related mortality rate (per 100 000 population),78,SPECTRUM
+AFR0015,Malaria mortality rate (per 100 000 population),3,WHO / GHO
+AFR0015,Malaria mortality rate (per 100 000 population),26,NHMIS
+AFR0016,Suicide rate (per 100 000 population) - [SDG 3.4.2],3,WHO / GHO
+AFR0016,Suicide rate (per 100 000 population) - [SDG 3.4.2],62,Ministry of Health
+AFR0016,Suicide rate (per 100 000 population) - [SDG 3.4.2],3,WHO/GHO
+AFR0017,Death rate due to road traffic injuries (per 100 000 population) [SDG 3.6.1],3,WHO / GHO
+AFR0017,Death rate due to road traffic injuries (per 100 000 population) [SDG 3.6.1],4,WB Database
+AFR0017,Death rate due to road traffic injuries (per 100 000 population) [SDG 3.6.1],26,NHMIS
+AFR0017,Death rate due to road traffic injuries (per 100 000 population) [SDG 3.6.1],46,"DHS,MICS"
+AFR0017,Death rate due to road traffic injuries (per 100 000 population) [SDG 3.6.1],62,Ministry of Health
+AFR0018,Population by age (under 1; 1-5; 6-12; 13-25; 26-49; 50-64; over 65 years),6,NIS
+AFR0018,Population by age (under 1; 1-5; 6-12; 13-25; 26-49; 50-64; over 65 years),17,UN Population
+AFR0018,Population by age (under 1; 1-5; 6-12; 13-25; 26-49; 50-64; over 65 years),34,CRVS
+AFR0019,Number of people living with HIV,2,Country
+AFR0019,Number of people living with HIV,16,UNAIDS
+AFR0019,Number of people living with HIV,62,Ministry of Health
+AFR0019,Number of people living with HIV,78,SPECTRUM
+AFR0020,HIV prevalence rate (per 1000 population),1,WHO/AFRO
+AFR0020,HIV prevalence rate (per 1000 population),2,Country
+AFR0020,HIV prevalence rate (per 1000 population),3,WHO / GHO
+AFR0020,HIV prevalence rate (per 1000 population),7,DHS
+AFR0020,HIV prevalence rate (per 1000 population),16,UNAIDS
+AFR0020,HIV prevalence rate (per 1000 population),41,AIS
+AFR0020,HIV prevalence rate (per 1000 population),77,ANC Survey
+AFR0020,HIV prevalence rate (per 1000 population),80,NAIIS
+AFR0021,Prevalence of obesity in persons aged 18+years,3,WHO / GHO
+AFR0023,Proportion of population using improved drinking-water sources (%),5,UNICEF
+AFR0023,Proportion of population using improved drinking-water sources (%),6,NIS
+AFR0023,Proportion of population using improved drinking-water sources (%),7,DHS
+AFR0023,Proportion of population using improved drinking-water sources (%),12,UNICEF / MICS
+AFR0023,Proportion of population using improved drinking-water sources (%),46,"DHS,MICS"
+AFR0023,Proportion of population using improved drinking-water sources (%),62,Ministry of Health
+AFR0024,Proportion of population using improved sanitation (%),3,WHO / GHO
+AFR0024,Proportion of population using improved sanitation (%),5,UNICEF
+AFR0024,Proportion of population using improved sanitation (%),6,NIS
+AFR0024,Proportion of population using improved sanitation (%),7,DHS
+AFR0024,Proportion of population using improved sanitation (%),12,UNICEF / MICS
+AFR0024,Proportion of population using improved sanitation (%),36,WHO/UNICEF
+AFR0025,People practicing open defecation (%) of population),4,WB Database
+AFR0025,People practicing open defecation (%) of population),5,UNICEF
+AFR0025,People practicing open defecation (%) of population),7,DHS
+AFR0025,People practicing open defecation (%) of population),36,WHO/UNICEF
+AFR0026,Annual mean concentrations of fine particulate matter (PM2.5) in urban areasÂ (µg/m3),3,WHO / GHO
+AFR0027,Average death rate due to natural disasters y (per 100 000 population),3,WHO / GHO
+AFR0027,Average death rate due to natural disasters y (per 100 000 population),6,NIS
+AFR0028,Number of victims of intentional homicide per 100 000 population,3,WHO / GHO
+AFR0028,Number of victims of intentional homicide per 100 000 population,13,UNStat
+AFR0028,Number of victims of intentional homicide per 100 000 population,62,Ministry of Health
+AFR0029,Estimated direct deaths from major conflicts (per 100 000 population),3,WHO / GHO
+AFR0030,"Children in employment, total (% of children ages 7-14)",6,NIS
+AFR0030,"Children in employment, total (% of children ages 7-14)",21,ILO
+AFR0031,Net official development assistance received (current US$),19,OECD
+AFR0032,"Unemployment, total (% of total labor force) (modelled ILO estimate)",1,WHO/AFRO
+AFR0032,"Unemployment, total (% of total labor force) (modelled ILO estimate)",4,WB Database
+AFR0032,"Unemployment, total (% of total labor force) (modelled ILO estimate)",6,NIS
+AFR0032,"Unemployment, total (% of total labor force) (modelled ILO estimate)",12,UNICEF / MICS
+AFR0033,Individuals using the Internet (% of population),4,WB Database
+AFR0033,Individuals using the Internet (% of population),6,NIS
+AFR0033,Individuals using the Internet (% of population),7,DHS
+AFR0033,Individuals using the Internet (% of population),20,ITU
+AFR0033,Individuals using the Internet (% of population),40,National Health Account Report
+AFR0034,Proportion of seats held by women in national parliaments (%),6,NIS
+AFR0034,Proportion of seats held by women in national parliaments (%),12,UNICEF / MICS
+AFR0034,Proportion of seats held by women in national parliaments (%),18,Inter-Parliamentary Union
+AFR0035,"IHR Coordination, Communication and Advocacy",2,Country
+AFR0035,"IHR Coordination, Communication and Advocacy",3,WHO / GHO
+AFR0035,"IHR Coordination, Communication and Advocacy",43,WHO/UNdata
+AFR0036,Real Time Surveillance,3,WHO / GHO
+AFR0036,Real Time Surveillance,76,SORMAS
+AFR0039,Risk Communication,3,WHO / GHO
+AFR0039,Risk Communication,76,SORMAS
+AFR0047,Availability of basic amenities (%),53,SARA
+AFR0049,Service availability index (%),4,WB Database
+AFR0049,Service availability index (%),53,SARA
+AFR0050,Prevention of mother-to-child transmission (PMTCT) of HIV,2,Country
+AFR0050,Prevention of mother-to-child transmission (PMTCT) of HIV,13,UNStat
+AFR0050,Prevention of mother-to-child transmission (PMTCT) of HIV,16,UNAIDS
+AFR0050,Prevention of mother-to-child transmission (PMTCT) of HIV,59,GARPR
+AFR0052,Proportion of the population with large household expenditure on health as a share of total household consumption or income [SDG 3.8.2],3,WHO / GHO
+AFR0052,Proportion of the population with large household expenditure on health as a share of total household consumption or income [SDG 3.8.2],13,UNStat
+AFR0055,Intimate partner violence and injuries,6,NIS
+AFR0055,Intimate partner violence and injuries,13,UNStat
+AFR0056,Smoking (%),3,WHO / GHO
+AFR0056,Smoking (%),7,DHS
+AFR0058,Private Insurance as % of Private Health Expenditure (PvtHE),40,National Health Account Report
+AFR0059,Availability of national list of approved medical devices for procurement or reimbursement,2,Country
+AFR0059,Availability of national list of approved medical devices for procurement or reimbursement,3,WHO / GHO
+AFR0060,Availability of national standards or recommended lists of medical devices,2,Country
+AFR0060,Availability of national standards or recommended lists of medical devices,3,WHO / GHO
+AFR0061,Availability of technical specifications of medical devices to support procurement or donations,2,Country
+AFR0061,Availability of technical specifications of medical devices to support procurement or donations,3,WHO / GHO
+AFR0062,Civil registration coverage of births (%),1,WHO/AFRO
+AFR0062,Civil registration coverage of births (%),6,NIS
+AFR0062,Civil registration coverage of births (%),7,DHS
+AFR0062,Civil registration coverage of births (%),13,UNStat
+AFR0063,Civil registration coverage of cause-of-death (%),1,WHO/AFRO
+AFR0064,Community and traditional health workers density (per 1000 population),3,WHO / GHO
+AFR0064,Community and traditional health workers density (per 1000 population),26,NHMIS
+AFR0065,Health Capital Expenditure (HK) % Gross Domestic Product (GDP),1,WHO/AFRO
+AFR0065,Health Capital Expenditure (HK) % Gross Domestic Product (GDP),10,WHO / GHED
+AFR0065,Health Capital Expenditure (HK) % Gross Domestic Product (GDP),40,National Health Account Report
+AFR0066,Other health workers density (per 1000 population),1,WHO/AFRO
+AFR0066,Other health workers density (per 1000 population),3,WHO / GHO
+AFR0066,Other health workers density (per 1000 population),53,SARA
+AFR0067,Other Private Health Expenditure (OTHER) as % Current Health Expenditure (CHE),3,WHO / GHO
+AFR0067,Other Private Health Expenditure (OTHER) as % Current Health Expenditure (CHE),10,WHO / GHED
+AFR0067,Other Private Health Expenditure (OTHER) as % Current Health Expenditure (CHE),40,National Health Account Report
+AFR0068,Out-of-pocket (OOPS) as % of Private health expenditure (PvtHE),3,WHO / GHO
+AFR0068,Out-of-pocket (OOPS) as % of Private health expenditure (PvtHE),40,National Health Account Report
+AFR0069,Out-of-Pocket Expenditure (OOPS) per Capita in PPP Int$,1,WHO/AFRO
+AFR0070,Out-of-Pocket Expenditure (OOPS) per Capita in US$,1,WHO/AFRO
+AFR0071,Total density per 100 000 population: District/rural hospitals,2,Country
+AFR0071,Total density per 100 000 population: District/rural hospitals,3,WHO / GHO
+AFR0072,Total density per 100 000 population: Health centres,2,Country
+AFR0072,Total density per 100 000 population: Health centres,3,WHO / GHO
+AFR0073,Total density per 100 000 population: Health posts,2,Country
+AFR0073,Total density per 100 000 population: Health posts,3,WHO / GHO
+AFR0074,Total density per 100 000 population: Hospitals,2,Country
+AFR0074,Total density per 100 000 population: Hospitals,3,WHO / GHO
+AFR0075,Total density per 100 000 population: Provincial hospitals,3,WHO / GHO
+AFR0075,Total density per 100 000 population: Provincial hospitals,7,DHS
+AFR0076,Total density per 100 000 population: Specialized hospitals,3,WHO / GHO
+AFR0076,Total density per 100 000 population: Specialized hospitals,7,DHS
+AFR0077,Total density per million females aged from 50 to 69 years old: Mammography units,1,WHO/AFRO
+AFR0078,Total density per million population: Computed tomography units,1,WHO/AFRO
+AFR0079,Total density per million population: Gamma camera or Nuclear medicine,1,WHO/AFRO
+AFR0080,Total density per million population: Linear Accelerator (numeric),1,WHO/AFRO
+AFR0081,Total density per million population: Magnetic Resonance Imaging,1,WHO/AFRO
+AFR0082,Total density per million population: Positron Emission tomography,1,WHO/AFRO
+AFR0083,Total density per million population: Radiotherapy units,1,WHO/AFRO
+AFR0084,Total density per million population: Telecobalt Unit,1,WHO/AFRO
+AFR0085,Types of lists recommending health technology for high burden diseases,3,WHO / GHO
+AFR0086,Healthy life expectancy (HALE) at age 60 (years),3,WHO / GHO
+AFR0086,Healthy life expectancy (HALE) at age 60 (years),75,WHO/GHO_2021
+AFR0087,Current health expenditure (CHE) as percentage of gross domestic product (GDP) (%),1,WHO/AFRO
+AFR0087,Current health expenditure (CHE) as percentage of gross domestic product (GDP) (%),6,NIS
+AFR0087,Current health expenditure (CHE) as percentage of gross domestic product (GDP) (%),10,WHO / GHED
+AFR0087,Current health expenditure (CHE) as percentage of gross domestic product (GDP) (%),40,National Health Account Report
+AFR0088,Domestic General Government Health Expenditure (GGHE-D) as % Gross Domestic Product (GDP),3,WHO / GHO
+AFR0088,Domestic General Government Health Expenditure (GGHE-D) as % Gross Domestic Product (GDP),40,National Health Account Report
+AFR0089,Domestic General Government Health Expenditure (GGHE-D) per Capita in PPP Int$,1,WHO/AFRO
+AFR0090,Domestic General Government Health Expenditure (GGHE-D) per Capita in US$,1,WHO/AFRO
+AFR0091,Domestic Private Health Expenditure (PVT-D) per Capita in PPP Int$,1,WHO/AFRO
+AFR0091,Domestic Private Health Expenditure (PVT-D) per Capita in PPP Int$,10,WHO / GHED
+AFR0092,Domestic Private Health Expenditure (PVT-D) per Capita in US$,1,WHO/AFRO
+AFR0092,Domestic Private Health Expenditure (PVT-D) per Capita in US$,10,WHO / GHED
+AFR0093,External Health Expenditure (EXT) as % of Current Health Expenditure (CHE),1,WHO/AFRO
+AFR0093,External Health Expenditure (EXT) as % of Current Health Expenditure (CHE),10,WHO / GHED
+AFR0094,External Health Expenditure (EXT) per Capita in PPP Int$,1,WHO/AFRO
+AFR0094,External Health Expenditure (EXT) per Capita in PPP Int$,10,WHO / GHED
+AFR0094,External Health Expenditure (EXT) per Capita in PPP Int$,42,WDI
+AFR0095,External Health Expenditure (EXT) per Capita in US$,1,WHO/AFRO
+AFR0095,External Health Expenditure (EXT) per Capita in US$,3,WHO / GHO
+AFR0095,External Health Expenditure (EXT) per Capita in US$,10,WHO / GHED
+AFR0096,Mortality rate attributed to exposure to unsafe WASH services (per 100 000 population) (SDG 3.9.2),3,WHO / GHO
+AFR0097,Domestic Health Expenditure (DOM) as % of Current Health Expenditure (CHE),1,WHO/AFRO
+AFR0097,Domestic Health Expenditure (DOM) as % of Current Health Expenditure (CHE),10,WHO / GHED
+AFR0098,Proportion of population living below the national poverty line (%),4,WB Database
+AFR0098,Proportion of population living below the national poverty line (%),6,NIS
+AFR0098,Proportion of population living below the national poverty line (%),44,DHS/MICS
+AFR0099,Prevalence of undernourishment (%) [SDG 2.1.1],94,FAO
+AFR0100,Proportion of children moderately or severely stunted (%),5,UNICEF
+AFR0100,Proportion of children moderately or severely stunted (%),44,DHS/MICS
+AFR0101,"Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",3,WHO / GHO
+AFR0101,"Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",6,NIS
+AFR0101,"Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",7,DHS
+AFR0101,"Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",13,UNStat
+AFR0101,"Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",41,AIS
+AFR0102,Proportion of women aged 20-24 years who were married or in a union by age 18 (%),1,WHO/AFRO
+AFR0102,Proportion of women aged 20-24 years who were married or in a union by age 18 (%),3,WHO / GHO
+AFR0102,Proportion of women aged 20-24 years who were married or in a union by age 18 (%),44,DHS/MICS
+AFR0103,"Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age (%)",5,UNICEF
+AFR0103,"Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age (%)",44,DHS/MICS
+AFR0104,"Number of new HIV infections per 1,000 uninfected population",2,Country
+AFR0104,"Number of new HIV infections per 1,000 uninfected population",3,WHO / GHO
+AFR0104,"Number of new HIV infections per 1,000 uninfected population",16,UNAIDS
+AFR0104,"Number of new HIV infections per 1,000 uninfected population",62,Ministry of Health
+AFR0105,Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),3,WHO / GHO
+AFR0105,Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),6,NIS
+AFR0105,Proportion of women married or in a union of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),7,DHS
+AFR0106,"Adolescent birth rate (per 1,000 women aged 15-19 years)",3,WHO / GHO
+AFR0106,"Adolescent birth rate (per 1,000 women aged 15-19 years)",7,DHS
+AFR0106,"Adolescent birth rate (per 1,000 women aged 15-19 years)",26,NHMIS
+AFR0107,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),3,WHO / GHO
+AFR0107,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),13,UNStat
+AFR0108,"Mortality rate attributed to household air pollution (deaths per 100,000 population)",13,UNStat
+AFR0109,"Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (deaths per 100,000 population)",1,WHO/AFRO
+AFR0109,"Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (deaths per 100,000 population)",3,WHO / GHO
+AFR0109,"Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (deaths per 100,000 population)",4,WB Database
+AFR0110,Mortality rate attributed to unintentional poisoning [SDG 3.9.3],3,WHO / GHO
+AFR0110,Mortality rate attributed to unintentional poisoning [SDG 3.9.3],13,UNStat
+AFR0111,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),1,WHO/AFRO
+AFR0111,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),2,Country
+AFR0111,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),3,WHO / GHO
+AFR0111,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),7,DHS
+AFR0111,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),36,WHO/UNICEF
+AFR0112,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),2,Country
+AFR0112,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),3,WHO / GHO
+AFR0112,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),6,NIS
+AFR0112,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),36,WHO/UNICEF
+AFR0113,"Total official development assistance to medical research and basic heath sectors, gross disbursement, by recipient countries (millions of constant 2016 United States dollars)",3,WHO / GHO
+AFR0113,"Total official development assistance to medical research and basic heath sectors, gross disbursement, by recipient countries (millions of constant 2016 United States dollars)",13,UNStat
+AFR0113,"Total official development assistance to medical research and basic heath sectors, gross disbursement, by recipient countries (millions of constant 2016 United States dollars)",19,OECD
+AFR0114,"Health worker density, by type of occupation (per 10,000 population)",2,Country
+AFR0114,"Health worker density, by type of occupation (per 10,000 population)",3,WHO / GHO
+AFR0115,"Proportion of population using safely managed drinking water services, by urban/rural (%)",3,WHO / GHO
+AFR0115,"Proportion of population using safely managed drinking water services, by urban/rural (%)",6,NIS
+AFR0115,"Proportion of population using safely managed drinking water services, by urban/rural (%)",7,DHS
+AFR0117,Proportion of bodies of water with good ambient water quality (%),48,UN Water
+AFR0118,Proportion of urban population living in slums (%),4,WB Database
+AFR0119,"Number of deaths and missing persons attributed to disasters, by hazard type (number)",3,WHO / GHO
+AFR0119,"Number of deaths and missing persons attributed to disasters, by hazard type (number)",25,UNISDR
+AFR0119,"Number of deaths and missing persons attributed to disasters, by hazard type (number)",35,IHME
+AFR0121,"Annual mean levels of fine particulate matter in cities, urban population (micrograms per cubic meter)",3,WHO / GHO
+AFR0125,PCV3 immunization coverage among 1-year-olds (%),1,WHO/AFRO
+AFR0125,PCV3 immunization coverage among 1-year-olds (%),3,WHO / GHO
+AFR0125,PCV3 immunization coverage among 1-year-olds (%),7,DHS
+AFR0125,PCV3 immunization coverage among 1-year-olds (%),26,NHMIS
+AFR0125,PCV3 immunization coverage among 1-year-olds (%),36,WHO/UNICEF
+AFR0126,Proportion of population with primary reliance on clean fuels (%) -[SDG 7.1.2],3,WHO / GHO
+AFR0126,Proportion of population with primary reliance on clean fuels (%) -[SDG 7.1.2],6,NIS
+AFR0126,Proportion of population with primary reliance on clean fuels (%) -[SDG 7.1.2],7,DHS
+AFR0127,Domestic general government health expenditure as percentage of GGE (%) - [SDG 1.a.2],7,DHS
+AFR0127,Domestic general government health expenditure as percentage of GGE (%) - [SDG 1.a.2],10,WHO / GHED
+AFR0128,UHC - Coverage of essential health services,3,WHO / GHO
+AFR0129,Mortality attributable to joint effects of household and ambient air pollution,3,WHO / GHO
+AFR0130,Total fertility rate,6,NIS
+AFR0130,Total fertility rate,7,DHS
+AFR0130,Total fertility rate,17,UN Population
+AFR0130,Total fertility rate,62,Ministry of Health
+AFR0131,Malaria parasite prevalence among children aged 6-59 months,30,MIS
+AFR0132,Mortality rate attributed to household and ambient air pollution [SDG 3.9.1],3,WHO / GHO
+AFR0132,Mortality rate attributed to household and ambient air pollution [SDG 3.9.1],13,UNStat
+AFR0133,Proportion of the target population covered by all vaccines included in their national programme [SDG 3.b.1],2,Country
+AFR0133,Proportion of the target population covered by all vaccines included in their national programme [SDG 3.b.1],6,NIS
+AFR0133,Proportion of the target population covered by all vaccines included in their national programme [SDG 3.b.1],26,NHMIS
+AFR0134,Total net official development assistance to medical research and basic health sectors [SDG 3.b.2],3,WHO / GHO
+AFR0135,Percentage of pregnant women that made four or more ANC visits,3,WHO / GHO
+AFR0135,Percentage of pregnant women that made four or more ANC visits,6,NIS
+AFR0135,Percentage of pregnant women that made four or more ANC visits,7,DHS
+AFR0135,Percentage of pregnant women that made four or more ANC visits,26,NHMIS
+AFR0135,Percentage of pregnant women that made four or more ANC visits,44,DHS/MICS
+AFR0136,Percentage of women that made their first ANC visit during the first trimester (first 12 weeks of pregnancy),2,Country
+AFR0136,Percentage of women that made their first ANC visit during the first trimester (first 12 weeks of pregnancy),6,NIS
+AFR0136,Percentage of women that made their first ANC visit during the first trimester (first 12 weeks of pregnancy),7,DHS
+AFR0136,Percentage of women that made their first ANC visit during the first trimester (first 12 weeks of pregnancy),26,NHMIS
+AFR0137,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1],7,DHS
+AFR0140,Number of road traffic injuries,28,HRHIS
+AFR0140,Number of road traffic injuries,35,IHME
+AFR0140,Number of road traffic injuries,62,Ministry of Health
+AFR0141,Burden due to top 10 outpatient diagnose,26,NHMIS
+AFR0143,Population screened for diabetes,2,Country
+AFR0143,Population screened for diabetes,6,NIS
+AFR0144,Population screened for cardiovascular diseases,2,Country
+AFR0144,Population screened for cardiovascular diseases,6,NIS
+AFR0147,Primary care facilities with capacity to provide essential health services,26,NHMIS
+AFR0147,Primary care facilities with capacity to provide essential health services,53,SARA
+AFR0148,Hospitals with capacity to provide their essential health services,53,SARA
+AFR0149,Primary care facilities with capacity to provide basic surgical care,53,SARA
+AFR0150,Hospitals with capacity to provide comprehensive surgical care,53,SARA
+AFR0151,Primary care facilities with capacity to provide BEMONC services,53,SARA
+AFR0152,Hospitals with capacity to provide CEmONC services,53,SARA
+AFR0153,Coverage (%) - All Social Assistance,4,WB Database
+AFR0154,Prevalence of stunting in children under 5 u (%),3,WHO / GHO
+AFR0154,Prevalence of stunting in children under 5 u (%),5,UNICEF
+AFR0154,Prevalence of stunting in children under 5 u (%),7,DHS
+AFR0154,Prevalence of stunting in children under 5 u (%),62,Ministry of Health
+AFR0155,Prevalence of wasting in children under 5 u (%),3,WHO / GHO
+AFR0155,Prevalence of wasting in children under 5 u (%),5,UNICEF
+AFR0155,Prevalence of wasting in children under 5 u (%),7,DHS
+AFR0156,Prevalence of overweight in children under 5 u (%),5,UNICEF
+AFR0157,"Primary education, duration (years)",6,NIS
+AFR0158,"Lower secondary completion rate, total (% of relevant age group)",6,NIS
+AFR0158,"Lower secondary completion rate, total (% of relevant age group)",15,UNESCO
+AFR0158,"Lower secondary completion rate, total (% of relevant age group)",82,Nigeria Digest of Education Statistics 2011–2013
+AFR0159,"Primary completion rate, total (% of relevant age group)",4,WB Database
+AFR0159,"Primary completion rate, total (% of relevant age group)",6,NIS
+AFR0159,"Primary completion rate, total (% of relevant age group)",15,UNESCO
+AFR0159,"Primary completion rate, total (% of relevant age group)",82,Nigeria Digest of Education Statistics 2011–2013
+AFR0160,School dropout rate,4,WB Database
+AFR0160,School dropout rate,6,NIS
+AFR0160,School dropout rate,42,WDI
+AFR0160,School dropout rate,62,Ministry of Health
+AFR0160,School dropout rate,88,NEDS
+AFR0161,School enrollment rate,7,DHS
+AFR0162,Treatment coverage for alcohol and drug dependence [SDG 3.5.1],3,WHO / GHO
+AFR0164,Coverage of preventive chemotherapy for selected neglected tropical diseases,40,National Health Account Report
+AFR0165,Indoor residual spraying (IRS) coverage,1,WHO/AFRO
+AFR0165,Indoor residual spraying (IRS) coverage,3,WHO / GHO
+AFR0165,Indoor residual spraying (IRS) coverage,39,National Malaria Control Programme
+AFR0166,Treatment of confirmed malaria cases,26,NHMIS
+AFR0166,Treatment of confirmed malaria cases,30,MIS
+AFR0167,Use of insecticide treated nets (ITNs),1,WHO/AFRO
+AFR0167,Use of insecticide treated nets (ITNs),2,Country
+AFR0167,Use of insecticide treated nets (ITNs),3,WHO / GHO
+AFR0167,Use of insecticide treated nets (ITNs),30,MIS
+AFR0168,Intermittent preventive therapy for malaria during pregnancy (IPTp),1,WHO/AFRO
+AFR0168,Intermittent preventive therapy for malaria during pregnancy (IPTp),2,Country
+AFR0168,Intermittent preventive therapy for malaria during pregnancy (IPTp),7,DHS
+AFR0168,Intermittent preventive therapy for malaria during pregnancy (IPTp),26,NHMIS
+AFR0168,Intermittent preventive therapy for malaria during pregnancy (IPTp),30,MIS
+AFR0168,Intermittent preventive therapy for malaria during pregnancy (IPTp),41,AIS
+AFR0169,HIV-positive new and relapse TB patients on ART during TB treatment,1,WHO/AFRO
+AFR0169,HIV-positive new and relapse TB patients on ART during TB treatment,2,Country
+AFR0169,HIV-positive new and relapse TB patients on ART during TB treatment,3,WHO / GHO
+AFR0169,HIV-positive new and relapse TB patients on ART during TB treatment,26,NHMIS
+AFR0169,HIV-positive new and relapse TB patients on ART during TB treatment,87,WHO Global TB Report
+AFR0170,TB preventive therapy for HIV-positive people newly enrolled in HIV care,1,WHO/AFRO
+AFR0170,TB preventive therapy for HIV-positive people newly enrolled in HIV care,3,WHO / GHO
+AFR0170,TB preventive therapy for HIV-positive people newly enrolled in HIV care,33,HIV/AIDS Data
+AFR0170,TB preventive therapy for HIV-positive people newly enrolled in HIV care,62,Ministry of Health
+AFR0171,HIV test results for registered new and relapse TB patients,1,WHO/AFRO
+AFR0171,HIV test results for registered new and relapse TB patients,3,WHO / GHO
+AFR0171,HIV test results for registered new and relapse TB patients,87,WHO Global TB Report
+AFR0172,Treatment coverage for drug-resistant TB,2,Country
+AFR0173,TB treatment coverage,2,Country
+AFR0173,TB treatment coverage,3,WHO / GHO
+AFR0174,Drug susceptibility testing coverage for TB patients,2,Country
+AFR0175,Coverage of treatment for latent TB infection (LTBI),1,WHO/AFRO
+AFR0175,Coverage of treatment for latent TB infection (LTBI),3,WHO / GHO
+AFR0175,Coverage of treatment for latent TB infection (LTBI),87,WHO Global TB Report
+AFR0176,TB case detection rate,1,WHO/AFRO
+AFR0176,TB case detection rate,2,Country
+AFR0176,TB case detection rate,3,WHO / GHO
+AFR0176,TB case detection rate,87,WHO Global TB Report
+AFR0178,Viral load suppression,1,WHO/AFRO
+AFR0178,Viral load suppression,2,Country
+AFR0178,Viral load suppression,16,UNAIDS
+AFR0178,Viral load suppression,79,GAM
+AFR0179,Coverage of antiretroviral therapy (ART) (also effective ART treatment coverage),1,WHO/AFRO
+AFR0179,Coverage of antiretroviral therapy (ART) (also effective ART treatment coverage),2,Country
+AFR0179,Coverage of antiretroviral therapy (ART) (also effective ART treatment coverage),3,WHO / GHO
+AFR0179,Coverage of antiretroviral therapy (ART) (also effective ART treatment coverage),16,UNAIDS
+AFR0179,Coverage of antiretroviral therapy (ART) (also effective ART treatment coverage),33,HIV/AIDS Data
+AFR0180,Coverage of prevention of mother-to-child transmission (also effective PMTCT coverage),2,Country
+AFR0180,Coverage of prevention of mother-to-child transmission (also effective PMTCT coverage),16,UNAIDS
+AFR0180,Coverage of prevention of mother-to-child transmission (also effective PMTCT coverage),33,HIV/AIDS Data
+AFR0180,Coverage of prevention of mother-to-child transmission (also effective PMTCT coverage),78,SPECTRUM
+AFR0181,People living with HIV who know their status,16,UNAIDS
+AFR0181,People living with HIV who know their status,62,Ministry of Health
+AFR0182,Care seeking for children with fever,6,NIS
+AFR0182,Care seeking for children with fever,7,DHS
+AFR0183,Care seeking for children with symptoms of diarrhoea treatment,6,NIS
+AFR0183,Care seeking for children with symptoms of diarrhoea treatment,7,DHS
+AFR0183,Care seeking for children with symptoms of diarrhoea treatment,26,NHMIS
+AFR0184,Care-seeking for children with symptoms of pneumonia,3,WHO / GHO
+AFR0184,Care-seeking for children with symptoms of pneumonia,5,UNICEF
+AFR0184,Care-seeking for children with symptoms of pneumonia,7,DHS
+AFR0184,Care-seeking for children with symptoms of pneumonia,12,UNICEF / MICS
+AFR0184,Care-seeking for children with symptoms of pneumonia,26,NHMIS
+AFR0185,Vitamin A supplementation coverage,1,WHO/AFRO
+AFR0185,Vitamin A supplementation coverage,2,Country
+AFR0185,Vitamin A supplementation coverage,5,UNICEF
+AFR0185,Vitamin A supplementation coverage,26,NHMIS
+AFR0186,Pneumococcal vaccination coverage,3,WHO / GHO
+AFR0186,Pneumococcal vaccination coverage,7,DHS
+AFR0186,Pneumococcal vaccination coverage,26,NHMIS
+AFR0186,Pneumococcal vaccination coverage,36,WHO/UNICEF
+AFR0187,Immunization coverage against Rotavirus vaccine,1,WHO/AFRO
+AFR0187,Immunization coverage against Rotavirus vaccine,3,WHO / GHO
+AFR0187,Immunization coverage against Rotavirus vaccine,26,NHMIS
+AFR0188,Immunization coverage against HPV,3,WHO / GHO
+AFR0189,Immunization coverage against Tetanus,3,WHO / GHO
+AFR0189,Immunization coverage against Tetanus,4,WB Database
+AFR0189,Immunization coverage against Tetanus,26,NHMIS
+AFR0190,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Measles,1,WHO/AFRO
+AFR0190,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Measles,3,WHO / GHO
+AFR0190,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Measles,6,NIS
+AFR0190,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Measles,7,DHS
+AFR0190,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Measles,26,NHMIS
+AFR0190,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Measles,36,WHO/UNICEF
+AFR0190,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Measles,62,Ministry of Health
+AFR0191,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 3,1,WHO/AFRO
+AFR0191,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 3,2,Country
+AFR0191,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 3,3,WHO / GHO
+AFR0191,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 3,7,DHS
+AFR0191,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 3,26,NHMIS
+AFR0191,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 3,36,WHO/UNICEF
+AFR0191,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 3,62,Ministry of Health
+AFR0192,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 2,7,DHS
+AFR0192,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 2,26,NHMIS
+AFR0192,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 2,62,Ministry of Health
+AFR0193,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 1,1,WHO/AFRO
+AFR0193,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 1,2,Country
+AFR0193,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 1,3,WHO / GHO
+AFR0193,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 1,7,DHS
+AFR0193,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 1,26,NHMIS
+AFR0193,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Penta 1,36,WHO/UNICEF
+AFR0194,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 3,1,WHO/AFRO
+AFR0194,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 3,2,Country
+AFR0194,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 3,3,WHO / GHO
+AFR0194,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 3,7,DHS
+AFR0194,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 3,26,NHMIS
+AFR0194,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 3,62,Ministry of Health
+AFR0195,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 2,7,DHS
+AFR0195,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 2,26,NHMIS
+AFR0196,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 1,7,DHS
+AFR0196,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 1,26,NHMIS
+AFR0196,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - Polio 1,36,WHO/UNICEF
+AFR0197,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - BCG,1,WHO/AFRO
+AFR0197,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - BCG,2,Country
+AFR0197,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - BCG,3,WHO / GHO
+AFR0197,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - BCG,7,DHS
+AFR0197,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - BCG,26,NHMIS
+AFR0197,Immunization coverage rate by vaccine for each vaccine in the national schedule [SDG 3.b.1] - BCG,62,Ministry of Health
+AFR0199,Postnatal care coverage: Percentage of newborn babies who have postnatal care contact within two days following birth,7,DHS
+AFR0199,Postnatal care coverage: Percentage of newborn babies who have postnatal care contact within two days following birth,36,WHO/UNICEF
+AFR0200,Institutional deliveries,2,Country
+AFR0200,Institutional deliveries,7,DHS
+AFR0200,Institutional deliveries,12,UNICEF / MICS
+AFR0200,Institutional deliveries,26,NHMIS
+AFR0200,Institutional deliveries,36,WHO/UNICEF
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],1,WHO/AFRO
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],2,Country
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],3,WHO / GHO
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],5,UNICEF
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],6,NIS
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],7,DHS
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],12,UNICEF / MICS
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],13,UNStat
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],14,UNDP
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],26,NHMIS
+AFR0201,Proportion of births attended by skilled health personnel [SDG 3.1.2],62,Ministry of Health
+AFR0202,Timing of first ANC visit,7,DHS
+AFR0202,Timing of first ANC visit,12,UNICEF / MICS
+AFR0202,Timing of first ANC visit,26,NHMIS
+AFR0202,Timing of first ANC visit,47,AIS Info
+AFR0203,Percentage of pregnant women that made four ANC visits (Fourth ANC visit),1,WHO/AFRO
+AFR0203,Percentage of pregnant women that made four ANC visits (Fourth ANC visit),2,Country
+AFR0203,Percentage of pregnant women that made four ANC visits (Fourth ANC visit),3,WHO / GHO
+AFR0203,Percentage of pregnant women that made four ANC visits (Fourth ANC visit),7,DHS
+AFR0203,Percentage of pregnant women that made four ANC visits (Fourth ANC visit),26,NHMIS
+AFR0203,Percentage of pregnant women that made four ANC visits (Fourth ANC visit),36,WHO/UNICEF
+AFR0204,Percentage of pregnant women that made at least three ANC visits (Third ANC visit),2,Country
+AFR0205,Percentage of pregnant women that made at least two ANC visits (second ANC visit),2,Country
+AFR0205,Percentage of pregnant women that made at least two ANC visits (second ANC visit),7,DHS
+AFR0206,Percentage of pregnant women that made at least one ANC visit (first ANC visit),7,DHS
+AFR0206,Percentage of pregnant women that made at least one ANC visit (first ANC visit),23,MMEIG
+AFR0206,Percentage of pregnant women that made at least one ANC visit (first ANC visit),26,NHMIS
+AFR0206,Percentage of pregnant women that made at least one ANC visit (first ANC visit),36,WHO/UNICEF
+AFR0206,Percentage of pregnant women that made at least one ANC visit (first ANC visit),44,DHS/MICS
+AFR0206,Percentage of pregnant women that made at least one ANC visit (first ANC visit),62,Ministry of Health
+AFR0207,Demand for family planning satisfied with modern methods [SDG 3.7.1],2,Country
+AFR0207,Demand for family planning satisfied with modern methods [SDG 3.7.1],3,WHO / GHO
+AFR0207,Demand for family planning satisfied with modern methods [SDG 3.7.1],6,NIS
+AFR0207,Demand for family planning satisfied with modern methods [SDG 3.7.1],7,DHS
+AFR0207,Demand for family planning satisfied with modern methods [SDG 3.7.1],36,WHO/UNICEF
+AFR0208,Contraceptive prevalence rate,1,WHO/AFRO
+AFR0208,Contraceptive prevalence rate,2,Country
+AFR0208,Contraceptive prevalence rate,3,WHO / GHO
+AFR0208,Contraceptive prevalence rate,7,DHS
+AFR0208,Contraceptive prevalence rate,12,UNICEF / MICS
+AFR0208,Contraceptive prevalence rate,22,UN DESA
+AFR0208,Contraceptive prevalence rate,26,NHMIS
+AFR0208,Contraceptive prevalence rate,41,AIS
+AFR0208,Contraceptive prevalence rate,62,Ministry of Health
+AFR0212,Effective hypertensive treatment coverage,3,WHO / GHO
+AFR0213,Effective PMTCT coverage,16,UNAIDS
+AFR0213,Effective PMTCT coverage,26,NHMIS
+AFR0214,ART retention rate,26,NHMIS
+AFR0216,TB treatment success rate,2,Country
+AFR0216,TB treatment success rate,3,WHO / GHO
+AFR0216,TB treatment success rate,87,WHO Global TB Report
+AFR0217,Fresh stillbirth rate,26,NHMIS
+AFR0218,Maternal death review coverage (%),26,NHMIS
+AFR0219,Institutional maternal mortality ratio (per 100 000 deliveries),2,Country
+AFR0219,Institutional maternal mortality ratio (per 100 000 deliveries),7,DHS
+AFR0219,Institutional maternal mortality ratio (per 100 000 deliveries),40,National Health Account Report
+AFR0220,Readiness for blood transfusion,53,SARA
+AFR0221,Readiness for basic surgical care,53,SARA
+AFR0222,Readiness for adolescent health services,53,SARA
+AFR0223,TB treatment completion rate,2,Country
+AFR0224,Skilled birth attendance - postnatal care dropout,7,DHS
+AFR0225,ANC dropout rate (ANC1-ANC 4),7,DHS
+AFR0226,DTP dropout rate (DTP1 -DPT3),1,WHO/AFRO
+AFR0226,DTP dropout rate (DTP1 -DPT3),2,Country
+AFR0226,DTP dropout rate (DTP1 -DPT3),7,DHS
+AFR0226,DTP dropout rate (DTP1 -DPT3),26,NHMIS
+AFR0227,Tuberculosis diagnosis and treatment,2,Country
+AFR0227,Tuberculosis diagnosis and treatment,6,NIS
+AFR0229,Service availability index (%) (high-level indicator),4,WB Database
+AFR0231,Hospital bed density (per 10 000 population),1,WHO/AFRO
+AFR0231,Hospital bed density (per 10 000 population),3,WHO / GHO
+AFR0232,"Health facility density and distribution (per 10,000 population)",2,Country
+AFR0232,"Health facility density and distribution (per 10,000 population)",53,SARA
+AFR0234,Presence and quality of national M&E plan / HIS strategic plan / digital health strategy,2,Country
+AFR0234,Presence and quality of national M&E plan / HIS strategic plan / digital health strategy,20,ITU
+AFR0235,Public access to data/open data,2,Country
+AFR0236,Health worker density and distribution [SDG 3.c.1],2,Country
+AFR0236,Health worker density and distribution [SDG 3.c.1],53,SARA
+AFR0237,Functional system of health accounts based on international standards,2,Country
+AFR0237,Functional system of health accounts based on international standards,10,WHO / GHED
+AFR0237,Functional system of health accounts based on international standards,40,National Health Account Report
+AFR0239,Functional facility/community/patient reporting system in place based on key criteria,7,DHS
+AFR0239,Functional facility/community/patient reporting system in place based on key criteria,26,NHMIS
+AFR0240,Annual statistic for selected indicators derived from facility data,2,Country
+AFR0240,Annual statistic for selected indicators derived from facility data,7,DHS
+AFR0240,Annual statistic for selected indicators derived from facility data,26,NHMIS
+AFR0241,Functional system to generate cause-of-death statistics,26,NHMIS
+AFR0242,Percentage of deaths occurring with cause of death according to international standards,1,WHO/AFRO
+AFR0245,Completeness of birth registration (%),7,DHS
+AFR0245,Completeness of birth registration (%),13,UNStat
+AFR0247,Existence of a system of regular & comprehensive population health surveys that meets international standards,7,DHS
+AFR0248,Latest data to monitor the health- related SDGs /UHC are available as per recommended schedule,7,DHS
+AFR0249,Rational use of health products,26,NHMIS
+AFR0250,Existence of national health sector policy/strategy/plan,1,WHO/AFRO
+AFR0250,Existence of national health sector policy/strategy/plan,2,Country
+AFR0251,International Health Regulations (IHR) core capacities index - [SDG 3.d.1],2,Country
+AFR0251,International Health Regulations (IHR) core capacities index - [SDG 3.d.1],3,WHO / GHO
+AFR0251,International Health Regulations (IHR) core capacities index - [SDG 3.d.1],40,National Health Account Report
+AFR0251,International Health Regulations (IHR) core capacities index - [SDG 3.d.1],56,Joint external evaluation report
+AFR0251,International Health Regulations (IHR) core capacities index - [SDG 3.d.1],86,IHR 2005
+AFR0253,"Pharmacists (per 10,000 population)",3,WHO / GHO
+AFR0253,"Pharmacists (per 10,000 population)",38,Global Health Workforce Statistics
+AFR0255,Access to a core set of relevant essential medicines [SDG 3.b.3],1,WHO/AFRO
+AFR0255,Access to a core set of relevant essential medicines [SDG 3.b.3],53,SARA
+AFR0257,Out-of-Pocket expenditure (OOP) per capita in PPP int$,3,WHO / GHO
+AFR0257,Out-of-Pocket expenditure (OOP) per capita in PPP int$,10,WHO / GHED
+AFR0258,Out-of-Pocket expenditure (OOP) per capita in US$,7,DHS
+AFR0258,Out-of-Pocket expenditure (OOP) per capita in US$,10,WHO / GHED
+AFR0258,Out-of-Pocket expenditure (OOP) per capita in US$,40,National Health Account Report
+AFR0259,Out-of-pocket expenditure as percentage of current health expenditure (CHE) (%),3,WHO / GHO
+AFR0259,Out-of-pocket expenditure as percentage of current health expenditure (CHE) (%),4,WB Database
+AFR0260,Domestic general government health expenditure (GGHE-D) as percentage of general government expenditure (GGE) (%),1,WHO/AFRO
+AFR0260,Domestic general government health expenditure (GGHE-D) as percentage of general government expenditure (GGE) (%),10,WHO / GHED
+AFR0261,Domestic private health expenditure (PVT-D) as percentage of current health expenditure (CHE) (%),1,WHO/AFRO
+AFR0261,Domestic private health expenditure (PVT-D) as percentage of current health expenditure (CHE) (%),10,WHO / GHED
+AFR0262,Current health expenditure (CHE) per capita in PPP int$,3,WHO / GHO
+AFR0263,Current health expenditure (CHE) per capita in US$,3,WHO / GHO
+AFR0263,Current health expenditure (CHE) per capita in US$,10,WHO / GHED
+AFR0266,Total Health Expenditure (THE) per Capita in Int$ (Purchasing Power Parity),4,WB Database
+AFR0267,Total Health Expenditure (THE) per Capita in US$,3,WHO / GHO
+AFR0267,Total Health Expenditure (THE) per Capita in US$,40,National Health Account Report
+AFR0268,Out-of-pocket (OOPS) as % of Current Health Expenditure (CHE),3,WHO / GHO
+AFR0268,Out-of-pocket (OOPS) as % of Current Health Expenditure (CHE),4,WB Database
+AFR0268,Out-of-pocket (OOPS) as % of Current Health Expenditure (CHE),10,WHO / GHED
+AFR0269,Out of Pocket Expenditure (OOPS) as % of Total Health Expenditure (THE),3,WHO / GHO
+AFR0269,Out of Pocket Expenditure (OOPS) as % of Total Health Expenditure (THE),40,National Health Account Report
+AFR0270,Social Health Insurance (SHI) as % of Current Health Expenditure (CHE),3,WHO / GHO
+AFR0271,External Resources on Health as % of Total Health Expenditure (THE),3,WHO / GHO
+AFR0272,General Government Health Expenditure (GGHE) as % of Total health expenditure (GGE),3,WHO / GHO
+AFR0272,General Government Health Expenditure (GGHE) as % of Total health expenditure (GGE),40,National Health Account Report
+AFR0274,Domestic general government health expenditure (GGHE-D) as percentage of current health expenditure (CHE),1,WHO/AFRO
+AFR0277,Services management,2,Country
+AFR0278,Supervision mechanisms for service delivery,2,Country
+AFR0279,Health facility density and distribution,2,Country
+AFR0280,Health management and support workers density (per 1000 population),1,WHO/AFRO
+AFR0280,Health management and support workers density (per 1000 population),53,SARA
+AFR0281,Community health workers density (per 1000 population),1,WHO/AFRO
+AFR0281,Community health workers density (per 1000 population),2,Country
+AFR0281,Community health workers density (per 1000 population),40,National Health Account Report
+AFR0282,Environmental and public health workers density (per 1000 population),1,WHO/AFRO
+AFR0282,Environmental and public health workers density (per 1000 population),3,WHO / GHO
+AFR0282,Environmental and public health workers density (per 1000 population),53,SARA
+AFR0283,Laboratory health workers density (per 1000 population),1,WHO/AFRO
+AFR0283,Laboratory health workers density (per 1000 population),2,Country
+AFR0283,Laboratory health workers density (per 1000 population),3,WHO / GHO
+AFR0283,Laboratory health workers density (per 1000 population),38,Global Health Workforce Statistics
+AFR0284,Pharmaceutical personnel density (per 1000 population),1,WHO/AFRO
+AFR0284,Pharmaceutical personnel density (per 1000 population),38,Global Health Workforce Statistics
+AFR0284,Pharmaceutical personnel density (per 1000 population),53,SARA
+AFR0285,Dentistry personnel density (per 1000 population),1,WHO/AFRO
+AFR0285,Dentistry personnel density (per 1000 population),38,Global Health Workforce Statistics
+AFR0286,Nursing and midwifery personnel density (per 1000 population),1,WHO/AFRO
+AFR0286,Nursing and midwifery personnel density (per 1000 population),3,WHO / GHO
+AFR0286,Nursing and midwifery personnel density (per 1000 population),26,NHMIS
+AFR0286,Nursing and midwifery personnel density (per 1000 population),38,Global Health Workforce Statistics
+AFR0286,Nursing and midwifery personnel density (per 1000 population),53,SARA
+AFR0287,Physicians density (per 1000 population),1,WHO/AFRO
+AFR0287,Physicians density (per 1000 population),3,WHO / GHO
+AFR0287,Physicians density (per 1000 population),53,SARA
+AFR0288,"Core health workforce density (per 1,000 population) (doctors, nurses/midwives, and clinical officers/physician assistants)",53,SARA
+AFR0291,Population using safely managed sanitation services [SDG 6.2.1a/6.2.1b],3,WHO / GHO
+AFR0291,Population using safely managed sanitation services [SDG 6.2.1a/6.2.1b],5,UNICEF
+AFR0291,Population using safely managed sanitation services [SDG 6.2.1a/6.2.1b],6,NIS
+AFR0291,Population using safely managed sanitation services [SDG 6.2.1a/6.2.1b],12,UNICEF / MICS
+AFR0292,Population using safely managed drinking-water services [SDG 6.1.1],1,WHO/AFRO
+AFR0292,Population using safely managed drinking-water services [SDG 6.1.1],3,WHO / GHO
+AFR0292,Population using safely managed drinking-water services [SDG 6.1.1],6,NIS
+AFR0292,Population using safely managed drinking-water services [SDG 6.1.1],12,UNICEF / MICS
+AFR0293,Adolescent birth rate [SDG 3.7.2],3,WHO / GHO
+AFR0293,Adolescent birth rate [SDG 3.7.2],7,DHS
+AFR0293,Adolescent birth rate [SDG 3.7.2],13,UNStat
+AFR0293,Adolescent birth rate [SDG 3.7.2],26,NHMIS
+AFR0294,Social security funds as % of General government health expenditure (GGHE),3,WHO / GHO
+AFR0295,Sexual violence against children [SDG 16.2.3],7,DHS
+AFR0296,Non-partner sexual violence prevalence [SDG 5.2.2],7,DHS
+AFR0297,Intimate partner violence prevalence [SDG 5.2.1],6,NIS
+AFR0297,Intimate partner violence prevalence [SDG 5.2.1],7,DHS
+AFR0297,Intimate partner violence prevalence [SDG 5.2.1],13,UNStat
+AFR0298,Prevalence of female genital mutilation/cutting [SDG 5.3.2],5,UNICEF
+AFR0298,Prevalence of female genital mutilation/cutting [SDG 5.3.2],7,DHS
+AFR0298,Prevalence of female genital mutilation/cutting [SDG 5.3.2],12,UNICEF / MICS
+AFR0299,"Prevalence of anaemia in women aged 15-49, by age and pregnancy status",2,Country
+AFR0299,"Prevalence of anaemia in women aged 15-49, by age and pregnancy status",3,WHO / GHO
+AFR0299,"Prevalence of anaemia in women aged 15-49, by age and pregnancy status",6,NIS
+AFR0299,"Prevalence of anaemia in women aged 15-49, by age and pregnancy status",7,DHS
+AFR0299,"Prevalence of anaemia in women aged 15-49, by age and pregnancy status",26,NHMIS
+AFR0300,Anaemia prevalence in children,1,WHO/AFRO
+AFR0300,Anaemia prevalence in children,5,UNICEF
+AFR0300,Anaemia prevalence in children,6,NIS
+AFR0300,Anaemia prevalence in children,7,DHS
+AFR0300,Anaemia prevalence in children,30,MIS
+AFR0301,Children aged under 5 years who are overweight [SDG 2.2.2],1,WHO/AFRO
+AFR0301,Children aged under 5 years who are overweight [SDG 2.2.2],3,WHO / GHO
+AFR0301,Children aged under 5 years who are overweight [SDG 2.2.2],5,UNICEF
+AFR0301,Children aged under 5 years who are overweight [SDG 2.2.2],7,DHS
+AFR0301,Children aged under 5 years who are overweight [SDG 2.2.2],26,NHMIS
+AFR0302,Children under 5 years who are wasted [SDG 2.2.2],5,UNICEF
+AFR0302,Children under 5 years who are wasted [SDG 2.2.2],7,DHS
+AFR0302,Children under 5 years who are wasted [SDG 2.2.2],12,UNICEF / MICS
+AFR0303,Children under 5 years who are stunted [SDG 2.2.1],1,WHO/AFRO
+AFR0303,Children under 5 years who are stunted [SDG 2.2.1],5,UNICEF
+AFR0303,Children under 5 years who are stunted [SDG 2.2.1],6,NIS
+AFR0303,Children under 5 years who are stunted [SDG 2.2.1],7,DHS
+AFR0303,Children under 5 years who are stunted [SDG 2.2.1],12,UNICEF / MICS
+AFR0304,Incidence of low birth weight among newborns,1,WHO/AFRO
+AFR0304,Incidence of low birth weight among newborns,2,Country
+AFR0304,Incidence of low birth weight among newborns,5,UNICEF
+AFR0304,Incidence of low birth weight among newborns,7,DHS
+AFR0304,Incidence of low birth weight among newborns,12,UNICEF / MICS
+AFR0304,Incidence of low birth weight among newborns,26,NHMIS
+AFR0305,Early initiation of breastfeeding (%),1,WHO/AFRO
+AFR0305,Early initiation of breastfeeding (%),5,UNICEF
+AFR0305,Early initiation of breastfeeding (%),7,DHS
+AFR0305,Early initiation of breastfeeding (%),12,UNICEF / MICS
+AFR0305,Early initiation of breastfeeding (%),26,NHMIS
+AFR0306,Prevalence of exclusive breastfeeding in infants aged six months or less (Exclusive BF),1,WHO/AFRO
+AFR0306,Prevalence of exclusive breastfeeding in infants aged six months or less (Exclusive BF),5,UNICEF
+AFR0306,Prevalence of exclusive breastfeeding in infants aged six months or less (Exclusive BF),6,NIS
+AFR0306,Prevalence of exclusive breastfeeding in infants aged six months or less (Exclusive BF),7,DHS
+AFR0306,Prevalence of exclusive breastfeeding in infants aged six months or less (Exclusive BF),12,UNICEF / MICS
+AFR0306,Prevalence of exclusive breastfeeding in infants aged six months or less (Exclusive BF),26,NHMIS
+AFR0307,Tobacco use among persons aged 15+ years - [SDG 3.a.1] (Also: adolescents),3,WHO / GHO
+AFR0307,Tobacco use among persons aged 15+ years - [SDG 3.a.1] (Also: adolescents),6,NIS
+AFR0307,Tobacco use among persons aged 15+ years - [SDG 3.a.1] (Also: adolescents),3,WHO/GHO
+AFR0307,Tobacco use among persons aged 15+ years - [SDG 3.a.1] (Also: adolescents),84,GATS
+AFR0307,Tobacco use among persons aged 15+ years - [SDG 3.a.1] (Also: adolescents),85,NCD Review
+AFR0308,Age-standardized prevalence of insufficiently physically active persons aged 18+ years,3,WHO / GHO
+AFR0308,Age-standardized prevalence of insufficiently physically active persons aged 18+ years,85,NCD Review
+AFR0310,Total alcohol per capita (age 15+ years) consumption [SDG 3.5.2],3,WHO / GHO
+AFR0311,Age-standardized prevalence of raised blood pressure among persons aged 18+ years,3,WHO / GHO
+AFR0311,Age-standardized prevalence of raised blood pressure among persons aged 18+ years,7,DHS
+AFR0311,Age-standardized prevalence of raised blood pressure among persons aged 18+ years,85,NCD Review
+AFR0312,Prevalence of raised blood cholesterol,62,Ministry of Health
+AFR0312,Prevalence of raised blood cholesterol,85,NCD Review
+AFR0313,Age-standardized prevalence of raised blood glucose/diabetes among persons aged 18+ years or on medication for raised blood glucose,3,WHO / GHO
+AFR0313,Age-standardized prevalence of raised blood glucose/diabetes among persons aged 18+ years or on medication for raised blood glucose,37,IDF
+AFR0313,Age-standardized prevalence of raised blood glucose/diabetes among persons aged 18+ years or on medication for raised blood glucose,62,Ministry of Health
+AFR0314,Percentage of women who received postnatal (postpartum care) within two days of child birth,2,Country
+AFR0314,Percentage of women who received postnatal (postpartum care) within two days of child birth,6,NIS
+AFR0314,Percentage of women who received postnatal (postpartum care) within two days of child birth,7,DHS
+AFR0314,Percentage of women who received postnatal (postpartum care) within two days of child birth,26,NHMIS
+AFR0314,Percentage of women who received postnatal (postpartum care) within two days of child birth,36,WHO/UNICEF
+AFR0314,Percentage of women who received postnatal (postpartum care) within two days of child birth,38,Global Health Workforce Statistics
+AFR0315,Early marriage,1,WHO/AFRO
+AFR0315,Early marriage,3,WHO / GHO
+AFR0319,Prevalence chronic obstructive pulmonary diseases,35,IHME
+AFR0319,Prevalence chronic obstructive pulmonary diseases,85,NCD Review
+AFR0320,Incidence of stroke/cardiovascular disease,62,Ministry of Health
+AFR0321,Number of cancer cases (all cause),3,WHO / GHO
+AFR0321,Number of cancer cases (all cause),13,UNStat
+AFR0321,Number of cancer cases (all cause),35,IHME
+AFR0324,New cases of vaccine-preventable diseases,1,WHO/AFRO
+AFR0324,New cases of vaccine-preventable diseases,3,WHO / GHO
+AFR0324,New cases of vaccine-preventable diseases,62,Ministry of Health
+AFR0325,Hepatitis B incidence per 100 000 population [SDG 3.3.4],41,AIS
+AFR0325,Hepatitis B incidence per 100 000 population [SDG 3.3.4],62,Ministry of Health
+AFR0326,Hepatitis B surface antigen prevalence (%),1,WHO/AFRO
+AFR0326,Hepatitis B surface antigen prevalence (%),3,WHO / GHO
+AFR0327,Number of people requiring interventions against neglected tropical diseases [SDG 3.3.5],1,WHO/AFRO
+AFR0327,Number of people requiring interventions against neglected tropical diseases [SDG 3.3.5],2,Country
+AFR0327,Number of people requiring interventions against neglected tropical diseases [SDG 3.3.5],3,WHO / GHO
+AFR0327,Number of people requiring interventions against neglected tropical diseases [SDG 3.3.5],13,UNStat
+AFR0327,Number of people requiring interventions against neglected tropical diseases [SDG 3.3.5],26,NHMIS
+AFR0327,Number of people requiring interventions against neglected tropical diseases [SDG 3.3.5],40,National Health Account Report
+AFR0328,Congenital syphilis rate,1,WHO/AFRO
+AFR0328,Congenital syphilis rate,3,WHO / GHO
+AFR0328,Congenital syphilis rate,7,DHS
+AFR0330,Malaria prevalence rate,7,DHS
+AFR0330,Malaria prevalence rate,26,NHMIS
+AFR0330,Malaria prevalence rate,30,MIS
+AFR0331,Malaria incidence rate (per 1000 population at risk) [SDG 3.3.3],2,Country
+AFR0331,Malaria incidence rate (per 1000 population at risk) [SDG 3.3.3],3,WHO / GHO
+AFR0331,Malaria incidence rate (per 1000 population at risk) [SDG 3.3.3],26,NHMIS
+AFR0331,Malaria incidence rate (per 1000 population at risk) [SDG 3.3.3],39,National Malaria Control Programme
+AFR0331,Malaria incidence rate (per 1000 population at risk) [SDG 3.3.3],62,Ministry of Health
+AFR0332,"TB prevalence rate per 100,000 population per year",2,Country
+AFR0332,"TB prevalence rate per 100,000 population per year",3,WHO / GHO
+AFR0332,"TB prevalence rate per 100,000 population per year",62,Ministry of Health
+AFR0333,Tuberculosis (TB) notification rate (per 100 000 population),3,WHO / GHO
+AFR0333,Tuberculosis (TB) notification rate (per 100 000 population),87,WHO Global TB Report
+AFR0334,TB incidence rate [SDG 3.3.2],2,Country
+AFR0334,TB incidence rate [SDG 3.3.2],3,WHO / GHO
+AFR0334,TB incidence rate [SDG 3.3.2],50,World Health Statistics
+AFR0334,TB incidence rate [SDG 3.3.2],62,Ministry of Health
+AFR0334,TB incidence rate [SDG 3.3.2],87,WHO Global TB Report
+AFR0335,Tuberculosis treatment success rate,3,WHO / GHO
+AFR0339,ANC Coverage,7,DHS
+AFR0339,ANC Coverage,26,NHMIS
+AFR0340,BCG - MCV drop out,7,DHS
+AFR0341,TB treatment drop out,2,Country
+AFR0341,TB treatment drop out,40,National Health Account Report
+AFR0346,Patient safety index score,1,WHO/AFRO
+AFR0347,Gender development index score,14,UNDP
+AFR0348,Total Health Expenditure (International US$),4,WB Database
+AFR0349,Total Health Expenditure (constant US$),4,WB Database
+AFR0350,Availability of basic equipment,1,WHO/AFRO
+AFR0350,Availability of basic equipment,53,SARA
+AFR0351,Health infrastructure readiness,53,SARA
+AFR0352,Facilities with essential medicines out of stock in the past 3 months,53,SARA
+AFR0358,Diagnostics readiness,53,SARA
+AFR0361,Primary care facilities readiness score,53,SARA
+AFR0362,Hospitals readiness score,53,SARA
+AFR0363,Facilities that received expected supervision visits in the past 6 months,53,SARA
+AFR0365,Sub national units with full complement of management staff (DHMTs),2,Country
+AFR0366,Facilities with appropriate infection prevention,53,SARA
+AFR0368,Annual health summit held in past 12 months,2,Country
+AFR0369,Sub national units (districts) with current operational plans,2,Country
+AFR0373,Proportion of deaths with cause of death recorded,3,WHO / GHO
+AFR0376,Functionality of health observatory,2,Country
+AFR0377,HIV prevalence among adults aged 15-49 years (%),1,WHO/AFRO
+AFR0377,HIV prevalence among adults aged 15-49 years (%),6,NIS
+AFR0377,HIV prevalence among adults aged 15-49 years (%),7,DHS
+AFR0377,HIV prevalence among adults aged 15-49 years (%),80,NAIIS
+AFR0378,Age-standardized prevalence of overweight and obesity in persons aged 18+ years,85,NCD Review
+AFR0379,Age-standardized prevalence of overweight in persons aged 18+ years,6,NIS
+AFR0380,Access to electricity (% of population),1,WHO/AFRO
+AFR0380,Access to electricity (% of population),4,WB Database
+AFR0380,Access to electricity (% of population),6,NIS
+AFR0380,Access to electricity (% of population),7,DHS
+AFR0381,Life expectancy at birth (years),1,WHO/AFRO
+AFR0381,Life expectancy at birth (years),4,WB Database
+AFR0381,Life expectancy at birth (years),6,NIS
+AFR0381,Life expectancy at birth (years),35,IHME
+AFR0381,Life expectancy at birth (years),50,World Health Statistics
+AFR0381,Life expectancy at birth (years),75,WHO/GHO_2021
+AFR0382,Proportion of women aged 20-24 years who were married or in a union before age 15 (%),3,WHO / GHO
+AFR0382,Proportion of women aged 20-24 years who were married or in a union before age 15 (%),7,DHS
+AFR0383,Prevalence of overweight in persons aged 18+years,3,WHO / GHO
+AFR0388,GDP growth (annual %),4,WB Database
+AFR0388,GDP growth (annual %),6,NIS
+AFR0388,GDP growth (annual %),22,UN DESA
+AFR0388,GDP growth (annual %),40,National Health Account Report
+AFR0388,GDP growth (annual %),44,DHS/MICS
+AFR0390,Female genital mutilation prevalence (%),3,WHO / GHO
+AFR0390,Female genital mutilation prevalence (%),5,UNICEF
+AFR0390,Female genital mutilation prevalence (%),7,DHS
+AFR0391,"School enrolment, primary (% gross)",4,WB Database
+AFR0391,"School enrolment, primary (% gross)",6,NIS
+AFR0392,"Pre-primary education, duration (years)",4,WB Database
+AFR0392,"Pre-primary education, duration (years)",6,NIS
+AFR0393,"Secondary education, duration (years)",4,WB Database
+AFR0393,"Secondary education, duration (years)",6,NIS
+AFR0394,Premature noncommunicable disease (NCD) mortality [SDG 3.4.1],3,WHO / GHO
+AFR0395,HIV incidence rate per 1000 uninfected population [SDG 3.3.1],2,Country
+AFR0395,HIV incidence rate per 1000 uninfected population [SDG 3.3.1],3,WHO / GHO
+AFR0395,HIV incidence rate per 1000 uninfected population [SDG 3.3.1],16,UNAIDS
+AFR0395,HIV incidence rate per 1000 uninfected population [SDG 3.3.1],59,GARPR
+AFR0395,HIV incidence rate per 1000 uninfected population [SDG 3.3.1],62,Ministry of Health
+AFR0395,HIV incidence rate per 1000 uninfected population [SDG 3.3.1],78,SPECTRUM
+AFR0396,Essential medicines readiness,53,SARA
+AFR0397,"Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease [SDG 3.4.1]",3,WHO / GHO
+AFR0398,"Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders [SDG 3.5.1]",13,UNStat
+AFR0399,Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis [SDG 3.b.3],3,WHO / GHO
+AFR0405,Immunization coverage,3,WHO / GHO
+AFR0405,Immunization coverage,7,DHS
+AFR0405,Immunization coverage,26,NHMIS
+AFR0406,National Laboratory System Score,3,WHO / GHO
+AFR0412,Points of Entry (PoE) Score,3,WHO / GHO
+AFR0414,Radiation Emergencies,3,WHO / GHO
+AFR0415,Most widely used screening method in national cervical cancer screening program,3,WHO / GHO
+AFR0416,Type of national cervical cancer screening program,3,WHO / GHO
+AFR0417,Coverage of national cervical cancer screening program (%),3,WHO / GHO
+AFR0417,Coverage of national cervical cancer screening program (%),26,NHMIS
+AFR0418,Existence of national screening program for cervical cancer,3,WHO / GHO
+AFR0419,"Proportion of total government spending on essential services (education, health and social protection[SDG1.a.2]",51,UNESCO/IMF
+AFR0420,"Proportion of children under 5 years of age who are developmentally on track in health, learning and psychosocialwell-being, by sex",7,DHS
+AFR0420,"Proportion of children under 5 years of age who are developmentally on track in health, learning and psychosocialwell-being, by sex",12,UNICEF / MICS
+AFR0425,Number of cases of poliomyelitis caused by wild poliovirus (WPV),3,WHO / GHO
+AFR0425,Number of cases of poliomyelitis caused by wild poliovirus (WPV),11,IDSR
+AFR0428,Sex ratio at birth,3,WHO / GHO
+AFR0428,Sex ratio at birth,4,WB Database
+AFR0429,Population living in urban areas  (%),6,NIS
+AFR0430,National budget allocated to health (%),10,WHO / GHED
+AFR0431,Top 10 Causes of death,3,WHO / GHO
+AFR0432,Percentage of children (aged 1-14 years) who experienced any physical punishment and/or psychological aggression by caregivers,7,DHS
+AFR0432,Percentage of children (aged 1-14 years) who experienced any physical punishment and/or psychological aggression by caregivers,12,UNICEF / MICS
+AFR0432,Percentage of children (aged 1-14 years) who experienced any physical punishment and/or psychological aggression by caregivers,44,DHS/MICS
+AFR0432,Percentage of children (aged 1-14 years) who experienced any physical punishment and/or psychological aggression by caregivers,46,"DHS,MICS"
+AFR0433,"Percentage of children (aged 36-59 months) developmentally on track in at least 3 of the 4 following domains: literacy-numeracy, physical, social-emotional and learning",44,DHS/MICS
+AFR0433,"Percentage of children (aged 36-59 months) developmentally on track in at least 3 of the 4 following domains: literacy-numeracy, physical, social-emotional and learning",46,"DHS,MICS"
+AFR0434,Density of medical doctors (per 10 000 population),3,WHO / GHO
+AFR0435,Density of dentists (per 10 000 population ),2,Country
+AFR0435,Density of dentists (per 10 000 population ),3,WHO / GHO
+AFR0437,Proportion of population using a hand-washing facility with soap and water (%),3,WHO / GHO
+AFR0437,Proportion of population using a hand-washing facility with soap and water (%),6,NIS
+AFR0437,Proportion of population using a hand-washing facility with soap and water (%),7,DHS
+AFR0438,Amount of water and sanitation-related official development assistance that is part of a government coordinated spending plan (constant 2017 US $ millions),3,WHO / GHO
+AFR0439,Prevalence of obesity among children and adolescents (5-19 years)(%),3,WHO / GHO
+AFR0440,Hepatitis B surface antigen (HBsAg) prevalence among children under 5 years (%),62,Ministry of Health
+AFR0441,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),3,WHO / GHO
+AFR0441,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),13,UNStat
+AFR0441,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),35,IHME
+AFR0442,"Proportion of the target population with access to affordable medicines and vaccines on a sustainable basis, human papillomavirus (HPV) (%)",13,UNStat
+AFR0443,Percentage of facilities offering family planning services,53,SARA
+AFR0447,Percentage of maternal deaths due to unsafe abortion,26,NHMIS
+AFR0447,Percentage of maternal deaths due to unsafe abortion,35,IHME
+AFR0448,Percentage of women accessing antenatal care services who tested positive for syphilis and were treated,3,WHO / GHO
+AFR0448,Percentage of women accessing antenatal care services who tested positive for syphilis and were treated,13,UNStat
+AFR0448,Percentage of women accessing antenatal care services who tested positive for syphilis and were treated,59,GARPR
+AFR0449,Proportion of service delivery points providing post abortion care services and safe abortion where legal,13,UNStat
+AFR0449,Proportion of service delivery points providing post abortion care services and safe abortion where legal,26,NHMIS
+AFR0452,Annual expenditure on family planning from government domestic health budget,10,WHO / GHED
+AFR0453,Percentage condom use with last high- risk sex amongst AGYW,7,DHS
+AFR0453,Percentage condom use with last high- risk sex amongst AGYW,12,UNICEF / MICS
+AFR0453,Percentage condom use with last high- risk sex amongst AGYW,41,AIS
+AFR0453,Percentage condom use with last high- risk sex amongst AGYW,62,Ministry of Health
+AFR0454,Antenatal client syphilis screening,3,WHO / GHO
+AFR0454,Antenatal client syphilis screening,7,DHS
+AFR0454,Antenatal client syphilis screening,26,NHMIS
+AFR0454,Antenatal client syphilis screening,59,GARPR
+AFR0455,Percentage of deliveries in health facilities by caesarean section,3,WHO / GHO
+AFR0455,Percentage of deliveries in health facilities by caesarean section,6,NIS
+AFR0455,Percentage of deliveries in health facilities by caesarean section,7,DHS
+AFR0455,Percentage of deliveries in health facilities by caesarean section,12,UNICEF / MICS
+AFR0455,Percentage of deliveries in health facilities by caesarean section,26,NHMIS
+AFR0455,Percentage of deliveries in health facilities by caesarean section,36,WHO/UNICEF
+AFR0456,Annual expenditure on reproductive health from government domestic health budget,10,WHO / GHED
+AFR0457,Antenatal care attendees who were positive for syphilis (%),3,WHO / GHO
+AFR0457,Antenatal care attendees who were positive for syphilis (%),59,GARPR
+AFR0458,Comprehensive correct knowledge about AIDS,7,DHS
+AFR0458,Comprehensive correct knowledge about AIDS,41,AIS
+AFR0460,Percentage of lower secondary schools providing life skills-based HIV and sexuality education,15,UNESCO
+AFR0461,Percentage of primary schools providing life skills-based HIV and sexuality education,13,UNStat
+AFR0461,Percentage of primary schools providing life skills-based HIV and sexuality education,15,UNESCO
+AFR0462,Unmet need for family planning,6,NIS
+AFR0462,Unmet need for family planning,7,DHS
+AFR0462,Unmet need for family planning,41,AIS
+AFR0462,Unmet need for family planning,62,Ministry of Health
+AFR0463,Percentage of women with anaemia,7,DHS
+AFR0464,Percentage of pregnant women with anaemia,7,DHS
+AFR0467,Maternal Mortality Ratio,7,DHS
+AFR0468,Number of hospital beds,62,Ministry of Health
+AFR0469,Number of medical doctors,3,WHO / GHO
+AFR0469,Number of medical doctors,62,Ministry of Health
+AFR0470,Number of ICU Beds,1,WHO/AFRO
+AFR0471,Percentage of children under age five who slept under an insecticide treated net (ITN) the night before the survey,7,DHS
+AFR0471,Percentage of children under age five who slept under an insecticide treated net (ITN) the night before the survey,30,MIS
+AFR0471,Percentage of children under age five who slept under an insecticide treated net (ITN) the night before the survey,41,AIS
+AFR0472,Prevalence of gestational diabetes mellitus,37,IDF
+AFR0473,Proportion of people with undiagnosed diabetes,37,IDF
+AFR0474,Number of deaths attributable to diabetes,37,IDF
+AFR0475,Share of premature deaths attributed to high body mass index,35,IHME
+AFR0476,General Service Readiness Index,53,SARA
+AFR0477,The mean availability of items for offering the specific services,53,SARA
+AFR0478,Availability of Tuberculosis services,53,SARA
+AFR0479,Availability of Basic obstetric care services,53,SARA
+AFR0480,Availability of Child health immunization services,53,SARA
+AFR0481,Absolute number of all cataract operations performed with intraocular lens implantation,2,Country
+AFR0482,"Absolute number of Allied Eye Health Professionals (ophthalmic nurses, opticians, orthoptists, ophthalmic and optometric assistants or technicians, etc…) at country level",2,Country
+AFR0483,Absolute number of cataract operated people with Visual Acuity >6/18 in the operated eye,2,Country
+AFR0484,Absolute number of cataracts surgeries performed,2,Country
+AFR0485,Absolute number of centres offering paediatric ophthalmology services in the country,2,Country
+AFR0486,Absolute number of centres providing laser treatment for diabetic retinopathy at country level,2,Country
+AFR0488,Absolute number of Eye care drugs included in the essential medicines list (Please provide a copy of the last updated essential medicines list),2,Country
+AFR0489,Absolute number of international partners and alliances supporting eye care in the country (Please provide a list of partners and alliances supporting eye care in the country),2,Country
+AFR0490,Absolute number of meetings of the Prevention of Blindness/ Eye Health committee led by MoH or with the participation of MoH representative and held during last year,2,Country
+AFR0491,Absolute number of ophthalmologists active at country level,2,Country
+AFR0492,Absolute number of optometrists at country level,2,Country
+AFR0493,Absolute number of patient consultations for eye diseases in the country,2,Country
+AFR0494,Absolute number of people affected by blindness (presenting visual acuity < 3/60 in the better eye) at country level,2,Country
+AFR0495,Absolute number of people affected by visual impairment (presenting visual acuity < 6/18 in the better eye),2,Country
+AFR0496,Absolute number of public health facilities that dispense spectacles (glasses) for managing refractive errors at country level,2,Country
+AFR0497,"Absolute number of visual impaired people, at country level, affected by Blinding trachoma",2,Country
+AFR0497,"Absolute number of visual impaired people, at country level, affected by Blinding trachoma",26,NHMIS
+AFR0498,"Absolute number of visual impaired people, at country level, affected by Cataract",2,Country
+AFR0499,"Absolute number of visual impaired people, at country level, affected by Diabetic Retinopathy",2,Country
+AFR0500,"Absolute number of visual impaired people, at country level, affected by Glaucoma",2,Country
+AFR0501,"Absolute number of visual impaired people, at country level, affected by Paediatric Eye Diseases",2,Country
+AFR0502,"Absolute number of visual impaired people, at country level, affected by Uncorrected Refractive Errors",2,Country
+AFR0503,Do budgetary appropriations for Eye Health exist at MoH level? (Yes/No),2,Country
+AFR0504,Does the National coordinator/focal person for Eye Health exist in the country? (Yes/No),2,Country
+AFR0505,Does the national programme for Community Health Workers include eye health? (Yes/No),2,Country
+AFR0506,"If Yes, is the National Prevention of Blindness/Eye Health plan implemented at Country level? (Yes/No)",2,Country
+AFR0507,Is the National Eye Health plan/strategy compliant with the current National Health strategic Plan? (Yes/No),2,Country
+AFR0508,Is the Primary Eye Care part of the primary health care programme?,2,Country
+AFR0509,Is there a National Prevention of Blindness/Eye Health plan endorsed by Ministry of Health (MoH)? (Yes/No),2,Country
+AFR0510,Observance of World Sight Day with recognition from MoH or other governmental institutions,2,Country
+AFR0511,Coverage of preventive chemotherapy for selected neglected tropical diseases - Lymphatic Filariasis,26,NHMIS
+AFR0512,Coverage of preventive chemotherapy for selected neglected tropical diseases - Onchocerciasis,26,NHMIS
+AFR0513,Coverage of preventive chemotherapy for selected neglected tropical diseases - Schistosomiasis,26,NHMIS
+AFR0514,Coverage of preventive chemotherapy for selected neglected tropical diseases – Soil Transmitted Helminths,26,NHMIS
+AFR0515,Coverage of preventive chemotherapy for selected neglected tropical diseases - Trachoma,26,NHMIS
+AFR0516,New cases of IHR-notifiable diseases and other notifiable diseases – Yellow fever,11,IDSR
+AFR0517,New cases of IHR-notifiable diseases and other notifiable diseases – Lassa fever,11,IDSR
+AFR0518,New cases of IHR-notifiable diseases and other notifiable diseases – Cholera,11,IDSR
+AFR0519,New cases of IHR-notifiable diseases and other notifiable diseases – Meningitis,11,IDSR
+AFR0520,New cases of IHR-notifiable diseases and other notifiable diseases – Measles,11,IDSR
+AFR0521,New cases of IHR-notifiable diseases and other notifiable diseases – Covid-19,76,SORMAS
+AFR0523,Availability of  Adolescent health services,53,SARA
+AFR0524,Availability of  Chronic obstructive respiratory disease services,53,SARA
+AFR0525,Availability of Advanced diagnostic services,53,SARA
+AFR0526,Availability of Antenatal Care services,53,SARA
+AFR0527,Availability of ART services,53,SARA
+AFR0528,Availability of Cardiovascular diseases services,53,SARA
+AFR0529,Availability of Cervical cancer screening services,53,SARA
+AFR0530,Availability of Child health preventive and curative care services,53,SARA
+AFR0531,Availability of Comprehensive emergency obstetric care services,53,SARA
+AFR0532,Availability of Comprehensive surgery services,53,SARA
+AFR0533,Availability of Diabetes services,53,SARA
+AFR0534,Availability of Family planning services,53,SARA
+AFR0535,Availability of HIV care and support services,53,SARA
+AFR0536,Availability of HIV counselling and testing services,53,SARA
+AFR0537,availability of items for offering Adolescent health services,53,SARA
+AFR0538,availability of items for offering Advanced diagnostic services services,53,SARA
+AFR0539,availability of items for offering Antenatal care services,53,SARA
+AFR0540,availability of items for offering ART services,53,SARA
+AFR0541,availability of items for offering Basic obstetric care services,53,SARA
+AFR0542,availability of items for offering Basic surgery services,53,SARA
+AFR0543,availability of items for offering Blood transfusion services,53,SARA
+AFR0544,availability of items for offering Cardiovascular diseases services,53,SARA
+AFR0545,availability of items for offering Cervical cancer screening services,53,SARA
+AFR0546,availability of items for offering Child immunization services,53,SARA
+AFR0547,availability of items for offering Chronic obstructive respiratory disease services,53,SARA
+AFR0548,Availability of STIs services,53,SARA
+AFR0549,Availability of Preventive & curative services,53,SARA
+AFR0550,Availability of PMTCT services,53,SARA
+AFR0551,Availability of Malaria Services,53,SARA
+AFR0552,Availability of Lifesaving commodities for mothers services,53,SARA
+AFR0553,Availability of Lifesaving commodities for children services,53,SARA
+AFR0554,availability of items for offering Comprehensive surgery services,53,SARA
+AFR0555,availability of items for offering Diabetes services,53,SARA
+AFR0556,availability of items for offering Family planning services,53,SARA
+AFR0557,availability of items for offering High-level diagnostic services services,53,SARA
+AFR0558,availability of items for offering HIV care and support services,53,SARA
+AFR0559,availability of items for offering HIV counseling and testing services,53,SARA
+AFR0560,availability of items for offering Life-saving medicine (children) services,53,SARA
+AFR0561,availability of items for offering Life-saving medicines (mothers) services,53,SARA
+AFR0562,availability of items for offering Malaria services,53,SARA
+AFR0563,availability of items for offering PMTCT services,53,SARA
+AFR0564,availability of items for offering Preventive and curative services for under-fives,53,SARA
+AFR0565,availability of items for offering TB services,53,SARA
+AFR0566,availability of items for offering STIs services,53,SARA
+AFR0567,UHC - Service coverage sub-index on Noncommunicable diseases,3,WHO / GHO
+AFR0568,UHC - Service coverage sub-index on Service capacity and access,3,WHO / GHO
+AFR0569,UHC - Service coverage sub-index on Infectious Diseases,3,WHO / GHO
+AFR0570,"UHC - Service coverage sub-index on reproductive, maternal, newborn and child health",3,WHO / GHO
+AFR0592,health system performance (index),1,WHO/AFRO
+AFR0593,Access to health services,1,WHO/AFRO
+AFR0594,Demand for health services,1,WHO/AFRO
+AFR0595,Quality of care,1,WHO/AFRO
+AFR0596,Health system resilience (Index),1,WHO/AFRO
+AFR0597,Inherent resilience,1,WHO/AFRO
+AFR0598,Physical access score,1,WHO/AFRO
+AFR0599,Financial access score,1,WHO/AFRO
+AFR0600,Sociocultural access score,1,WHO/AFRO
+AFR0601,User experience score,1,WHO/AFRO
+AFR0602,Care effectiveness score,1,WHO/AFRO
+AFR0603,Healthy actions score,1,WHO/AFRO
+AFR0604,Health seeking score,1,WHO/AFRO
+AFR0605,Country size,4,WB Database
+AFR0606,Demographic growth,4,WB Database
+AFR0607,Density of population,4,WB Database
+AFR0608,GDP per capita,4,WB Database
+AFR0609,Inflation rate,4,WB Database
+AFR0610,Human Development Index,14,UNDP
+AFR0611,"National legislation, policy and financing-score",3,WHO / GHO
+AFR0612,Zoonotic events and the human-animal interface-score,3,WHO / GHO
+AFR0613,Food safety-score,3,WHO / GHO
+AFR0614,Chemical events-score,3,WHO / GHO
+AFR0615,Human resources-score,3,WHO / GHO
+AFR0616,National health emergency framework-score,3,WHO / GHO
+AFR0617,Health service provision-score,3,WHO / GHO
+AFR0618,"Annual mean levels of fine particulate matter (population-weighted), by location (micrograms per cubic meter)- SDG 11.6.2",3,WHO / GHO
+AFR0620,Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years)-SDG 16.2.1,7,DHS
+AFR0620,Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years)-SDG 16.2.1,12,UNICEF / MICS
+AFR0621,Proportion of women aged 15-49 years with anaemia (%)-SDG 2.2.3,3,WHO / GHO
+AFR0622,"Percentage of bloodstream infection due to Escherichia coli resistant to 3rd-generation cephalosporin (e.g., ESBL- E. coli) among patients seeking care and whose blood sample is taken and tested (%)-SDG 3.d.2",90,AMR Surveillance National Coordinating Center
+AFR0623,Percentage of bloodstream infection due to methicillin-resistant Staphylococcus aureus (MRSA) among patients seeking care and whose blood sample is taken and tested (%)-SDG 3.d.2,90,AMR Surveillance National Coordinating Center
+AFR0624,"Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)-SDG 5.6.1",7,DHS
+AFR0625,"Extent to which countries have laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education (%)-SDG 5.6.2",13,UNStat
+AFR0626,"Fatal occupational injuries among employees, by sex and migrant status (per 100,000 employees)-SDG 8.8.1",91,ADM-IR-Insurance Records
+AFR0627,"Non-fatal occupational injuries among employees, by sex and migrant status (per 100,000 employees)-SDG 8.8.1",91,ADM-IR-Insurance Records
+AFR0628,"Proportion of population subjected to physical violence in the previous 12 months, by sex (%)-SDG 16.1.3",92,United Nations Office on Drugs and Crime
+AFR0629,"Proportion of population subjected to sexual violence in the previous 12 months, by sex (%)-SDG 16.1.3",92,United Nations Office on Drugs and Crime
+AFR0630,"Detected victims of human trafficking, by age and sex (number)-SDG 16.2.2",93,GLOTIP database
+AFR0631,Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)-SDG 17.19.2a,13,UNStat
+AFR0632,Countries with death registration data that are at least 75 percent complete (1 = YES; 0 = NO)-SDG 17.19.2b,13,UNStat
+AFR0633,Immunization coverage rate for Meningitis,3,WHO / GHO
+AFR0634,Availability of estimates on impoverishment due to out-of-pocket health expenditures,3,WHO / GHO
+AFR0635,Preterm birth rate (per 100 live births),3,WHO / GHO
+AFR0636,Poverty rate,4,WB Database
+AFR0638,Number of Regions or Provinces,1,WHO/AFRO
+AFR0639,Number of health districts,1,WHO/AFRO
+AFR0640,"Prevalence of moderate or severe food insecurity in the population, based on the food insecurity experience scale [FIES][SDG 2.1.2]",94,FAO
+AFR0640,"Prevalence of moderate or severe food insecurity in the population, based on the food insecurity experience scale [FIES][SDG 2.1.2]",95,National Entity
+AFR0641,Countries with birth registration data that are at least 90 percent complete (1 = YES; 0 = NO)-SDG 17.19.2b,13,UNStat
+AFR0642,Immunization coverage rate for Yellow fever,36,WHO/UNICEF
+AFR0643,"Prevention of HIV in key populations (Sex workers, men who have sex with men, people who inject drugs, prisoners, transgender people) - %",16,UNAIDS
+AFR0644,Prevalence of births with defects/anomalies (per 1 million births),35,IHME
+AFR0645,Prevalence of congenital heart defects (per 1 million births),35,IHME
+AFR0646,Prevalence of congenital neurotube defects/anomalies (per 1 million births),35,IHME
+AFR0647,Number Specialists doctors,1,WHO/AFRO
+AFR0648,Density of specialists doctors (per 1000 population),1,WHO/AFRO
+AFR0649,Number of new HIV infections,16,UNAIDS
+AFR0650,Number of suicides,3,WHO/GHO
+AFR0651,Age-standardized suicide rates (per 100 000),3,WHO/GHO

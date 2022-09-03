@@ -1,0 +1,2095 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-08 19:45+0300\n"
+"PO-Revision-Date: 2020-10-25 19:35+0000\n"
+"Last-Translator: b'Super Admin <admin@mtccl.co.ke>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
+
+#: .\aho_datacapturetool\settings.py:206
+msgid "English"
+msgstr "Inglês"
+
+#: .\aho_datacapturetool\settings.py:207
+msgid "French"
+msgstr "Francês"
+
+#: .\aho_datacapturetool\settings.py:208
+msgid "Portuguese"
+msgstr "Português"
+
+#: .\authentication\apps.py:6
+#, fuzzy
+#| msgid "Parent Location"
+msgid "authentication"
+msgstr "Localização dos pais"
+
+#: .\authentication\models.py:25
+msgid "New user must be DCT admin staff."
+msgstr ""
+
+#: .\authentication\models.py:27
+msgid "New user account must be actived."
+msgstr ""
+
+#: .\authentication\models.py:30
+msgid "Valid Email must be set"
+msgstr ""
+
+#: .\authentication\models.py:46
+msgid "Superuser must have is_staff=True."
+msgstr ""
+
+#: .\authentication\models.py:48
+msgid "Superuser must have is_superuser=True."
+msgstr ""
+
+#: .\authentication\models.py:59
+msgid "title"
+msgstr "título"
+
+#: .\authentication\models.py:61
+msgid "gender"
+msgstr "gênero"
+
+#: .\authentication\models.py:63
+msgid "e-mail"
+msgstr "e-mail"
+
+#: .\authentication\models.py:64
+msgid "postal code"
+msgstr "código postal"
+
+#: .\authentication\models.py:66
+msgid "user name"
+msgstr "Utilizador"
+
+#: .\authentication\models.py:69 .\authentication\models.py:99
+#: .\indicators\models.py:187 .\indicators\models.py:394
+#: .\regions\models.py:168
+msgid "Location Name"
+msgstr "Nome do local"
+
+#: .\authentication\models.py:71 .\authentication\models.py:101
+#: .\elements\models.py:35 .\elements\models.py:90 .\elements\models.py:185
+#: .\facilities\models.py:33 .\facilities\models.py:76
+#: .\facilities\models.py:127 .\facilities\models.py:212
+#: .\facilities\models.py:281 .\facilities\models.py:324
+#: .\facilities\models.py:357 .\facilities\models.py:405
+#: .\facilities\models.py:448 .\facilities\models.py:492
+#: .\health_workforce\models.py:76 .\health_workforce\models.py:106
+#: .\health_workforce\models.py:171 .\health_workforce\models.py:226
+#: .\health_workforce\models.py:288 .\health_workforce\models.py:378
+#: .\health_workforce\models.py:465 .\home\models.py:91 .\home\models.py:123
+#: .\home\models.py:154 .\indicators\models.py:44 .\indicators\models.py:92
+#: .\indicators\models.py:152 .\indicators\models.py:222
+#: .\indicators\models.py:425 .\indicators\models.py:454
+#: .\indicators\models.py:493 .\indicators\models.py:522
+#: .\publications\models.py:38 .\publications\models.py:85
+#: .\publications\models.py:150 .\publications\models.py:215
+#: .\regions\models.py:24 .\regions\models.py:61 .\regions\models.py:97
+#: .\regions\models.py:133 .\regions\models.py:193 .\regions\models.py:227
+msgid "Date Created"
+msgstr "Data de Criação"
+
+#: .\authentication\models.py:73 .\authentication\models.py:103
+#: .\elements\models.py:37 .\elements\models.py:92 .\elements\models.py:187
+#: .\facilities\models.py:35 .\facilities\models.py:78
+#: .\facilities\models.py:129 .\facilities\models.py:214
+#: .\facilities\models.py:283 .\facilities\models.py:326
+#: .\facilities\models.py:359 .\facilities\models.py:407
+#: .\facilities\models.py:450 .\facilities\models.py:494
+#: .\health_workforce\models.py:78 .\health_workforce\models.py:108
+#: .\health_workforce\models.py:173 .\health_workforce\models.py:228
+#: .\health_workforce\models.py:290 .\health_workforce\models.py:380
+#: .\health_workforce\models.py:467 .\home\models.py:93 .\home\models.py:125
+#: .\home\models.py:156 .\indicators\models.py:46 .\indicators\models.py:94
+#: .\indicators\models.py:154 .\indicators\models.py:224
+#: .\indicators\models.py:427 .\indicators\models.py:456
+#: .\indicators\models.py:495 .\indicators\models.py:524
+#: .\publications\models.py:40 .\publications\models.py:87
+#: .\publications\models.py:152 .\publications\models.py:217
+#: .\regions\models.py:26 .\regions\models.py:63 .\regions\models.py:99
+#: .\regions\models.py:135 .\regions\models.py:195 .\regions\models.py:229
+msgid "Date Modified"
+msgstr "Data Modificada"
+
+#: .\authentication\models.py:82
+#, fuzzy
+#| msgid "user name"
+msgid "User"
+msgstr "Nome de utilizador"
+
+#: .\authentication\models.py:83
+msgid "  User Accounts"
+msgstr "Contas de Utilizador"
+
+#: .\authentication\models.py:95 .\authentication\models.py:107
+msgid "System Role"
+msgstr "Papel do sistema"
+
+#: .\authentication\models.py:96
+msgid "Roles Manager"
+msgstr "Gestor de Funções"
+
+#: .\authentication\models.py:108
+msgid " System Roles"
+msgstr "Funções do sistema"
+
+#: .\authentication\models.py:114
+#, fuzzy
+#| msgid "user name"
+msgid "Username"
+msgstr "Nome de utilizador"
+
+#: .\authentication\models.py:118
+#, fuzzy
+#| msgid "Short Name"
+msgid "First Name"
+msgstr "Nome curto"
+
+#: .\authentication\models.py:120
+#, fuzzy
+#| msgid "Location Name"
+msgid "Last Name"
+msgstr "Nome do local"
+
+#: .\authentication\models.py:122
+#, fuzzy
+#| msgid "Location"
+msgid "Location "
+msgstr "País/local"
+
+#: .\authentication\models.py:124
+msgid "Menu Executed"
+msgstr "Menu Executado"
+
+#: .\authentication\models.py:126
+msgid "Affected Record"
+msgstr "Registo dos afectados"
+
+#: .\authentication\models.py:128
+#, fuzzy
+#| msgid "Location Name"
+msgid "Action Taken"
+msgstr "Nome do local"
+
+#: .\authentication\models.py:130
+msgid "Action Timestamp"
+msgstr "Tempo de Acção"
+
+#: .\authentication\models.py:132
+msgid "Last Login Timestamp"
+msgstr "Último Login/Entrar"
+
+#: .\authentication\models.py:137
+#, fuzzy
+#| msgid "View site"
+msgid "View Users Log"
+msgstr "Ver o site"
+
+#: .\authentication\models.py:138
+msgid " View User Logs"
+msgstr "Registos de Utilizador"
+
+#: .\elements\admin.py:176 .\indicators\admin.py:277
+#, fuzzy
+#| msgid ""
+#| "Sorry! Ending year cannot be lower than the start year. Please make "
+#| "corrections"
+msgid ""
+"Sorry! Ending year cannot be lower than the start "
+"year.                         Please make corrections"
+msgstr ""
+"Desculpe! O final do ano não pode ser inferior ao inícioano. Por favor, faça "
+"correcções"
+
+#: .\elements\apps.py:6
+msgid "elements"
+msgstr "elementos"
+
+#: .\elements\filters.py:12 .\facilities\filters.py:12
+#: .\health_workforce\filters.py:12 .\home\filters.py:12
+#: .\indicators\filters.py:12 .\publications\filters.py:12
+#: .\regions\filters.py:12
+msgid "All"
+msgstr ""
+
+#: .\elements\models.py:25 .\elements\models.py:63 .\elements\models.py:171
+#: .\facilities\models.py:21 .\facilities\models.py:61
+#: .\facilities\models.py:111 .\facilities\models.py:167
+#: .\facilities\models.py:268 .\facilities\models.py:310
+#: .\facilities\models.py:343 .\facilities\models.py:375
+#: .\facilities\models.py:428 .\facilities\models.py:472
+#: .\health_workforce\models.py:66 .\health_workforce\models.py:95
+#: .\health_workforce\models.py:132 .\health_workforce\models.py:211
+#: .\health_workforce\models.py:260 .\health_workforce\models.py:344
+#: .\health_workforce\models.py:433 .\home\models.py:11 .\home\models.py:40
+#: .\home\models.py:114 .\home\models.py:140 .\indicators\models.py:34
+#: .\indicators\models.py:70 .\indicators\models.py:133
+#: .\indicators\models.py:180 .\indicators\models.py:387
+#: .\indicators\models.py:443 .\indicators\models.py:482
+#: .\indicators\models.py:511 .\publications\models.py:26
+#: .\publications\models.py:71 .\publications\models.py:120
+#: .\publications\models.py:197 .\regions\models.py:14 .\regions\models.py:51
+#: .\regions\models.py:87 .\regions\models.py:123 .\regions\models.py:161
+msgid "Unique ID"
+msgstr "identificação única"
+
+#: .\elements\models.py:28
+msgid "Data Element Name"
+msgstr "Nome do Elemento de Dados"
+
+#: .\elements\models.py:30
+msgid "short name"
+msgstr "nome curto"
+
+#: .\elements\models.py:31 .\elements\models.py:178 .\facilities\models.py:74
+#: .\facilities\models.py:279 .\facilities\models.py:322
+#: .\facilities\models.py:355 .\home\models.py:149 .\publications\models.py:80
+#: .\regions\models.py:21
+msgid "Description"
+msgstr "Descrição"
+
+#: .\elements\models.py:33
+msgid "Aggregate Type"
+msgstr "Tipo Agregado"
+
+#: .\elements\models.py:43
+msgid "Element"
+msgstr "Elemento"
+
+#: .\elements\models.py:44 .\elements\models.py:184
+msgid "Data Elements"
+msgstr "Elementos de Dados"
+
+#: .\elements\models.py:67 .\elements\models.py:104
+msgid "Data Element"
+msgstr "Elemento de Dados"
+
+#: .\elements\models.py:71 .\home\models.py:59 .\indicators\models.py:396
+msgid "Disaggregation Option"
+msgstr "Opção de Desagregação"
+
+#: .\elements\models.py:77
+msgid "Data Type"
+msgstr "Tipo de Dados"
+
+#: .\elements\models.py:78 .\health_workforce\models.py:274
+msgid "Data Value"
+msgstr "Valor dos Dados"
+
+#: .\elements\models.py:80 .\indicators\models.py:206
+#: .\indicators\models.py:411
+msgid "Target Value"
+msgstr "Valor Alvo"
+
+#: .\elements\models.py:82
+msgid "Start Year"
+msgstr "Ano Inicial"
+
+#: .\elements\models.py:84 .\indicators\models.py:418
+msgid "Ending Year"
+msgstr "Ano de Fim"
+
+#: .\elements\models.py:86 .\health_workforce\models.py:284
+#: .\health_workforce\models.py:374 .\health_workforce\models.py:461
+#: .\indicators\models.py:219 .\indicators\models.py:422
+msgid "Period"
+msgstr "Período"
+
+#: .\elements\models.py:88 .\facilities\models.py:210
+#: .\health_workforce\models.py:286 .\health_workforce\models.py:376
+#: .\health_workforce\models.py:463 .\indicators\models.py:220
+#: .\indicators\models.py:423 .\publications\models.py:148
+msgid "Status"
+msgstr "Estado"
+
+#: .\elements\models.py:105
+msgid "   Single-Record Form"
+msgstr "Formulário de um registro"
+
+#: .\elements\models.py:121
+#, fuzzy
+#| msgid ""
+#| "Sorry! The start year cannot be lower than 1900 or greaterthan the "
+#| "current Year "
+msgid ""
+"Sorry! The start year cannot be lower than 1900 or greater                 "
+"than the current Year "
+msgstr ""
+"Desculpe! O ano de início não pode ser inferior a 1900 ou superiordo que no "
+"Ano em curso"
+
+#: .\elements\models.py:125
+#, fuzzy
+#| msgid ""
+#| "Sorry! The end year cannot be lower than start year orgreater than the "
+#| "current Year "
+msgid ""
+"Sorry! The end year cannot be lower than start year or "
+"greater                 than the current Year "
+msgstr ""
+"Desculpe! O ano final não pode ser inferior ao ano de início oumaior do que "
+"o Ano corrente"
+
+#: .\elements\models.py:129
+#, fuzzy
+#| msgid ""
+#| "Sorry! Ending year cannot be lower than the start year. Please make "
+#| "corrections"
+msgid ""
+"Sorry! Ending year cannot be lower than the start year.                 "
+"Please make corrections"
+msgstr ""
+"Desculpe! O final do ano não pode ser inferior ao inícioano. Por favor, faça "
+"correcções"
+
+#: .\elements\models.py:162
+msgid "Multi_Records Form"
+msgstr "Formulário de Multi-Registos"
+
+#: .\elements\models.py:163
+msgid "  Multi_Records Form"
+msgstr "Formulário de Multi-Registos"
+
+#: .\elements\models.py:174
+msgid "Group Name"
+msgstr "Nome do Grupo"
+
+#: .\elements\models.py:176 .\facilities\models.py:29 .\facilities\models.py:72
+#: .\facilities\models.py:124 .\facilities\models.py:277
+#: .\facilities\models.py:320 .\facilities\models.py:353
+#: .\health_workforce\models.py:72 .\health_workforce\models.py:102
+#: .\health_workforce\models.py:220 .\health_workforce\models.py:356
+#: .\home\models.py:16 .\home\models.py:47 .\home\models.py:81
+#: .\home\models.py:118 .\indicators\models.py:39 .\indicators\models.py:75
+#: .\indicators\models.py:138 .\indicators\models.py:449
+#: .\publications\models.py:31 .\publications\models.py:78
+#: .\publications\models.py:202 .\regions\models.py:56 .\regions\models.py:92
+#: .\regions\models.py:128
+msgid "Short Name"
+msgstr "Nome curto"
+
+#: .\elements\models.py:180
+msgid "Group Code"
+msgstr "Código de Grupo"
+
+#: .\elements\models.py:193
+msgid "Element Group"
+msgstr "Grupo de Elementos"
+
+#: .\elements\models.py:194
+msgid "Element Groups"
+msgstr "Grupos de Elementos"
+
+#: .\elements\models.py:207
+#, fuzzy
+#| msgid "Sorry! Data Elements Group with same name already exists"
+msgid ""
+"Sorry! Data Elements Group with                 same name already exists"
+msgstr "Desculpe! Grupo de Elementos de Dados com o mesmo nome já existe"
+
+#: .\facilities\apps.py:6
+msgid "facilities"
+msgstr "Instalações de saúde"
+
+#: .\facilities\models.py:23
+msgid "Facility Code"
+msgstr "Código das instalações"
+
+#: .\facilities\models.py:26 .\facilities\models.py:41
+#: .\facilities\models.py:173
+msgid "Facility Type"
+msgstr "Tipo de estabelecimento"
+
+#: .\facilities\models.py:31 .\health_workforce\models.py:74
+#: .\health_workforce\models.py:104 .\health_workforce\models.py:224
+#: .\indicators\models.py:41 .\indicators\models.py:140
+#: .\indicators\models.py:451 .\publications\models.py:33
+#: .\publications\models.py:130 .\publications\models.py:203
+#: .\regions\models.py:58 .\regions\models.py:130 .\regions\models.py:170
+msgid "Brief Description"
+msgstr "Descrição"
+
+#: .\facilities\models.py:42
+#, fuzzy
+#| msgid "  Facility Types"
+msgid " Facility Types"
+msgstr "Tipo de estabelecimento"
+
+#: .\facilities\models.py:52
+#, fuzzy
+#| msgid "Facility type with the same name exists"
+msgid "Facility type with the same                 name exists"
+msgstr "Existe um tipo de instalação com o mesmo nome"
+
+#: .\facilities\models.py:63 .\facilities\models.py:113
+#: .\facilities\models.py:270 .\facilities\models.py:345
+#: .\health_workforce\models.py:68 .\health_workforce\models.py:97
+#: .\health_workforce\models.py:435 .\indicators\models.py:145
+#: .\indicators\models.py:491 .\indicators\models.py:520
+#: .\publications\models.py:36 .\publications\models.py:73
+msgid "Code"
+msgstr "Código"
+
+#: .\facilities\models.py:68
+msgid "Owner Country"
+msgstr ""
+
+#: .\facilities\models.py:70 .\facilities\models.py:84
+msgid "Facility Owner"
+msgstr "Proprietário da instalação de saúde"
+
+#: .\facilities\models.py:85
+#, fuzzy
+#| msgid " Facility Owners"
+msgid " Facility Ownerhip"
+msgstr "Proprietários de instalações de saúde"
+
+#: .\facilities\models.py:95
+#, fuzzy
+#| msgid "facility owner with the same name exists"
+msgid "facility owner with the same                 name exists"
+msgstr "Existe um proprietário de estabelecimento de saúde com o mesmo nome"
+
+#: .\facilities\models.py:106
+msgid "Availability"
+msgstr ""
+
+#: .\facilities\models.py:107
+msgid "Capacity"
+msgstr ""
+
+#: .\facilities\models.py:108
+msgid "Readiness"
+msgstr ""
+
+#: .\facilities\models.py:115
+#, fuzzy
+#| msgid "Resource Category"
+msgid "Service Category"
+msgstr "Categoria de Recursos"
+
+#: .\facilities\models.py:117
+#, fuzzy
+#| msgid "Category Name"
+msgid "Category Level"
+msgstr "Nome da categoria"
+
+#: .\facilities\models.py:120
+#, fuzzy
+#| msgid "Parent Location"
+msgid "Parent Domain"
+msgstr "Localização dos pais"
+
+#: .\facilities\models.py:122
+#, fuzzy
+#| msgid "Level Name"
+msgid "Service Name"
+msgstr "Nome do Nível"
+
+#: .\facilities\models.py:125
+#, fuzzy
+#| msgid "Brief Description"
+msgid "Service Description"
+msgstr "Descrição"
+
+#: .\facilities\models.py:135 .\facilities\models.py:315
+msgid "Service Domain"
+msgstr "Domínio de Serviços"
+
+#: .\facilities\models.py:136
+#, fuzzy
+#| msgid "Service Domains"
+msgid " Service Domains"
+msgstr "Domínios de serviço"
+
+#: .\facilities\models.py:146
+msgid "Domain with the same name exists"
+msgstr "Existe um domínio com o mesmo nome"
+
+#: .\facilities\models.py:154
+msgid "Active"
+msgstr "Ativo"
+
+#: .\facilities\models.py:155 .\health_workforce\models.py:340
+#: .\health_workforce\models.py:429
+msgid "Closed"
+msgstr "Fechado"
+
+#: .\facilities\models.py:175
+#, fuzzy
+#| msgid "Facility Code"
+msgid "Facility Country"
+msgstr "Código das instalações"
+
+#: .\facilities\models.py:177
+#, fuzzy
+#| msgid " Facility Owners"
+msgid "Facility Ownership"
+msgstr "Proprietários de instalações de saúde"
+
+#: .\facilities\models.py:178 .\facilities\models.py:381
+#: .\facilities\models.py:434 .\facilities\models.py:478
+msgid "Facility Name"
+msgstr "Nome do estabelecimento"
+
+#: .\facilities\models.py:180
+msgid "Short Name (Abbreviation)"
+msgstr ""
+
+#: .\facilities\models.py:183
+#, fuzzy
+#| msgid "Resource Location"
+msgid "Administrative Location"
+msgstr "Lugar"
+
+#: .\facilities\models.py:187
+#, fuzzy
+#| msgid "Facility Type"
+msgid "Facility Type Description"
+msgstr "Tipo de estabelecimento"
+
+#: .\facilities\models.py:189
+msgid "Contact Address"
+msgstr "Endereço para contato"
+
+#: .\facilities\models.py:191 .\health_workforce\models.py:162
+msgid "Email"
+msgstr "Email"
+
+#: .\facilities\models.py:193
+#, fuzzy
+#| msgid "Theme Code"
+msgid "Phone Code"
+msgstr "Código Temático"
+
+#: .\facilities\models.py:194
+msgid ""
+"Specific country code for the phone number such as +242 is         "
+"automatically retrieved from database of AFRO member countries"
+msgstr ""
+
+#: .\facilities\models.py:196 .\health_workforce\models.py:164
+msgid "Phone Number"
+msgstr "Número de telefone"
+
+#: .\facilities\models.py:198
+msgid "Telephone"
+msgstr ""
+
+#: .\facilities\models.py:200 .\health_workforce\models.py:168
+#: .\regions\models.py:171
+msgid "Latitude"
+msgstr "Latitude"
+
+#: .\facilities\models.py:203 .\health_workforce\models.py:169
+#: .\regions\models.py:172
+msgid "Longitude"
+msgstr "Longitude"
+
+#: .\facilities\models.py:206
+#, fuzzy
+#| msgid "Latitude"
+msgid "Altitude (M)"
+msgstr "Latitude"
+
+#: .\facilities\models.py:207
+msgid "Geo-source (LL source)"
+msgstr ""
+
+#: .\facilities\models.py:209
+#, fuzzy
+#| msgid "Web Link (URL)"
+msgid "Web (URL)"
+msgstr "Endereço web"
+
+#: .\facilities\models.py:220
+msgid "Health Facility"
+msgstr "Instalação de saúde"
+
+#: .\facilities\models.py:221
+#, fuzzy
+#| msgid "   Health Facilities"
+msgid "    Health Facilities"
+msgstr "Instalações de saúde"
+
+#: .\facilities\models.py:257
+msgid "Facility  with the same name exists"
+msgstr "Existe uma instalação com o mesmo nome"
+
+#: .\facilities\models.py:273
+#, fuzzy
+#| msgid "Resource Category"
+msgid "Service Provision Category"
+msgstr "Categoria de Recursos"
+
+#: .\facilities\models.py:275 .\facilities\models.py:440
+#: .\facilities\models.py:484
+msgid "Units of Provision"
+msgstr ""
+
+#: .\facilities\models.py:289
+msgid "Provision Unit"
+msgstr ""
+
+#: .\facilities\models.py:290
+msgid "Provision Units"
+msgstr ""
+
+#: .\facilities\models.py:300
+#, fuzzy
+#| msgid "facility owner with the same name exists"
+msgid "Unit of provision with the same                 name exists"
+msgstr "Existe um proprietário de estabelecimento de saúde com o mesmo nome"
+
+#: .\facilities\models.py:312
+#, fuzzy
+#| msgid "Institution Code"
+msgid "Intervention Code"
+msgstr "Código da Instituição"
+
+#: .\facilities\models.py:317
+#, fuzzy
+#| msgid "Institution Name"
+msgid "Intervention Name"
+msgstr "Nome da instituição"
+
+#: .\facilities\models.py:332
+msgid "Facility Servce Intervention"
+msgstr ""
+
+#: .\facilities\models.py:333
+msgid " Service Interventions"
+msgstr ""
+
+#: .\facilities\models.py:348 .\facilities\models.py:387
+msgid "Intervention Areas"
+msgstr ""
+
+#: .\facilities\models.py:350
+msgid "Provision Area"
+msgstr ""
+
+#: .\facilities\models.py:365
+#, fuzzy
+#| msgid "Service Domain"
+msgid "Service Area"
+msgstr "Domínio de Serviços"
+
+#: .\facilities\models.py:366
+#, fuzzy
+#| msgid "Service Domains"
+msgid " Service Areas"
+msgstr "Domínios de serviço"
+
+#: .\facilities\models.py:379
+msgid "Admin User (Email)"
+msgstr ""
+
+#: .\facilities\models.py:383
+#, fuzzy
+#| msgid "Service Domain"
+msgid "Service Area Domain"
+msgstr "Domínio de Serviços"
+
+#: .\facilities\models.py:391
+#, fuzzy
+#| msgid "Service Domains"
+msgid "Service provision Areas"
+msgstr "Domínios de serviço"
+
+#: .\facilities\models.py:392
+msgid "Service Provided last 3 Months?"
+msgstr ""
+
+#: .\facilities\models.py:394
+msgid "Specialized Unit Provided?"
+msgstr ""
+
+#: .\facilities\models.py:396
+msgid "Staff Capacity Appropriate?"
+msgstr ""
+
+#: .\facilities\models.py:398
+#, fuzzy
+#| msgid "Infrastructure Name"
+msgid "Infrastructure Capacity Appropriate?"
+msgstr "Nome da Infra-estrutura"
+
+#: .\facilities\models.py:400
+msgid "Supplies Appropriate?"
+msgstr ""
+
+#: .\facilities\models.py:402 .\facilities\models.py:445
+#: .\facilities\models.py:489
+msgid "Assessment Date"
+msgstr ""
+
+#: .\facilities\models.py:404 .\facilities\models.py:447
+#: .\facilities\models.py:491 .\health_workforce\models.py:279
+#: .\health_workforce\models.py:369 .\health_workforce\models.py:455
+#: .\indicators\models.py:213
+msgid "This marks the start of reporting period"
+msgstr "Isto marca o início do período do relatório"
+
+#: .\facilities\models.py:415
+msgid "Service Availability"
+msgstr ""
+
+#: .\facilities\models.py:416
+msgid "   Services Avilability"
+msgstr ""
+
+#: .\facilities\models.py:436
+#, fuzzy
+#| msgid "Service Domain"
+msgid "Service Capacity Domain"
+msgstr "Domínio de Serviços"
+
+#: .\facilities\models.py:441 .\facilities\models.py:485
+msgid "Number available"
+msgstr ""
+
+#: .\facilities\models.py:442 .\facilities\models.py:486
+msgid "The input must be a zero or positive integer"
+msgstr ""
+
+#: .\facilities\models.py:443
+#, fuzzy
+#| msgid "Sub-national"
+msgid "Number Functional"
+msgstr "Sub-nacional"
+
+#: .\facilities\models.py:444
+msgid "Functional units used in the last month"
+msgstr ""
+
+#: .\facilities\models.py:458
+msgid "Provision Capacity"
+msgstr ""
+
+#: .\facilities\models.py:459
+msgid "   Provision Capacities"
+msgstr ""
+
+#: .\facilities\models.py:480
+#, fuzzy
+#| msgid "Service Domain"
+msgid "Service Readiness Domain"
+msgstr "Domínio de Serviços"
+
+#: .\facilities\models.py:487
+msgid "Number needed"
+msgstr ""
+
+#: .\facilities\models.py:488
+msgid "Number of units needed for adequacy"
+msgstr ""
+
+#: .\facilities\models.py:502
+#, fuzzy
+#| msgid "Service Domains"
+msgid "Service Readiness"
+msgstr "Domínios de serviço"
+
+#: .\facilities\models.py:503
+#, fuzzy
+#| msgid "Service Domains"
+msgid "   Service Readiness"
+msgstr "Domínios de serviço"
+
+#: .\health_workforce\apps.py:6
+msgid "health_workforce"
+msgstr "Pessoal da saúde"
+
+#: .\health_workforce\models.py:35 .\publications\models.py:46
+#: .\publications\models.py:125
+msgid "Resource Type"
+msgstr "Tipo de recurso"
+
+#: .\health_workforce\models.py:36 .\publications\models.py:47
+msgid "Resource Types"
+msgstr "Tipos de recursos"
+
+#: .\health_workforce\models.py:45
+msgid "Resource/Guide"
+msgstr "Recurso/Guia"
+
+#: .\health_workforce\models.py:46
+msgid "Resources/Guides"
+msgstr "Recursos/guias"
+
+#: .\health_workforce\models.py:55 .\publications\models.py:93
+#: .\publications\models.py:127
+msgid "Resource Category"
+msgstr "Categoria de Recursos"
+
+#: .\health_workforce\models.py:56
+#, fuzzy
+#| msgid " Resource Categories"
+msgid "Resource Categories"
+msgstr "Categorias de recursos"
+
+#: .\health_workforce\models.py:71 .\indicators\models.py:448
+msgid "Name"
+msgstr "Nome"
+
+#: .\health_workforce\models.py:84 .\health_workforce\models.py:141
+msgid "Institution Type"
+msgstr "Tipo de Instituição"
+
+#: .\health_workforce\models.py:85
+msgid " Institution Types"
+msgstr "Tipos de instituições"
+
+#: .\health_workforce\models.py:100 .\publications\models.py:29
+msgid "Type Name"
+msgstr "Nome do Tipo"
+
+#: .\health_workforce\models.py:114
+msgid "Training Programme"
+msgstr "Programa de Formação"
+
+#: .\health_workforce\models.py:115
+msgid " Training Programmes"
+msgstr "Programas de Formação"
+
+#: .\health_workforce\models.py:124
+msgid "Accredited"
+msgstr "Credenciado"
+
+#: .\health_workforce\models.py:125
+msgid "Chartered"
+msgstr "Fretado"
+
+#: .\health_workforce\models.py:126
+msgid "Not Accredited"
+msgstr "Não Acreditado"
+
+#: .\health_workforce\models.py:127
+msgid "Pending Accreditation"
+msgstr "Acreditação Pendente"
+
+#: .\health_workforce\models.py:137
+msgid "Institution Code"
+msgstr "Código da Instituição"
+
+#: .\health_workforce\models.py:139 .\health_workforce\models.py:267
+#: .\health_workforce\models.py:438 .\indicators\models.py:489
+#: .\indicators\models.py:518 .\regions\models.py:201
+msgid "Location"
+msgstr "País/local"
+
+#: .\health_workforce\models.py:144
+msgid "Training Programmes"
+msgstr "Programas de Formação"
+
+#: .\health_workforce\models.py:146
+msgid "Institution Name"
+msgstr "Nome da instituição"
+
+#: .\health_workforce\models.py:148
+msgid "Faculty Name"
+msgstr "Nome da Faculdade"
+
+#: .\health_workforce\models.py:150
+msgid "Accreditation Status"
+msgstr "Estado de Acreditação"
+
+#: .\health_workforce\models.py:152
+msgid "Regulatory Body"
+msgstr "Entidade Reguladora"
+
+#: .\health_workforce\models.py:154
+msgid "Accreditation Details"
+msgstr "Detalhes de Acreditação"
+
+#: .\health_workforce\models.py:156
+msgid "Teaching Language"
+msgstr "Ensinar Língua"
+
+#: .\health_workforce\models.py:158
+msgid "Contact Person"
+msgstr "Pessoa de Contato"
+
+#: .\health_workforce\models.py:160
+msgid "Post Address"
+msgstr "Endereço postal"
+
+#: .\health_workforce\models.py:166
+msgid "Web Address"
+msgstr "Endereço Web"
+
+#: .\health_workforce\models.py:179
+msgid "Institution"
+msgstr "Instituição"
+
+#: .\health_workforce\models.py:180
+msgid "  Training Institutions"
+msgstr "Instituições de Formação"
+
+#: .\health_workforce\models.py:194
+msgid "Training Institution with the this name exists"
+msgstr "Instituição de Formação com este nome existe"
+
+#: .\health_workforce\models.py:202
+msgid "Degree"
+msgstr "Grau"
+
+#: .\health_workforce\models.py:203
+msgid "Diploma"
+msgstr "Diploma"
+
+#: .\health_workforce\models.py:204
+msgid "Masters"
+msgstr "Mestres"
+
+#: .\health_workforce\models.py:205
+msgid "Doctorate"
+msgstr "Doutorado"
+
+#: .\health_workforce\models.py:206
+msgid "Certificate"
+msgstr "Certificado"
+
+#: .\health_workforce\models.py:207
+msgid "Basic Education"
+msgstr "Educação Básica"
+
+#: .\health_workforce\models.py:214
+msgid "ISCO-08 Code"
+msgstr "Código ISCO-08"
+
+#: .\health_workforce\models.py:216
+msgid "Parent Cadre"
+msgstr "Cadete-Mãe"
+
+#: .\health_workforce\models.py:218
+msgid "Cadre Name"
+msgstr "Nome do Cadre)"
+
+#: .\health_workforce\models.py:222
+msgid "Academic Qualification"
+msgstr "Qualificação Acadêmica"
+
+#: .\health_workforce\models.py:234
+msgid "Health Cadre"
+msgstr "Cadre Saúde"
+
+#: .\health_workforce\models.py:235
+msgid "   Health Cadres"
+msgstr "Cadres de Saúde"
+
+#: .\health_workforce\models.py:245
+msgid "The same occupation/cadre exists"
+msgstr "A mesma ocupação/cadre existe"
+
+#: .\health_workforce\models.py:253 .\indicators\models.py:27
+#: .\publications\models.py:114
+msgid "Pending"
+msgstr "Pendente"
+
+#: .\health_workforce\models.py:254 .\indicators\models.py:28
+#: .\publications\models.py:115
+msgid "Approved"
+msgstr "Aprovado"
+
+#: .\health_workforce\models.py:255 .\indicators\models.py:29
+#: .\publications\models.py:116
+msgid "Rejected"
+msgstr "Rejeitado"
+
+#: .\health_workforce\models.py:265
+msgid "Occupation/Cadre"
+msgstr "Ocupação/Cadre"
+
+#: .\health_workforce\models.py:269 .\indicators\models.py:189
+msgid "Disaggregation Options"
+msgstr "Opções de Desagregação"
+
+#: .\health_workforce\models.py:271 .\home\models.py:79 .\home\models.py:98
+#: .\indicators\models.py:192 .\indicators\models.py:398
+msgid "Data Source"
+msgstr "Fonte de Dados"
+
+#: .\health_workforce\models.py:273 .\home\models.py:161
+#: .\indicators\models.py:195 .\indicators\models.py:400
+msgid "Measure Type"
+msgstr "Tipo de Medida"
+
+#: .\health_workforce\models.py:276 .\health_workforce\models.py:366
+#: .\health_workforce\models.py:452 .\indicators\models.py:210
+msgid "Starting period"
+msgstr "Período inicial"
+
+#: .\health_workforce\models.py:280 .\health_workforce\models.py:370
+#: .\health_workforce\models.py:456 .\indicators\models.py:214
+msgid "Ending Period"
+msgstr "Período de Fim"
+
+#: .\health_workforce\models.py:282 .\health_workforce\models.py:372
+#: .\health_workforce\models.py:459 .\indicators\models.py:217
+#, fuzzy
+#| msgid ""
+#| "This marks the end of reporting. The value must be current year or "
+#| "greater than the start year"
+msgid ""
+"This marks the end of reporting. The value must be current             year "
+"or greater than the start year"
+msgstr ""
+"Isto marca o fim dos relatórios. O valor deve ser o ano correnteou maior do "
+"que o ano de início"
+
+#: .\health_workforce\models.py:296
+#, fuzzy
+#| msgid "health_workforce"
+msgid "Health Workforce"
+msgstr "Pessoal da saúde"
+
+#: .\health_workforce\models.py:297
+#, fuzzy
+#| msgid "    Healthworkforce Data"
+msgid "    Health Workforce"
+msgstr "Dados sobre o pessoal de saúde"
+
+#: .\health_workforce\models.py:310 .\indicators\models.py:253
+#, fuzzy
+#| msgid ""
+#| "Sorry! Start year cannot be less than 1900 or greater than current Year"
+msgid ""
+"Sorry! Start year cannot be less than 1900 or greater than current Year "
+msgstr ""
+"Desculpe! O ano de início não pode ser inferior a 1900 ou superior ao ano "
+"corrente"
+
+#: .\health_workforce\models.py:313 .\indicators\models.py:256
+#, fuzzy
+#| msgid ""
+#| "Sorry! The ending year cannot be lower than the start yearor greater than "
+#| "the current Year"
+msgid ""
+"Sorry! The ending year cannot be lower than the start year "
+"or                 greater than the current Year "
+msgstr ""
+"Desculpe! O ano final não pode ser inferior ao ano inicialou maior do que o "
+"Ano corrente"
+
+#: .\health_workforce\models.py:317 .\indicators\models.py:260
+#, fuzzy
+#| msgid ""
+#| "Sorry! Ending period cannot be lower than the start period.Please make "
+#| "corrections"
+msgid ""
+"Sorry! Ending period cannot be lower than the start period.                  "
+"Please make corrections"
+msgstr ""
+"Desculpe! O período final não pode ser inferior ao período inicial.Por "
+"favor, faça correcções"
+
+#: .\health_workforce\models.py:339 .\health_workforce\models.py:428
+msgid "Open"
+msgstr "Aberto"
+
+#: .\health_workforce\models.py:341 .\health_workforce\models.py:430
+msgid "Suspended"
+msgstr "Suspenso"
+
+#: .\health_workforce\models.py:346
+msgid "Event Code"
+msgstr "Código do Evento"
+
+#: .\health_workforce\models.py:350
+msgid "Target Focus"
+msgstr "Alvo"
+
+#: .\health_workforce\models.py:352
+msgid "Event Location"
+msgstr "Local do evento"
+
+#: .\health_workforce\models.py:354
+msgid "Name of Event"
+msgstr "Nome do Evento"
+
+#: .\health_workforce\models.py:355
+msgid "International Year of the Nurse and the Midwife"
+msgstr "Ano Internacional da Enfermeira e da Parteira"
+
+#: .\health_workforce\models.py:358 .\indicators\models.py:136
+#: .\indicators\models.py:371 .\indicators\models.py:487
+msgid "Theme"
+msgstr "Tema"
+
+#: .\health_workforce\models.py:360 .\health_workforce\models.py:446
+msgid "Upload File/Video(s)"
+msgstr "Carregar ficheiro/vídeo(s)"
+
+#: .\health_workforce\models.py:362
+msgid "Web Address (URL)"
+msgstr "Endereço Web (URL)"
+
+#: .\health_workforce\models.py:364 .\health_workforce\models.py:450
+msgid "Upload Picture/Banner(s)"
+msgstr "Carregar imagem/banner(es)"
+
+#: .\health_workforce\models.py:386
+msgid "Nursing & Midwifery"
+msgstr "Enfermagem e Obstetrícia"
+
+#: .\health_workforce\models.py:387
+msgid "Nursing and Midwifery"
+msgstr "Enfermagem e Obstetrícia"
+
+#: .\health_workforce\models.py:401 .\health_workforce\models.py:404
+#: .\health_workforce\models.py:488 .\health_workforce\models.py:491
+msgid "Sorry! The start period year must be current or in future"
+msgstr "Desculpe! O ano de início deve ser atual ou no futuro"
+
+#: .\health_workforce\models.py:407 .\health_workforce\models.py:494
+msgid "Sorry! End period cannot be lower than start period!"
+msgstr "Desculpe! O período final não pode ser inferior ao período inicial!"
+
+#: .\health_workforce\models.py:440
+msgid "Announcment Title"
+msgstr "Título do Anúncio"
+
+#: .\health_workforce\models.py:442
+msgid "Short Title"
+msgstr "Título curto"
+
+#: .\health_workforce\models.py:444
+msgid "Message"
+msgstr "Mensagem"
+
+#: .\health_workforce\models.py:448
+msgid "Web Link (URL)"
+msgstr "Endereço web"
+
+#: .\health_workforce\models.py:473
+msgid "Announcement"
+msgstr "Anúncio"
+
+#: .\health_workforce\models.py:474
+msgid "Announcements"
+msgstr "Anúncios"
+
+#: .\home\admin.py:155
+msgid "Import Data File... "
+msgstr "Ficheiro de importação"
+
+#: .\home\admin.py:223
+msgid "Import via URL..."
+msgstr "Importação via URL"
+
+#: .\home\apps.py:6
+msgid "home"
+msgstr "casa"
+
+#: .\home\models.py:10 .\home\models.py:14 .\home\models.py:42
+#: .\publications\models.py:76
+msgid "Category Name"
+msgstr "Nome da categoria"
+
+#: .\home\models.py:29
+msgid "Disaggregation Category"
+msgstr "Categoria de Desagregação"
+
+#: .\home\models.py:30
+msgid "  Disaggregation Categories"
+msgstr "Categorias de Desagregação"
+
+#: .\home\models.py:45
+msgid "Modality Name"
+msgstr "Nome da Disagregação"
+
+#: .\home\models.py:60
+msgid "   Disaggregation Options"
+msgstr "Opções de Desagregação"
+
+#: .\home\models.py:68
+msgid "Global"
+msgstr "Mundo"
+
+#: .\home\models.py:69
+msgid "Regional"
+msgstr "África"
+
+#: .\home\models.py:70
+msgid "National"
+msgstr "País/Nacional"
+
+#: .\home\models.py:71
+msgid "Sub-national"
+msgstr "Sub-nacional"
+
+#: .\home\models.py:72
+msgid "Non-specific"
+msgstr "Não Específico"
+
+#: .\home\models.py:83
+msgid "Source Level"
+msgstr "Nível da Fonte"
+
+#: .\home\models.py:85
+msgid "Level can be global, regional, national, subnational"
+msgstr "O nível pode ser mundo, África, nacional, subnacional"
+
+#: .\home\models.py:87
+msgid "No definition"
+msgstr "Sem definição"
+
+#: .\home\models.py:99
+msgid "    Data Sources"
+msgstr "Fontes de Dados"
+
+#: .\home\models.py:108
+msgid "Sorry! This data source exists"
+msgstr "Desculpe! Esta fonte de dados existe"
+
+#: .\home\models.py:116
+msgid "Value Name"
+msgstr "Nome do valor"
+
+#: .\home\models.py:130
+msgid " Data Value"
+msgstr "Valor dos Dados"
+
+#: .\home\models.py:131
+msgid "Data Value Types"
+msgstr "Tipos de valores"
+
+#: .\home\models.py:143
+msgid "Measure Name"
+msgstr "Nome da medida"
+
+#: .\home\models.py:144
+#, fuzzy
+#| msgid ""
+#| "Name can be indicator types like unit, Percentage, Per Thousand, Per Ten "
+#| "Thousand,Per Hundred Thousand etc"
+msgid ""
+"Name can be indicator types like unit,             Percentage, Per Thousand, "
+"Per Ten Thousand,Per Hundred Thousand etc"
+msgstr ""
+"O nome pode ser tipos indicadores como unidade, Porcentagem, Por Mil,Por Dez "
+"Mil, Por Cem Mil, etc."
+
+#: .\home\models.py:146
+msgid "Ratio"
+msgstr "Relação"
+
+#: .\home\models.py:147
+#, fuzzy
+#| msgid ""
+#| "Ratio can be factors like 1 for unit, 100, 1000,10000 or higher values"
+msgid ""
+"Ratio can be             factors like 1 for unit, 100, 1000,10000 or higher "
+"values"
+msgstr ""
+"A razão pode ser fatores como 1 para unidade, 100, 1000.10000 ou superior"
+
+#: .\home\models.py:162
+msgid " Measure Types"
+msgstr "Tipos de Medidas"
+
+#: .\home\templates\login.html:10
+msgid "Login with Microsoft Azure"
+msgstr "Entrar com Microsoft Azure"
+
+#: .\home\templates\login.html:15
+msgid "Language/Langue/Idioma"
+msgstr "Idioma/Language/Langue"
+
+#: .\indicators\apps.py:6
+msgid "indicators"
+msgstr "indicadores"
+
+#: .\indicators\models.py:37
+msgid "Reference Name"
+msgstr "Nome de referência"
+
+#: .\indicators\models.py:38
+msgid "Global List of 100 Core Health Indicators"
+msgstr "Lista Global de 100 Indicadores Nucleares de Saúde"
+
+#: .\indicators\models.py:52 .\indicators\models.py:91
+msgid "Indicator Reference"
+msgstr "Referência Indicadora"
+
+#: .\indicators\models.py:53
+msgid "Indicator References"
+msgstr "Referências Indicadoras"
+
+#: .\indicators\models.py:63
+msgid "Sorry! This indicator reference exists"
+msgstr "Desculpe! Esta referência de indicador existe"
+
+#: .\indicators\models.py:73 .\indicators\models.py:185
+#: .\indicators\models.py:368 .\indicators\models.py:392
+msgid "Indicator Name"
+msgstr "Nome do Indicador"
+
+#: .\indicators\models.py:77
+msgid "Indicator Definition"
+msgstr "Definição do Indicador"
+
+#: .\indicators\models.py:79
+msgid "Primary Sources"
+msgstr "Fontes Primárias"
+
+#: .\indicators\models.py:81
+msgid "Numerator Description"
+msgstr "Descrição do Numerador"
+
+#: .\indicators\models.py:83
+msgid "Denominator Description"
+msgstr "Descrição do Denominador"
+
+#: .\indicators\models.py:86
+msgid "Regional Code"
+msgstr "Código padrão"
+
+#: .\indicators\models.py:88
+msgid "Global Code"
+msgstr "Código Global"
+
+#: .\indicators\models.py:100 .\indicators\models.py:516
+msgid "Indicator"
+msgstr "Indicador"
+
+#: .\indicators\models.py:101
+msgid "  Indicators"
+msgstr "Indicadores"
+
+#: .\indicators\models.py:117
+msgid "Sorry! Indicator with this name exists"
+msgstr "Desculpe! Existe um indicador com este nome"
+
+#: .\indicators\models.py:125 .\publications\models.py:189
+msgid "level 1"
+msgstr "nível 1"
+
+#: .\indicators\models.py:126 .\publications\models.py:190
+msgid "level 2"
+msgstr "nível 2"
+
+#: .\indicators\models.py:127 .\publications\models.py:191
+msgid "level 3"
+msgstr "nível 3"
+
+#: .\indicators\models.py:128 .\publications\models.py:192
+msgid "level 4"
+msgstr "nível 4"
+
+#: .\indicators\models.py:129 .\publications\models.py:193
+msgid "level 5"
+msgstr "nível 5"
+
+#: .\indicators\models.py:130 .\publications\models.py:194
+msgid "level 6"
+msgstr "nível 6"
+
+#: .\indicators\models.py:142 .\indicators\models.py:372
+#: .\publications\models.py:205
+msgid "Theme Level"
+msgstr "Nível Temático"
+
+#: .\indicators\models.py:147 .\publications\models.py:211
+msgid "Parent Theme"
+msgstr "Tema dos Pais"
+
+#: .\indicators\models.py:151
+msgid "Indicators"
+msgstr "Indicadores"
+
+#: .\indicators\models.py:160
+msgid "Indicator Theme"
+msgstr "Tema do Indicador"
+
+#: .\indicators\models.py:161
+msgid " Indicator Themes"
+msgstr "Temas Indicadores"
+
+#: .\indicators\models.py:171
+msgid "Sorry! This indicators theme exists"
+msgstr "Desculpe! Este tema de indicadores existe"
+
+#: .\indicators\models.py:196 .\indicators\models.py:403
+msgid "Numerator Value"
+msgstr "Valor Numerador"
+
+#: .\indicators\models.py:198 .\indicators\models.py:405
+msgid "Denominator Value"
+msgstr "Valor Denominador"
+
+#: .\indicators\models.py:200
+msgid "Numeric Value"
+msgstr "Valor Numérico"
+
+#: .\indicators\models.py:202 .\indicators\models.py:407
+msgid "Minimum Value"
+msgstr "Valor Mínimo"
+
+#: .\indicators\models.py:204 .\indicators\models.py:409
+msgid "Maximum Value"
+msgstr "Valor Máximo"
+
+#: .\indicators\models.py:208 .\indicators\models.py:413
+msgid "String Value"
+msgstr "Valor da corda"
+
+#: .\indicators\models.py:238
+msgid "Indicator Data Record"
+msgstr "Registo de Dados Indicadores"
+
+#: .\indicators\models.py:239
+msgid "    Single-record Form"
+msgstr "Formulário de registo único"
+
+#: .\indicators\models.py:267
+#, fuzzy
+#| msgid ""
+#| "Data Integrity Problem! You must provide a Maximum that is greater that "
+#| "Minimum value "
+msgid ""
+"Data Integrity Problem! You must provide a Maximum that "
+"is                      greater that Minimum value "
+msgstr ""
+"Problema de Integridade de Dados! Você deve fornecer um máximo que é maior "
+"que o valor mínimo"
+
+#: .\indicators\models.py:271
+#, fuzzy
+#| msgid ""
+#| "Data Integrity Problem! Minimum value cannot be greaterthat the nominal "
+#| "value"
+msgid ""
+"Data Integrity Problem! Minimum value cannot be greater                      "
+"that the nominal value"
+msgstr ""
+"Problema de Integridade de Dados! O valor mínimo não pode ser maior que o "
+"valor nominal"
+
+#: .\indicators\models.py:275
+#, fuzzy
+#| msgid ""
+#| "Data Entry Problem! Both numeric and string values cannot be empty. "
+#| "Please supply data to both or either!"
+msgid ""
+"Data Entry Problem! Both numeric and string values cannot                 be "
+"empty. Please supply data to both or either!"
+msgstr ""
+"Problema de Introdução de Dados!Tanto os valores numéricos como os de cordel "
+"não podem estar vaziosPor favor, forneça dados a ambos ou a um ou outro"
+
+#: .\indicators\models.py:370
+msgid "Indicator Code"
+msgstr "Código Indicador"
+
+#: .\indicators\models.py:377
+msgid "Theme Lookup"
+msgstr "Pesquisa Temática"
+
+#: .\indicators\models.py:378
+msgid "Themes Lookup"
+msgstr "Temas Consulta"
+
+#: .\indicators\models.py:401
+msgid "Value"
+msgstr "Valor"
+
+#: .\indicators\models.py:415
+msgid "Starting Period"
+msgstr "Período inicial"
+
+#: .\indicators\models.py:417
+#, fuzzy
+#| msgid "This marks the start of reporting period"
+msgid "This Year marks the start of the reporting period"
+msgstr "Isto marca o início do período do relatório"
+
+#: .\indicators\models.py:420
+#, fuzzy
+#| msgid ""
+#| "This Year marks the end of reporting. The value must be current year or "
+#| "greater than the start year"
+msgid ""
+"This Year marks the end of reporting.         The value must be current year "
+"or greater than the start year"
+msgstr ""
+"Este Ano marca o fim dos relatórios. O valor deve ser o ano correnteou maior "
+"do que o ano de início"
+
+#: .\indicators\models.py:433
+msgid "Archive"
+msgstr ""
+
+#: .\indicators\models.py:434
+msgid "Indicators Archive"
+msgstr "Arquivo de Indicadores"
+
+#: .\indicators\models.py:462 .\indicators\models.py:485
+#: .\indicators\models.py:514
+msgid "Narrative Type"
+msgstr "Tipo Narrativo"
+
+#: .\indicators\models.py:463
+msgid "Narrative Types"
+msgstr "Tipos Narrativos"
+
+#: .\indicators\models.py:474
+msgid "Sorry! This narrative type exists"
+msgstr "Desculpe! Este tipo de narrativa existe"
+
+#: .\indicators\models.py:492 .\indicators\models.py:521
+msgid "Narrative Text"
+msgstr "Texto Narrativo"
+
+#: .\indicators\models.py:501
+msgid "Theme Narrative"
+msgstr "Narrativa Temática"
+
+#: .\indicators\models.py:502
+msgid "Theme Narratives"
+msgstr "Narrativas Temáticas"
+
+#: .\indicators\models.py:530
+msgid "Indicator Narrative"
+msgstr "Indicador Narrativo"
+
+#: .\indicators\models.py:531
+msgid "Indicators Narrative"
+msgstr "Indicadores Narrativa"
+
+#: .\indicators\templates\home.html:3
+msgid "Life is life."
+msgstr ""
+
+#: .\publications\apps.py:6
+msgid "publications"
+msgstr "publicações"
+
+#: .\publications\models.py:57
+#, fuzzy
+#| msgid "Resource Theme with the same name exists"
+msgid "Resource type with the same                 name exists"
+msgstr "Existe um tema de recurso com o mesmo nome"
+
+#: .\publications\models.py:94
+msgid " Resource Categories"
+msgstr "Categorias de recursos"
+
+#: .\publications\models.py:104
+#, fuzzy
+#| msgid "Resource category with the same name exists"
+msgid "Resource category with the same                 name exists"
+msgstr "Existe uma categoria de recurso com o mesmo nome"
+
+#: .\publications\models.py:129
+msgid "Title"
+msgstr "Título"
+
+#: .\publications\models.py:131
+msgid "Abstract/Summary"
+msgstr "Abstrato/Resumo"
+
+#: .\publications\models.py:132
+msgid "Author/Owner"
+msgstr "Autor/Proprietário"
+
+#: .\publications\models.py:134
+msgid "Year Published"
+msgstr "Ano de Publicação"
+
+#: .\publications\models.py:138
+#, fuzzy
+#| msgid "This marks the start of reporting period"
+msgid "This marks year of publication"
+msgstr "Isto marca o início do período do relatório"
+
+#: .\publications\models.py:141
+msgid "File"
+msgstr "Arquivo"
+
+#: .\publications\models.py:143
+msgid "Cover Picture"
+msgstr "Foto da capa"
+
+#: .\publications\models.py:147
+msgid "Resource Location"
+msgstr "Lugar"
+
+#: .\publications\models.py:163
+msgid "Knowledge Resource"
+msgstr "Recurso de Conhecimento"
+
+#: .\publications\models.py:164
+msgid "   Knowledge Resources"
+msgstr "Recursos do Conhecimento"
+
+#: .\publications\models.py:174
+#, fuzzy
+#| msgid ""
+#| "Sorry! The publishing year cannot be lower than 1900 orgreater than the "
+#| "current Year "
+msgid ""
+"Sorry! The publishing year cannot be lower than 1900 or                  "
+"greater than the current Year "
+msgstr ""
+"Desculpe! O ano de publicação não pode ser inferior a 1900 oumaior do que o "
+"Ano corrente"
+
+#: .\publications\models.py:180
+#, fuzzy
+#| msgid "Knowledge resource with the same title already exists"
+msgid "Knowledge resource with the same                 title already exists"
+msgstr "Recurso de conhecimento com o mesmo título já existe"
+
+#: .\publications\models.py:200 .\publications\models.py:223
+msgid "Resource Theme"
+msgstr "Tema dos Recursos"
+
+#: .\publications\models.py:208
+msgid "Theme Code"
+msgstr "Código Temático"
+
+#: .\publications\models.py:214
+msgid "Resources"
+msgstr "Recursos"
+
+#: .\publications\models.py:224
+msgid "  Resource Themes"
+msgstr "Temas de Recursos"
+
+#: .\publications\models.py:234
+#, fuzzy
+#| msgid "Resource Theme with the same name exists"
+msgid "Resource Theme with the same                 name exists"
+msgstr "Existe um tema de recurso com o mesmo nome"
+
+#: .\regions\apps.py:6
+msgid "regions"
+msgstr "regiões"
+
+#: .\regions\models.py:17 .\regions\models.py:32 .\regions\models.py:164
+msgid "Location Level"
+msgstr "Nível de Localização"
+
+#: .\regions\models.py:19
+msgid "Level Name"
+msgstr "Nome do Nível"
+
+#: .\regions\models.py:33
+msgid "  Location Levels"
+msgstr "Níveis de Localização"
+
+#: .\regions\models.py:43
+msgid "Sorry! This location level exists"
+msgstr "Desculpe! Este nível de localização existe"
+
+#: .\regions\models.py:54 .\regions\models.py:186
+msgid "Income level"
+msgstr "Nível de rendimento"
+
+#: .\regions\models.py:69
+msgid "Income Group"
+msgstr "Grupo de rendimentos"
+
+#: .\regions\models.py:80
+msgid "Sorry! This economic grouping exists"
+msgstr "Desculpe! Este grupo económico existe"
+
+#: .\regions\models.py:90
+msgid "Economic Zone"
+msgstr "Zona Económica"
+
+#: .\regions\models.py:105 .\regions\models.py:187
+msgid "Economic Block"
+msgstr "Bloco Econômico"
+
+#: .\regions\models.py:106
+msgid "Economic Blocks"
+msgstr "Blocos Econômicos"
+
+#: .\regions\models.py:116
+msgid "Sorry! This economic block exists"
+msgstr "Desculpe! Este bloco económico existe"
+
+#: .\regions\models.py:126
+msgid "Categorization Name"
+msgstr "Nome da Categorização"
+
+#: .\regions\models.py:141
+msgid "Categorization"
+msgstr "Categorização"
+
+#: .\regions\models.py:142
+msgid "Special Categorizations"
+msgstr "Categorizações Especiais"
+
+#: .\regions\models.py:153
+msgid "Sorry! This states categorization exists"
+msgstr "Desculpe! Esta categorização de estados existe"
+
+#: .\regions\models.py:165
+#, fuzzy
+#| msgid ""
+#| "You are not allowed to make changes to this Field because it is related "
+#| "to other Records"
+msgid ""
+"You are not allowed to make changes to this Field because it             is "
+"related to other Records"
+msgstr ""
+"Você não está autorizado a fazer alterações neste campo porque érelacionado "
+"com outros registos"
+
+#: .\regions\models.py:173
+msgid "Cordinates"
+msgstr "Coordenadas"
+
+#: .\regions\models.py:175
+msgid "ISO Alpha Code"
+msgstr "Código ISO Alfa"
+
+#: .\regions\models.py:177
+msgid "ISO Numeric Code"
+msgstr "Código Numérico ISO"
+
+#: .\regions\models.py:179
+msgid "Unique Code"
+msgstr "Código Único"
+
+#: .\regions\models.py:182
+msgid "Parent Location"
+msgstr "Localização dos pais"
+
+#: .\regions\models.py:183
+#, fuzzy
+#| msgid ""
+#| "You are not allowed to edit this field because it is related to other "
+#| "records"
+msgid ""
+"You are not allowed to edit this field because it is        related to other "
+"records"
+msgstr ""
+"Você não está autorizado a editar este campo porque está relacionado com "
+"outros registos"
+
+#: .\regions\models.py:192
+msgid "Special Categorization"
+msgstr "Categorização Especial"
+
+#: .\regions\models.py:202
+msgid "   Locations"
+msgstr "Localizações"
+
+#: .\regions\models.py:213
+msgid "Location with similar name exists"
+msgstr "Existe um local com nome semelhante"
+
+#: .\regions\models.py:222
+msgid "Country"
+msgstr ""
+
+#: .\regions\models.py:223
+#, fuzzy
+#| msgid ""
+#| "You are not allowed to make changes to this Field because it is related "
+#| "to other Records"
+msgid ""
+"You are not allowed to make changes to this Field because it             is "
+"related to countries already registed"
+msgstr ""
+"Você não está autorizado a fazer alterações neste campo porque érelacionado "
+"com outros registos"
+
+#: .\regions\models.py:225 .\regions\models.py:235
+#, fuzzy
+#| msgid "Regional Code"
+msgid "Dial Code"
+msgstr "Código padrão"
+
+#: .\regions\models.py:236
+#, fuzzy
+#| msgid "Regional Code"
+msgid "Dial Codes"
+msgstr "Código padrão"
+
+#: .\regions\models.py:247
+#, fuzzy
+#| msgid "Location with similar name exists"
+msgid "Country with similar code exists"
+msgstr "Existe um local com nome semelhante"
+
+#: .\templates\admin\base.html:37
+msgid "Welcome,"
+msgstr "Bem-vindo"
+
+#: .\templates\admin\base.html:42
+msgid "View site"
+msgstr "Ver o site"
+
+#: .\templates\admin\base.html:47
+#: .\templates\registration\password_change_done.html:3
+#: .\templates\registration\password_change_form.html:4
+msgid "Documentation"
+msgstr "Documentação"
+
+#: .\templates\admin\base.html:51
+#: .\templates\registration\password_change_done.html:3
+#: .\templates\registration\password_change_form.html:4
+msgid "Change password"
+msgstr "Alterar palavra-passe"
+
+#: .\templates\admin\base.html:53
+#: .\templates\registration\password_change_done.html:3
+#: .\templates\registration\password_change_form.html:4
+msgid "Log out"
+msgstr "Sair"
+
+#: .\templates\admin\base.html:63
+#: .\templates\registration\password_change_done.html:6
+#: .\templates\registration\password_change_form.html:7
+#: .\templates\registration\password_reset_complete.html:6
+#: .\templates\registration\password_reset_confirm.html:7
+#: .\templates\registration\password_reset_form.html:7
+msgid "Home"
+msgstr "Casa"
+
+#: .\templates\admin\settings\ahodctuserlogs\submit_line.html:6
+msgid "Delete"
+msgstr "Eliminar"
+
+#: .\templates\registration\password_change_done.html:7
+#: .\templates\registration\password_change_form.html:8
+msgid "Password change"
+msgstr "Mudança de senha"
+
+#: .\templates\registration\password_change_done.html:14
+msgid "Your password was changed."
+msgstr "A sua palavra-passe foi alterada"
+
+#: .\templates\registration\password_change_form.html:21
+msgid "Please correct the error below."
+msgstr "Por favor, corrija o erro abaixo"
+
+#: .\templates\registration\password_change_form.html:21
+msgid "Please correct the errors below."
+msgstr "Por favor, corrija os erros abaixo"
+
+#: .\templates\registration\password_change_form.html:26
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+"Por favor, introduza a sua senha antiga, por razões de segurança, e depois "
+"introduza a sua nova senha duas vezes para que possamos verificar se a "
+"digitou correctamente"
+
+#: .\templates\registration\password_change_form.html:54
+msgid "Change my password"
+msgstr "Alterar a minha palavra-passe"
+
+#: .\templates\registration\password_reset_complete.html:7
+#: .\templates\registration\password_reset_form.html:8
+msgid "Password reset"
+msgstr "Redefinição da palavra-passe"
+
+#: .\templates\registration\password_reset_complete.html:16
+#, fuzzy
+#| msgid ""
+#| "Your password has been changed successifully. You may go ahead and log in "
+#| "now."
+msgid ""
+"Your password has been changed successfully. You may go ahead and log in now."
+msgstr ""
+"A sua senha foi alterada com sucesso. Pode ir em frente e iniciar sessão "
+"agora"
+
+#: .\templates\registration\password_reset_complete.html:18
+msgid "Log in Now..."
+msgstr "Entrar agora..."
+
+#: .\templates\registration\password_reset_confirm.html:8
+msgid "Password reset confirmation"
+msgstr "Confirmação de redefinição de senha"
+
+#: .\templates\registration\password_reset_confirm.html:18
+msgid ""
+"Please enter your new password in the new password box. Re-enter the same in "
+"the confirm box to verify you typed it correctly."
+msgstr ""
+"Por favor, introduza a sua nova senha na nova caixa de senha. Digite "
+"novamente a mesma senha em a caixa de confirmação para verificar se o "
+"digitou correctamente."
+
+#: .\templates\registration\password_reset_confirm.html:23
+msgid "Enter New Password:"
+msgstr "Introduzir nova palavra-passe"
+
+#: .\templates\registration\password_reset_confirm.html:28
+msgid "Confirm Password:"
+msgstr "Confirmar Palavra-passe:"
+
+#: .\templates\registration\password_reset_confirm.html:31
+msgid "Save Changes"
+msgstr "Salvar Mudanças"
+
+#: .\templates\registration\password_reset_confirm.html:37
+msgid ""
+"The password reset link used is invalid, may be it has already been used "
+"earlier. Please request a new password reset."
+msgstr ""
+"A ligação de redefinição da palavra-passe utilizada é inválida, pode ser que "
+"já tenha sido utilizada mais cedo. Por favor, solicite uma nova palavra-passe"
+
+#: .\templates\registration\password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Você está recebendo este e-mail porque você solicitou uma redefinição de "
+"senha para o seuuser account at %(site_name)s"
+
+#: .\templates\registration\password_reset_email.html:4
+msgid ""
+"Please click the link below that will take you to the password reset form. "
+"Alway remember to keep your password secret:"
+msgstr ""
+"Por favor clique no link abaixo que o levará para o formulário de "
+"redefinição de senha.Lembre-se sempre de manter sua senha em segredo:"
+
+#: .\templates\registration\password_reset_email.html:8
+msgid "Your username is your email, in case you've forgotten:"
+msgstr "Seu nome de usuário é seu e-mail, caso você tenha esquecido:"
+
+#: .\templates\registration\password_reset_email.html:10
+msgid "Thanks for using AHO Data Capture Tool!"
+msgstr "Obrigado por usar a Ferramenta de Captura de Dados iAHO"
+
+#: .\templates\registration\password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "A %(site_name)s equipa"
+
+#: .\templates\registration\password_reset_form.html:16
+msgid ""
+"Forgotten your password? Enter your email address below. The password reset "
+"instructions will sent to your email address if it is registered in the "
+"system."
+msgstr ""
+"Esqueceu-se da sua senha? Digite seu endereço de e-mail abaixo. A palavra-"
+"passe foi redefinidaAs instruções serão enviadas para o seu endereço de e-"
+"mail se estiver registado no sistema"
+
+#: .\templates\registration\password_reset_form.html:21
+msgid "Email Address:"
+msgstr "Endereço de e-mail:"
+
+#: .\templates\registration\password_reset_form.html:24
+msgid "Reset Password"
+msgstr "Redefinir Palavra-passe"
+
+#~ msgid "Infrastructure"
+#~ msgstr "Infra-estrutura"
+
+#~ msgid "Health Infrastructures"
+#~ msgstr "Infra-estruturas de Saúde"
+
+#~ msgid "Inactive"
+#~ msgstr "Inativo"
+
+#~ msgid "Health Infratructures"
+#~ msgstr "Infra-estruturas de saúde"
+
+#~ msgid "Year Established"
+#~ msgstr "Ano de Estabelecimento"
+
+#~ msgid "Sorry! The year facility was established cannot be in future!"
+#~ msgstr ""
+#~ "Desculpe! O ano em que as instalações foram estabelecidas não pode ser no "
+#~ "futuro!"
+
+#~ msgid "Domain Name"
+#~ msgstr "Nome de domínio"
+
+#~ msgid "Domain Level"
+#~ msgstr "Nível de domínio"
+
+#~ msgid "Health Facilities"
+#~ msgstr "Instalações de saúde"
+
+#~ msgid "Healthworkforce Data"
+#~ msgstr "Dados de pessoal de saúde"
+
+#, fuzzy
+#~| msgid "Thanks for using AHO Data Capture Tool!"
+#~ msgid "AHO Data Capture Tool"
+#~ msgstr "Ferramenta de Captura de Dados AHO"
+
+#, fuzzy
+#~| msgid "Password reset"
+#~ msgid "Password"
+#~ msgstr "Palavra-passe"
+
+#~ msgid "Login"
+#~ msgstr "Entrar"
+
+#~ msgid "Choose language"
+#~ msgstr "Escolher idioma"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#, fuzzy
+#~| msgid "Change my password"
+#~ msgid "Forgot your password?"
+#~ msgstr "Esqueceu a sua palavra-passe?"
+
+#, fuzzy
+#~| msgid ""
+#~| "This Year marks the start of the reporting period. NB: 1900 isthe Lowest "
+#~| "Limit!"
+#~ msgid ""
+#~ "This Year marks the start of the reporting period.             NB: 1900 "
+#~ "is the Lowest Limit!"
+#~ msgstr ""
+#~ "Este Ano marca o início do período do relatório. NB: 1900 éO Limite Mais "
+#~ "Baixo!"
+
+#~ msgid "Comments"
+#~ msgstr "Comentários"
+
+#~ msgid "Indicator Archive"
+#~ msgstr "Arquivo de Indicadores"
+
+#~ msgid "Go"
+#~ msgstr "Ir"
+
+#~ msgid "Facilities"
+#~ msgstr "Instalações de saúde"
+
+#~ msgid ""
+#~ "Sorry! Ending year cannot be lower than the start year.Please make "
+#~ "corrections"
+#~ msgstr ""
+#~ "Desculpe! O ano de fim não pode ser inferior ao ano de início.Por favor, "
+#~ "faça correcções"
+
+#~ msgid "Health facility type with the same name exists"
+#~ msgstr "Existe um tipo de estabelecimento de saúde com o mesmo nome"

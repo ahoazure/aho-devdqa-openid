@@ -1,0 +1,62 @@
+body {
+	background: #008dc8 !important;
+}
+#wrapper {
+	margin-top: 10% !important;
+}
+#content {
+	background: white;
+	padding: 25px;
+}
+#content > h2 {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 0;
+}
+.t10 {
+	margin-top: 10px;
+}
+.t20 {
+	margin-top: 20px;
+}
+
+.list-group-item {
+	color: black;
+}
+.todo-completed {
+	text-decoration: line-through;
+	background: green;
+}
+
+footer {
+	margin-top: 20px;
+	color: white;
+}
+
+td > label {
+	margin-top: 15px;
+}
+
+.logo {
+	width: 95%;
+	margin: 20px;
+}
+
+.btn-primary {
+	background-color: #205280;
+	border-color: #205280;
+}
+
+.body_title {
+	color:  #5d4037;
+	text-align:center;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size:30px;
+
+}
+
+.alert-danger {
+    color: #721c24 !important;
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+}

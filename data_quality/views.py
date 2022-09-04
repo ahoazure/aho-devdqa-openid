@@ -46,39 +46,40 @@ def db_connection():
 
 def check_data_quality(request):
     con= db_connection() # create connection to database using sqlalchemy engine
-
-    facts_df = pd.DataFrame() # initialize the facts dataframe with a null value
-    data = pd.DataFrame()
     groups = list(request.user.groups.values_list('user', flat=True))
-    user = request.user.id  
+    user = request.user.id  # get logged in user id for access control
     location = request.user.location.name
     language = request.LANGUAGE_CODE 
     
     
     # -----------------------------------Start Save Data Validation DataFrames---------------------------------------------------------
     # Create data source dataframe and save it into the database into measure types model 
+    MesureTypeValid  = pd.DataFrame() # initialize an empty dataframe
+    DataSourceValid  = pd.DataFrame() # initialize an empty dataframe
+    CategoryOptionValid  = pd.DataFrame() # initialize an empty dataframe
     try:
         MesureTypeValid = pd.read_csv('Datasets/Mesuretype.csv', encoding='iso-8859-1')
         
         MesureTypeValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
                 'measurementmethod':'measure_type','measuremethod_id':'measuremethod_id'},
                 axis=1, inplace=True)    
-        measuretypes = json.loads(MesureTypeValid.to_json(
-            orient='records', index=True))  # converts json to dict
-        # Use try..except block to loop through and save measure objects into the database
+        measuretypes = MesureTypeValid  
+        
+        # use try..except block to loop through and save measure objects into the database
         try:
-            for record in measuretypes:    
-                measuretype = MeasureTypes_Validator.objects.update_or_create(
-                    afrocode=record['afrocode'],
-                    indicator_name=record['indicator_name'],
-                    measure_type=record['measure_type'],
-                    measuremethod_id=record['measuremethod_id'],
-                )
-        except:
+            measuretypes.loc[:,'user_id'] =user# add logged user id column
+            measuretypes.index = range(1,len(measuretypes)+1) #set index to start from 1 instead of default 0
+            measuretypes.to_sql(
+                'dqa_valid_measure_type', con = con, 
+                if_exists = 'append',index=True,index_label='id',chunksize = 1000) # set index as true to save as id 
+        except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
             pass
+        except:
+            print('Unknown Error has occured') 
     except:
         pass
 
+    # import pdb; pdb.set_trace()     
 
     # # Create data source dataframe and save it into the database into the datasource model
     try:
@@ -87,20 +88,18 @@ def check_data_quality(request):
             {'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
                 'DataSource':'datasource','DatasourceId':'datasource_id'},
                 axis=1, inplace=True)   
-        datasources = json.loads(DataSourceValid.to_json(
-            orient='records', index=True))  # converts json to dict
-
-        # use try..except block to loop through and save measure objects into the database
+        datasources = DataSourceValid  # converts json to dict
+        # use try..except block to save valid datasource objects into the database
         try:
-            for record in datasources:
-                datasource = DataSource_Validator.objects.update_or_create(
-                    afrocode=record['afrocode'],
-                    indicator_name=record['indicator_name'],
-                    datasource=record['datasource'],
-                    datasource_id=record['datasource_id'],
-                )
-        except:
+            datasources.loc[:,'user_id'] = user # add logged user id column
+            datasources.index = range(1,len(datasources)+1) #set index to start from 1 instead of default 0
+            datasources.to_sql(
+                'dqa_valid_datasources', con = con, 
+                if_exists = 'append',index=True,index_label='id',chunksize = 1000) # set index as true to save as id 
+        except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
             pass
+        except:
+            print('Unknown Error has occured') 
     except:
         pass   
     
@@ -111,22 +110,23 @@ def check_data_quality(request):
                 'DataSource':'datasource','DatasourceId':'datasource_id','Category':'categoryoption',
                 'CategoryId':'categoryoption_id'},axis=1, inplace=True)   
 
-        categoryoptions = json.loads(CategoryOptionValid.to_json(
-            orient='records', index=True))  # convert to records
-        try:    
-            for record in categoryoptions:
-                categoryoption = CategoryOptions_Validator.objects.update_or_create(
-                    afrocode=record['afrocode'],
-                    indicator_name=record['indicator_name'],
-                    categoryoption=record['categoryoption'],
-                    categoryoption_id=record['categoryoption_id'],
-                )
-        except:
+        categoryoptions = CategoryOptionValid # convert to records
+        try:
+            categoryoptions.loc[:,'user_id'] = user # add logged user id column
+            categoryoptions.index = range(1,len(categoryoptions)+1) #set index to start from 1 instead of default 0
+            categoryoptions.to_sql(
+                'dqa_valid_categoryoptions', con = con, 
+                if_exists = 'append',index=True,index_label='id',chunksize = 1000) # set index as true to save as id 
+        except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
             pass
+        except:
+            print('Unknown Error has occured') 
     except:
         pass
-    # ----------------------------------End Data Validation DataFrames---------------------------------------------------------
-
+    # ----------------------------------End primary data validation dataFrames---------------------------------------------------------
+    facts_df = pd.DataFrame() # initialize the facts dataframe with a null value
+    data = pd.DataFrame()
+    
     qs = Facts_DataFrame.objects.all().order_by('indicator_name')
     if request.user.is_superuser:
         qs=qs # show all records if logged in as super user
@@ -197,9 +197,9 @@ def check_data_quality(request):
                 
                 # Concatenate the two frames using columns (axis=1) and save on the database
                 measures_checker_df = pd.concat((multi_measures_df, multi_source_measures_df), axis = 1)
-                measures_checker_df.loc[:,'user_id'] = request.user.id # add logged user id column
                 if con: #store similarity scores into similarities table
                     try:
+                        measures_checker_df.loc[:,'user_id'] = user # add logged user id column
                         measures_checker_df.index = range(1,len(measures_checker_df)+1) #set index to start from 1 instead of default 0
                         measures_checker_df.to_sql(
                             'dqa_multiple_indicators_checker', con = con, 
@@ -246,7 +246,7 @@ def check_data_quality(request):
                
                 if con: #store similarity scores into similarities table
                     try:
-                        bad_datasource_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                        bad_datasource_df.loc[:,'user_id'] = user # add logged user id column
                         bad_datasource_df.index = range(1,len(bad_datasource_df)+1) #set index to start from 1 instead of default 0
                         bad_datasource_df.to_sql(
                             'dqa_invalid_datasource_remarks', con = con, 
@@ -291,7 +291,7 @@ def check_data_quality(request):
 
                 if con: #store similarity scores into similarities table
                     try:
-                        bad_categoryoption_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                        bad_categoryoption_df.loc[:,'user_id'] = user # add logged user id column
                         bad_categoryoption_df.index = range(1,len(bad_categoryoption_df)+1) #set index to start from 1 instead of default 0
                         bad_categoryoption_df.to_sql(
                             'dqa_invalid_categoryoption_remarks', con = con, 
@@ -335,7 +335,7 @@ def check_data_quality(request):
 
                 if con: #store similarity scores into similarities table
                     try:
-                        bad_measuretype_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                        bad_measuretype_df.loc[:,'user_id'] = user # add logged user id column
                         bad_measuretype_df.index = range(1,len(bad_measuretype_df)+1) #set index to start from 1 instead of default 0
                         bad_measuretype_df.to_sql(
                             'dqa_invalid_measuretype_remarks', con = con, 
@@ -373,7 +373,7 @@ def check_data_quality(request):
 
         if con: #store similarity scores into similarities table
             try:
-                Check_similarities.loc[:,'user_id'] = request.user.id # add logged user id column
+                Check_similarities.loc[:,'user_id'] = user # add logged user id column
                 Check_similarities.index = range(1,len(Check_similarities)+1) #set index to start from 1 instead of default 0
                 Check_similarities.to_sql(
                     'dqa_similar_indicators_score', con = con, 
@@ -411,7 +411,7 @@ def check_data_quality(request):
             data.drop('Check_Year', axis=1, inplace=True) # remove period remarks from the facts dataframe
             if con: #store similarity scores into similarities table
                 try:
-                    bad_periods_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                    bad_periods_df.loc[:,'user_id'] = user # add logged user id column
                     bad_periods_df.index = range(1,len(bad_periods_df)+1) #set index to start from 1 instead of default 0
                     bad_periods_df.to_sql('dqa_invalid_period_remarks', con = con, 
                         if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
@@ -457,7 +457,7 @@ def check_data_quality(request):
 
             if con: #store external outliers
                 try:
-                    external_outliers_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                    external_outliers_df.loc[:,'user_id'] = user # add logged user id column
                     external_outliers_df.index = range(1,len(external_outliers_df)+1) #set index to start from 1 instead of default 0
                     external_outliers_df.to_sql('dqa_external_inconsistencies_remarks', con = con, 
                         if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
@@ -502,7 +502,7 @@ def check_data_quality(request):
 
             if con: #store external outliers
                 try:
-                    internal_outliers_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                    internal_outliers_df.loc[:,'user_id'] = user # add logged user id column
                     internal_outliers_df.index = range(1,len(internal_outliers_df)+1) #set index to start from 1 instead of default 0
                     internal_outliers_df.to_sql('dqa_internal_consistencies_remarks', con = con, 
                         if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
@@ -536,7 +536,7 @@ def check_data_quality(request):
 
             if con: #store combined value_checker outliers
                 try:
-                    combinedvalue_checker.loc[:,'user_id'] = request.user.id # add logged user id column
+                    combinedvalue_checker.loc[:,'user_id'] = user # add logged user id column
                     combinedvalue_checker.index = range(1,len(combinedvalue_checker)+1) #set index to start from 1 instead of default 0
                     combinedvalue_checker.to_sql('dqa_valuetype_consistencies_remarks', con = con, 
                         if_exists = 'append',index=True,index_label='id',chunksize = 1000)   

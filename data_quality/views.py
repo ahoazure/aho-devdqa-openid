@@ -57,74 +57,74 @@ def check_data_quality(request):
     
     # -----------------------------------Start Save Data Validation DataFrames---------------------------------------------------------
     # Create data source dataframe and save it into the database into measure types model 
-    # try:
-    #     MesureTypeValid = pd.read_csv('Datasets/Mesuretype.csv', encoding='iso-8859-1')
+    try:
+        MesureTypeValid = pd.read_csv('Datasets/Mesuretype.csv', encoding='iso-8859-1')
         
-    #     MesureTypeValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
-    #             'measurementmethod':'measure_type','measuremethod_id':'measuremethod_id'},
-    #             axis=1, inplace=True)    
-    #     measuretypes = json.loads(MesureTypeValid.to_json(
-    #         orient='records', index=True))  # converts json to dict
-    #     # Use try..except block to loop through and save measure objects into the database
-    #     try:
-    #         for record in measuretypes:    
-    #             measuretype = MeasureTypes_Validator.objects.update_or_create(
-    #                 afrocode=record['afrocode'],
-    #                 indicator_name=record['indicator_name'],
-    #                 measure_type=record['measure_type'],
-    #                 measuremethod_id=record['measuremethod_id'],
-    #             )
-    #     except:
-    #         pass
-    # except:
-    #     pass
+        MesureTypeValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
+                'measurementmethod':'measure_type','measuremethod_id':'measuremethod_id'},
+                axis=1, inplace=True)    
+        measuretypes = json.loads(MesureTypeValid.to_json(
+            orient='records', index=True))  # converts json to dict
+        # Use try..except block to loop through and save measure objects into the database
+        try:
+            for record in measuretypes:    
+                measuretype = MeasureTypes_Validator.objects.update_or_create(
+                    afrocode=record['afrocode'],
+                    indicator_name=record['indicator_name'],
+                    measure_type=record['measure_type'],
+                    measuremethod_id=record['measuremethod_id'],
+                )
+        except:
+            pass
+    except:
+        pass
 
 
     # # Create data source dataframe and save it into the database into the datasource model
-    # try:
-    #     DataSourceValid = pd.read_csv('Datasets/Datasource.csv', encoding='iso-8859-1')  
-    #     DataSourceValid.rename(
-    #         {'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
-    #             'DataSource':'datasource','DatasourceId':'datasource_id'},
-    #             axis=1, inplace=True)   
-    #     datasources = json.loads(DataSourceValid.to_json(
-    #         orient='records', index=True))  # converts json to dict
+    try:
+        DataSourceValid = pd.read_csv('Datasets/Datasource.csv', encoding='iso-8859-1')  
+        DataSourceValid.rename(
+            {'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
+                'DataSource':'datasource','DatasourceId':'datasource_id'},
+                axis=1, inplace=True)   
+        datasources = json.loads(DataSourceValid.to_json(
+            orient='records', index=True))  # converts json to dict
 
-    #     Use try..except block to loop through and save measure objects into the database
-    #     try:
-    #         for record in datasources:
-    #             datasource = DataSource_Validator.objects.update_or_create(
-    #                 afrocode=record['afrocode'],
-    #                 indicator_name=record['indicator_name'],
-    #                 datasource=record['datasource'],
-    #                 datasource_id=record['datasource_id'],
-    #             )
-    #     except:
-    #         pass
-    # except:
-    #     pass   
+        # use try..except block to loop through and save measure objects into the database
+        try:
+            for record in datasources:
+                datasource = DataSource_Validator.objects.update_or_create(
+                    afrocode=record['afrocode'],
+                    indicator_name=record['indicator_name'],
+                    datasource=record['datasource'],
+                    datasource_id=record['datasource_id'],
+                )
+        except:
+            pass
+    except:
+        pass   
     
     # Create data source dataframe and save it into the database into the datasource model
-    # try:
-    #     CategoryOptionValid = pd.read_csv('Datasets/Categoryoption.csv', encoding='iso-8859-1')
-    #     CategoryOptionValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
-    #             'DataSource':'datasource','DatasourceId':'datasource_id','Category':'categoryoption',
-    #             'CategoryId':'categoryoption_id'},axis=1, inplace=True)   
+    try:
+        CategoryOptionValid = pd.read_csv('Datasets/Categoryoption.csv', encoding='iso-8859-1')
+        CategoryOptionValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
+                'DataSource':'datasource','DatasourceId':'datasource_id','Category':'categoryoption',
+                'CategoryId':'categoryoption_id'},axis=1, inplace=True)   
 
-    #     categoryoptions = json.loads(CategoryOptionValid.to_json(
-    #         orient='records', index=True))  # convert to records
-    #     try:    
-    #         for record in categoryoptions:
-    #             categoryoption = CategoryOptions_Validator.objects.update_or_create(
-    #                 afrocode=record['afrocode'],
-    #                 indicator_name=record['indicator_name'],
-    #                 categoryoption=record['categoryoption'],
-    #                 categoryoption_id=record['categoryoption_id'],
-    #             )
-    #     except:
-    #         pass
-    # except:
-    #     pass
+        categoryoptions = json.loads(CategoryOptionValid.to_json(
+            orient='records', index=True))  # convert to records
+        try:    
+            for record in categoryoptions:
+                categoryoption = CategoryOptions_Validator.objects.update_or_create(
+                    afrocode=record['afrocode'],
+                    indicator_name=record['indicator_name'],
+                    categoryoption=record['categoryoption'],
+                    categoryoption_id=record['categoryoption_id'],
+                )
+        except:
+            pass
+    except:
+        pass
     # ----------------------------------End Data Validation DataFrames---------------------------------------------------------
 
     qs = Facts_DataFrame.objects.all().order_by('indicator_name')
@@ -301,7 +301,6 @@ def check_data_quality(request):
                     except:
                         print('Unknown Error has occured')  
                 
-            # import pdb; pdb.set_trace() # checkpoint
 
         # -------------------------------Import algorithm 3 - indicators with wrong measure types--------------------------
         valid_measures_qs = MeasureTypes_Validator.objects.all().order_by('afrocode')
@@ -331,24 +330,21 @@ def check_data_quality(request):
                     {'Indicator Name':'indicator_name','Country':'location',
                     'CategoryOption':'categoryoption','DataSource':'datasource',
                     'measure type':'measure_type','Value':'value','Year':'period',
-                    'Check_Mesure_Type':'check_mesure_type'},axis=1)     
-                measuretype_checker = json.loads(bad_measuretype_df.to_json(
-                    orient='records',index=True,indent=4))  # converts json to dict
-                # try:    
-                #     for record in measuretype_checker:
-                #         measuretypes = DqaInvalidMeasuretypeRemarks.objects.update_or_create(
-                #             indicator_name=record['indicator_name'],
-                #             location=record['location'],
-                #             categoryoption=record['categoryoption'],
-                #             datasource=record['datasource'],
-                #             measure_type=record['measure_type'],
-                #             value=record['value'],
-                #             period=record['period'],
-                #             check_mesure_type=record['check_mesure_type'],                   
-                #         )
-                # except:
-                #     pass   
+                    'Check_Mesure_Type':'check_mesure_type'},axis=1)  
 
+
+                if con: #store similarity scores into similarities table
+                    try:
+                        bad_measuretype_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                        bad_measuretype_df.index = range(1,len(bad_measuretype_df)+1) #set index to start from 1 instead of default 0
+                        bad_measuretype_df.to_sql(
+                            'dqa_invalid_measuretype_remarks', con = con, 
+                            if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
+                    except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                        pass
+                    except:
+                        print('Unknown Error has occured')    
+          
 
         # -------------------------------------Start of comparing indicators for similarity score----------------------------        
         UniqueInd = data['Indicator Name'].unique()
@@ -373,17 +369,20 @@ def check_data_quality(request):
             {'IndicatorName':'source_indicator','SimilarIndicator':'similar_indicator',
             'Score':'score'},axis=1)            
         Check_similarities.sort_values(by=['score'],inplace=True,ascending=False)   
-        similarities_checker = json.loads(Check_similarities.to_json(
-            orient='records',index=True,indent=4))  # converts json to dict
-        try:    
-            for record in similarities_checker:
-                similarities = Similarity_Index.objects.update_or_create(
-                    source_indicator=record['source_indicator'],
-                    similar_indicator=record['similar_indicator'],
-                    score=record['score'],                   
-                )
-        except:
-            pass    
+
+
+        if con: #store similarity scores into similarities table
+            try:
+                Check_similarities.loc[:,'user_id'] = request.user.id # add logged user id column
+                Check_similarities.index = range(1,len(Check_similarities)+1) #set index to start from 1 instead of default 0
+                Check_similarities.to_sql(
+                    'dqa_similar_indicators_score', con = con, 
+                    if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
+            except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                pass
+            except:
+                print('Unknown Error has occured')  
+   
 
         # -------------------------------------End of comparing indicators for similarity score----------------------------             
 
@@ -410,24 +409,17 @@ def check_data_quality(request):
                 'Check_Year':'check_year'},axis=1)     
             
             data.drop('Check_Year', axis=1, inplace=True) # remove period remarks from the facts dataframe
-            
-            periods_checker = json.loads(bad_periods_df.to_json(
-                orient='records',index=True,indent=4))  # converts json to dict
-            # try:    
-            #     for record in periods_checker:
-            #         periods = DqaInvalidPeriodRemarks.objects.update_or_create(
-            #             indicator_name=record['indicator_name'],
-            #             location=record['location'],
-            #             categoryoption=record['categoryoption'],
-            #             datasource=record['datasource'],
-            #             measure_type=record['measure_type'],
-            #             value=record['value'],
-            #             period=record['period'],
-            #             check_year=record['check_year'],                   
-            #         )
-            # except:
-            #     pass   
-        
+            if con: #store similarity scores into similarities table
+                try:
+                    bad_periods_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                    bad_periods_df.index = range(1,len(bad_periods_df)+1) #set index to start from 1 instead of default 0
+                    bad_periods_df.to_sql('dqa_invalid_period_remarks', con = con, 
+                        if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
+                except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    pass
+                except:
+                    print('Unknown Error has occured') 
+
 
         # --------------Start of consistency inpection algorithms. To be replace with corrected from Didier and Berence---
         dataCountMT = data[data['measure type'] == 'Count (Numeric Integer)']
@@ -461,24 +453,20 @@ def check_data_quality(request):
                 {'Indicator Name':'indicator_name','Country':'location','CategoryOption':'categoryoption',
                 'DataSource':'datasource','measure type':'measure_type','Value':'value','Year':'period',
                 'Check_value':'external_consistency'},
-            axis=1)   
-            extraconsistency_checker = json.loads(external_outliers_df.to_json(
-                orient='records',index=True,indent=4))  # converts json to dict
-            # try:    
-            #     for record in extraconsistency_checker:
-            #         extraconsistencies = DqaExternalConsistencyOutliersRemarks.objects.update_or_create(
-            #             indicator_name=record['indicator_name'],
-            #             location=record['location'],
-            #             categoryoption=record['categoryoption'],
-            #             datasource=record['datasource'],
-            #             measure_type=record['measure_type'],
-            #             value=record['value'],
-            #             period=record['period'],
-            #             external_consistency=record['external_consistency'],                   
-            #         )
-            # except:
-            #     pass  
+            axis=1)  
 
+            if con: #store external outliers
+                try:
+                    external_outliers_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                    external_outliers_df.index = range(1,len(external_outliers_df)+1) #set index to start from 1 instead of default 0
+                    external_outliers_df.to_sql('dqa_external_inconsistencies_remarks', con = con, 
+                        if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
+                except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    pass
+                except:
+                    print('Unknown Error has occured')  
+
+ 
         # Internal consistency : By Indicator per categoryoption (Considering all data sources )
         CountriesCMT = dataCountMT['Country'].unique().tolist()
         InOutliersCMT = pd.DataFrame(columns=dataCountMT.columns.tolist())
@@ -510,25 +498,19 @@ def check_data_quality(request):
                 {'Indicator Name':'indicator_name','Country':'location',
                 'CategoryOption':'categoryoption','DataSource':'datasource',
                 'measure type':'measure_type','Value':'value','Year':'period',
-                'Check_value':'internal_consistency'},axis=1)   
+                'Check_value':'internal_consistency'},axis=1)  
 
-            intraconsistency_checker = json.loads(internal_outliers_df.to_json(
-                orient='records',index=True,indent=4))  # converts json to dict
-
-            # try:    
-            #     for record in intraconsistency_checker:
-            #         intraconsistencies = DqaInternalConsistencyOutliersRemarks.objects.update_or_create(
-            #             indicator_name=record['indicator_name'],
-            #             location=record['location'],
-            #             categoryoption=record['categoryoption'],
-            #             datasource=record['datasource'],
-            #             measure_type=record['measure_type'],
-            #             value=record['value'],
-            #             period=record['period'],
-            #             internal_consistency=record['internal_consistency'],                   
-            #         )
-            # except:
-            #     pass  
+            if con: #store external outliers
+                try:
+                    internal_outliers_df.loc[:,'user_id'] = request.user.id # add logged user id column
+                    internal_outliers_df.index = range(1,len(internal_outliers_df)+1) #set index to start from 1 instead of default 0
+                    internal_outliers_df.to_sql('dqa_internal_consistencies_remarks', con = con, 
+                        if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
+                except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    pass
+                except:
+                    print('Unknown Error has occured')  
+  
         # --------------End of consistency inspection algorithms. To be replace with corrected from Didier and Berence---
 
 
@@ -552,22 +534,17 @@ def check_data_quality(request):
                 'Value':'value','Year':'period','Check_value':'check_value'},
                 axis=1, inplace=True) 
 
-            valuetypes_checker = json.loads(combinedvalue_checker.to_json(
-                    orient='records',index=True,indent=4))  # converts json to dict
-            # try:    
-            #     for record in valuetypes_checker:
-            #         valuetypes = DqaValueTypesConsistencyRemarks.objects.update_or_create(
-            #             indicator_name=record['indicator_name'],
-            #             location=record['location'],
-            #             categoryoption=record['categoryoption'],
-            #             datasource=record['datasource'],
-            #             measure_type=record['measure_type'],
-            #             value=record['value'],
-            #             period=record['period'],
-            #             check_value=record['check_value'],                   
-            #         )
-            # except:
-            #     pass 
+            if con: #store combined value_checker outliers
+                try:
+                    combinedvalue_checker.loc[:,'user_id'] = request.user.id # add logged user id column
+                    combinedvalue_checker.index = range(1,len(combinedvalue_checker)+1) #set index to start from 1 instead of default 0
+                    combinedvalue_checker.to_sql('dqa_valuetype_consistencies_remarks', con = con, 
+                        if_exists = 'append',index=True,index_label='id',chunksize = 1000)   
+                except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    pass
+                except:
+                    print('Unknown Error has occured') 
+
 
     else: 
         print('No data') 

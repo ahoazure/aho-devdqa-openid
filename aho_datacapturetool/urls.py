@@ -75,7 +75,7 @@ urlpatterns += i18n_patterns ( # must be python immutable list () and not []
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(),
         name='password_change_done'),
 
-    path('admin/check/',include('data_quality.urls',namespace='data_quality')),
+    path('admin/quality/',include('data_quality.urls',namespace='data_quality')),
 
    # API-based URL patterns for hitting KHRO endpoints for consuming data in JSON
     path('api/', include((api_patterns, 'api'), namespace='api')),

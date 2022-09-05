@@ -83,6 +83,7 @@ class GroupedModelChoiceField(ModelChoiceField):
                        
 @admin.register(Facts_DataFrame)
 class Facts_DataFrameAdmin(OverideExport):
+    change_list_template = 'admin/data_quality/change_list.html' # add buttons for validations
     from django.db import models
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'105'})},

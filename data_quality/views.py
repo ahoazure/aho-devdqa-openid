@@ -28,8 +28,6 @@ def db_connection():
     pw =settings.DQPASS
     db = settings.DQDB
     host = settings.DQHOST
-    # engine = create_engine("mysql+mysqldb://{user}:{pw}@{host}/{db}"
-    #                 .format(user=user,pw=pw,host=host,db=db))
 
     engine = create_engine("mysql+mysqldb://{user}:{pw}@{host}/{db}"
                 .format(user=user,pw=pw,host=host,db=db),
@@ -39,18 +37,16 @@ def db_connection():
                         }
                     }
             )
-
     return engine
 
     
 
-def check_data_quality(request):
+def load_data_validators(request):
     con= db_connection() # create connection to database using sqlalchemy engine
     groups = list(request.user.groups.values_list('user', flat=True))
     user = request.user.id  # get logged in user id for access control
     location = request.user.location.name
     language = request.LANGUAGE_CODE 
-    
     
     # -----------------------------------Start Save Data Validation DataFrames---------------------------------------------------------
     # Create data source dataframe and save it into the database into measure types model 
@@ -79,7 +75,6 @@ def check_data_quality(request):
     except:
         pass
 
-    # import pdb; pdb.set_trace()     
 
     # # Create data source dataframe and save it into the database into the datasource model
     try:
@@ -109,7 +104,6 @@ def check_data_quality(request):
         CategoryOptionValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
                 'DataSource':'datasource','DatasourceId':'datasource_id','Category':'categoryoption',
                 'CategoryId':'categoryoption_id'},axis=1, inplace=True)   
-
         categoryoptions = CategoryOptionValid # convert to records
         try:
             categoryoptions.loc[:,'user_id'] = user # add logged user id column
@@ -123,6 +117,24 @@ def check_data_quality(request):
             print('Unknown Error has occured') 
     except:
         pass
+
+    if not measuretypes.empty or not datasources.empty or not categoryoptions.empty:
+        success = "Data source, category options and measure types validation lookup tables created and saved into the Database"
+    else:
+        success ="Sorry. The validators has not been validated"     
+    context = {              
+        'success':success,
+    }
+    return render(request,'data_quality/home.html',context)
+
+
+def check_data_quality(request):
+    con= db_connection() # create connection to database using sqlalchemy engine
+    groups = list(request.user.groups.values_list('user', flat=True))
+    user = request.user.id  # get logged in user id for access control
+    location = request.user.location.name
+    language = request.LANGUAGE_CODE 
+
     # ----------------------------------End primary data validation dataFrames---------------------------------------------------------
     facts_df = pd.DataFrame() # initialize the facts dataframe with a null value
     data = pd.DataFrame()
@@ -180,7 +192,6 @@ def check_data_quality(request):
             MultipleMesureTypeIndicatorPerDS = NumberMesureTypeByIndicatorPerDS[
                 NumberMesureTypeByIndicatorPerDS['measure type']>1]
             
-
             if not MultipleMesureTypeIndicatorPerDS.empty:           
                 for index, row in MultipleMesureTypeIndicatorPerDS.iterrows():
                     data.loc[(data['Country'] == row['Country']) & (
@@ -209,7 +220,6 @@ def check_data_quality(request):
                     except:
                         print('Unknown Error has occured')   
          
-
     # -------------------------------Import algorithm 1 - indicators with wrong measure types--------------------------
         valid_datasources_qs = DataSource_Validator.objects.all().order_by('afrocode')
         data.drop('Check_Mesure_Type', axis=1, inplace=True) # remove period remarks from the facts dataframe     
@@ -255,7 +265,7 @@ def check_data_quality(request):
                         pass
                     except:
                         print('Unknown Error has occured')   
-            # import pdb; pdb.set_trace() # checkpoint
+
 
         # -------------------------------Import algorithm 2 - indicators with wrong category options--------------------------
         valid_categoryoptions_qs = CategoryOptions_Validator.objects.all().order_by('afrocode')
@@ -301,7 +311,6 @@ def check_data_quality(request):
                     except:
                         print('Unknown Error has occured')  
                 
-
         # -------------------------------Import algorithm 3 - indicators with wrong measure types--------------------------
         valid_measures_qs = MeasureTypes_Validator.objects.all().order_by('afrocode')
         if len(qs) >0:
@@ -332,7 +341,6 @@ def check_data_quality(request):
                     'measure type':'measure_type','Value':'value','Year':'period',
                     'Check_Mesure_Type':'check_mesure_type'},axis=1)  
 
-
                 if con: #store similarity scores into similarities table
                     try:
                         bad_measuretype_df.loc[:,'user_id'] = user # add logged user id column
@@ -345,7 +353,6 @@ def check_data_quality(request):
                     except:
                         print('Unknown Error has occured')    
           
-
         # -------------------------------------Start of comparing indicators for similarity score----------------------------        
         UniqueInd = data['Indicator Name'].unique()
         _list_comparison_fullname = []
@@ -370,7 +377,6 @@ def check_data_quality(request):
             'Score':'score'},axis=1)            
         Check_similarities.sort_values(by=['score'],inplace=True,ascending=False)   
 
-
         if con: #store similarity scores into similarities table
             try:
                 Check_similarities.loc[:,'user_id'] = user # add logged user id column
@@ -382,8 +388,6 @@ def check_data_quality(request):
                 pass
             except:
                 print('Unknown Error has occured')  
-   
-
         # -------------------------------------End of comparing indicators for similarity score----------------------------             
 
         # -------------------------------Start of miscellanious algorithms - Year verification -----------------------------------
@@ -419,7 +423,6 @@ def check_data_quality(request):
                     pass
                 except:
                     print('Unknown Error has occured') 
-
 
         # --------------Start of consistency inpection algorithms. To be replace with corrected from Didier and Berence---
         dataCountMT = data[data['measure type'] == 'Count (Numeric Integer)']
@@ -466,7 +469,7 @@ def check_data_quality(request):
                 except:
                     print('Unknown Error has occured')  
 
- 
+
         # Internal consistency : By Indicator per categoryoption (Considering all data sources )
         CountriesCMT = dataCountMT['Country'].unique().tolist()
         InOutliersCMT = pd.DataFrame(columns=dataCountMT.columns.tolist())
@@ -513,7 +516,6 @@ def check_data_quality(request):
   
         # --------------End of consistency inspection algorithms. To be replace with corrected from Didier and Berence---
 
-
         # -----------Miscellaneous algorithm for checking Consistancies per mesure type: Count(numeric Integer) ---------- 
         # Checking consistancies per mesure type: Not numeric Value
         CountOverAllChecking = dataCountMT[dataCountMT['Value'].isna()]
@@ -545,11 +547,10 @@ def check_data_quality(request):
                 except:
                     print('Unknown Error has occured') 
 
-
     else: 
         print('No data') 
         
-# -----------------End of data validation algorithms derived from Didier's pandas code---------------------------------
+    # -------End of data validation algorithms derived from Didier's pandas code---------------------------------
     if not data.empty:
         success = "Data validation reports created and saved into the Database"
     else:

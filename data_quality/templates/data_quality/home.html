@@ -2,19 +2,14 @@
 
 {% load crispy_forms_tags %}
 {% block title %}
-   Facts Quality 
+   DCT Data Quality Toolkit
 {% endblock title %}
 
 {% block content %}
     {% if success %}
-      {{success}}
-      <!-- <br>
-      {{measures|safe}}
-      <br> -->
-      <!-- {{similarity|safe}}
-      <br>
-      Outliers report
-      {{outliers|safe}} -->
+      <em><center>
+        {{success}}
+      </center></em>
     {% else %}
       <h3>No data</h3>
     {% endif %}   

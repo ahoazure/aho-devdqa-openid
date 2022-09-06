@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %} <!--Language translation to support english, French and Portuguese-->
 {% load crispy_forms_tags %}
 {% block title %}
    DCT Data Quality Toolkit
@@ -12,5 +12,14 @@
       </center></em>
     {% else %}
       <h3>No data</h3>
-    {% endif %}   
+    {% endif %}  
+    <div class="row">
+      <div class="col-md-8 mx-auto social-container my-2 order-md-1">
+          <button class="btn btn-primary mb-2">
+              <a href="{% url 'admin:index' %}">
+                {%trans "Back Home" %}
+              </a>
+          </button>
+      </div>
+  </div> 
 {% endblock content %}

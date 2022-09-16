@@ -40,6 +40,47 @@ STATUS_CHOICES = ( #choices for approval of indicator data by authorized users
 )
 
 
+class Facts_DataFilter (models.Model): # requested by Serge to determine facts loaded
+    filter_id = models.AutoField(primary_key=True)
+    locations = models.ManyToManyField(StgLocation,
+        db_table='dqa_filter_location_members',blank=True,
+        verbose_name = _('Locations'))  # Field name made lowercase. 
+    indicators = models.ManyToManyField(StgIndicator,
+        db_table='dqa_filter_indicator_members',blank=True,
+        verbose_name = _('Indicators'))  # Field name made lowercase.
+    categoryoptions = models.ManyToManyField(StgCategoryoption,
+        db_table='dqa_filter_category_members',blank=True,
+        verbose_name = _('Category Options'))  # Field name made lowercase.  
+    datasource = models.ManyToManyField(StgDatasource,
+        db_table='dqa_filter_source_members',blank=True,
+        verbose_name = _('Data Sources'))  # Field name made lowercase.
+    start_period = models.PositiveIntegerField(_('Starting period'),null=False,
+        blank=False,validators=[MinValueValidator(1900),max_value_current_year],
+        default=current_year(),
+        help_text=_("This marks the start of reporting period"))
+    end_period=models.PositiveIntegerField(_('Ending Period'),null=False,blank=False,
+        validators=[MinValueValidator(1900),max_value_current_year],
+        default=current_year(),
+        help_text=_("This marks the end of reporting. The value must be current \
+            year or greater than the start year")) 
+    
+    class Meta:
+        managed = True
+        db_table = 'dqa_filter_facts_dataframe'
+        verbose_name = _('Filter')
+        verbose_name_plural = _('  Filter Facts')
+        # ordering = ('indicators',)
+
+    # Override Save method to store only one instance
+    def save(self, *args, **kwargs):
+        if self.__class__.objects.count():
+            self.pk = self.__class__.objects.first().pk
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+         return "Filter Facts Dataset by Locations, Indicators, Categoryoptions, Datasources and Periods"
+
+
 class Facts_DataFrame (models.Model):
     fact_id = models.AutoField(primary_key=True)
     user = models.PositiveIntegerField(blank=True,verbose_name='UserID') # request helper field
@@ -56,6 +97,10 @@ class Facts_DataFrame (models.Model):
         verbose_name =_('Measure Type'))
     value = DecimalField(_('Numeric Value'),max_digits=20,
         decimal_places=3,blank=True,null=True)
+    start_period = models.PositiveIntegerField(
+        blank=True,verbose_name='Start Period') 
+    end_period = models.PositiveIntegerField(
+        blank=True,verbose_name='End Period') 
     period = models.CharField(_('Period'),max_length=25,blank=True,null=False)
     objects = DataFrameManager() #connect the model to the dataframe manager
 
@@ -77,10 +122,11 @@ class MeasureTypes_Validator(models.Model): # this is equivalent to inventory_st
         verbose_name='User Name (Email)',default=14) # request helper field
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
-    indicator_name = models.CharField(_('Indicator Name'),max_length=1500,
-        blank=True, null=True)
-    measure_type = models.CharField(_('Measure Type'),max_length=500,
-        blank=True, null=True)
+    indicator_name = models.ForeignKey(StgIndicator, models.CASCADE,
+        verbose_name = _('Indicator Name'),default=None)
+    measure_type = models.ForeignKey(StgMeasuremethod,models.CASCADE,
+        blank=False,verbose_name =_('Measure Type'),default=None)
+
     measuremethod_id = models.PositiveIntegerField(_('Measure Type ID'),
         blank=True,null=True)
     objects = DataFrameManager() #connect the model to the dataframe manager
@@ -92,8 +138,25 @@ class MeasureTypes_Validator(models.Model): # this is equivalent to inventory_st
         verbose_name_plural = _('  Measuretypes')
         ordering = ('indicator_name',)
 
+    
+    def get_afrocode(self):
+        afrocode = None
+        afrocode = self.indicator_name.afrocode
+        return afrocode
+
+    def get_measure_id(self):
+        measureid = None
+        measureid = self.measure_type.measuremethod_id
+        return measureid
+
+    def save(self, *args, **kwargs):
+        self.afrocode = self.get_afrocode()
+        self.measuremethod_id = self.get_measure_id()       
+        super(MeasureTypes_Validator, self).save(*args, **kwargs)
+
     def __str__(self):
-         return self.indicator_name
+         return str(self.indicator_name)
+         
     
 
 # The following model is used to validate data sources in the fact table
@@ -103,10 +166,10 @@ class DataSource_Validator(models.Model): # this is equivalent to inventory_stat
         verbose_name='User Name (Email)',default=14) # request helper field
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
-    indicator_name = models.CharField(_('Indicator Name'),max_length=1500,
-        blank=True, null=True)
-    datasource = models.CharField(_('Data Source'),max_length=500,
-        blank=True, null=True)
+    indicator_name = models.ForeignKey(StgIndicator, models.CASCADE,
+        verbose_name = _('Indicator Name'),default=None)
+    datasource_name = models.ForeignKey(StgDatasource, models.CASCADE,
+        verbose_name = _('Data Source'),default=None)
     datasource_id = models.PositiveIntegerField(_('Data SourceID'),
         blank=True,null=True)
     objects = DataFrameManager() #connect the model to the dataframe manager
@@ -119,9 +182,24 @@ class DataSource_Validator(models.Model): # this is equivalent to inventory_stat
         verbose_name_plural = _('  Datasources')
         ordering = ('indicator_name',)
 
+    def get_afrocode(self):
+        afrocode = None
+        afrocode = self.indicator_name.afrocode
+        return afrocode
+
+    def get_datasource_id(self):
+        datasource = None
+        datasource = self.datasource_name.datasource_id
+        return datasource
+
+    def save(self, *args, **kwargs):
+        self.afrocode = self.get_afrocode()
+        self.datasource_id = self.get_datasource_id()       
+        super(DataSource_Validator, self).save(*args, **kwargs)
+
     def __str__(self):
-         return self.indicator_name
-    
+         return str(self.indicator_name)
+
 
 # The following model is used to validate categoryoptions in the fact table
 class CategoryOptions_Validator(models.Model): # this is equivalent to inventory_status
@@ -130,11 +208,11 @@ class CategoryOptions_Validator(models.Model): # this is equivalent to inventory
         verbose_name='User Name (Email)',default=14) # request helper field  
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
-    indicator_name = models.CharField(_('Indicator Name'),max_length=1500,
-        blank=True, null=True)
-    categoryoption = models.CharField(_('Disaggregation Name'),max_length=500,
-        blank=True, null=True)
-    categoryoption_id = models.PositiveIntegerField(_('Disaggregation ID'),
+    indicator_name = models.ForeignKey(StgIndicator, models.CASCADE,
+        verbose_name = _('Indicator Name'),default=None)
+    categoryoption = models.ForeignKey(StgCategoryoption, models.CASCADE,
+        blank=False,verbose_name =_('Disaggregation Options'),default=None)
+    categoryoptionid = models.PositiveIntegerField(_('Disaggregation ID'),
         blank=True,null=True)
     objects = DataFrameManager() #connect the model to the dataframe manager
  
@@ -146,8 +224,23 @@ class CategoryOptions_Validator(models.Model): # this is equivalent to inventory
         verbose_name_plural = _('  Categoryoptions')
         ordering = ('indicator_name',)
 
-    def __str__(self):
-         return self.indicator_name
+    def get_afrocode(self):
+        afrocode = None
+        afrocode = self.indicator_name.afrocode
+        return afrocode
+
+    def get_categoryoption_id(self):
+        categoryoption = None
+        categoryoption = self.categoryoption.categoryoption_id
+        return categoryoption
+
+    def save(self, *args, **kwargs):
+        self.afrocode = self.get_afrocode()
+        self.categoryoptionid = self.get_categoryoption_id()       
+        super(CategoryOptions_Validator, self).save(*args, **kwargs)
+
+    # def __str__(self):
+    #      return str(self.indicator_name)
     
 
 class Similarity_Index(models.Model): # this is equivalent to inventory_status

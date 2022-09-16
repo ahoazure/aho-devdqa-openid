@@ -57,6 +57,8 @@ SECURE_BROWSER_XSS_FILTER = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField' # handles Django 3.2 primary key
 
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None # to turn of suspecious operations error
+
 # This can be omitted to use the defaults
 DATA_WIZARD = {
     'BACKEND': 'data_wizard.backends.threading',

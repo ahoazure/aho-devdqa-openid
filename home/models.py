@@ -283,7 +283,7 @@ class StgMeasuremethod(TranslatableModel):
 These model classes inherits from data_wizard sources package.The purpose of
 inheriting the models is to add location field to the sources database tables
 """
-class FileSource(FileSource):
+class FileSources(FileSource):
     location = models.ForeignKey(StgLocation, models.PROTECT,blank=False,
         verbose_name = _('Location Name'),)
     user = models.ForeignKey(CustomUser, models.PROTECT,
@@ -300,9 +300,9 @@ class FileSource(FileSource):
     def get_fileurl(self):
         base_url=f'https://{AZURE_CUSTOM_DOMAIN}/{AZURE_CONTAINER}/'
         file_name = self.file.name
-        if self.url is None or self.url =='':
-            return (base_url+'datawizard/'+file_name)
-        return self.file.url
+        # if self.url is None or self.url =='':
+        return (base_url+'datawizard/'+file_name)
+        # return self.file.url
 
     """
     This method overrides the save method to store the derived field into database.
@@ -310,25 +310,25 @@ class FileSource(FileSource):
     """
     def save(self, *args, **kwargs):
         self.url = self.get_fileurl()
-        super(FileSource, self).save(*args, **kwargs)
+        super(FileSources, self).save(*args, **kwargs)
 
 
-class URLSource(URLSource): # check the inher
+class URLSources(URLSource): # check the inher
     location = models.ForeignKey(StgLocation, models.PROTECT,blank=False,
         verbose_name = _('Location Name'),)
     user = models.ForeignKey(CustomUser, models.PROTECT,
         verbose_name='User Name (Email)') # request helper field
-    file = models.ForeignKey(FileSource, on_delete=models.CASCADE,
+    file = models.ForeignKey(FileSources, on_delete=models.CASCADE,
                         related_name="link")
 
     def __str__(self):
         return self.name or self.url
 
     def get_url(self):
-        if self.url is None or self.url =='':
-            return self.file.url
-        return self.url
+        # if self.url is None or self.url =='':
+        return self.file.url
+        # return self.url
 
     def save(self, *args, **kwargs):
         self.url = self.get_url()
-        return super(URLSource, self).save(*args, **kwargs)
+        return super(URLSources, self).save(*args, **kwargs)

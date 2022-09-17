@@ -235,10 +235,9 @@ class MeasureTypeAdmin(OverideExport):
         ('measure_type',RelatedDropdownFilter),
     )
 
-
+data_wizard.register(DataSource_Validator)
 @admin.register(DataSource_Validator)
 class DatasourceAdmin(OverideExport):
-    
     from django.db import models
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'100'})},
@@ -283,6 +282,7 @@ class DatasourceAdmin(OverideExport):
         super().save_model(request, obj, form, change)
     
     exclude = ('user',)
+    readonly_fields = ('afrocode', 'datasource_id',)
     list_display=['afrocode','indicator_name', 'datasource_name',
         'datasource_id',]
     search_fields = ('afrocode','indicator_name','datasource_name') 
@@ -291,7 +291,7 @@ class DatasourceAdmin(OverideExport):
         ('datasource_name',RelatedDropdownFilter),
     )
 
-
+data_wizard.register(CategoryOptions_Validator)
 @admin.register(CategoryOptions_Validator) 
 class categoryOptionAdmin(OverideExport):
     

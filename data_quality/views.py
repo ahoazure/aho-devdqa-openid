@@ -54,17 +54,20 @@ def load_data_validators(request):
     DataSourceValid  = pd.DataFrame() # initialize an empty dataframe
     CategoryOptionValid  = pd.DataFrame() # initialize an empty dataframe
     try:
-        MesureTypeValid = pd.read_csv('Datasets/Mesuretype.csv', encoding='iso-8859-1')
-        
-        MesureTypeValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
-                'measurementmethod':'measure_type','measuremethod_id':'measuremethod_id'},
+        MesureTypeValid = pd.read_excel('Datasets/Excel_Format/Mesuretype.xls')
+        # import pdb; pdb.set_trace()
+    
+        MesureTypeValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name_id', 
+                'measurementmethod':'measure_type_id','measuremethod_id':'measuremethod_id'},
                 axis=1, inplace=True)    
-        measuretypes = MesureTypeValid  
-        
+        measuretypes = MesureTypeValid          
         # use try..except block to loop through and save measure objects into the database
         try:
             measuretypes.loc[:,'user_id'] =user# add logged user id column
             measuretypes.index = range(1,len(measuretypes)+1) #set index to start from 1 instead of default 0
+            
+            # import pdb; pdb.set_trace()
+
             measuretypes.to_sql(
                 'dqa_valid_measure_type', con = con, 
                 if_exists = 'append',index=True,index_label='id',chunksize = 1000) # set index as true to save as id 
@@ -78,10 +81,12 @@ def load_data_validators(request):
 
     # # Create data source dataframe and save it into the database into the datasource model
     try:
-        DataSourceValid = pd.read_csv('Datasets/Datasource.csv', encoding='iso-8859-1')  
+        DataSourceValid = pd.read_excel('Datasets/Excel_Format/Datasource.xls')  
+        # import pdb; pdb.set_trace()
+
         DataSourceValid.rename(
-            {'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
-                'DataSource':'datasource','DatasourceId':'datasource_id'},
+            {'IndicatorId':'afrocode','Indicator Name':'indicator_name_id', 
+                'DataSource':'datasource_name_id','DatasourceId':'datasource_id'},
                 axis=1, inplace=True)   
         datasources = DataSourceValid  # converts json to dict
         # use try..except block to save valid datasource objects into the database
@@ -97,14 +102,16 @@ def load_data_validators(request):
             print('Unknown Error has occured') 
     except:
         pass   
-    
+
+
     # Create data source dataframe and save it into the database into the datasource model
     try:
-        CategoryOptionValid = pd.read_csv('Datasets/Categoryoption.csv', encoding='iso-8859-1')
-        CategoryOptionValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name', 
-                'DataSource':'datasource','DatasourceId':'datasource_id','Category':'categoryoption',
-                'CategoryId':'categoryoption_id'},axis=1, inplace=True)   
+        CategoryOptionValid = pd.read_excel('Datasets/Excel_Format/Categoryoption.xls')
+        CategoryOptionValid.rename({'IndicatorId':'afrocode','Indicator Name':'indicator_name_id', 
+                'Category':'categoryoptionid','CategoryId':'categoryoption_id'},axis=1, inplace=True)   
         categoryoptions = CategoryOptionValid # convert to records
+        # import pdb; pdb.set_trace()
+
         try:
             categoryoptions.loc[:,'user_id'] = user # add logged user id column
             categoryoptions.index = range(1,len(categoryoptions)+1) #set index to start from 1 instead of default 0
@@ -117,6 +124,8 @@ def load_data_validators(request):
             print('Unknown Error has occured') 
     except:
         pass
+
+    # import pdb; pdb.set_trace()
 
     if not measuretypes.empty or not datasources.empty or not categoryoptions.empty:
         success = "Data source, category options and measure types validation lookup tables created and saved into the Database"

@@ -42,6 +42,8 @@ STATUS_CHOICES = ( #choices for approval of indicator data by authorized users
 
 class Facts_DataFilter (models.Model): # requested by Serge to determine facts loaded
     filter_id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
+        verbose_name='User Name (Email)',default=14) # request helper field
     locations = models.ManyToManyField(StgLocation,
         db_table='dqa_filter_location_members',blank=True,
         verbose_name = _('Locations'))  # Field name made lowercase. 
@@ -68,8 +70,7 @@ class Facts_DataFilter (models.Model): # requested by Serge to determine facts l
         managed = True
         db_table = 'dqa_filter_facts_dataframe'
         verbose_name = _('Filter')
-        verbose_name_plural = _('  Filter Facts')
-        # ordering = ('indicators',)
+        verbose_name_plural = _('    Facts Filter')
 
     # Override Save method to store only one instance
     def save(self, *args, **kwargs):
@@ -78,7 +79,7 @@ class Facts_DataFilter (models.Model): # requested by Serge to determine facts l
         super().save(*args, **kwargs)
 
     def __str__(self):
-         return "Filter Facts Dataset by Locations, Indicators, Categoryoptions, Datasources and Periods"
+         return "Filter Facts Locations, Indicators, Categoryoptions, Datasources and Periods"
 
 
 class Facts_DataFrame (models.Model):
@@ -108,7 +109,7 @@ class Facts_DataFrame (models.Model):
         managed = False
         db_table = 'dqa_vw_facts_dataframe'
         verbose_name = _('Facts')
-        verbose_name_plural = _('   Facts')
+        verbose_name_plural = _('   Facts Dataset')
         ordering = ('indicator_name',)
 
     def __str__(self):
@@ -122,7 +123,7 @@ class MeasureTypes_Validator(models.Model): # this is equivalent to inventory_st
         verbose_name='User Name (Email)',default=14) # request helper field
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
-    indicator_name = models.ForeignKey(StgIndicator, models.CASCADE,
+    indicator = models.ForeignKey(StgIndicator, models.CASCADE,
         verbose_name = _('Indicator Name'),default=None)
     measure_type = models.ForeignKey(StgMeasuremethod,models.CASCADE,
         blank=False,verbose_name =_('Measure Type'),default=None)
@@ -134,14 +135,15 @@ class MeasureTypes_Validator(models.Model): # this is equivalent to inventory_st
     class Meta:
         managed = True
         db_table = 'dqa_valid_measure_type'
+        unique_together = ('indicator', 'measure_type',) 
         verbose_name = _('Valid Measure Type')
         verbose_name_plural = _('  Measuretypes')
-        ordering = ('indicator_name',)
+        ordering = ('indicator',)
 
     
     def get_afrocode(self):
         afrocode = None
-        afrocode = self.indicator_name.afrocode
+        afrocode = self.indicator.afrocode
         return afrocode
 
     def get_measure_id(self):
@@ -155,7 +157,7 @@ class MeasureTypes_Validator(models.Model): # this is equivalent to inventory_st
         super(MeasureTypes_Validator, self).save(*args, **kwargs)
 
     def __str__(self):
-         return str(self.indicator_name)
+         return str(self.measure_type)
          
     
 
@@ -166,11 +168,11 @@ class DataSource_Validator(models.Model): # this is equivalent to inventory_stat
         verbose_name='User Name (Email)',default=14) # request helper field
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
-    indicator_name = models.ForeignKey(StgIndicator, models.CASCADE,
+    indicator = models.ForeignKey(StgIndicator, models.CASCADE,
         verbose_name = _('Indicator Name'),default=None)
-    datasource_name = models.ForeignKey(StgDatasource, models.CASCADE,
+    datasource = models.ForeignKey(StgDatasource, models.CASCADE,
         verbose_name = _('Data Source'),default=None)
-    datasource_id = models.PositiveIntegerField(_('Data SourceID'),
+    datasourceid = models.PositiveIntegerField(_('Data SourceID'),
         blank=True,null=True)
     objects = DataFrameManager() #connect the model to the dataframe manager
 
@@ -178,18 +180,19 @@ class DataSource_Validator(models.Model): # this is equivalent to inventory_stat
     class Meta:
         managed = True
         db_table = 'dqa_valid_datasources'
+        unique_together = ('indicator', 'datasource',) 
         verbose_name = _('Valid Source')
         verbose_name_plural = _('  Datasources')
-        ordering = ('indicator_name',)
+        ordering = ('indicator',)
 
     def get_afrocode(self):
         afrocode = None
-        afrocode = self.indicator_name.afrocode
+        afrocode = self.indicator.afrocode
         return afrocode
 
     def get_datasource_id(self):
         datasource = None
-        datasource = self.datasource_name.datasource_id
+        datasource = self.datasource.datasource_id
         return datasource
 
     def save(self, *args, **kwargs):
@@ -198,7 +201,7 @@ class DataSource_Validator(models.Model): # this is equivalent to inventory_stat
         super(DataSource_Validator, self).save(*args, **kwargs)
 
     def __str__(self):
-         return str(self.indicator_name)
+         return str(self.datasource)
 
 
 # The following model is used to validate categoryoptions in the fact table
@@ -208,7 +211,7 @@ class CategoryOptions_Validator(models.Model): # this is equivalent to inventory
         verbose_name='User Name (Email)',default=14) # request helper field  
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
-    indicator_name = models.ForeignKey(StgIndicator, models.CASCADE,
+    indicator = models.ForeignKey(StgIndicator, models.CASCADE,
         verbose_name = _('Indicator Name'),default=None)
     categoryoption = models.ForeignKey(StgCategoryoption, models.CASCADE,
         blank=False,verbose_name =_('Disaggregation Options'),default=None)
@@ -220,13 +223,14 @@ class CategoryOptions_Validator(models.Model): # this is equivalent to inventory
     class Meta:
         managed = True
         db_table = 'dqa_valid_categoryoptions'
+        unique_together = ('indicator', 'categoryoption',) 
         verbose_name = _('Valid Category Option')
         verbose_name_plural = _('  Categoryoptions')
-        ordering = ('indicator_name',)
+        ordering = ('indicator',)
 
     def get_afrocode(self):
         afrocode = None
-        afrocode = self.indicator_name.afrocode
+        afrocode = self.indicator.afrocode
         return afrocode
 
     def get_categoryoption_id(self):
@@ -239,8 +243,8 @@ class CategoryOptions_Validator(models.Model): # this is equivalent to inventory
         self.categoryoptionid = self.get_categoryoption_id()       
         super(CategoryOptions_Validator, self).save(*args, **kwargs)
 
-    # def __str__(self):
-    #      return str(self.indicator_name)
+    def __str__(self):
+         return str(self.categoryoption)
     
 
 class Similarity_Index(models.Model): # this is equivalent to inventory_status
@@ -259,37 +263,13 @@ class Similarity_Index(models.Model): # this is equivalent to inventory_status
     class Meta:
         managed = True
         db_table = 'dqa_similar_indicators_score'
+        unique_together = ('source_indicator', 'similar_indicator',) 
         verbose_name = _('Similarity Score')
         verbose_name_plural = _('Similarity Scores')
         ordering = ('-score',)
 
     def __str__(self):
          return self.source_indicator
-
-
-class MeasureType_Statistics(models.Model): # this is equivalent to inventory_status
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    location = models.CharField(_('Country'),max_length=2000,
-        blank=True, null=True)
-    indicator_name = models.CharField(_('Indicator Name'),max_length=2000,
-        blank=True, null=True)
-    count = models.PositiveIntegerField(_('Number of Measure Types'),
-        blank=False,null=False)
-    objects = DataFrameManager() #connect the model to the dataframe manager
-
-
-    class Meta:
-        managed = True
-        db_table = 'dqa_multiple_indicators_statistics'
-        verbose_name = _('Measure Types Summary')
-        verbose_name_plural = _('Measure Summaries')
-        ordering = ('-count',)
-
-    def __str__(self):
-         return self.location
-   
 
 
 class Mutiple_MeasureTypes(models.Model): # this is equivalent to inventory_status
@@ -320,6 +300,8 @@ class Mutiple_MeasureTypes(models.Model): # this is equivalent to inventory_stat
         managed = True
         db_table = 'dqa_multiple_indicators_checker'
         verbose_name = _('Multiple Multiple Type')
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)  
         verbose_name_plural = _('Multiple Measures')
         ordering = ('indicator_name',)
 
@@ -328,6 +310,41 @@ class Mutiple_MeasureTypes(models.Model): # this is equivalent to inventory_stat
 
 
 # ---------------------------data validation models from algorithms 1-4-------------------------------------------------
+
+class MissingValuesRemarks(models.Model): # this is equivalent to inventory_status
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
+        verbose_name='User Name (Email)',default=14) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),max_length=2000,
+        blank=True, null=True)
+    location = models.CharField(_('Country'),max_length=2000,
+        blank=True, null=True,editable=False)
+    categoryoption = models.CharField(_('category Option'),max_length=2000,
+        blank=True, null=True,editable=False)
+    datasource = models.CharField(_('Data Source'),max_length=2000,
+        blank=True, null=True,editable=False)
+    measure_type = models.CharField(_('Measure Type'),max_length=2000,
+        blank=True, null=True,editable=False)
+    value = DecimalField(_('Value Received'),max_digits=20,decimal_places=3,
+        blank=True,null=True,editable=False)
+    period = models.CharField(_('Period'),max_length=2000,
+        blank=True, null=True,editable=False)
+    counts = models.PositiveIntegerField(_('Number of Measure Types'),
+        blank=True,null=True,editable=False) 
+    remarks = models.CharField(_('Remarks'),max_length=2000,
+        blank=True, null=True)  
+    objects = DataFrameManager() #connect the model to the dataframe manager
+
+    class Meta:
+        managed = True
+        db_table = 'dqa_missing_indicator_values'
+        verbose_name = _('Missing Value')
+        verbose_name_plural = _('Missing Values')
+        ordering = ('measure_type',)
+
+    def __str__(self):
+         return self.indicator_name
+
 
 class DqaInvalidCategoryoptionRemarks(models.Model):
     id = models.AutoField(primary_key=True)
@@ -346,6 +363,8 @@ class DqaInvalidCategoryoptionRemarks(models.Model):
     class Meta:
         managed = True
         db_table = 'dqa_invalid_categoryoption_remarks'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)  
         verbose_name = _('Check Categoryoption')
         verbose_name_plural = _(' Check Categories')
         ordering = ('indicator_name',)
@@ -377,6 +396,8 @@ class DqaInvalidDatasourceRemarks(models.Model):
     class Meta:
         managed = True
         db_table = 'dqa_invalid_datasource_remarks'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)         
         verbose_name = _('Invalid Source')
         verbose_name_plural = _(' Check Sources')
         ordering = ('indicator_name',)
@@ -402,6 +423,8 @@ class DqaInvalidMeasuretypeRemarks(models.Model):
     class Meta:
         managed = True
         db_table = 'dqa_invalid_measuretype_remarks'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)  
         verbose_name = _('Check Measutype')
         verbose_name_plural = _(' Check Measures')
         ordering = ('indicator_name',)
@@ -427,6 +450,8 @@ class DqaInvalidPeriodRemarks(models.Model):
     class Meta:
         managed = True
         db_table = 'dqa_invalid_period_remarks'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)  
         verbose_name = _('Check Period')
         verbose_name_plural = _(' Check Periods')
         ordering = ('indicator_name',)
@@ -453,6 +478,8 @@ class DqaExternalConsistencyOutliersRemarks(models.Model):
     class Meta:
         managed = True
         db_table = 'dqa_external_inconsistencies_remarks'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)  
         verbose_name = _('External Consistency')
         verbose_name_plural = _('External Consistencies')
         ordering = ('indicator_name',)
@@ -478,6 +505,8 @@ class DqaInternalConsistencyOutliersRemarks(models.Model):
     class Meta:
         managed = True
         db_table = 'dqa_internal_consistencies_remarks'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)  
         verbose_name = _('Internal Consistency')
         verbose_name_plural = _('Internal Consistencies')
         ordering = ('indicator_name',)
@@ -502,6 +531,8 @@ class DqaValueTypesConsistencyRemarks(models.Model):
     class Meta:
         managed = True
         db_table = 'dqa_valuetype_consistencies_remarks'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',)  
         verbose_name = _('Value Consistency')
         verbose_name_plural = _('Value Consistencies')
         ordering = ('indicator_name',)

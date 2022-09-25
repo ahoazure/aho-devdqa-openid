@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _ #For translating imported
 from regions.models import StgLocation
 from data_wizard.admin import ImportActionModelAdmin
 from django.forms import TextInput,Textarea #for customizing textarea row and column size
-from .models import FileSource,URLSource #customize import sourece
+from .models import FileSources,URLSources #customize import sourece
 
 from commoninfo.admin import OverideImportExport, OverideExport
 from .models import (StgCategoryParent,StgCategoryoption,StgMeasuremethod,
@@ -285,7 +285,7 @@ class FileSourceAdmin(ImportActionModelAdmin):
             }),
         )
     list_display=('name','location','url','date',)
-admin.site.register(FileSource, FileSourceAdmin)
+admin.site.register(FileSources, FileSourceAdmin)
 
 
 # This class admin class is used to customize change page for the URL data source
@@ -343,4 +343,4 @@ class URLSourceAdmin(ImportActionModelAdmin):
             }),
         )
     list_display=('name','location','url','date',)
-admin.site.register(URLSource,URLSourceAdmin)
+admin.site.register(URLSources,URLSourceAdmin)

@@ -33,7 +33,7 @@ from .forms import FilterForm
 
 from .models import (MeasureTypes_Validator,DataSource_Validator,
     CategoryOptions_Validator,Similarity_Index,Mutiple_MeasureTypes,
-    Facts_DataFrame,MeasureType_Statistics,DqaInvalidCategoryoptionRemarks,
+    Facts_DataFrame,MissingValuesRemarks,DqaInvalidCategoryoptionRemarks,
     DqaInvalidDatasourceRemarks,DqaInvalidMeasuretypeRemarks,
     DqaInvalidPeriodRemarks, DqaExternalConsistencyOutliersRemarks,
     DqaInternalConsistencyOutliersRemarks,DqaValueTypesConsistencyRemarks,
@@ -97,9 +97,42 @@ class Facts_DataFilterAdmin(OverideExport,ImportExportActionModelAdmin):
                 'fields': ('start_period','end_period',),
             }),
         )
-
     filter_horizontal = ('locations','indicators','categoryoptions',
         'datasource') # this should display  inline with multiselect
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        groups = list(request.user.groups.values_list('user', flat=True))
+        language = request.LANGUAGE_CODE
+        user_location = request.user.location_id
+        user = request.user.id
+        location_level = request.user.location.locationlevel_id
+
+        # import pdb; pdb.set_trace()
+        if db_field.name == "locations":
+            if request.user.is_superuser:
+                kwargs["queryset"] = StgLocation.objects.all().translated(
+                language_code=language).order_by('translations__name')
+            elif user in groups and location_level<2:
+                kwargs["queryset"] = StgLocation.objects.filter(
+                locationlevel__locationlevel_id__gte=1,
+                locationlevel__locationlevel_id__lte=2).translated(
+                language_code=language).order_by('translations__name')
+            else:
+                kwargs["queryset"] = StgLocation.objects.filter(
+                location_id=user_location).translated(
+                language_code=language).order_by('translations__name')
+
+        if db_field.name == "indicators":
+                StgIndicator.objects.all().translated(
+                language_code=language).order_by('translations__name')
+        if db_field.name == "categoryoptions":
+                StgCategoryoption.objects.all().translated(
+                language_code=language).order_by('translations__name')
+        if db_field.name == "datasource":
+                StgDatasource.objects.all().translated(
+                language_code=language).order_by('translations__name')
+        return super(Facts_DataFilterAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
+
+   
 
 
 @admin.register(Facts_DataFrame)
@@ -189,21 +222,22 @@ class MeasureTypeAdmin(OverideExport):
         user = request.user.id
         location = request.user.location_id
         language = request.LANGUAGE_CODE # get the en, fr or pt from the request
+        location_level = request.user.location.locationlevel_id       
         
         db_locations = StgLocation.objects.get(
             location_id=location) #filter by logged user loaction       
  
         qs = super().get_queryset(request).select_related(
-            'indicator_name','measure_type').filter(
-            indicator_name__translations__language_code=language).order_by(
-            'indicator_name__translations__name').filter(
+            'indicator','measure_type').filter(
+            indicator__translations__language_code=language).order_by(
+            'indicator__translations__name').filter(
             measure_type__translations__language_code=language).order_by(
             'measure_type___translations__name').distinct()
         
         # import pdb; pdb.set_trace()
         if request.user.is_superuser:
             qs
-        elif user in groups: # return records on if the user belongs to the group
+        elif user in groups and location_level<2: # return records on if the user belongs to the group
             qs=qs.filter(location=db_locations) # return records for logged in country
         else: # return records belonging to logged user only
             qs=qs.filter(user=user)            
@@ -211,8 +245,7 @@ class MeasureTypeAdmin(OverideExport):
 
     fieldsets = ( # used to create frameset sections on the data entry form
         ('Standard Measure Type Details', {
-                'fields': ('indicator_name','measure_type',
-                'afrocode','measuremethod_id',
+                'fields': ('indicator','measure_type','afrocode','measuremethod_id',
             )
             }),
         )
@@ -224,21 +257,20 @@ class MeasureTypeAdmin(OverideExport):
     
     readonly_fields = ('afrocode', 'measuremethod_id',)
     exclude = ('user',)
-    list_display=['afrocode','indicator_name', 'measure_type',
+    list_display=['afrocode','indicator', 'measure_type',
         'measuremethod_id',]
     
-    list_display_links = ('afrocode','indicator_name', 'measure_type',)       
-    search_fields = ('afrocode','indicator_name__translations__name',
+    list_display_links = ('afrocode','indicator', 'measure_type',)       
+    search_fields = ('afrocode','indicator__translations__name',
        'measure_type__translations__name' ) 
     list_filter = (
-        ('indicator_name', RelatedDropdownFilter,),
+        ('indicator', RelatedDropdownFilter,),
         ('measure_type',RelatedDropdownFilter),
     )
 
-
+data_wizard.register(DataSource_Validator)
 @admin.register(DataSource_Validator)
 class DatasourceAdmin(OverideExport):
-    
     from django.db import models
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'100'})},
@@ -249,30 +281,30 @@ class DatasourceAdmin(OverideExport):
         user = request.user.id
         location = request.user.location_id
         language = request.LANGUAGE_CODE # get the en, fr or pt from the request
+        location_level = request.user.location.locationlevel_id       
         
         db_locations = StgLocation.objects.get(
             location_id=location) #filter by logged user loaction       
  
         qs = super().get_queryset(request).select_related(
-            'indicator_name','datasource_name').filter(
-            indicator_name__translations__language_code=language).order_by(
-            'indicator_name__translations__name').filter(
-            datasource_name__translations__language_code=language).order_by(
-            'datasource_name___translations__name').distinct()
+            'indicator','datasource').filter(
+            indicator__translations__language_code=language).order_by(
+            'indicator__translations__name').filter(
+            datasource__translations__language_code=language).order_by(
+            'datasource___translations__name').distinct()
         
         # import pdb; pdb.set_trace()
         if request.user.is_superuser:
             qs
-        elif user in groups: # return records on if the user belongs to the group
+        elif user in groups and location_level<2: # return records on if the user belongs to the group
             qs=qs.filter(location=db_locations) # return records for logged in country
         else: # return records belonging to logged user only
             qs=qs.filter(user=user)            
         return qs
 
     fieldsets = ( # used to create frameset sections on the data entry form
-        ('Standard Measure Type Details', {
-                'fields': ('indicator_name','datasource_name',
-                'afrocode','datasource_id',
+        ('Data Source Details', {
+                'fields': ('indicator','datasource','afrocode','datasourceid',
             )
             }),
         )  
@@ -283,15 +315,15 @@ class DatasourceAdmin(OverideExport):
         super().save_model(request, obj, form, change)
     
     exclude = ('user',)
-    list_display=['afrocode','indicator_name', 'datasource_name',
-        'datasource_id',]
-    search_fields = ('afrocode','indicator_name','datasource_name') 
+    readonly_fields = ('afrocode', 'datasourceid',)
+    list_display=['afrocode','indicator','datasource','datasourceid',]
+    search_fields = ('afrocode','indicator','datasource') 
     list_filter = (
-        ('indicator_name', RelatedDropdownFilter,),
-        ('datasource_name',RelatedDropdownFilter),
+        ('indicator', RelatedDropdownFilter,),
+        ('datasource',RelatedDropdownFilter),
     )
 
-
+data_wizard.register(CategoryOptions_Validator)
 @admin.register(CategoryOptions_Validator) 
 class categoryOptionAdmin(OverideExport):
     
@@ -306,21 +338,21 @@ class categoryOptionAdmin(OverideExport):
         user = request.user.id
         location = request.user.location_id
         language = request.LANGUAGE_CODE # get the en, fr or pt from the request
-        
+        location_level = request.user.location.locationlevel_id       
         db_locations = StgLocation.objects.get(
             location_id=location) #filter by logged user loaction       
  
         qs = super().get_queryset(request).select_related(
-            'indicator_name','categoryoption').filter(
-            indicator_name__translations__language_code=language).order_by(
-            'indicator_name__translations__name').filter(
+            'indicator','categoryoption').filter(
+            indicator__translations__language_code=language).order_by(
+            'indicator__translations__name').filter(
             categoryoption__translations__language_code=language).order_by(
             'categoryoption___translations__name').distinct()
 
         # import pdb; pdb.set_trace()
         if request.user.is_superuser:
             qs
-        elif user in groups: # return records on if the user belongs to the group
+        elif user in groups and location_level<2: # return records on if the user belongs to the group
             qs=qs.filter(location=db_locations) # return records for logged in country
         else: # return records belonging to logged user only
             qs=qs.filter(user=user)            
@@ -333,7 +365,7 @@ class categoryOptionAdmin(OverideExport):
     
     fieldsets = ( # used to create frameset sections on the data entry form
         ('Category Option Details', {
-                'fields': ('indicator_name','categoryoption',
+                'fields': ('indicator','categoryoption',
                 'afrocode','categoryoptionid',
             )
             }),
@@ -341,17 +373,15 @@ class categoryOptionAdmin(OverideExport):
     exclude = ('user',)
 
     readonly_fields = ('afrocode', 'categoryoptionid',)
-    list_display=['afrocode','indicator_name', 'categoryoption',
+    list_display=['afrocode','indicator', 'categoryoption',
         'categoryoption_id',]
-    search_fields = ('afrocode','indicator_name','categoryoption') 
+    search_fields = ('afrocode','indicator','categoryoption') 
     list_filter = (
-        ('indicator_name', RelatedOnlyDropdownFilter,),
+        ('indicator', RelatedOnlyDropdownFilter,),
         ('categoryoption',RelatedOnlyDropdownFilter),
     )
      
-# @admin.register(MeasureType_Statistics)
-# class MeasureTypeStatisticsAdmin(ExportActionModelAdmin,OverideExport):
-#     list_display=['location','indicator_name', 'count',]   
+
 
 @admin.register(Similarity_Index)
 class Similarity_IndexAdmin(OverideExport):
@@ -391,7 +421,7 @@ class Similarity_IndexAdmin(OverideExport):
      
 
 @admin.register(Mutiple_MeasureTypes)
-class Mutiple_MeasureTypesAdmin(OverideExport):
+class Multiple_MeasureTypesAdmin(OverideExport):
     from django.db import models
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'100'})},
@@ -410,7 +440,52 @@ class Mutiple_MeasureTypesAdmin(OverideExport):
         extra_context['show_save_and_continue'] = False
         extra_context["show_save"] = True
         extra_context['show_close'] = True
-        return super(Mutiple_MeasureTypesAdmin, self).change_view(
+        return super(Multiple_MeasureTypesAdmin, self).change_view(
+            request,object_id,extra_context=extra_context)
+
+    def save_model(self, request, obj, form, change):
+        if not obj.pk:
+            obj.user = request.user # set logged user during first save.
+        super().save_model(request, obj, form, change)
+    
+    exclude = ('user',)   
+    list_display=['indicator_name','location', 'categoryoption',
+      'datasource','measure_type', 'value','period','remarks', ]
+    search_fields = ('indicator_name','location','categoryoption',
+      'datasource','measure_type',) 
+
+    list_filter = (
+        ('location', DropdownFilter,),
+        ('indicator_name', DropdownFilter,),
+        ('categoryoption', DropdownFilter,),
+        ('datasource', DropdownFilter,),
+        ('measure_type', DropdownFilter,),
+        ('period', DropdownFilter),
+        ('remarks', DropdownFilter),
+    )
+
+
+@admin.register(MissingValuesRemarks)
+class Missing_ValuesAdmin(OverideExport):
+    from django.db import models
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'100'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':100})},
+    }
+    
+    def has_add_permission(self, request):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def change_view(self, request, object_id, extra_context=None):
+        ''' Customize add/edit form '''
+        extra_context = extra_context or {}
+        extra_context['show_save_and_continue'] = False
+        extra_context["show_save"] = True
+        extra_context['show_close'] = True
+        return super(Missing_ValuesAdmin, self).change_view(
             request,object_id,extra_context=extra_context)
 
     def save_model(self, request, obj, form, change):
@@ -579,7 +654,7 @@ class DQAInvalidDataSourcesAdmin(OverideExport):
         elif user in groups: # return records on if the user belongs to the group
             qs=qs.filter(location=db_locations) # return records for logged in country
         else: # return records belonging to logged user only
-            qs=qs.filter(user=user)      
+            qs=qs.filter(user=user)     
         return qs # must return filter queryset to be displayed on admin interface
 
     def has_add_permission(self, request):

@@ -177,8 +177,10 @@ def check_data_quality(request):
         # -----------------------------------Misscellanious algorithm - Count Data Source and measure Type For Each Indicators-----
         missing_numeric = pd.DataFrame() # initialize numeric dataframe with empty values
         missing_string = pd.DataFrame() # initialize string dataframe with empty values
+        missing_string_df = pd.DataFrame() 
+        missing_numeric_df = pd.DataFrame() 
         missing_values_df = pd.DataFrame() 
-        
+
         numeric_data = data[data['measure type']!= "String"].copy()
         missing_numeric = numeric_data[numeric_data.Value.isnull()].copy()
         

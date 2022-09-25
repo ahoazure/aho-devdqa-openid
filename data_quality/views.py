@@ -178,7 +178,6 @@ def check_data_quality(request):
         missing_numeric = pd.DataFrame() # initialize numeric dataframe with empty values
         missing_string = pd.DataFrame() # initialize string dataframe with empty values
         missing_string_df = pd.DataFrame() 
-        missing_numeric_df = pd.DataFrame() 
         missing_values_df = pd.DataFrame() 
 
         numeric_data = data[data['measure type']!= "String"].copy()
@@ -187,7 +186,7 @@ def check_data_quality(request):
         string_data = data[data['measure type']== "String"].copy()
         missing_string = string_data[string_data.Value.isnull()].copy()
         
-        if not missing_numeric.empty:
+        if not missing_numeric.empty or not missing_string.empty:
             missing_numeric["Check_Missing_Numeric_Value"] = "Missing Numeric Value"
             missing_numeric_df=missing_numeric.rename({'Indicator Name':'indicator_name',
                 'Country':'location','CategoryOption':'categoryoption',
@@ -195,7 +194,6 @@ def check_data_quality(request):
                 'Year':'period','Value':'value','Year':'period',
                 'Check_Missing_Numeric_Value':'remarks'},axis=1)  
 
-        if not missing_string.empty:
             missing_string["Check_Missing_String_Value"] = "Missing String Value"
             missing_string_df=missing_string.rename({'Indicator Name':'indicator_name',
                 'Country':'location','CategoryOption':'categoryoption',

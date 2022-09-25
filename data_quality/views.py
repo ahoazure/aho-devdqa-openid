@@ -169,16 +169,15 @@ def check_data_quality(request):
                 'categoryoption','datasource','measure_type',
                 'value','period'],index='fact_id')
                 
-
         data=facts_df.rename({'fact_id':'fact_id', 'indicator_name':'Indicator Name', 
             'location':'Country','categoryoption':'CategoryOption',
             'datasource':'DataSource','measure_type':'measure type',
             'value':'Value','period':'Year'},axis=1)
 
-
         # -----------------------------------Misscellanious algorithm - Count Data Source and measure Type For Each Indicators-----
         missing_numeric = pd.DataFrame() # initialize numeric dataframe with empty values
         missing_string = pd.DataFrame() # initialize string dataframe with empty values
+        missing_values_df = pd.DataFrame() 
         
         numeric_data = data[data['measure type']!= "String"].copy()
         missing_numeric = numeric_data[numeric_data.Value.isnull()].copy()
@@ -188,7 +187,7 @@ def check_data_quality(request):
         
         if not missing_numeric.empty:
             missing_numeric["Check_Missing_Numeric_Value"] = "Missing Numeric Value"
-            missing_values_df=missing_numeric.rename({'Indicator Name':'indicator_name',
+            missing_numeric_df=missing_numeric.rename({'Indicator Name':'indicator_name',
                 'Country':'location','CategoryOption':'categoryoption',
                 'DataSource':'datasource','measure type':'measure_type',
                 'Year':'period','Value':'value','Year':'period',
@@ -202,7 +201,7 @@ def check_data_quality(request):
                 'Year':'period','Value':'value','Year':'period',
                 'Check_Missing_String_Value':'remarks'},axis=1)  
 
-            missing_values_df =pd.concat((missing_values_df,missing_string_df),axis = 0)
+            missing_values_df =pd.concat((missing_numeric_df,missing_string_df),axis = 0)
             values_checker = missing_values_df.to_records(index=True)     
             try:
                 missingvalues = [
@@ -335,40 +334,41 @@ def check_data_quality(request):
                         IWWDS = data[(data['Indicator Name']==indicator) & (
                             data['DataSource']==ds)] # indicator with wrong data source
                         dataWDS = pd.concat((dataWDS,IWWDS), axis = 0,ignore_index = True) # append rows (axis=0) into the empty dataframe
-            dataWDS.loc[:,'Check_Data_Source'] = 'This data source is not applicable to this indicator'
-            bad_datasource = dataWDS # Didier's data3: create dataframe for wrong data sources
             
-            if not bad_datasource.empty: # use a.empty instead of boolean to check whether df is empty
+            if not dataWDS.empty:
+                dataWDS.loc[:,'Check_Data_Source'] = 'This data source is not applicable to this indicator'
+                bad_datasource = dataWDS # Didier's data3: create dataframe for wrong data sources
+                
                 bad_datasource_df=bad_datasource.rename(
                     {'Indicator Name':'indicator_name','Country':'location',
                     'CategoryOption':'categoryoption','DataSource':'datasource',
                     'measure type':'measure_type','Value':'value','Year':'period',
                     'Check_Data_Source':'check_data_source'},axis=1)  
                 
-            datasource_checker = bad_datasource_df.to_records(index=True)
-            try:        
-                datasources = [
-                    DqaInvalidDatasourceRemarks(
-                        indicator_name=record['indicator_name'],
-                        location=record['location'],
-                        categoryoption=record['categoryoption'],
-                        datasource=record['datasource'],
-                        measure_type=record['measure_type'],
-                        value=record['value'],
-                        period=record['period'],
-                        check_data_source=record['check_data_source'], 
-                        user = current_user
+                datasource_checker = bad_datasource_df.to_records(index=True)
+                try:        
+                    datasources = [
+                        DqaInvalidDatasourceRemarks(
+                            indicator_name=record['indicator_name'],
+                            location=record['location'],
+                            categoryoption=record['categoryoption'],
+                            datasource=record['datasource'],
+                            measure_type=record['measure_type'],
+                            value=record['value'],
+                            period=record['period'],
+                            check_data_source=record['check_data_source'], 
+                            user = current_user
 
-                    )
-                    for record in datasource_checker
-                ]
-                # BEHAVIOUR -ignore_conflicts=True allows records to be auto-inserted if not EXIST!  
-                records = DqaInvalidDatasourceRemarks.objects.bulk_create(
-                    datasources,ignore_conflicts=True,)
-            except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
-                pass 
-            except: # ignore othe database related errors
-                print('Unknown Error has occured') 
+                        )
+                        for record in datasource_checker
+                    ]
+                    # BEHAVIOUR -ignore_conflicts=True allows records to be auto-inserted if not EXIST!  
+                    records = DqaInvalidDatasourceRemarks.objects.bulk_create(
+                        datasources,ignore_conflicts=True,)
+                except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    pass 
+                except: # ignore othe database related errors
+                    print('Unknown Error has occured') 
 
 
         # -------------------------------Import algorithm 2 - indicators with wrong category options--------------------------
@@ -393,38 +393,39 @@ def check_data_quality(request):
                     for co in WCO:
                         IWWCO = data[(data['Indicator Name']==indicator) & (data['CategoryOption']==co)]
                         dataWCO = pd.concat((dataWCO,IWWCO), axis = 0,ignore_index = True) # append rows (axis=0) into the empty dataframe
-            dataWCO.loc[:,'Check_Category_Option'] = 'This category option is not applicable to this indicator'            
-            categoryoption_df = dataWCO # Didier's data4: Create dataframe with check measure type remarks column
-                             
-            if not categoryoption_df.empty: # check whether the dataframe is empty
+            
+            if not dataWCO.empty:       
+                dataWCO.loc[:,'Check_Category_Option'] = 'This category option is not applicable to this indicator'            
+                categoryoption_df = dataWCO # Didier's data4: Create dataframe with check measure type remarks column
+                            
                 bad_categoryoption_df=categoryoption_df.rename(
                     {'Indicator Name':'indicator_name','Country':'location',
                     'CategoryOption':'categoryoption','DataSource':'datasource',
                     'measure type':'measure_type','Value':'value','Year':'period',
                     'Check_Category_Option':'check_category_option'},axis=1)  
                 
-            categoryoptions_checker = bad_categoryoption_df.to_records(index=True)
-            try:    
-                categoryoptions = [
-                    DqaInvalidCategoryoptionRemarks(
-                        indicator_name=record['indicator_name'],
-                        location=record['location'],
-                        categoryoption=record['categoryoption'],
-                        datasource=record['datasource'],
-                        measure_type=record['measure_type'],
-                        value=record['value'],
-                        period=record['period'],
-                        check_category_option=record['check_category_option'],
-                        user = current_user    
-                    )
-                    for record in categoryoptions_checker
-                ]
-                records = DqaInvalidCategoryoptionRemarks.objects.bulk_create(
-                    categoryoptions,ignore_conflicts=True,)
-            except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
-                pass 
-            except: # ignore othe database related errors
-                print('Unknown Error has occured') 
+                categoryoptions_checker = bad_categoryoption_df.to_records(index=True)
+                try:    
+                    categoryoptions = [
+                        DqaInvalidCategoryoptionRemarks(
+                            indicator_name=record['indicator_name'],
+                            location=record['location'],
+                            categoryoption=record['categoryoption'],
+                            datasource=record['datasource'],
+                            measure_type=record['measure_type'],
+                            value=record['value'],
+                            period=record['period'],
+                            check_category_option=record['check_category_option'],
+                            user = current_user    
+                        )
+                        for record in categoryoptions_checker
+                    ]
+                    records = DqaInvalidCategoryoptionRemarks.objects.bulk_create(
+                        categoryoptions,ignore_conflicts=True,)
+                except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    pass 
+                except: # ignore othe database related errors
+                    print('Unknown Error has occured') 
                 
 
         # -------------------------------Import algorithm 3 - indicators with wrong measure types--------------------------
@@ -448,38 +449,39 @@ def check_data_quality(request):
                     for mt in WMT:
                         IWWMT = data[(data['Indicator Name']==indicator) & (data['measure type']==mt)]
                         dataWMT = pd.concat((dataWMT,IWWMT), axis = 0,ignore_index = True) # append rows (axis=0) into the empty dataframe
-            dataWMT.loc[:,'Check_Mesure_Type'] = 'This mesure type is not applicable to this indicator'
-            measuretypes_df = dataWMT # Didier's data5 Create dataframe with check measure type remarks column
-                 
-            if not measuretypes_df.empty: # check whether the dataframe is empty
+            
+            if not dataWMT.empty:                   
+                dataWMT.loc[:,'Check_Mesure_Type'] = 'This mesure type is not applicable to this indicator'
+                measuretypes_df = dataWMT # Didier's data5 Create dataframe with check measure type remarks column
+                
                 bad_measuretype_df=measuretypes_df.rename(
                     {'Indicator Name':'indicator_name','Country':'location',
                     'CategoryOption':'categoryoption','DataSource':'datasource',
                     'measure type':'measure_type','Value':'value','Year':'period',
                     'Check_Mesure_Type':'check_mesure_type'},axis=1)  
             
-            measures_checker = bad_measuretype_df.to_records(index=True)
-            try:    
-                measuretypes = [
-                    DqaInvalidMeasuretypeRemarks(
-                        indicator_name=record['indicator_name'],
-                        location=record['location'],
-                        categoryoption=record['categoryoption'],
-                        datasource=record['datasource'],
-                        measure_type=record['measure_type'],
-                        value=record['value'],
-                        period=record['period'],
-                        check_mesure_type=record['check_mesure_type'],                   
-                        user = current_user    
-                    )
-                    for record in measures_checker
-                ]
-                records = DqaInvalidMeasuretypeRemarks.objects.bulk_create(
-                    measuretypes,ignore_conflicts=True,)
-            except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
-                pass 
-            except: # ignore othe database related errors
-                print('Unknown Error has occured') 
+                measures_checker = bad_measuretype_df.to_records(index=True)
+                try:    
+                    measuretypes = [
+                        DqaInvalidMeasuretypeRemarks(
+                            indicator_name=record['indicator_name'],
+                            location=record['location'],
+                            categoryoption=record['categoryoption'],
+                            datasource=record['datasource'],
+                            measure_type=record['measure_type'],
+                            value=record['value'],
+                            period=record['period'],
+                            check_mesure_type=record['check_mesure_type'],                   
+                            user = current_user    
+                        )
+                        for record in measures_checker
+                    ]
+                    records = DqaInvalidMeasuretypeRemarks.objects.bulk_create(
+                        measuretypes,ignore_conflicts=True,)
+                except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                    pass 
+                except: # ignore othe database related errors
+                    print('Unknown Error has occured') 
    
 
         # -------------------------------------Start of comparing indicators for similarity score----------------------------        
@@ -616,42 +618,43 @@ def check_data_quality(request):
         i1 = dataExtInc.set_index(keys).index
         i2 = aggDataExtInc.set_index(keys).index
 
+        
         ExOutliersExtCons = dataExtInc[i1.isin(i2)].copy()
         ExOutliersExtCons['Check_External_Inconsistency'] = \
             'This value seems to be an outlier for an external consistency'
         externaloutliers_df = ExOutliersExtCons.copy()        
 
         if not externaloutliers_df.empty: # check whether the dataframe is empty
-                external_outliers_df=externaloutliers_df.rename(
-                    {'Indicator Name':'indicator_name','Country':'location',
-                    'CategoryOption':'categoryoption','DataSource':'datasource',
-                    'measure type':'measure_type','Value':'value','Year':'period',
-                    'Check_External_Inconsistency':'external_consistency'},
+            external_outliers_df=externaloutliers_df.rename(
+                {'Indicator Name':'indicator_name','Country':'location',
+                'CategoryOption':'categoryoption','DataSource':'datasource',
+                'measure type':'measure_type','Value':'value','Year':'period',
+                'Check_External_Inconsistency':'external_consistency'},
                 axis=1)  
 
-        extraconsistency_checker = external_outliers_df.to_records(index=True)
-        try:    
-            extraconsistencies = [           
-                DqaExternalConsistencyOutliersRemarks(
-                    indicator_name=record['indicator_name'],
-                    location=record['location'],
-                    categoryoption=record['categoryoption'],
-                    datasource=record['datasource'],
-                    measure_type=record['measure_type'],
-                    value=record['value'],
-                    period=record['period'],
-                    external_consistency=record['external_consistency'],                   
-                    user = current_user    
-                )
-                for record in extraconsistency_checker
-            ]
-            records = DqaExternalConsistencyOutliersRemarks.objects.bulk_create(
-                extraconsistencies,ignore_conflicts=True,)
-        except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
-            pass 
-        except: # ignore othe database related errors
-            print('Unknown Error has occured')               
-         
+            extraconsistency_checker = external_outliers_df.to_records(index=True)
+            try:    
+                extraconsistencies = [           
+                    DqaExternalConsistencyOutliersRemarks(
+                        indicator_name=record['indicator_name'],
+                        location=record['location'],
+                        categoryoption=record['categoryoption'],
+                        datasource=record['datasource'],
+                        measure_type=record['measure_type'],
+                        value=record['value'],
+                        period=record['period'],
+                        external_consistency=record['external_consistency'],                   
+                        user = current_user    
+                    )
+                    for record in extraconsistency_checker
+                ]
+                records = DqaExternalConsistencyOutliersRemarks.objects.bulk_create(
+                    extraconsistencies,ignore_conflicts=True,)
+            except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                pass 
+            except: # ignore othe database related errors
+                print('Unknown Error has occured')               
+    
 
         # Internal consistency : By Indicator per categoryoption (Considering all data sources )
         internaloutliers_df = pd.DataFrame()
@@ -722,29 +725,30 @@ def check_data_quality(request):
                 'measure type':'measure_type','Value':'value','Year':'period',
                 'Check_Internal_Inconsistency':'internal_consistency'},axis=1)  
         
-        intraconsistency_checker = internal_outliers_df.to_records(index=True)
-        try:    
-            intraconsistencies = [           
-                DqaInternalConsistencyOutliersRemarks(
-                    indicator_name=record['indicator_name'],
-                    location=record['location'],
-                    categoryoption=record['categoryoption'],
-                    datasource=record['datasource'],
-                    measure_type=record['measure_type'],
-                    value=record['value'],
-                    period=record['period'],
-                    internal_consistency=record['internal_consistency'],                   
-                    user = current_user    
-                )
-                for record in intraconsistency_checker
-            ]
-            records = DqaInternalConsistencyOutliersRemarks.objects.bulk_create(
-                intraconsistencies,ignore_conflicts=True,)
-        except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
-            pass 
-        except: # ignore othe database related errors
-            print('Unknown Error has occured') 
+            intraconsistency_checker = internal_outliers_df.to_records(index=True)
+            try:    
+                intraconsistencies = [           
+                    DqaInternalConsistencyOutliersRemarks(
+                        indicator_name=record['indicator_name'],
+                        location=record['location'],
+                        categoryoption=record['categoryoption'],
+                        datasource=record['datasource'],
+                        measure_type=record['measure_type'],
+                        value=record['value'],
+                        period=record['period'],
+                        internal_consistency=record['internal_consistency'],                   
+                        user = current_user    
+                    )
+                    for record in intraconsistency_checker
+                ]
+                records = DqaInternalConsistencyOutliersRemarks.objects.bulk_create(
+                    intraconsistencies,ignore_conflicts=True,)
+            except(MySQLdb.IntegrityError, MySQLdb.OperationalError) as e:
+                pass 
+            except: # ignore othe database related errors
+                print('Unknown Error has occured') 
 
+        # import pdb; pdb.set_trace()
         # --------------End of consistency inspection algorithms. To be replace with corrected from Didier and Berence---
 
 

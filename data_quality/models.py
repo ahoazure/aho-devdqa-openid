@@ -338,6 +338,8 @@ class MissingValuesRemarks(models.Model): # this is equivalent to inventory_stat
     class Meta:
         managed = True
         db_table = 'dqa_missing_indicator_values'
+        unique_together = ('indicator_name', 'location', 'categoryoption',
+            'datasource','period',) 
         verbose_name = _('Missing Value')
         verbose_name_plural = _('Missing Values')
         ordering = ('measure_type',)

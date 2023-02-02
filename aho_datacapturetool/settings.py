@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     # added django debug tool 26-01-2023
-    'debug_toolbar',
+    # 'debug_toolbar',
     'admin_auto_filters',
 ]
 

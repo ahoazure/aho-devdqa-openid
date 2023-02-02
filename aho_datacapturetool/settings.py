@@ -17,7 +17,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET']
 # SECRET_KEY = 'jz&%c@07o%z_mo&qs2t@-io)vm5ul_0j*kwm@#&m0m4nf7j5a^'
 
-DEBUG = True
+DEBUG = False # make this false to test autocomplete js issue; missing in blob
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1',]
 
@@ -49,6 +49,10 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'django_admin_listfilter_dropdown',
     'crispy_forms',
+
+    # added django debug tool 26-01-2023
+    'debug_toolbar',
+    'admin_auto_filters',
 ]
 
 SESSION_COOKIE_SECURE = True
@@ -113,6 +117,7 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware', #added 0n 26/01/2023
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware', # added
     'django.middleware.common.CommonMiddleware',

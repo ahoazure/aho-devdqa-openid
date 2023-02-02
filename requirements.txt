@@ -2,7 +2,8 @@ Django>2.2,<=3.0.14 #checkout azure supported version
 django-import-export<=2.8.0
 djangorestframework
 djangorestframework-simplejwt
-django-admin-list-filter-dropdown
+django-admin-list-filter-dropdown # to be replaced by line 6
+django-admin-autocomplete-filter<=0.7.1 # to replace line 5
 django-rest-swagger
 django-parler
 django-parler-rest

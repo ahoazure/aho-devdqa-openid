@@ -10,7 +10,8 @@ django-parler-rest
 django-modeladmin-reorder
 django-bootstrap-datepicker-plus==3.0.5
 django-smart-selects<=1.5.9
-django-storages<=1.13.1
+# django-storages<=1.13.1
+django-storages[azure]<=1.12.3
 django-admin-menu<=1.5
 django-crispy-forms==1.14.0
 data-wizard<2.0.0 #checkout latest data wizard

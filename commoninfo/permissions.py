@@ -4,8 +4,8 @@ from rest_framework.permissions import (DjangoModelPermissions)
 
 class CustomDjangoModelPermissions(DjangoModelPermissions):
     message = "Sorry! You have no permission to edit or create new record(s)"
-    def __init__(self):
-        self.perms_map['GET'] = ['%(app_label)s.view_%(model_name)s']
+    def __init__(self): # specify model permissions - max POST
+        self.perms_map['GET','POST',] = ['%(app_label)s.view_%(model_name)s']
 
 
 class IsOwnerOrReadOnly(permissions.BasePermission):

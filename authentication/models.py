@@ -74,7 +74,7 @@ class CustomUser(AbstractUser):
         verbose_name = _('Date Modified'))
 
     USERNAME_FIELD = 'email' # Replaced using username as unique identifier
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['username','location',]
 
     objects = CustomUserManager()
 

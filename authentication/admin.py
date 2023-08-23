@@ -117,10 +117,12 @@ class UserAdmin (UserAdmin):
         ('Personal info', {'fields': ('first_name', 'last_name','location')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
+    
+    # The location field must appear on the first admin screen after email 
     add_fieldsets = (
         ('Contacts and Password', {
-            'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2')}
+            'classes': ('wide',), # added location lookup field on 3/08/2023
+            'fields': ('email', 'location', 'password1', 'password2',)}
         ),
     )
     list_select_related = ('location',)

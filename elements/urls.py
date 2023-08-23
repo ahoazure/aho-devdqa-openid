@@ -1,4 +1,4 @@
-from rest_framework.routers import SimpleRouter
+from rest_framework.routers import SimpleRouter,DefaultRouter
 from elements import views
 
 router = SimpleRouter()

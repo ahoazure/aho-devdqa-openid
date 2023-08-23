@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'data_wizard',
     'rest_framework', # register Django REST framework
     'rest_framework_swagger',
+    'rest_framework.authtoken', # added 22/08/2023
     'django_admin_listfilter_dropdown',
     'crispy_forms',
 
@@ -92,6 +93,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication', # added 23/08/2023
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_FILTER_BACKENDS': [
@@ -111,6 +113,36 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': 'iso-8601',
     'DATE_FORMAT': 'iso-8601',
     'TIME_FORMAT': 'iso-8601',
+}
+
+
+# LOGIN_URL = 'rest_framework:login' # added 22/08/2023 to allow session-based login
+# LOGOUT_URL = 'rest_framework:logout' # added 22/08/2023 to allow session-based login
+
+#Swagger rest authntication added 22/08/2023 to allow session-based login
+SWAGGER_SETTINGS = {
+    'SHOW_REQUEST_HEADERS': True,
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+        },
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    'USE_SESSION_AUTH': True,
+    'LOGIN_URL':'rest_framework:login', # display rest login page
+    'LOGOUT_URL':'rest_framework:logout', # display logout button
+    'JSON_EDITOR': True,
+    'SUPPORTED_SUBMIT_METHODS': [
+        'get',
+        'post',
+        'patch',
+        'put',
+        'delete',
+    ],
 }
 
 

@@ -53,13 +53,11 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns ( # must be python immutable list () and not []
-    path('', views.login, name="login"),
-    path('logout/', views.logout, name='logout'),
-    # This pattern is used to redirect native auth to custom view and template
-    path('admin/logout/', lambda request: redirect(
-        '/microsoft_authentication/logout', permanent=False)),
+
+   path('', views.index, name='index'),
     path('admin/', admin.site.urls,name='dashboard'),
-    path('microsoft_authentication/', include('authentication.urls')),
+    path('accounts/login/', views.login_view, name='login'),
+
     path('datawizard/', include('data_wizard.urls')), #for data import wizard
     #Daniel support to validate A->B->C pupolated selection in facility services
     path('chaining/', include('smart_selects.urls')),

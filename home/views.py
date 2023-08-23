@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect,HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from rest_framework import viewsets
@@ -15,8 +15,7 @@ from . serializers import (StgDatasourceSerializer,
 from .models import (StgDatasource,StgCategoryParent, StgCategoryoption,
     StgValueDatatype,StgMeasuremethod,)
 from django.conf import settings
-#Facilitate single sign on into Microsoft Azure AD
-from authentication.auth.auth_decorators import microsoft_login_required
+
 
 class StgDisagregationCategoryViewSet(viewsets.ModelViewSet):
     serializer_class = StgDisagregationCategorySerializer
@@ -77,23 +76,26 @@ class StgMeasuremethodViewSet(viewsets.ModelViewSet):
             translations__language_code=language).order_by(
             'translations__name').distinct()
 
-# #For testing OpenID=based authentication workflow
-@microsoft_login_required()
-def home(request):
-    return HttpResponse("Logged in")
+#This code is for the login page
+context = {}
+def index(request):
+    return render(request, 'index.html', context=context)
 
-# If pages need to be restricted to certain groups of users.
-@microsoft_login_required(groups=("invitee", "guest"))
-def specific_group_access(request):
-    return HttpResponse("You are accessing  DCT as Guest or Admin User")
-
-# This is a test login view for use will SSO
-def login(request):
-    return render(request, 'login.html')
-    # import pdb; pdb.set_trace()
-
-def logout(request):
-    return render(request,'logout.html')
+def login_view(request):
+    if not request.POST.get('username') or not request.POST.get('password'):
+        return render(request, 'index.html', context=context)
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        # request.session['language'] = request.POST['language']
+        return redirect('admin:index') # Changed 25/10/2020 for multi-lingo login
+    else:
+        return render(
+            request, 'index.html', {
+                    'error_message': 'Login Failed! \
+                    Please enter Valid Username and Password.', })
 
 # Methods for custom error handlers that serve htmls in templates/home/errors
 def handler404(request, exception):

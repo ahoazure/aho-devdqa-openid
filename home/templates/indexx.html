@@ -1,0 +1,92 @@
+{% load static %} <!--load logo and css files from the static subdirector-->
+{% load i18n %} <!--Language translation to support english, French and Portuguese-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Data Capture Tool</title>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+		<!-- Bootstrap CSS modified to be loaded from static subdirectory-->
+		<link rel="stylesheet" href="{% static 'ahocss/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'ahocss/styles.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
+	<body>
+		<div class="container-fluid" id="wrapper">
+		<p class = body_title> {% trans "iAHO Data Capture Tool" %}</p>
+			<div class="row">
+				<div class="col-lg-4 col-lg-offset-4" id="content">
+					<div class="row t10">
+						<div class="col-lg-12">
+							<form id="login-form" method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <table class="table">
+									<div>
+										<img src="{% static "aho_en.png" %}" class="logo">
+									</div>
+									{% if error_message %}
+									<div class="login-valivation alert alert-danger">
+										<p>
+										{{error_message}}
+										</p>
+									</div>
+									{% endif %}
+										<tr>
+                        <td>
+													<label for="id_username" class="labels">{% trans "Username" %}</label>
+												</td>
+                        <td>
+													<input type="text" name="username" class="form-control" required="" placeholder="myemail@who.int">
+												</td>
+                    </tr>
+
+										<tr>
+                        <td>
+													<label for="id_password" class="labels">{% trans "Password" %} </label>
+												</td>
+                        <td>
+													<input type="password" name="password" class="form-control" required="" placeholder="Mysecret.pass">
+												</td>
+                    </tr>
+                </table>
+
+                <input type="submit" value={% trans "Login" %} class="btn btn-primary pull-right" />
+                <input type="hidden" name="next" value="{{ next }}" />
+					  </form>
+						<h5 class="labels"> {% trans "Choose language" %} </h5>
+						<form action="{% url 'set_language' %}" method="post">
+							{% csrf_token %}
+							<input name="next" type="hidden" value="{{ redirect_to }}">
+							<select name="language" onChange="form.submit();";>
+									{% get_current_language as LANGUAGE_CODE %}
+									{% get_available_languages as LANGUAGES %}
+									{% get_language_info_list for LANGUAGES as languages %}
+									{% for language in languages %}
+											<option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+													{{ language.name_local|title }} ({{ language.code }})
+											</option>
+									{% endfor %}
+							</select>
+						</form>
+
+						<div id="password-reset-link">
+								<a href="{% url 'password_reset' %}">{% trans "Forgot your password?" %}</a>
+						</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<footer>
+				<div class="row pad">
+					<div class="col-lg-12 text-center">
+					</div>
+				</div>
+			</footer>
+		</div>
+
+	</body>
+</html>

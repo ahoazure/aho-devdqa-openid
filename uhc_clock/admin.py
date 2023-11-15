@@ -29,13 +29,6 @@ from commoninfo.wizard import DataWizardFactIndicatorSerializer
 from django.db.models import Case, When
 from django.urls import path
 
-from commoninfo.admin_filters import  (
-    LocationFilter,IndicatorsFilter,DatasourceFilter,
-    CategoryOptionFilter) # added 1/2/2023
-from regions.views import LocationSearchView
-from indicators.views import IndicatorSearchView
-from home.views import CategoryOptionSearchView,DataourceSearchView
-
 
 @admin.register(StgUHCIndicatorGroup)
 class IndicatorDomainAdmin(TranslatableAdmin,OverideExport):

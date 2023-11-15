@@ -16,6 +16,10 @@ from authentication.models import CustomUser
 
 
 class StgUHCIndicatorGroup(TranslatableModel):
+    LEVEL = (
+        (1,_('level 1')),
+        (2,_('level 2')),
+    )
     domain_id = models.AutoField(primary_key=True)  # Field name made lowercase.
     uuid = uuid = models.CharField(_('Unique ID'),unique=True,max_length=36,
         blank=False, null=False,default=uuid.uuid4,editable=False)
@@ -26,8 +30,12 @@ class StgUHCIndicatorGroup(TranslatableModel):
             null=False),
         description = models.TextField(_('Brief Description'),blank=True,null=True,)
     )
+    level =models.SmallIntegerField(_('Theme Level'),choices=LEVEL,
+        default=LEVEL[0][0])
     code = models.CharField(unique=True, max_length=45, blank=True,
         null=True,verbose_name = _('Code'))
+    parent = models.ForeignKey('self', models.PROTECT, blank=True, null=True,
+        verbose_name = _('Parent UHC Theme'))  # Field name made lowercase.
     # this field establishes a many-to-many relationship with the domain table
     indicators = models.ManyToManyField(StgIndicator,
         db_table='stg_uhc_clock_domain_members',blank=True,
@@ -42,7 +50,7 @@ class StgUHCIndicatorGroup(TranslatableModel):
         db_table = 'stg_uhc_indicator_themes'
         verbose_name = _('UHC Theme')
         verbose_name_plural = _(' UHC Themes')
-        ordering = ('translations__name',)
+        ordering = ('level',)
 
     def __str__(self):
         return self.name #ddisplay disagregation options

@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     # added django debug tool 26-01-2023
     # 'debug_toolbar',
     'admin_auto_filters',
+    
+    # New module for UHC clock indicators
+    'uhc_clock',
 ]
 
 SESSION_COOKIE_SECURE = True

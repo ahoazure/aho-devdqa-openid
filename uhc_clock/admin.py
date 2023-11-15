@@ -55,7 +55,7 @@ class IndicatorDomainAdmin(TranslatableAdmin,OverideExport):
 
     fieldsets = (
         ('Domain Attributes', {
-                'fields': ('name', 'shortname',)
+                'fields': ('name', 'shortname','parent','level')
             }),
             ('Domain Description', {
                 'fields': ('description','indicators'),
@@ -63,9 +63,9 @@ class IndicatorDomainAdmin(TranslatableAdmin,OverideExport):
         )
     # resource_class = DomainResourceExport
     # actions = ExportActionModelAdmin.actions
-    list_display=('name','code','shortname',)
-    # list_select_related = ('parent',)
-    list_display_links = ('code', 'name',)
+    list_display=('name','code','shortname','parent','level')
+    list_select_related = ('parent',)
+    list_display_links = ('code', 'name','parent','level')
     search_fields = ('translations__name','translations__shortname','code')
     list_per_page = 50 #limit records displayed on admin site to 40
     filter_horizontal = ('indicators',) # this should display  inline with multiselect
@@ -120,11 +120,13 @@ class Facts_DataViewAdmin(OverideExport):
         super().save_model(request, obj, form, change)
 
     # exclude = ('user',)
-    list_display=('uhc_theme','indicator_code','indicator_name','location','categoryoption',
-        'datasource','value_received','period','comment')
+    list_display=('uhc_theme','indicator_code','indicator_name',
+            'location','categoryoption','datasource','value_received',
+            'period','comment')
 
     list_display_links = ('uhc_theme','indicator_name','datasource',)
-    search_fields = ('uhc_theme','indicator_name','location','period','indicator_name') 
+    search_fields = ('uhc_theme','indicator_name','location',
+        'period','indicator_name') 
     list_per_page = 50 #limit records displayed on admin site to 30
 
     list_filter = (

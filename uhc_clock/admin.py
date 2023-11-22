@@ -29,6 +29,7 @@ from commoninfo.wizard import DataWizardFactIndicatorSerializer
 from django.db.models import Case, When
 from django.urls import path
 
+from indicators.models import StgIndicator # for many-to-many filter multi-select list
 
 @admin.register(StgUHCIndicatorGroup)
 class IndicatorDomainAdmin(TranslatableAdmin,OverideExport):
@@ -40,6 +41,14 @@ class IndicatorDomainAdmin(TranslatableAdmin,OverideExport):
                         'translations__name').distinct()
         return qs
 
+    # allow many to many filter for multi-select dropdown list
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        language = request.LANGUAGE_CODE
+        if db_field.name == "indicators":
+            kwargs["queryset"] = StgIndicator.objects.select_related('reference',).prefetch_related(
+                'translations__master',).filter(
+                translations__language_code=language)
+        return super(IndicatorDomainAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
     from django.db import models
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'100'})},

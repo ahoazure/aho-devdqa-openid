@@ -11,9 +11,9 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('indicators', '0007_auto_20230124_1019'),
-    ]
+    # dependencies = [
+    #     ('indicators', '0007_auto_20230124_1019'),
+    # ]
 
     operations = [
         migrations.CreateModel(

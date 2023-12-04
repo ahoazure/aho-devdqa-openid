@@ -123,12 +123,12 @@ class Facts_DataViewAdmin(OverideExport):
 
     # exclude = ('user',)
     list_display=('uhc_theme','indicator_code','indicator_name',
-            'location','categoryoption','datasource','value_received',
-            'period','comment')
+            'location','categoryoption','datasource','measure_type',
+            'value_received','period','comment')
 
     list_display_links = ('uhc_theme','indicator_name','datasource',)
     search_fields = ('uhc_theme','indicator_name','location',
-        'period','indicator_name') 
+        'measure_type','period','indicator_name') 
     list_per_page = 50 #limit records displayed on admin site to 30
 
     list_filter = (

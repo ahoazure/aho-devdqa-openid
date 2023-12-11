@@ -1,63 +1,94 @@
 from django.contrib import admin
+# register models here
+import data_wizard # Solution for flexible data import from Excel and CSV
 from django import forms
 from django.conf import settings # allow import of projects settings at the root
-from django.utils.translation import gettext_lazy as _
-from django.forms import BaseInlineFormSet,ValidationError
+from django.forms import BaseInlineFormSet
 from parler.admin import (TranslatableAdmin,TranslatableStackedInline,
     TranslatableInlineModelAdmin)
-import data_wizard # Solution to data import madness that had refused to go
-from itertools import groupby #additional import for managing grouped dropdowm
-from import_export.admin import (ImportExportModelAdmin,ExportMixin,
-    ExportActionMixin,ImportMixin,ImportExportActionModelAdmin,
-    ExportActionModelAdmin,)
+
 from django_admin_listfilter_dropdown.filters import (
     DropdownFilter, RelatedDropdownFilter, ChoiceDropdownFilter,
     RelatedOnlyDropdownFilter) #custom
-from django.contrib.admin.views.main import ChangeList
-from indicators.serializers import FactDataIndicatorSerializer
-from django.forms.models import ModelChoiceField, ModelChoiceIterator
 
-from .models import StgUHCIndicatorGroup,Facts_UHC_DatabaseView
+from .models import (StgUHClockIndicatorsGroup,StgUHClockIndicators,
+        StgUHCIndicatorTheme,Facts_UHC_DatabaseView)
+
 from django.forms import TextInput,Textarea # customize textarea row and column size
 from commoninfo.admin import (OverideImportExport,OverideExport,OverideImport,)
-from commoninfo.fields import RoundingDecimalFormField # For fixing rounded decimal
 from regions.models import StgLocation,StgLocationLevel
-from authentication.models import CustomUser, CustomGroup
-from home.models import ( StgDatasource,StgCategoryoption,StgMeasuremethod)
 
-from commoninfo.wizard import DataWizardFactIndicatorSerializer
-from django.db.models import Case, When
-from django.urls import path
 
-from indicators.models import StgIndicator # for many-to-many filter multi-select list
-
-@admin.register(StgUHCIndicatorGroup)
-class IndicatorDomainAdmin(TranslatableAdmin,OverideExport):
-    def get_queryset(self, request):
-        language = request.LANGUAGE_CODE
-        qs = super().get_queryset(request).filter(
-            translations__language_code=language).filter(
-                    indicators__translations__language_code=language).order_by(
-                        'translations__name').distinct()
-        return qs
-
-    # allow many to many filter for multi-select dropdown list
-    def formfield_for_manytomany(self, db_field, request, **kwargs):
-        language = request.LANGUAGE_CODE
-        if db_field.name == "indicators":
-            kwargs["queryset"] = StgIndicator.objects.select_related('reference',).prefetch_related(
-                'translations__master',).filter(
-                translations__language_code=language)
-        return super(IndicatorDomainAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
+@admin.register(StgUHClockIndicatorsGroup)
+class UHCClockIndicatorGroupAdmin(TranslatableAdmin):
     from django.db import models
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':'100'})},
         models.TextField: {'widget': Textarea(attrs={'rows':3, 'cols':100})},
     }
+    def get_queryset(self, request):
+        language = request.LANGUAGE_CODE
+        qs = super().get_queryset(request).filter(
+            translations__language_code=language).order_by(
+            'translations__name').distinct()
+        return qs
+
+
+    fieldsets = (
+        ('Reference Attributes', {
+                'fields': ('name','shortname',)
+            }),
+            ('Description', {
+                'fields': ('description',),
+            }),
+        )
+    list_display=['name','code','shortname','description',]
+    list_display_links = ('code', 'name',)
+    search_fields = ('code','translations__name','translations__shortname',)
+    list_per_page = 30 #limit records displayed on admin site to 15
+    exclude = ('date_created','date_lastupdated',)
+
+data_wizard.register(StgUHClockIndicators)
+@admin.register(StgUHClockIndicators)
+class UHCClockIndicatorGroupAdmin(OverideExport):
+    def get_queryset(self, request):
+        language = request.LANGUAGE_CODE
+        qs = super().get_queryset(request).filter(
+            indicator_id__translations__language_code=language).distinct()
+        return qs
+    
+    list_display=['indicator','group','Indicator_type','description',]
+
+
+@admin.register(StgUHCIndicatorTheme)
+class UHClockIndicatorThemeAdmin(TranslatableAdmin,OverideExport):
+    from django.db import models
+    formfield_overrides = {
+        models.CharField: {'widget': TextInput(attrs={'size':'120'})},
+        models.TextField: {'widget': Textarea(attrs={'rows':2, 'cols':120})},
+    }
+
+    # def get_queryset(self, request):
+    #     language = request.LANGUAGE_CODE
+    #     qs = super().get_queryset(request).filter(
+    #         translations__language_code=language).filter(
+    #                 indicators__translations__language_code=language).order_by(
+    #                     'translations__name').distinct()
+    #     return qs
+
+    # allow many to many filter for multi-select dropdown list
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        language = request.LANGUAGE_CODE
+        if db_field.name == "indicators":
+            kwargs["queryset"] = StgUHClockIndicators.objects.select_related(
+                'group','indicator').prefetch_related('indicator__translations__master',).filter(
+                indicator__translations__language_code=language).distinct()
+        return super(UHClockIndicatorThemeAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
 
     fieldsets = (
         ('Domain Attributes', {
-                'fields': ('name', 'shortname','parent','level')
+                'fields': ('name', 'shortname','parent','group',
+                        'level')
             }),
             ('Domain Description', {
                 'fields': ('description','indicators'),
@@ -65,14 +96,15 @@ class IndicatorDomainAdmin(TranslatableAdmin,OverideExport):
         )
     # resource_class = DomainResourceExport
     # actions = ExportActionModelAdmin.actions
-    list_display=('name','code','shortname','parent','level')
-    list_select_related = ('parent',)
-    list_display_links = ('code', 'name','parent','level')
+    list_display=('name','shortname','parent','group','level')
+    list_select_related = ('parent','group',)
+    list_display_links = ('name','parent','group','level')
     search_fields = ('translations__name','translations__shortname','code')
     list_per_page = 50 #limit records displayed on admin site to 40
-    filter_horizontal = ('indicators',) # this should display  inline with multiselect
+    # filter_horizontal = ('indicators',) # this should display  inline with multiselect
     exclude = ('date_created','date_lastupdated',)
  
+
 
 @admin.register(Facts_UHC_DatabaseView)
 class Facts_DataViewAdmin(OverideExport):
@@ -122,19 +154,19 @@ class Facts_DataViewAdmin(OverideExport):
         super().save_model(request, obj, form, change)
 
     # exclude = ('user',)
-    list_display=('uhc_theme','indicator_code','indicator_name',
+    list_display=('fact_id','afrocode','indicator',
             'location','categoryoption','datasource','measure_type',
             'value_received','period','comment')
 
-    list_display_links = ('uhc_theme','indicator_name','datasource',)
-    search_fields = ('uhc_theme','indicator_name','location',
-        'measure_type','period','indicator_name') 
+    list_display_links = ('fact_id','indicator','datasource',)
+    search_fields = ('afrocode','indicator','location',
+        'measure_type','period','indicator') 
     list_per_page = 50 #limit records displayed on admin site to 30
 
     list_filter = (
-        ('uhc_theme',DropdownFilter),
         ('location',DropdownFilter,),
         ('datasource', DropdownFilter,),
         ('period',DropdownFilter),
         ('categoryoption', DropdownFilter,),
     )
+

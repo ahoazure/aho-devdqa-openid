@@ -1,21 +1,87 @@
 from django.db import models
 import uuid
-from django.conf import settings
-from django.utils import timezone
-from django.db.models.signals import pre_save,post_save
 import datetime
-from django.core.validators import MinValueValidator, MaxValueValidator
-from django.db.models.fields import DecimalField
+# from datetime import datetime #for handling year part of date filed
+from django.utils import timezone
 from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
-from parler.models import TranslatableModel, TranslatedFields
-from home.models import (StgDatasource,StgCategoryoption,StgMeasuremethod,
-    StgValueDatatype)
+from django.db.models.fields import DecimalField
+
+from django.utils.translation import gettext_lazy as _ # The _ is alias for gettext
+from parler.models import TranslatableModel,TranslatedFields
+
 from indicators.models import StgIndicator
-from authentication.models import CustomUser
+
+from smart_selects.db_fields import ChainedManyToManyField
 
 
-class StgUHCIndicatorGroup(TranslatableModel):
+class StgUHClockIndicatorsGroup(TranslatableModel):
+    group_id = models.AutoField(primary_key=True)
+    uuid = models.CharField(_('Unique ID'),unique=True,max_length=36,
+        blank=False, null=False,default=uuid.uuid4,editable=False)
+    translations = TranslatedFields(
+        name = models.CharField(_("Reference Name"),max_length=230, blank=False,
+            null=False,default=_("Day [Health Impact and Outcome]")),
+        shortname = models.CharField(_('Short Name'),max_length=50,
+            blank=True, null=True),
+        description = models.TextField(_('Brief Description'),blank=True,null=True)
+    )
+    code = models.CharField(unique=True, max_length=50, blank=True,null=True)
+    date_created = models.DateTimeField(_('Date Created'),blank=True,null=True,
+        auto_now_add=True)
+    date_lastupdated = models.DateTimeField(_('Date Modified'),blank=True,
+        null=True,auto_now=True)
+
+    class Meta:
+        managed = True
+        db_table = 'stg_uhclock_indicator_groups'
+        verbose_name = _('Group')
+        verbose_name_plural = _('Indicator Groups')
+        ordering = ('translations__name',)
+
+    def __str__(self):
+        return self.name #display the data source name
+
+    # The filter function need to be modified to work with django parler as follows:
+    def clean(self): # Don't allow end_period to be greater than the start_period.
+        if StgUHClockIndicatorsGroup.objects.filter(
+            translations__name=self.name).count() and not self.reference_id:
+            raise ValidationError({'name':_('Sorry! This indicator reference exists')})
+
+    def save(self, *args, **kwargs):
+        super(StgUHClockIndicatorsGroup, self).save(*args, **kwargs)
+
+
+class StgUHClockIndicators(models.Model):
+    CATEGORIES = (
+        ('1',_('Input')),
+        ('2',_('Process')),      
+        ('3',_('Output')),
+        ('4',_('Outcomes')),
+        ('5',_('Impact')),
+    )
+    indicator = models.ForeignKey(StgIndicator, models.PROTECT, 
+        blank=False, null=False,verbose_name = _('Indicator Name'))
+    group = models.ForeignKey(StgUHClockIndicatorsGroup, models.PROTECT, 
+        blank=False, null=False,verbose_name = _('Indicator Group'))
+    Indicator_type =models.CharField(_('Indicator Type'),choices=CATEGORIES,
+        max_length=5,default=CATEGORIES[0][0])
+    description = models.TextField(_('Description'),blank=True,null=True,)
+
+    class Meta:
+        managed = True
+        db_table = 'stg_uhclock_indicators'
+        verbose_name = _('UHC Indicator')
+        verbose_name_plural = _('UHC Indicators')
+        ordering = ('indicator',)
+
+    def __str__(self):
+        return str(self.indicator) #display indicator name
+
+    def save(self, *args, **kwargs):
+        super(StgUHClockIndicators, self).save(*args, **kwargs)
+    
+
+class StgUHCIndicatorTheme(TranslatableModel):
     LEVEL = (
         (1,_('level 1')),
         (2,_('level 2')),
@@ -24,22 +90,30 @@ class StgUHCIndicatorGroup(TranslatableModel):
     uuid = uuid = models.CharField(_('Unique ID'),unique=True,max_length=36,
         blank=False, null=False,default=uuid.uuid4,editable=False)
     translations = TranslatedFields(
-        name = models.CharField(_('UHC Clock Theme'),max_length=150, blank=False,
+        name = models.CharField(_('Theme Name'),max_length=150, blank=False,
         null=False),
         shortname = models.CharField(_('Short Name'),max_length=45,blank=False,
             null=False),
-        description = models.TextField(_('Brief Description'),blank=True,null=True,)
+        description = models.TextField(_('Description'),blank=True,null=True,)
     )
     level =models.SmallIntegerField(_('Theme Level'),choices=LEVEL,
         default=LEVEL[0][0])
-    code = models.CharField(unique=True, max_length=45, blank=True,
-        null=True,verbose_name = _('Code'))
+    # code = models.CharField(unique=True, max_length=45, blank=True,
+    #     null=True,verbose_name = _('Code'))
+    group = models.ForeignKey(StgUHClockIndicatorsGroup, models.PROTECT, blank=True, null=True,
+        verbose_name = _('UHC Indicator Group')) # for chaining the indicators
+      
     parent = models.ForeignKey('self', models.PROTECT, blank=True, null=True,
         verbose_name = _('Parent UHC Theme'))  # Field name made lowercase.
-    # this field establishes a many-to-many relationship with the domain table
-    indicators = models.ManyToManyField(StgIndicator,
-        db_table='stg_uhc_clock_domain_members',blank=True,
-        verbose_name = _('Indicators'))  # Field name made lowercase.
+
+
+    indicators = ChainedManyToManyField(
+        StgUHClockIndicators,
+        horizontal=True,
+        blank=True,
+        chained_field="group",
+        chained_model_field="group") 
+    
     date_created = models.DateTimeField(_('Date Created'),blank=True,null=True,
         auto_now_add=True)
     date_lastupdated = models.DateTimeField(_('Date Modified'),blank=True,
@@ -47,7 +121,7 @@ class StgUHCIndicatorGroup(TranslatableModel):
 
     class Meta:
         managed = True
-        db_table = 'stg_uhc_indicator_themes'
+        db_table = 'stg_uhclock_indicator_themes'
         verbose_name = _('UHC Theme')
         verbose_name_plural = _(' UHC Themes')
         ordering = ('level',)
@@ -57,22 +131,21 @@ class StgUHCIndicatorGroup(TranslatableModel):
 
     # The filter function need to be modified to work with django parler as follows:
     def clean(self): # Don't allow end_period to be greater than the start_period.
-        if StgUHCIndicatorGroup.objects.filter(
+        if StgUHCIndicatorTheme.objects.filter(
             translations__name=self.name).count() and not self.domain_id:
             raise ValidationError({'name':_('Sorry! This indicators theme exists')})
 
     def save(self, *args, **kwargs):
-        super(StgUHCIndicatorGroup, self).save(*args, **kwargs)
-
+        super(StgUHCIndicatorTheme, self).save(*args, **kwargs)
 
 
 class Facts_UHC_DatabaseView (models.Model):
     fact_id = models.AutoField(primary_key=True)
-    uhc_theme = models.CharField(_('UHC Theme'),max_length=500,
+    indicator_id = models.PositiveIntegerField(blank=True,
+        verbose_name='Indicator ID') 
+    afrocode = models.CharField(_('Indicator Code'),max_length=10,
         blank=True, null=True)
-    indicator_code = models.CharField(_('Indicator Code'),max_length=10,
-        blank=True, null=True)
-    indicator_name = models.CharField(_('Indicator Name'),max_length=200,
+    indicator = models.CharField(_('Indicator Name'),max_length=200,
         blank=True, null=True)
     location = models.CharField(max_length=500,blank=False,
         verbose_name = _('Location Name'),)
@@ -87,15 +160,19 @@ class Facts_UHC_DatabaseView (models.Model):
         blank=True,verbose_name='Start Year') 
     end_period = models.PositiveIntegerField(
         blank=True,verbose_name='End Year') 
-    period = models.CharField(_('Period'),max_length=25,blank=True,null=False)
+    period = models.CharField(_('Period'),max_length=25,
+        blank=True,null=False)
+    uhclock_theme = models.CharField(_('UHC Clock Theme'),max_length=150,
+        blank=True,null=False)
     comment = models.CharField(_('Status'),max_length=25,blank=True,null=False)
 
     class Meta:
         managed = False
-        db_table = 'vw_uhc_clock_fact_indicators'
+        db_table = 'vw_uhc_fact_data_indicators'
         verbose_name = _('UHC Fact')
-        verbose_name_plural = _(' UHC Facts')
-        ordering = ('indicator_name',)
+        verbose_name_plural = _(' UHC-Clock Facts')
+        ordering = ('indicator',)
 
     def __str__(self):
-         return str(self.indicator_name) 
+         return str(self.indicator) 
+    

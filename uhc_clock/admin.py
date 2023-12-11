@@ -156,7 +156,7 @@ class Facts_DataViewAdmin(OverideExport):
     # exclude = ('user',)
     list_display=('fact_id','afrocode','indicator',
             'location','categoryoption','datasource','measure_type',
-            'value_received','period','comment')
+            'value_received','period','uhclock_theme','comment',)
 
     list_display_links = ('fact_id','indicator','datasource',)
     search_fields = ('afrocode','indicator','location',

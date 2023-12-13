@@ -193,6 +193,7 @@ class Facts_UHC_DatabaseView (models.Model):
     
 
 class CountrySelectionUHCIndicators(models.Model):
+    country_id = models.AutoField(primary_key=True)
     language = get_language_translations() # call language translation function 
     location = models.ForeignKey(StgLocation,models.PROTECT,
         verbose_name = _('Country/Location'),)

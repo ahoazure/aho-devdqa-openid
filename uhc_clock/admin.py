@@ -12,7 +12,8 @@ from django_admin_listfilter_dropdown.filters import (
     RelatedOnlyDropdownFilter) #custom
 
 from .models import (StgUHClockIndicatorsGroup,StgUHClockIndicators,
-        StgUHCIndicatorTheme,Facts_UHC_DatabaseView)
+        StgUHCIndicatorTheme,Facts_UHC_DatabaseView,
+        CountrySelectionUHCIndicators)
 
 from django.forms import TextInput,Textarea # customize textarea row and column size
 from commoninfo.admin import (OverideImportExport,OverideExport,OverideImport,)
@@ -56,7 +57,9 @@ class UHCClockIndicatorGroupAdmin(OverideExport):
         qs = super().get_queryset(request).filter(
             indicator_id__translations__language_code=language).distinct()
         return qs
-    
+
+
+
     list_display=['indicator','group','Indicator_type','description',]
 
 
@@ -82,7 +85,7 @@ class UHClockIndicatorThemeAdmin(TranslatableAdmin,OverideExport):
         if db_field.name == "indicators":
             kwargs["queryset"] = StgUHClockIndicators.objects.select_related(
                 'group','indicator').prefetch_related('indicator__translations__master',).filter(
-                indicator__translations__language_code=language).distinct()
+                    indicator__translations__language_code=language).distinct()
         return super(UHClockIndicatorThemeAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
 
     fieldsets = (
@@ -170,3 +173,33 @@ class Facts_DataViewAdmin(OverideExport):
         ('categoryoption', DropdownFilter,),
     )
 
+
+@admin.register(CountrySelectionUHCIndicators)
+class Country_IndicatorSelectionAdmin(OverideExport):
+    # import pdb; pdb.set_trace()
+
+    def get_queryset(self, request):
+        language = request.LANGUAGE_CODE
+        qs = super().get_queryset(request).filter(
+            location__translations__language_code=language)
+        
+        # import pdb; pdb.set_trace()
+
+        return qs
+    
+    # def formfield_for_manytomany(self, db_field, request, **kwargs):
+    #     language = request.LANGUAGE_CODE
+    #     if db_field.name == "domain":
+    #         kwargs["queryset"] = StgUHCIndicatorTheme.objects.prefetch_related(
+    #             'translations__master',).filter(
+    #             translations__language_code=language).filter(stgindicatordomain__level__in=[4])
+            
+    #     if db_field.name == "indicators":
+    #         kwargs["queryset"] = StgUHClockIndicators.objects.select_related('reference',).prefetch_related(
+    #             'translations__master',).filter(
+    #             translations__language_code=language)    
+    #     return super(Country_IndicatorSelectionAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
+
+    # filter_horizontal = ('domain',) # this should display  inline with multiselect
+    
+    # list_display=('location','domain',)

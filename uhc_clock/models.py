@@ -3,6 +3,10 @@ import uuid
 import datetime
 # from datetime import datetime #for handling year part of date filed
 from django.utils import timezone
+from django.conf import settings # allow import of language settings
+
+from django.utils import translation as language_translations
+
 from django.core.exceptions import ValidationError
 from django.db.models.fields import DecimalField
 
@@ -10,8 +14,18 @@ from django.utils.translation import gettext_lazy as _ # The _ is alias for gett
 from parler.models import TranslatableModel,TranslatedFields
 
 from indicators.models import StgIndicator
+from regions.models import StgLocation # import for indicator selection
 
 from smart_selects.db_fields import ChainedManyToManyField
+
+
+"""
+Returns translations language code from the login session. The language_code  
+is then used in models that implement smart select to filter dropdown lists 
+"""
+def get_language_translations():
+    language = language_translations.get_language() # get languagee 
+    return language
 
 
 class StgUHClockIndicatorsGroup(TranslatableModel):
@@ -35,7 +49,7 @@ class StgUHClockIndicatorsGroup(TranslatableModel):
         managed = True
         db_table = 'stg_uhclock_indicator_groups'
         verbose_name = _('Group')
-        verbose_name_plural = _('Indicator Groups')
+        verbose_name_plural = _('  Indicator Groups')
         ordering = ('translations__name',)
 
     def __str__(self):
@@ -71,17 +85,16 @@ class StgUHClockIndicators(models.Model):
         managed = True
         db_table = 'stg_uhclock_indicators'
         verbose_name = _('UHC Indicator')
-        verbose_name_plural = _('UHC Indicators')
+        verbose_name_plural = _('   UHC Indicators')
         ordering = ('indicator',)
 
     def __str__(self):
         return str(self.indicator) #display indicator name
-
-    def save(self, *args, **kwargs):
-        super(StgUHClockIndicators, self).save(*args, **kwargs)
     
-
+    
 class StgUHCIndicatorTheme(TranslatableModel):
+    language = get_language_translations() # call language translation function 
+    
     LEVEL = (
         (1,_('level 1')),
         (2,_('level 2')),
@@ -104,15 +117,17 @@ class StgUHCIndicatorTheme(TranslatableModel):
         verbose_name = _('UHC Indicator Group')) # for chaining the indicators
       
     parent = models.ForeignKey('self', models.PROTECT, blank=True, null=True,
-        verbose_name = _('Parent UHC Theme'))  # Field name made lowercase.
-
+        verbose_name = _('Parent Theme'))  # Field name made lowercase.
 
     indicators = ChainedManyToManyField(
         StgUHClockIndicators,
         horizontal=True,
         blank=True,
+        verbose_name = 'indicators', 
         chained_field="group",
-        chained_model_field="group") 
+        chained_model_field="group",
+        limit_choices_to={"indicator__translations__language_code":language},
+        ) # filter by language code. Discovered on 13/12/2023 after struggles 
     
     date_created = models.DateTimeField(_('Date Created'),blank=True,null=True,
         auto_now_add=True)
@@ -123,7 +138,7 @@ class StgUHCIndicatorTheme(TranslatableModel):
         managed = True
         db_table = 'stg_uhclock_indicator_themes'
         verbose_name = _('UHC Theme')
-        verbose_name_plural = _(' UHC Themes')
+        verbose_name_plural = _('  UHC Clock Themes')
         ordering = ('level',)
 
     def __str__(self):
@@ -170,9 +185,37 @@ class Facts_UHC_DatabaseView (models.Model):
         managed = False
         db_table = 'vw_uhc_fact_data_indicators'
         verbose_name = _('UHC Fact')
-        verbose_name_plural = _(' UHC-Clock Facts')
+        verbose_name_plural = _('   UHC-Clock Facts')
         ordering = ('indicator',)
 
     def __str__(self):
          return str(self.indicator) 
+    
+
+class CountrySelectionUHCIndicators(models.Model):
+    language = get_language_translations() # call language translation function 
+    location = models.ForeignKey(StgLocation,models.PROTECT,
+        verbose_name = _('Country/Location'),)
+    domain = models.ManyToManyField(StgUHCIndicatorTheme,blank=False,
+        verbose_name = _('UHC Clock Theme'), default = None)
+
+    indicators = ChainedManyToManyField(
+        StgUHClockIndicators,
+        horizontal=True,
+        blank=True,
+        chained_field="domain",
+        chained_model_field="group",
+        limit_choices_to={"indicator__translations__language_code":language},
+        ) # filter by language code. Discovered on 13/12/2023 after struggles  
+        
+    class Meta:
+        managed = True
+        db_table = 'stg_country_uhc_clock_indicators'
+        verbose_name = _('Country Selection')
+        verbose_name_plural = _('Country Selections')
+        ordering = ('location',)
+    
+    # import pdb; pdb.set_trace()
+    def __str__(self):
+        return str(self.location) 
     

@@ -193,8 +193,9 @@ class Facts_UHC_DatabaseView (models.Model):
     
 
 class CountrySelectionUHCIndicators(models.Model):
-    country_id = models.AutoField(primary_key=True)
     language = get_language_translations() # call language translation function 
+
+    countrychoice_id = models.AutoField(primary_key=True)
     location = models.ForeignKey(StgLocation,models.PROTECT,
         verbose_name = _('Country/Location'),)
     domain = models.ManyToManyField(StgUHCIndicatorTheme,blank=False,
@@ -211,7 +212,7 @@ class CountrySelectionUHCIndicators(models.Model):
         
     class Meta:
         managed = True
-        db_table = 'stg_country_uhc_clock_indicators'
+        db_table = 'stg_uhclock_country_indicators_selection'
         verbose_name = _('Country Selection')
         verbose_name_plural = _('Country Selections')
         ordering = ('location',)

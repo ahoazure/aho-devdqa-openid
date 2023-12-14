@@ -182,6 +182,27 @@ class Country_IndicatorSelectionAdmin(OverideExport):
             location__translations__language_code=language)
         return qs
     
+    def formfield_for_foreignkey(self, db_field, request =None, **kwargs):
+        groups = list(request.user.groups.values_list('user', flat=True))
+        user = request.user.id
+        user_location = request.user.location.location_id
+        language = request.LANGUAGE_CODE
+        if db_field.name == "location":
+            if request.user.is_superuser:
+                kwargs["queryset"] = StgLocation.objects.all().order_by(
+                'location_id')
+                # Looks up for the location level upto the country level
+            elif user in groups and user_location==1:
+                kwargs["queryset"] = StgLocation.objects.filter(
+                locationlevel__locationlevel_id__gte=1,
+                locationlevel__locationlevel_id__lte=2).order_by(
+                'location_id')
+            else:
+                kwargs["queryset"] = StgLocation.objects.filter(
+                location_id=request.user.location_id).translated(
+                language_code=language)
+        return super().formfield_for_foreignkey(db_field, request,**kwargs)
+
     def get_domains(self, obj):
         return ", ".join([d.name for d in obj.domain.all()])
     get_domains.short_description = 'Selected UHC Clock Themes'

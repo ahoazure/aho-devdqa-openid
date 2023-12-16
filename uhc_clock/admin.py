@@ -71,22 +71,12 @@ class UHClockIndicatorThemeAdmin(TranslatableAdmin,OverideExport):
         models.TextField: {'widget': Textarea(attrs={'rows':2, 'cols':120})},
     }
 
-    # def get_queryset(self, request):
-    #     language = request.LANGUAGE_CODE
-    #     qs = super().get_queryset(request).filter(
-    #         translations__language_code=language).filter(
-    #                 indicators__translations__language_code=language).order_by(
-    #                     'translations__name').distinct()
-    #     return qs
-
-    # allow many to many filter for multi-select dropdown list
-    def formfield_for_manytomany(self, db_field, request, **kwargs):
+    def get_queryset(self, request):
         language = request.LANGUAGE_CODE
-        if db_field.name == "indicators":
-            kwargs["queryset"] = StgUHClockIndicators.objects.select_related(
-                'group','indicator').prefetch_related('indicator__translations__master',).filter(
-                    indicator__translations__language_code=language).distinct()
-        return super(UHClockIndicatorThemeAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
+        qs = super().get_queryset(request).filter(
+            translations__language_code=language).order_by(
+                'translations__name').distinct()
+        return qs
 
     fieldsets = (
         ('Domain Attributes', {

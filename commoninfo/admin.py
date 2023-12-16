@@ -93,17 +93,38 @@ def get_app_list(context, order=True):
     'Data_Quality':10,
     'Authtoken':11,
     'Authentication':12,
-    'Uhc_Clock':13,
+    'UHC_Clock':13,
 
     }
+
+    # ordering =  {k.upper(): v for k, v in ordering.items()}
+     
+    # print(ordering)
+
+
+    
     # Create the list to be sorted using the ordering dict.
     app_list = list(app_dict.values())
+    
     # The ordering dict has been added here to effect the custom ordering
     if order:
-        app_list.sort(key=lambda x: ordering[x['name']])
+        ordering =  {k.upper(): v for k, v in ordering.items()}
+
+        app_list.sort(key=lambda x: ordering[x['name'].upper()])
+        # The following lines rename the horizontal menus manually
+        app_list[4]['name'] =_('Health Workforce') # renamed menu 
+        app_list[5]['name'] =_('Health Services') # renamed menu
+        app_list[6]['name'] =_('Data Elements') # renamed menu
+        app_list[8]['name'] =_('Import Wizard') # renamed menu
+        app_list[9]['name'] =_('Data Quality') # renamed menu
+        app_list[10]['name'] =_('Login Tokens') # renamed menu
+        app_list[12]['name'] =_('UHC Clock') # renamed menu
+
         # Sort the models alphabetically within each app.
         for app in app_list:
             app['models'].sort(key=lambda x: x['name'])
+    
+    # import pdb; pdb.set_trace()
 
     return app_list
 #apply monkey patching here to see how things work

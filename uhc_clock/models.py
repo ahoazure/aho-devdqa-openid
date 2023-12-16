@@ -48,8 +48,8 @@ class StgUHClockIndicatorsGroup(TranslatableModel):
     class Meta:
         managed = True
         db_table = 'stg_uhclock_indicator_groups'
-        verbose_name = _('Group')
-        verbose_name_plural = _('  Indicator Groups')
+        verbose_name = _('UHC Clock Indicator Group')
+        verbose_name_plural = _('  UHC Clock Indicator Groups')
         ordering = ('translations__name',)
 
     def __str__(self):
@@ -73,7 +73,7 @@ class StgUHClockIndicators(models.Model):
         ('4',_('Outcomes')),
         ('5',_('Impact')),
     )
-    indicator = models.ForeignKey(StgIndicator, models.PROTECT, 
+    indicator = models.OneToOneField(StgIndicator, models.PROTECT, 
         blank=False, null=False,verbose_name = _('Indicator Name'))
     group = models.ForeignKey(StgUHClockIndicatorsGroup, models.PROTECT, 
         blank=False, null=False,verbose_name = _('Indicator Group'))
@@ -84,8 +84,8 @@ class StgUHClockIndicators(models.Model):
     class Meta:
         managed = True
         db_table = 'stg_uhclock_indicators'
-        verbose_name = _('UHC Indicator')
-        verbose_name_plural = _('   UHC Indicators')
+        verbose_name = _('UHC Clock Indicator')
+        verbose_name_plural = _('   UHC Clock Indicators')
         ordering = ('indicator',)
 
     def __str__(self):
@@ -184,8 +184,8 @@ class Facts_UHC_DatabaseView (models.Model):
     class Meta:
         managed = False
         db_table = 'vw_uhc_fact_data_indicators'
-        verbose_name = _('UHC Fact')
-        verbose_name_plural = _('   UHC-Clock Facts')
+        verbose_name = _('UHC Clock Fact')
+        verbose_name_plural = _('   UHC Clock Facts')
         ordering = ('indicator',)
 
     def __str__(self):
@@ -214,7 +214,7 @@ class CountrySelectionUHCIndicators(models.Model):
         managed = True
         db_table = 'stg_uhclock_country_indicators_selection'
         verbose_name = _('Country Selection')
-        verbose_name_plural = _('Country Selections')
+        verbose_name_plural = _('UHC Clock Country Selections')
         ordering = ('location',)
     
     # import pdb; pdb.set_trace()

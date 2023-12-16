@@ -17,7 +17,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET']
 # SECRET_KEY = 'jz&%c@07o%z_mo&qs2t@-io)vm5ul_0j*kwm@#&m0m4nf7j5a^'
 
-DEBUG = True # make this false to test autocomplete js issue; missing in blob
+DEBUG = False # make this false to test autocomplete js issue; missing in blob
 
 ALLOWED_HOSTS = ['localhost','127.0.0.1',]
 
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'admin_auto_filters',
     
     # New module for UHC clock indicators
-    'uhc_clock',
+    'uhc_clock.apps.UhcClockConfig',
 ]
 
 SESSION_COOKIE_SECURE = True

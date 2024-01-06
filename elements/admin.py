@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite #customize adminsite
 from django import forms
+from django.utils.translation import gettext_lazy as _
+
 import data_wizard #this may be the solution to data import madness that has refused to go
 from itertools import groupby #additional import for grouped desaggregation options
 from parler.admin import TranslatableAdmin
@@ -132,8 +134,9 @@ class DataElementProxyForm(forms.ModelForm):
             'category__category_id'),
     )
     # Overrride decimal place restriction that rejects number with >3 d.places
-    value = RoundingDecimalFormField(max_digits=20,decimal_places=2)
-    target_value = RoundingDecimalFormField(
+    value = RoundingDecimalFormField(label=_('Numeric Value'),max_digits=20,
+                decimal_places=2,)
+    target_value = RoundingDecimalFormField(label=_('Target Value'),
         max_digits=20,decimal_places=2,required=False)
 
     class Meta:

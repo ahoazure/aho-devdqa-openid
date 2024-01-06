@@ -62,16 +62,16 @@ class FactDataElement(models.Model):
     uuid = uuid = models.CharField(unique=True,max_length=36, blank=False,
         null=False,default=uuid.uuid4,editable=False,verbose_name=_('Unique ID'))
     user = models.ForeignKey(CustomUser, models.PROTECT,
-        verbose_name='User Name (Email)')
+        verbose_name=_('User Name (Email)'))
     dataelement = models.ForeignKey(StgDataElement, models.PROTECT,
         verbose_name =_('Data Element'))
     location = models.ForeignKey(StgLocation,models.PROTECT,
-        verbose_name = 'Location',)
+        verbose_name = _('Location',))
     categoryoption = models.ForeignKey(StgCategoryoption, models.PROTECT,
         verbose_name =_('Disaggregation Option'), default = 999)
     # This field is used to lookup sources of routine systems, census and surveys
     datasource = models.ForeignKey(StgDatasource, models.PROTECT,blank=False,
-        null=False,verbose_name = 'Data Source', default = 4)
+        null=False,verbose_name = _('Data Source'), default = 4)
     # This field is used to lookup the type of data required such as text, integer or float
     valuetype = models.ForeignKey(StgValueDatatype, models.PROTECT,
         verbose_name=_('Data Type'),  default = 1)

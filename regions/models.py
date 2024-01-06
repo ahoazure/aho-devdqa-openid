@@ -67,7 +67,7 @@ class StgWorldbankIncomegroups(TranslatableModel):
         managed = True
         db_table = 'stg_worldbank_incomegroups'
         verbose_name = _('Income Group')
-        verbose_name_plural = 'Income Groups'
+        verbose_name_plural = _('Income Groups')
         ordering = ('translations__name',)
 
     def __str__(self):

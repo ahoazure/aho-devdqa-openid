@@ -99,6 +99,7 @@ class Facts_DataFilterAdmin(OverideExport,ImportExportActionModelAdmin):
         )
     filter_horizontal = ('locations','indicators','categoryoptions',
         'datasource') # this should display  inline with multiselect
+    
     def formfield_for_manytomany(self, db_field, request, **kwargs):
         groups = list(request.user.groups.values_list('user', flat=True))
         language = request.LANGUAGE_CODE

@@ -67,18 +67,18 @@ class StgUHClockIndicatorsGroup(TranslatableModel):
 
 class StgUHClockIndicators(models.Model):
     CATEGORIES = (
-        ('1',_('Input')),
-        ('2',_('Process')),      
-        ('3',_('Output')),
-        ('4',_('Outcomes')),
-        ('5',_('Impact')),
+        ('input',_('Input')),
+        ('process',_('Process')),      
+        ('output',_('Output')),
+        ('outcome',_('Outcomes')),
+        ('impact',_('Impact')),
     )
     indicator = models.OneToOneField(StgIndicator, models.PROTECT, 
         blank=False, null=False,verbose_name = _('Indicator Name'))
     group = models.ForeignKey(StgUHClockIndicatorsGroup, models.PROTECT, 
         blank=False, null=False,verbose_name = _('Indicator Group'))
     Indicator_type =models.CharField(_('Indicator Type'),choices=CATEGORIES,
-        max_length=5,default=CATEGORIES[0][0])
+        max_length=50,default=CATEGORIES[0][0])
     description = models.TextField(_('Description'),blank=True,null=True,)
 
     class Meta:
@@ -123,7 +123,7 @@ class StgUHCIndicatorTheme(TranslatableModel):
         StgUHClockIndicators,
         horizontal=True,
         blank=True,
-        verbose_name = 'indicators', 
+        verbose_name = _('Indicators'), 
         chained_field="group",
         chained_model_field="group",
         limit_choices_to={"indicator__translations__language_code":language},
@@ -171,10 +171,10 @@ class Facts_UHC_DatabaseView (models.Model):
         verbose_name =_('Measure Type'))
     value_received = DecimalField(_('Numeric Value'),max_digits=20,
         decimal_places=3,blank=True,null=True)
-    start_period = models.PositiveIntegerField(
-        blank=True,verbose_name='Start Year') 
-    end_period = models.PositiveIntegerField(
-        blank=True,verbose_name='End Year') 
+    start_period = models.PositiveIntegerField(blank=True,
+        verbose_name=_('Start Year')) 
+    end_period = models.PositiveIntegerField(blank=True,
+        verbose_name=_('End Year')) 
     period = models.CharField(_('Period'),max_length=25,
         blank=True,null=False)
     uhclock_theme = models.CharField(_('UHC Clock Theme'),max_length=150,
@@ -205,6 +205,7 @@ class CountrySelectionUHCIndicators(models.Model):
         StgUHClockIndicators,
         horizontal=True,
         blank=True,
+        verbose_name=_('Indicators'),
         chained_field="domain",
         chained_model_field="group",
         limit_choices_to={"indicator__translations__language_code":language},

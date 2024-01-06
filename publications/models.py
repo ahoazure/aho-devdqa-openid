@@ -143,9 +143,10 @@ class StgKnowledgeProduct(TranslatableModel):
             validators=[MinValueValidator(1900),max_value_current_year],
             default=current_year(),
             help_text=_("This marks year of publication")),
-        internal_url = models.FileField (_('File'),upload_to='production/files/',
+        internal_url = models.FileField (_('Upload File'),upload_to='production/files/',
             blank=True,),
-        external_url = models.CharField(blank=True, null=True, max_length=2083),
+        external_url = models.CharField(_('External Link'),blank=True, null=True, 
+            max_length=2083),
         cover_image = models.ImageField(_('Cover Picture'),
             upload_to='production/images/',blank=True,), # thumbnail requires pillow
         meta = {'unique_together':[('language_code','title','year_published',

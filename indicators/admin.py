@@ -4,6 +4,9 @@ from django.conf import settings # allow import of projects settings at the root
 from django.forms import BaseInlineFormSet
 from parler.admin import (TranslatableAdmin,TranslatableStackedInline,
     TranslatableInlineModelAdmin)
+from django.utils.translation import gettext_lazy as _
+
+
 import data_wizard # Solution to data import madness that had refused to go
 from itertools import groupby #additional import for managing grouped dropdowm
 from import_export.admin import (ImportExportModelAdmin,ExportMixin,
@@ -227,16 +230,17 @@ class IndicatorProxyForm(forms.ModelForm):
     decimal places. The RoundingDecimalFormField is in serializer.py
     '''
     value_received = RoundingDecimalFormField(
-        max_digits=20,decimal_places=2,required=False)#changed to false 15/09/20
-    min_value = RoundingDecimalFormField(
+        max_digits=20,decimal_places=2,required=False,
+        label=_('Numeric Value'),)#changed to false 15/09/20
+    min_value = RoundingDecimalFormField(label=_('Minimum Value'),
         max_digits=20,decimal_places=2,required=False)
-    max_value = RoundingDecimalFormField(
+    max_value = RoundingDecimalFormField(label=_('Maximum Value'),
         max_digits=20,decimal_places=2,required=False)
-    target_value = RoundingDecimalFormField(
+    target_value = RoundingDecimalFormField(label=_('Target Value'),
         max_digits=20,decimal_places=2,required=False)
-    numerator_value = RoundingDecimalFormField(
+    numerator_value = RoundingDecimalFormField(label=_('Numerator Value'),
         max_digits=20,decimal_places=2,required=False)
-    denominator_value = RoundingDecimalFormField(
+    denominator_value = RoundingDecimalFormField(label=_('Denominator Value'),
         max_digits=20,decimal_places=2,required=False)
 
     class Meta:

@@ -65,7 +65,7 @@ class HealthServices_DataIndicators(models.Model):
     target_value = models.DecimalField(_('Target Value'),max_digits=20,
         decimal_places=3,blank=True, null=True)
     periodicity = models.ForeignKey(StgPeriodType, models.PROTECT,
-        verbose_name ='Reporting Periodicity',default=1,)  # Field name made lowercase.
+        verbose_name =_('Reporting Periodicity'),default=1,)  # Field name made lowercase.
     start_period = models.DateField(_('Starting Date'),null=False,blank=False,
         default=timezone.now,help_text=_("Start of reporting Period"))
     end_period=models.DateField(_('Ending Date'),null=True,blank=True,
@@ -73,7 +73,8 @@ class HealthServices_DataIndicators(models.Model):
     period = models.CharField(_('Period'),max_length=25,blank=True,null=False)
     comment = models.CharField(_('Status'),max_length=10, choices= STATUS_CHOICES,
         default=STATUS_CHOICES[0][0])  # Field name made lowercase.
-    has_lastdate = models.BooleanField(default=False,verbose_name='Show End Date?')
+    has_lastdate = models.BooleanField(default=False,
+        verbose_name=_('Show End Date?'))
     date_created = models.DateTimeField(_('Date Created'),blank=True, null=True,
         auto_now_add=True)
     date_lastupdated = models.DateTimeField(_('Date Modified'),blank=True,
@@ -214,8 +215,8 @@ class HealthServicesIndicatorProxy(StgIndicator):
     class Meta:
         proxy = True
         managed = False
-        verbose_name = 'Multi-Records Form'
-        verbose_name_plural = '   Multi-Records Form'
+        verbose_name = _('Multi-Records Form')
+        verbose_name_plural = _('   Multi-Records Form')
 
     def clean(self): #Appreciation to Daniel M.
         pass
@@ -262,8 +263,8 @@ class HealthServicesIndicators(StgIndicator):
     class Meta:
         proxy = True
         managed = False
-        verbose_name = 'HSC Indicator'
-        verbose_name_plural = ' HSC Indicators'
+        verbose_name = _('HSC Indicator')
+        verbose_name_plural = _(' HSC Indicators')
 
     def clean(self): #Appreciation to Daniel M.
         pass

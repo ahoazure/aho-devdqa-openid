@@ -233,7 +233,7 @@ class MeasuredAdmin(TranslatableAdmin,OverideExport):
 # The classes overrides admin.py in site-packages/data_wizard/sources/
 # ------------------------------------------------------------------------------
 class FileSourceAdmin(ImportActionModelAdmin):
-    menu_title = _("Upload File... ")
+    menu_title = _("Upload via File.. ")
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         # Get a query of groups the user belongs and flatten it to list object
@@ -290,7 +290,7 @@ admin.site.register(FileSources, FileSourceAdmin)
 
 # This class admin class is used to customize change page for the URL data source
 class URLSourceAdmin(ImportActionModelAdmin):
-    menu_title = _("Import URL...")
+    menu_title = _("Import via URL..")
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)

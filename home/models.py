@@ -2,7 +2,7 @@ from django.db import models
 import uuid
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _ # The _ is alias for gettext
-from parler.models import TranslatableModel, TranslatedFields
+from parler.models import TranslatableModel, TranslatedFields,TranslationDoesNotExist
 from django.core.exceptions import ValidationError
 from django.core.validators import (RegexValidator,MinValueValidator,
     MaxValueValidator)
@@ -21,7 +21,7 @@ class StgPeriodType(models.Model):
         null=False,)
     shortname = models.CharField(_('Short Name'),max_length=50, blank=True,
         null=True,)
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField(_('Description'), blank=True, null=True)
     date_created = models.DateTimeField(blank=True, null=True, auto_now_add=True,
         verbose_name = 'Date Created')
     date_lastupdated = models.DateTimeField(blank=True, null=True, auto_now=True,
@@ -58,7 +58,7 @@ class StgCustomNationalObservatory(models.Model):
         blank=False,null=False,default=uuid.uuid4,editable=False)
     code = models.CharField(unique=True, blank=True,null=False,max_length=45)
     user = models.ForeignKey(CustomUser, models.PROTECT,blank=True,
-		verbose_name = 'Admin User (Email)',)
+		verbose_name = _('Admin User (Email)'),)
     location = models.ForeignKey(StgLocationCodes, models.PROTECT,
         verbose_name = _('Country'),)
     name = models.CharField(_('Title'),max_length=500,blank=False,
@@ -128,7 +128,7 @@ class StgCategoryParent(TranslatableModel):
             null=False),  # Field name made lowercase.
         shortname = models.CharField(_('Short Name'),max_length=50, blank=True,
             null=True,),
-        description = models.TextField(blank=True, null=True)  # Field name made lowercase.
+        description = models.TextField(_('Description'),blank=True, null=True)  # Field name made lowercase.
     )
     code = models.CharField(unique=True, max_length=50, blank=True, null=True)
     date_created = models.DateTimeField(blank=True, null=True, auto_now_add=True,
@@ -158,7 +158,7 @@ class StgCategoryoption(TranslatableModel):
             verbose_name = _('Modality Name')),
         shortname = models.CharField(max_length=50, blank=True, null=True,
             verbose_name = _('Short Name')),
-        description = models.TextField(blank=True, null=True)
+        description = models.TextField(_('Description'),blank=True, null=True)
     )
     code = models.CharField(unique=True,max_length=50, blank=True, null=False)
     date_created = models.DateTimeField(blank=True, null=True, auto_now_add=True,
@@ -196,8 +196,8 @@ class StgDatasource(TranslatableModel):
             choices= LEVEL_CHOICES,verbose_name =_('Source Level'),
             default=LEVEL_CHOICES[2][0],
             help_text=_("Level can be global, regional, national, subnational")),
-        description = models.TextField( blank=False, null=False,
-            default=_('No definition'))
+        description = models.TextField(_('Description'),blank=False, null=False,
+            default=_('Not available'))
     )
     code = models.CharField(unique=True, max_length=50, blank=True, null=True)
     date_created = models.DateTimeField(blank=True, null=True, auto_now_add=True,
@@ -212,8 +212,16 @@ class StgDatasource(TranslatableModel):
         verbose_name_plural = _('    Data Sources')
         ordering = ('translations__name',)
 
+    """ catch parlar translation exception in fact data elements that returns...
+    --- Fonte de Dados does not have a translation for the current language ---
+    Fonte de Dados ID #75, language=pt (fallbacks fr, pt, en): Resolved 6/1/2024
+    """
     def __str__(self):
-        return self.name #display the data source name
+        try: 
+            return self.name # return string rep for the object
+        except TranslationDoesNotExist: 
+            return '' # return empty string
+
 
     def clean(self): # Don't allow end_period to be greater than the start_period.
         if StgDatasource.objects.filter(
@@ -229,7 +237,7 @@ class StgValueDatatype(TranslatableModel):
         name = models.CharField(max_length=50, verbose_name =_('Value Name')),
         shortname = models.CharField(max_length=50, blank=True, null=True,
             verbose_name =_('Short Name')),
-        description = models.TextField(blank=True, null=True)
+        description = models.TextField(_('Description'), blank=True, null=True)
     )
     code = models.CharField(unique=True, max_length=50)
     date_created = models.DateTimeField(blank=True, null=True, auto_now_add=True,
@@ -287,7 +295,7 @@ class FileSources(FileSource):
     location = models.ForeignKey(StgLocation, models.PROTECT,blank=False,
         verbose_name = _('Location Name'),)
     user = models.ForeignKey(CustomUser, models.PROTECT,
-        verbose_name='User Name (Email)') # request helper field
+        verbose_name=_('User Name (Email)')) # request helper field
     url = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
@@ -317,7 +325,7 @@ class URLSources(URLSource): # check the inher
     location = models.ForeignKey(StgLocation, models.PROTECT,blank=False,
         verbose_name = _('Location Name'),)
     user = models.ForeignKey(CustomUser, models.PROTECT,
-        verbose_name='User Name (Email)') # request helper field
+        verbose_name=_('User Name (Email)')) # request helper field
     file = models.ForeignKey(FileSources, on_delete=models.CASCADE,
                         related_name="link")
 

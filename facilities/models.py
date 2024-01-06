@@ -182,8 +182,6 @@ class StgHealthFacility(models.Model):
     # convert this to look up to the location and then queryset lower level
     admin_location = models.CharField(_('Administrative Location'),max_length=230,
         blank=True,null=True)
-    # admin_location = models.ForeignKey(StgLocation, models.PROTECT,
-    #     verbose_name=_('Administrative Location'),related_name='admin_location')
     description = models.TextField(_('Description'),blank=True,
         null=True)
     address = models.CharField(_('Contact Address'),max_length=500,blank=True,
@@ -248,7 +246,6 @@ class StgHealthFacility(models.Model):
             description = self.name+description
         return description
 
-    # import pdb; pdb.set_trace()
 
     def clean(self): # Don't allow end_period to be greater than the start_period.
         if StgHealthFacility.objects.filter(name=self.name).count() and not \
@@ -513,8 +510,8 @@ class FacilityServiceAvailabilityProxy(StgHealthFacility):
     class Meta:
         proxy = True
         managed = False
-        verbose_name = 'Service Availability'
-        verbose_name_plural = '  Service Availability'
+        verbose_name = _('Service Availability')
+        verbose_name_plural = _('  Services Availability')
 
     """
     This def clean (self) method was contributed by Daniel Mbugua to resolve
@@ -524,12 +521,13 @@ class FacilityServiceAvailabilityProxy(StgHealthFacility):
     def clean(self): #Appreciation to Daniel M.
         pass
 
+
 class FacilityServiceProvisionProxy(StgHealthFacility):
     class Meta:
         proxy = True
         managed = False
-        verbose_name = 'Service Capacity'
-        verbose_name_plural = '  Service Capacity'
+        verbose_name = _('Service Capacity')
+        verbose_name_plural = _('  Service Capacity')
 
     """
     This def clean (self) method was contributed by Daniel Mbugua to resolve
@@ -544,8 +542,8 @@ class FacilityServiceReadinesProxy(StgHealthFacility):
     class Meta:
         proxy = True
         managed = False
-        verbose_name = 'Service Readiness'
-        verbose_name_plural = '  Service Readiness'
+        verbose_name = _('Service Readiness')
+        verbose_name_plural = _('  Service Readiness')
 
     """
     This def clean (self) method was contributed by Daniel Mbugua to resolve

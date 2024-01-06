@@ -43,7 +43,7 @@ STATUS_CHOICES = ( #choices for approval of indicator data by authorized users
 class Facts_DataFilter (models.Model): # requested by Serge to determine facts loaded
     filter_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
     locations = models.ManyToManyField(StgLocation,
         db_table='dqa_filter_location_members',blank=True,
         verbose_name = _('Locations'))  # Field name made lowercase. 
@@ -79,7 +79,7 @@ class Facts_DataFilter (models.Model): # requested by Serge to determine facts l
         super().save(*args, **kwargs)
 
     def __str__(self):
-         return "Filter Facts Locations, Indicators, Categoryoptions, Datasources and Periods"
+         return str(_("Filter Facts Locations, Indicators, Categoryoptions, Datasources and Periods"))
 
 
 class Facts_DataFrame (models.Model):
@@ -120,7 +120,7 @@ class Facts_DataFrame (models.Model):
 class MeasureTypes_Validator(models.Model): # this is equivalent to inventory_status
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
     indicator = models.ForeignKey(StgIndicator, models.CASCADE,
@@ -165,7 +165,7 @@ class MeasureTypes_Validator(models.Model): # this is equivalent to inventory_st
 class DataSource_Validator(models.Model): # this is equivalent to inventory_status
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
     indicator = models.ForeignKey(StgIndicator, models.CASCADE,
@@ -208,7 +208,7 @@ class DataSource_Validator(models.Model): # this is equivalent to inventory_stat
 class CategoryOptions_Validator(models.Model): # this is equivalent to inventory_status
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field  
+        verbose_name=_('User Name (Email)'),default=14) # request helper field  
     afrocode = models.CharField(_('Indicator ID'),max_length=50,
         blank=True, null=True)
     indicator = models.ForeignKey(StgIndicator, models.CASCADE,
@@ -250,7 +250,7 @@ class CategoryOptions_Validator(models.Model): # this is equivalent to inventory
 class Similarity_Index(models.Model): # this is equivalent to inventory_status
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
     source_indicator = models.CharField(_('Data Indicator'),max_length=2000,
         blank=True, null=True)
     similar_indicator = models.CharField(_('Similar Indicator'),max_length=2000,
@@ -275,7 +275,7 @@ class Similarity_Index(models.Model): # this is equivalent to inventory_status
 class Mutiple_MeasureTypes(models.Model): # this is equivalent to inventory_status
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
     indicator_name = models.CharField(_('Indicator Name'),max_length=2000,
         blank=True, null=True,editable=False)
     location = models.CharField(_('Country'),max_length=2000,
@@ -314,7 +314,7 @@ class Mutiple_MeasureTypes(models.Model): # this is equivalent to inventory_stat
 class MissingValuesRemarks(models.Model): # this is equivalent to inventory_status
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
     indicator_name = models.CharField(_('Indicator Name'),max_length=2000,
         blank=True, null=True)
     location = models.CharField(_('Country'),max_length=2000,
@@ -351,16 +351,23 @@ class MissingValuesRemarks(models.Model): # this is equivalent to inventory_stat
 class DqaInvalidCategoryoptionRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    indicator_name = models.CharField(blank=True, null=True,max_length=2000,)
-    location = models.CharField(blank=True, null=True,max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,max_length=2000,)
-    measure_type = models.CharField(blank=True, null=True,max_length=2000,)
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),
+        blank=True, null=True,max_length=2000,)
+    location = models.CharField(_('Country'),blank=True, null=True,
+        max_length=2000,)
+    categoryoption = models.CharField(_('Category Option'),blank=True,
+        null=True,max_length=2000,)
+    datasource = models.CharField(_('Data Source'),blank=True, null=True,
+        max_length=2000,)
+    measure_type = models.CharField(_('Measure Type'), blank=True, 
+        null=True,max_length=2000,)
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True, null=True,max_length=2000,)
-    check_category_option = models.TextField(blank=True, null=True)
+    period = models.CharField(_('Period'),blank=True, null=True,
+        max_length=2000,)
+    check_category_option = models.TextField(_('Check Category Option'),
+        blank=True, null=True)
 
     class Meta:
         managed = True
@@ -378,22 +385,23 @@ class DqaInvalidCategoryoptionRemarks(models.Model):
 class DqaInvalidDatasourceRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User(Email)',default=None) # request helper field
-    indicator_name = models.CharField(blank=True, null=True,
+        verbose_name=_('User Name(Email)'),default=None) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),
+        blank=True, null=True,max_length=2000,)
+    location = models.CharField(_('Country'),blank=True, null=True,
         max_length=2000,)
-    location = models.CharField(blank=True, null=True,
+    categoryoption = models.CharField(_('Category Option'),blank=True,
+        null=True,max_length=2000,)
+    datasource = models.CharField(_('Data Source'),blank=True, null=True,
         max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,
-        max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,
-        max_length=2000,)
-    measure_type = models.CharField(blank=True, null=True,
-        max_length=2000,) 
+    measure_type = models.CharField(_('Measure Type'),blank=True, 
+        null=True,max_length=2000,)
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True,null=True,
+    period = models.CharField(_('Period'),blank=True, null=True,
         max_length=2000,)
-    check_data_source = models.TextField(blank=True, null=True) 
+    check_data_source = models.TextField(_('Check Data Source'),
+        blank=True, null=True) 
 
     class Meta:
         managed = True
@@ -411,23 +419,30 @@ class DqaInvalidDatasourceRemarks(models.Model):
 class DqaInvalidMeasuretypeRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    indicator_name = models.CharField(blank=True,null=True,max_length=2000,)
-    location = models.CharField(blank=True, null=True,max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,max_length=2000,)
-    measure_type = models.CharField(blank=True, null=True,max_length=2000,)
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),
+        blank=True, null=True,max_length=2000,)
+    location = models.CharField(_('Country'),blank=True, null=True,
+        max_length=2000,)
+    categoryoption = models.CharField(_('Category Option'),blank=True,
+        null=True,max_length=2000,)
+    datasource = models.CharField(_('Data Source'),blank=True, null=True,
+        max_length=2000,)
+    measure_type = models.CharField(_('Measure Type'),blank=True, 
+        null=True,max_length=2000,)
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True, null=True,max_length=2000,)
-    check_mesure_type = models.TextField(blank=True, null=True) 
+    period = models.CharField(_('Period'),blank=True, null=True,
+        max_length=2000,)
+    check_mesure_type = models.TextField(_('Check Measure Type'),
+        blank=True, null=True) 
 
     class Meta:
         managed = True
         db_table = 'dqa_invalid_measuretype_remarks'
         unique_together = ('indicator_name', 'location', 'categoryoption',
             'datasource','period',)  
-        verbose_name = _('Check Measutype')
+        verbose_name = _('Check Measure')
         verbose_name_plural = _(' Check Measures')
         ordering = ('indicator_name',)
 
@@ -438,16 +453,22 @@ class DqaInvalidMeasuretypeRemarks(models.Model):
 class DqaInvalidPeriodRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    indicator_name = models.CharField(blank=True, null=True,max_length=2000,)
-    location = models.CharField(blank=True, null=True,max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,max_length=2000,)
-    measure_type = models.CharField(blank=True, null=True,max_length=2000,)
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),
+        blank=True, null=True,max_length=2000,)
+    location = models.CharField(_('Country'),blank=True, null=True,
+        max_length=2000,)
+    categoryoption = models.CharField(_('Category Option'),blank=True,
+        null=True,max_length=2000,)
+    datasource = models.CharField(_('Data Source'),blank=True, null=True,
+        max_length=2000,)
+    measure_type = models.CharField(_('Measure Type'),blank=True, 
+        null=True,max_length=2000,)
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True, null=True,max_length=2000,)
-    check_year = models.TextField(blank=True, null=True)
+    period = models.CharField(_('Period'),blank=True, null=True,
+        max_length=2000,)
+    check_year = models.TextField(_('Check Period'),blank=True, null=True)
 
     class Meta:
         managed = True
@@ -466,16 +487,23 @@ class DqaInvalidPeriodRemarks(models.Model):
 class DqaExternalConsistencyOutliersRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    indicator_name = models.CharField(blank=True, null=True,max_length=2000,)
-    location = models.CharField(blank=True, null=True,max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,max_length=2000,)
-    measure_type = models.CharField(blank=True, null=True,max_length=2000,)
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),
+        blank=True, null=True,max_length=2000,)
+    location = models.CharField(_('Country'),blank=True, null=True,
+        max_length=2000,)
+    categoryoption = models.CharField(_('Category Option'),blank=True,
+        null=True,max_length=2000,)
+    datasource = models.CharField(_('Data Source'),blank=True, null=True,
+        max_length=2000,)
+    measure_type = models.CharField(_('Measure Type'),blank=True, 
+        null=True,max_length=2000,)
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True, null=True,max_length=2000,)
-    external_consistency = models.TextField(blank=True, null=True)
+    period = models.CharField(_('Period'),blank=True, null=True,
+        max_length=2000,)
+    external_consistency = models.TextField(_('Check External Consistency'), 
+        blank=True, null=True)
 
     class Meta:
         managed = True
@@ -493,16 +521,23 @@ class DqaExternalConsistencyOutliersRemarks(models.Model):
 class DqaInternalConsistencyOutliersRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    indicator_name = models.CharField(blank=True, null=True,max_length=2000,)
-    location = models.CharField(blank=True, null=True,max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,max_length=2000,)
-    measure_type = models.CharField(blank=True, null=True,max_length=2000,)
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),
+        blank=True, null=True,max_length=2000,)
+    location = models.CharField(_('Country'),blank=True, null=True,
+        max_length=2000,)
+    categoryoption = models.CharField(_('Category Option'),blank=True,
+        null=True,max_length=2000,)
+    datasource = models.CharField(_('Data Source'),blank=True, null=True,
+        max_length=2000,)
+    measure_type = models.CharField(_('Measure Type'),blank=True, 
+        null=True,max_length=2000,)
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True, null=True,max_length=2000,)
-    internal_consistency = models.TextField(blank=True, null=True)
+    period = models.CharField(_('Period'),blank=True, null=True,
+        max_length=2000,)
+    internal_consistency = models.TextField(_('Check Internal Consistency'),
+        blank=True, null=True)
 
     class Meta:
         managed = True
@@ -519,16 +554,23 @@ class DqaInternalConsistencyOutliersRemarks(models.Model):
 class DqaValueTypesConsistencyRemarks(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, models.PROTECT, blank=True,
-        verbose_name='User Name (Email)',default=14) # request helper field
-    indicator_name = models.CharField(blank=True, null=True,max_length=2000,)
-    location = models.CharField(blank=True, null=True,max_length=2000,)
-    categoryoption = models.CharField(blank=True, null=True,max_length=2000,)
-    datasource = models.CharField(blank=True, null=True,max_length=2000,)
-    measure_type = models.CharField(blank=True, null=True,max_length=2000,)
+        verbose_name=_('User Name (Email)'),default=14) # request helper field
+    indicator_name = models.CharField(_('Indicator Name'),
+        blank=True, null=True,max_length=2000,)
+    location = models.CharField(_('Country'),blank=True, null=True,
+        max_length=2000,)
+    categoryoption = models.CharField(_('Category Option'),blank=True,
+        null=True,max_length=2000,)
+    datasource = models.CharField(_('Data Source'),blank=True, null=True,
+        max_length=2000,)
+    measure_type = models.CharField(_('Measure Type'),blank=True, 
+        null=True,max_length=2000,)
     value = DecimalField(_('Value'),max_digits=20,decimal_places=3,
         blank=True,null=True)
-    period = models.CharField(blank=True, null=True,max_length=2000,)
-    check_value = models.TextField(blank=True, null=True,max_length=2000,)
+    period = models.CharField(_('Period'),blank=True, null=True,
+        max_length=2000,)
+    check_value = models.TextField(_('Check Value Type Consistency'),
+        blank=True, null=True,max_length=2000,)
 
     class Meta:
         managed = True

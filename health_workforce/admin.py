@@ -4,6 +4,9 @@ from django.forms import TextInput,Textarea #
 from django.utils.html import format_html
 from import_export.formats import base_formats
 from parler.admin import TranslatableAdmin
+from django.utils.translation import gettext_lazy as _
+
+
 from django_admin_listfilter_dropdown.filters import (
     DropdownFilter, RelatedDropdownFilter, ChoiceDropdownFilter,
     RelatedOnlyDropdownFilter) #custom
@@ -226,7 +229,7 @@ class ResourceAdmin(TranslatableAdmin,ExportActionModelAdmin):
         return obj.url if obj.url else 'None'
 
     show_external_url.allow_tags = True
-    show_external_url.short_description= 'External File Link'
+    show_external_url.short_description= _('External File Link')
 
     """
     Returns available export formats.

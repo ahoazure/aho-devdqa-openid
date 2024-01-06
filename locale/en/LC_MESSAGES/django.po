@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-08 19:45+0300\n"
+"POT-Creation-Date: 2024-01-06 11:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\aho_datacapturetool\settings.py:206
+#: .\aho_datacapturetool\settings.py:270
 msgid "English"
 msgstr ""
 
-#: .\aho_datacapturetool\settings.py:207
+#: .\aho_datacapturetool\settings.py:271
 msgid "French"
 msgstr ""
 
-#: .\aho_datacapturetool\settings.py:208
+#: .\aho_datacapturetool\settings.py:272
 msgid "Portuguese"
 msgstr ""
 
@@ -34,161 +34,588 @@ msgstr ""
 msgid "authentication"
 msgstr ""
 
-#: .\authentication\models.py:25
+#: .\authentication\models.py:26
 msgid "New user must be DCT admin staff."
 msgstr ""
 
-#: .\authentication\models.py:27
+#: .\authentication\models.py:28
 msgid "New user account must be actived."
 msgstr ""
 
-#: .\authentication\models.py:30
+#: .\authentication\models.py:31
 msgid "Valid Email must be set"
 msgstr ""
 
-#: .\authentication\models.py:46
+#: .\authentication\models.py:47
 msgid "Superuser must have is_staff=True."
 msgstr ""
 
-#: .\authentication\models.py:48
+#: .\authentication\models.py:49
 msgid "Superuser must have is_superuser=True."
 msgstr ""
 
-#: .\authentication\models.py:59
+#: .\authentication\models.py:60
 msgid "title"
 msgstr ""
 
-#: .\authentication\models.py:61
+#: .\authentication\models.py:62
 msgid "gender"
 msgstr ""
 
-#: .\authentication\models.py:63
+#: .\authentication\models.py:64
 msgid "e-mail"
 msgstr ""
 
-#: .\authentication\models.py:64
+#: .\authentication\models.py:65
 msgid "postal code"
 msgstr ""
 
-#: .\authentication\models.py:66
+#: .\authentication\models.py:67
 msgid "user name"
 msgstr ""
 
-#: .\authentication\models.py:69 .\authentication\models.py:99
-#: .\indicators\models.py:187 .\indicators\models.py:394
-#: .\regions\models.py:168
+#: .\authentication\models.py:70 .\authentication\models.py:100
+#: .\data_quality\models.py:93 .\health_services\models.py:44
+#: .\home\models.py:296 .\home\models.py:326 .\indicators\models.py:188
+#: .\indicators\models.py:452 .\indicators\models.py:513
+#: .\regions\models.py:168 .\uhc_clock\models.py:166
 msgid "Location Name"
 msgstr ""
 
-#: .\authentication\models.py:71 .\authentication\models.py:101
+#: .\authentication\models.py:72 .\authentication\models.py:102
 #: .\elements\models.py:35 .\elements\models.py:90 .\elements\models.py:185
 #: .\facilities\models.py:33 .\facilities\models.py:76
-#: .\facilities\models.py:127 .\facilities\models.py:212
-#: .\facilities\models.py:281 .\facilities\models.py:324
-#: .\facilities\models.py:357 .\facilities\models.py:405
-#: .\facilities\models.py:448 .\facilities\models.py:492
+#: .\facilities\models.py:127 .\facilities\models.py:208
+#: .\facilities\models.py:277 .\facilities\models.py:320
+#: .\facilities\models.py:353 .\facilities\models.py:401
+#: .\facilities\models.py:444 .\facilities\models.py:487
+#: .\health_services\models.py:78 .\health_services\models.py:301
 #: .\health_workforce\models.py:76 .\health_workforce\models.py:106
 #: .\health_workforce\models.py:171 .\health_workforce\models.py:226
-#: .\health_workforce\models.py:288 .\health_workforce\models.py:378
-#: .\health_workforce\models.py:465 .\home\models.py:91 .\home\models.py:123
-#: .\home\models.py:154 .\indicators\models.py:44 .\indicators\models.py:92
-#: .\indicators\models.py:152 .\indicators\models.py:222
-#: .\indicators\models.py:425 .\indicators\models.py:454
-#: .\indicators\models.py:493 .\indicators\models.py:522
-#: .\publications\models.py:38 .\publications\models.py:85
-#: .\publications\models.py:150 .\publications\models.py:215
+#: .\health_workforce\models.py:288 .\health_workforce\models.py:386
+#: .\health_workforce\models.py:475 .\home\models.py:85 .\home\models.py:204
+#: .\home\models.py:244 .\home\models.py:275 .\indicators\models.py:45
+#: .\indicators\models.py:93 .\indicators\models.py:153
+#: .\indicators\models.py:224 .\indicators\models.py:483
+#: .\indicators\models.py:525 .\indicators\models.py:561
+#: .\indicators\models.py:600 .\indicators\models.py:629
+#: .\publications\models.py:38 .\publications\models.py:87
+#: .\publications\models.py:158 .\publications\models.py:223
 #: .\regions\models.py:24 .\regions\models.py:61 .\regions\models.py:97
 #: .\regions\models.py:133 .\regions\models.py:193 .\regions\models.py:227
+#: .\uhc_clock\models.py:43 .\uhc_clock\models.py:132
 msgid "Date Created"
 msgstr ""
 
-#: .\authentication\models.py:73 .\authentication\models.py:103
+#: .\authentication\models.py:74 .\authentication\models.py:104
 #: .\elements\models.py:37 .\elements\models.py:92 .\elements\models.py:187
 #: .\facilities\models.py:35 .\facilities\models.py:78
-#: .\facilities\models.py:129 .\facilities\models.py:214
-#: .\facilities\models.py:283 .\facilities\models.py:326
-#: .\facilities\models.py:359 .\facilities\models.py:407
-#: .\facilities\models.py:450 .\facilities\models.py:494
+#: .\facilities\models.py:129 .\facilities\models.py:210
+#: .\facilities\models.py:279 .\facilities\models.py:322
+#: .\facilities\models.py:355 .\facilities\models.py:403
+#: .\facilities\models.py:446 .\facilities\models.py:489
+#: .\health_services\models.py:80 .\health_services\models.py:303
 #: .\health_workforce\models.py:78 .\health_workforce\models.py:108
 #: .\health_workforce\models.py:173 .\health_workforce\models.py:228
-#: .\health_workforce\models.py:290 .\health_workforce\models.py:380
-#: .\health_workforce\models.py:467 .\home\models.py:93 .\home\models.py:125
-#: .\home\models.py:156 .\indicators\models.py:46 .\indicators\models.py:94
-#: .\indicators\models.py:154 .\indicators\models.py:224
-#: .\indicators\models.py:427 .\indicators\models.py:456
-#: .\indicators\models.py:495 .\indicators\models.py:524
-#: .\publications\models.py:40 .\publications\models.py:87
-#: .\publications\models.py:152 .\publications\models.py:217
+#: .\health_workforce\models.py:290 .\health_workforce\models.py:388
+#: .\health_workforce\models.py:477 .\home\models.py:87 .\home\models.py:206
+#: .\home\models.py:246 .\home\models.py:277 .\indicators\models.py:47
+#: .\indicators\models.py:95 .\indicators\models.py:155
+#: .\indicators\models.py:226 .\indicators\models.py:485
+#: .\indicators\models.py:527 .\indicators\models.py:563
+#: .\indicators\models.py:602 .\indicators\models.py:631
+#: .\publications\models.py:40 .\publications\models.py:89
+#: .\publications\models.py:160 .\publications\models.py:225
 #: .\regions\models.py:26 .\regions\models.py:63 .\regions\models.py:99
 #: .\regions\models.py:135 .\regions\models.py:195 .\regions\models.py:229
+#: .\uhc_clock\models.py:45 .\uhc_clock\models.py:134
 msgid "Date Modified"
 msgstr ""
 
-#: .\authentication\models.py:82
+#: .\authentication\models.py:83
 msgid "User"
 msgstr ""
 
-#: .\authentication\models.py:83
+#: .\authentication\models.py:84
 msgid "  User Accounts"
 msgstr ""
 
-#: .\authentication\models.py:95 .\authentication\models.py:107
+#: .\authentication\models.py:96 .\authentication\models.py:108
 msgid "System Role"
 msgstr ""
 
-#: .\authentication\models.py:96
-msgid "Roles Manager"
-msgstr ""
-
-#: .\authentication\models.py:108
+#: .\authentication\models.py:109
 msgid " System Roles"
 msgstr ""
 
-#: .\authentication\models.py:114
+#: .\authentication\models.py:115 .\home\templates\index.html:37
+#: .\home\templates\indexx.html:37
 msgid "Username"
 msgstr ""
 
-#: .\authentication\models.py:118
+#: .\authentication\models.py:119
 msgid "First Name"
 msgstr ""
 
-#: .\authentication\models.py:120
+#: .\authentication\models.py:121
 msgid "Last Name"
 msgstr ""
 
-#: .\authentication\models.py:122
+#: .\authentication\models.py:123
 msgid "Location "
 msgstr ""
 
-#: .\authentication\models.py:124
+#: .\authentication\models.py:125
 msgid "Menu Executed"
 msgstr ""
 
-#: .\authentication\models.py:126
+#: .\authentication\models.py:127
 msgid "Affected Record"
 msgstr ""
 
-#: .\authentication\models.py:128
+#: .\authentication\models.py:129
 msgid "Action Taken"
 msgstr ""
 
-#: .\authentication\models.py:130
+#: .\authentication\models.py:131
 msgid "Action Timestamp"
 msgstr ""
 
-#: .\authentication\models.py:132
+#: .\authentication\models.py:133
 msgid "Last Login Timestamp"
 msgstr ""
 
-#: .\authentication\models.py:137
+#: .\authentication\models.py:138
 msgid "View Users Log"
 msgstr ""
 
-#: .\authentication\models.py:138
+#: .\authentication\models.py:139
 msgid " View User Logs"
 msgstr ""
 
-#: .\elements\admin.py:176 .\indicators\admin.py:277
+#: .\commoninfo\admin.py:74
+msgid "HOME"
+msgstr ""
+
+#: .\commoninfo\admin.py:76
+msgid "INDICATORS"
+msgstr ""
+
+#: .\commoninfo\admin.py:78
+msgid "PUBLICATIONS"
+msgstr ""
+
+#: .\commoninfo\admin.py:80
+msgid "FACILITIES"
+msgstr ""
+
+#: .\commoninfo\admin.py:82
+msgid "REGIONS"
+msgstr ""
+
+#: .\commoninfo\admin.py:84
+msgid "AUTHENTICATION"
+msgstr ""
+
+#: .\commoninfo\admin.py:87
+msgid "UHC CLOCK"
+msgstr ""
+
+#: .\commoninfo\admin.py:89
+msgid "API TOKENS"
+msgstr ""
+
+#: .\commoninfo\admin.py:91
+msgid "HEALTH WORKFORCE"
+msgstr ""
+
+#: .\commoninfo\admin.py:93
+msgid "HEALTH SERVICES"
+msgstr ""
+
+#: .\commoninfo\admin.py:95
+msgid "DATA ELEMENTS"
+msgstr ""
+
+#: .\commoninfo\admin.py:97
+msgid "DATA WIZARD"
+msgstr ""
+
+#: .\commoninfo\admin.py:99
+msgid "DATA QUALITY"
+msgstr ""
+
+#: .\data_quality\models.py:37 .\health_services\models.py:29
+#: .\health_workforce\models.py:253 .\indicators\models.py:28
+#: .\publications\models.py:115
+msgid "Pending"
+msgstr ""
+
+#: .\data_quality\models.py:38 .\health_services\models.py:30
+#: .\health_workforce\models.py:254 .\indicators\models.py:29
+#: .\publications\models.py:116
+msgid "Approved"
+msgstr ""
+
+#: .\data_quality\models.py:39 .\health_services\models.py:31
+#: .\health_workforce\models.py:255 .\indicators\models.py:30
+#: .\publications\models.py:117
+msgid "Rejected"
+msgstr ""
+
+#: .\data_quality\models.py:46 .\data_quality\models.py:123
+#: .\data_quality\models.py:168 .\data_quality\models.py:211
+#: .\data_quality\models.py:253 .\data_quality\models.py:278
+#: .\data_quality\models.py:317 .\data_quality\models.py:354
+#: .\data_quality\models.py:422 .\data_quality\models.py:456
+#: .\data_quality\models.py:490 .\data_quality\models.py:524
+#: .\data_quality\models.py:557 .\elements\models.py:65 .\home\models.py:298
+#: .\home\models.py:328
+msgid "User Name (Email)"
+msgstr ""
+
+#: .\data_quality\models.py:49
+msgid "Locations"
+msgstr ""
+
+#: .\data_quality\models.py:52 .\indicators\models.py:152
+#: .\uhc_clock\models.py:126 .\uhc_clock\models.py:208
+msgid "Indicators"
+msgstr ""
+
+#: .\data_quality\models.py:55
+msgid "Category Options"
+msgstr ""
+
+#: .\data_quality\models.py:58
+msgid "Data Sources"
+msgstr ""
+
+#: .\data_quality\models.py:59 .\health_workforce\models.py:276
+#: .\health_workforce\models.py:374 .\health_workforce\models.py:462
+#: .\indicators\models.py:211
+msgid "Starting period"
+msgstr ""
+
+#: .\data_quality\models.py:62 .\facilities\models.py:400
+#: .\facilities\models.py:443 .\facilities\models.py:486
+#: .\health_workforce\models.py:279 .\health_workforce\models.py:377
+#: .\health_workforce\models.py:465 .\indicators\models.py:214
+msgid "This marks the start of reporting period"
+msgstr ""
+
+#: .\data_quality\models.py:63 .\health_workforce\models.py:280
+#: .\health_workforce\models.py:378 .\health_workforce\models.py:466
+#: .\indicators\models.py:215
+msgid "Ending Period"
+msgstr ""
+
+#: .\data_quality\models.py:66 .\health_workforce\models.py:282
+#: .\health_workforce\models.py:380 .\health_workforce\models.py:469
+#: .\indicators\models.py:218
+msgid ""
+"This marks the end of reporting. The value must be current             year "
+"or greater than the start year"
+msgstr ""
+
+#: .\data_quality\models.py:72
+msgid "Filter"
+msgstr ""
+
+#: .\data_quality\models.py:73
+msgid "    Facts Filter"
+msgstr ""
+
+#: .\data_quality\models.py:82
+msgid ""
+"Filter Facts Locations, Indicators, Categoryoptions, Datasources and Periods"
+msgstr ""
+
+#: .\data_quality\models.py:88 .\data_quality\models.py:124
+#: .\data_quality\models.py:169 .\data_quality\models.py:212
+msgid "Indicator ID"
+msgstr ""
+
+#: .\data_quality\models.py:90 .\data_quality\models.py:127
+#: .\data_quality\models.py:172 .\data_quality\models.py:215
+#: .\data_quality\models.py:279 .\data_quality\models.py:318
+#: .\data_quality\models.py:355 .\data_quality\models.py:389
+#: .\data_quality\models.py:423 .\data_quality\models.py:457
+#: .\data_quality\models.py:491 .\data_quality\models.py:525
+#: .\data_quality\models.py:558 .\health_services\models.py:42
+#: .\indicators\models.py:74 .\indicators\models.py:186
+#: .\indicators\models.py:426 .\indicators\models.py:450
+#: .\indicators\models.py:511 .\uhc_clock\models.py:77
+#: .\uhc_clock\models.py:163
+msgid "Indicator Name"
+msgstr ""
+
+#: .\data_quality\models.py:95 .\data_quality\models.py:217
+#: .\health_services\models.py:46 .\health_workforce\models.py:269
+#: .\indicators\models.py:190 .\uhc_clock\models.py:168
+msgid "Disaggregation Options"
+msgstr ""
+
+#: .\data_quality\models.py:96 .\data_quality\models.py:174
+#: .\data_quality\models.py:285 .\data_quality\models.py:324
+#: .\data_quality\models.py:361 .\data_quality\models.py:395
+#: .\data_quality\models.py:429 .\data_quality\models.py:463
+#: .\data_quality\models.py:497 .\data_quality\models.py:531
+#: .\data_quality\models.py:564 .\elements\models.py:74
+#: .\health_services\models.py:49 .\health_workforce\models.py:271
+#: .\home\models.py:192 .\home\models.py:211 .\indicators\models.py:193
+#: .\indicators\models.py:456 .\indicators\models.py:517
+#: .\uhc_clock\models.py:169
+msgid "Data Source"
+msgstr ""
+
+#: .\data_quality\models.py:98 .\data_quality\models.py:129
+#: .\data_quality\models.py:287 .\data_quality\models.py:326
+#: .\data_quality\models.py:363 .\data_quality\models.py:397
+#: .\data_quality\models.py:431 .\data_quality\models.py:465
+#: .\data_quality\models.py:499 .\data_quality\models.py:533
+#: .\data_quality\models.py:566 .\health_services\models.py:52
+#: .\health_workforce\models.py:273 .\home\models.py:282
+#: .\indicators\models.py:196 .\indicators\models.py:458
+#: .\indicators\models.py:519 .\uhc_clock\models.py:171
+msgid "Measure Type"
+msgstr ""
+
+#: .\data_quality\models.py:99 .\elements\admin.py:137
+#: .\health_services\admin.py:110 .\indicators\admin.py:234
+#: .\indicators\models.py:201 .\uhc_clock\models.py:172
+msgid "Numeric Value"
+msgstr ""
+
+#: .\data_quality\models.py:105 .\data_quality\models.py:291
+#: .\data_quality\models.py:330 .\data_quality\models.py:367
+#: .\data_quality\models.py:401 .\data_quality\models.py:435
+#: .\data_quality\models.py:469 .\data_quality\models.py:503
+#: .\data_quality\models.py:537 .\data_quality\models.py:570
+#: .\elements\models.py:86 .\health_services\models.py:73
+#: .\health_workforce\models.py:284 .\health_workforce\models.py:382
+#: .\health_workforce\models.py:471 .\indicators\models.py:220
+#: .\indicators\models.py:480 .\indicators\models.py:522
+#: .\uhc_clock\models.py:178
+msgid "Period"
+msgstr ""
+
+#: .\data_quality\models.py:111
+msgid "Facts"
+msgstr ""
+
+#: .\data_quality\models.py:112
+msgid "   Facts Dataset"
+msgstr ""
+
+#: .\data_quality\models.py:131
+msgid "Measure Type ID"
+msgstr ""
+
+#: .\data_quality\models.py:139
+msgid "Valid Measure Type"
+msgstr ""
+
+#: .\data_quality\models.py:140
+msgid "  Measuretypes"
+msgstr ""
+
+#: .\data_quality\models.py:175
+msgid "Data SourceID"
+msgstr ""
+
+#: .\data_quality\models.py:184
+msgid "Valid Source"
+msgstr ""
+
+#: .\data_quality\models.py:185
+msgid "  Datasources"
+msgstr ""
+
+#: .\data_quality\models.py:218
+msgid "Disaggregation ID"
+msgstr ""
+
+#: .\data_quality\models.py:227
+msgid "Valid Category Option"
+msgstr ""
+
+#: .\data_quality\models.py:228
+msgid "  Categoryoptions"
+msgstr ""
+
+#: .\data_quality\models.py:254
+msgid "Data Indicator"
+msgstr ""
+
+#: .\data_quality\models.py:256
+msgid "Similar Indicator"
+msgstr ""
+
+#: .\data_quality\models.py:258
+msgid "Similarity Score %"
+msgstr ""
+
+#: .\data_quality\models.py:267
+msgid "Similarity Score"
+msgstr ""
+
+#: .\data_quality\models.py:268
+msgid "Similarity Scores"
+msgstr ""
+
+#: .\data_quality\models.py:281 .\data_quality\models.py:320
+#: .\data_quality\models.py:357 .\data_quality\models.py:391
+#: .\data_quality\models.py:425 .\data_quality\models.py:459
+#: .\data_quality\models.py:493 .\data_quality\models.py:527
+#: .\data_quality\models.py:560 .\home\models.py:63 .\regions\models.py:222
+msgid "Country"
+msgstr ""
+
+#: .\data_quality\models.py:283 .\data_quality\models.py:322
+msgid "category Option"
+msgstr ""
+
+#: .\data_quality\models.py:289 .\data_quality\models.py:328
+msgid "Value Received"
+msgstr ""
+
+#: .\data_quality\models.py:293 .\data_quality\models.py:332
+msgid "Number of Measure Types"
+msgstr ""
+
+#: .\data_quality\models.py:295 .\data_quality\models.py:334
+msgid "Remarks"
+msgstr ""
+
+#: .\data_quality\models.py:302
+msgid "Multiple Multiple Type"
+msgstr ""
+
+#: .\data_quality\models.py:305
+msgid "Multiple Measures"
+msgstr ""
+
+#: .\data_quality\models.py:343
+msgid "Missing Value"
+msgstr ""
+
+#: .\data_quality\models.py:344
+msgid "Missing Values"
+msgstr ""
+
+#: .\data_quality\models.py:359 .\data_quality\models.py:393
+#: .\data_quality\models.py:427 .\data_quality\models.py:461
+#: .\data_quality\models.py:495 .\data_quality\models.py:529
+#: .\data_quality\models.py:562
+msgid "Category Option"
+msgstr ""
+
+#: .\data_quality\models.py:365 .\data_quality\models.py:399
+#: .\data_quality\models.py:433 .\data_quality\models.py:467
+#: .\data_quality\models.py:501 .\data_quality\models.py:535
+#: .\data_quality\models.py:568 .\indicators\models.py:459
+#: .\indicators\models.py:520
+msgid "Value"
+msgstr ""
+
+#: .\data_quality\models.py:369
+msgid "Check Category Option"
+msgstr ""
+
+#: .\data_quality\models.py:377
+msgid "Check Categoryoption"
+msgstr ""
+
+#: .\data_quality\models.py:378
+msgid " Check Categories"
+msgstr ""
+
+#: .\data_quality\models.py:388
+msgid "User Name(Email)"
+msgstr ""
+
+#: .\data_quality\models.py:403
+msgid "Check Data Source"
+msgstr ""
+
+#: .\data_quality\models.py:411
+msgid "Invalid Source"
+msgstr ""
+
+#: .\data_quality\models.py:412
+msgid " Check Sources"
+msgstr ""
+
+#: .\data_quality\models.py:437
+msgid "Check Measure Type"
+msgstr ""
+
+#: .\data_quality\models.py:445
+msgid "Check Measure"
+msgstr ""
+
+#: .\data_quality\models.py:446
+msgid " Check Measures"
+msgstr ""
+
+#: .\data_quality\models.py:471 .\data_quality\models.py:478
+msgid "Check Period"
+msgstr ""
+
+#: .\data_quality\models.py:479
+msgid " Check Periods"
+msgstr ""
+
+#: .\data_quality\models.py:505
+msgid "Check External Consistency"
+msgstr ""
+
+#: .\data_quality\models.py:513
+msgid "External Consistency"
+msgstr ""
+
+#: .\data_quality\models.py:514
+msgid "External Consistencies"
+msgstr ""
+
+#: .\data_quality\models.py:539
+msgid "Check Internal Consistency"
+msgstr ""
+
+#: .\data_quality\models.py:547
+msgid "Internal Consistency"
+msgstr ""
+
+#: .\data_quality\models.py:548
+msgid "Internal Consistencies"
+msgstr ""
+
+#: .\data_quality\models.py:572
+msgid "Check Value Type Consistency"
+msgstr ""
+
+#: .\data_quality\models.py:580
+msgid "Value Consistency"
+msgstr ""
+
+#: .\data_quality\models.py:581
+msgid "Value Consistencies"
+msgstr ""
+
+#: .\data_quality\templates\data_quality\home.html:20
+msgid "Back Home"
+msgstr ""
+
+#: .\elements\admin.py:139 .\elements\models.py:80
+#: .\health_services\admin.py:116 .\health_services\models.py:65
+#: .\indicators\admin.py:239 .\indicators\models.py:207
+#: .\indicators\models.py:469
+msgid "Target Value"
+msgstr ""
+
+#: .\elements\admin.py:180 .\health_services\admin.py:174
+#: .\indicators\admin.py:294
 msgid ""
 "Sorry! Ending year cannot be lower than the start "
 "year.                         Please make corrections"
@@ -199,8 +626,8 @@ msgid "elements"
 msgstr ""
 
 #: .\elements\filters.py:12 .\facilities\filters.py:12
-#: .\health_workforce\filters.py:12 .\home\filters.py:12
-#: .\indicators\filters.py:12 .\publications\filters.py:12
+#: .\health_services\filters.py:12 .\health_workforce\filters.py:12
+#: .\home\filters.py:12 .\indicators\filters.py:12 .\publications\filters.py:12
 #: .\regions\filters.py:12
 msgid "All"
 msgstr ""
@@ -208,21 +635,24 @@ msgstr ""
 #: .\elements\models.py:25 .\elements\models.py:63 .\elements\models.py:171
 #: .\facilities\models.py:21 .\facilities\models.py:61
 #: .\facilities\models.py:111 .\facilities\models.py:167
-#: .\facilities\models.py:268 .\facilities\models.py:310
-#: .\facilities\models.py:343 .\facilities\models.py:375
-#: .\facilities\models.py:428 .\facilities\models.py:472
+#: .\facilities\models.py:264 .\facilities\models.py:306
+#: .\facilities\models.py:339 .\facilities\models.py:371
+#: .\facilities\models.py:424 .\facilities\models.py:467
+#: .\health_services\models.py:37 .\health_services\models.py:283
 #: .\health_workforce\models.py:66 .\health_workforce\models.py:95
 #: .\health_workforce\models.py:132 .\health_workforce\models.py:211
-#: .\health_workforce\models.py:260 .\health_workforce\models.py:344
-#: .\health_workforce\models.py:433 .\home\models.py:11 .\home\models.py:40
-#: .\home\models.py:114 .\home\models.py:140 .\indicators\models.py:34
-#: .\indicators\models.py:70 .\indicators\models.py:133
-#: .\indicators\models.py:180 .\indicators\models.py:387
-#: .\indicators\models.py:443 .\indicators\models.py:482
-#: .\indicators\models.py:511 .\publications\models.py:26
-#: .\publications\models.py:71 .\publications\models.py:120
-#: .\publications\models.py:197 .\regions\models.py:14 .\regions\models.py:51
+#: .\health_workforce\models.py:260 .\health_workforce\models.py:352
+#: .\health_workforce\models.py:443 .\home\models.py:17 .\home\models.py:57
+#: .\home\models.py:124 .\home\models.py:153 .\home\models.py:235
+#: .\home\models.py:261 .\indicators\models.py:35 .\indicators\models.py:71
+#: .\indicators\models.py:134 .\indicators\models.py:181
+#: .\indicators\models.py:445 .\indicators\models.py:506
+#: .\indicators\models.py:550 .\indicators\models.py:589
+#: .\indicators\models.py:618 .\publications\models.py:26
+#: .\publications\models.py:71 .\publications\models.py:121
+#: .\publications\models.py:205 .\regions\models.py:14 .\regions\models.py:51
 #: .\regions\models.py:87 .\regions\models.py:123 .\regions\models.py:161
+#: .\uhc_clock\models.py:33 .\uhc_clock\models.py:103
 msgid "Unique ID"
 msgstr ""
 
@@ -235,9 +665,12 @@ msgid "short name"
 msgstr ""
 
 #: .\elements\models.py:31 .\elements\models.py:178 .\facilities\models.py:74
-#: .\facilities\models.py:279 .\facilities\models.py:322
-#: .\facilities\models.py:355 .\home\models.py:149 .\publications\models.py:80
-#: .\regions\models.py:21
+#: .\facilities\models.py:185 .\facilities\models.py:275
+#: .\facilities\models.py:318 .\facilities\models.py:351
+#: .\health_services\models.py:292 .\home\models.py:24 .\home\models.py:131
+#: .\home\models.py:161 .\home\models.py:199 .\home\models.py:240
+#: .\home\models.py:270 .\publications\models.py:82 .\regions\models.py:21
+#: .\uhc_clock\models.py:82 .\uhc_clock\models.py:110
 msgid "Description"
 msgstr ""
 
@@ -257,7 +690,15 @@ msgstr ""
 msgid "Data Element"
 msgstr ""
 
-#: .\elements\models.py:71 .\home\models.py:59 .\indicators\models.py:396
+#: .\elements\models.py:69 .\health_workforce\models.py:139
+#: .\health_workforce\models.py:267 .\health_workforce\models.py:448
+#: .\indicators\models.py:596 .\indicators\models.py:625
+#: .\regions\models.py:201
+msgid "Location"
+msgstr ""
+
+#: .\elements\models.py:71 .\home\models.py:172 .\indicators\models.py:454
+#: .\indicators\models.py:515
 msgid "Disaggregation Option"
 msgstr ""
 
@@ -265,33 +706,24 @@ msgstr ""
 msgid "Data Type"
 msgstr ""
 
-#: .\elements\models.py:78 .\health_workforce\models.py:274
+#: .\elements\models.py:78 .\health_services\models.py:57
+#: .\health_workforce\models.py:274
 msgid "Data Value"
 msgstr ""
 
-#: .\elements\models.py:80 .\indicators\models.py:206
-#: .\indicators\models.py:411
-msgid "Target Value"
-msgstr ""
-
-#: .\elements\models.py:82
+#: .\elements\models.py:82 .\uhc_clock\models.py:175
 msgid "Start Year"
 msgstr ""
 
-#: .\elements\models.py:84 .\indicators\models.py:418
+#: .\elements\models.py:84 .\indicators\models.py:476
 msgid "Ending Year"
 msgstr ""
 
-#: .\elements\models.py:86 .\health_workforce\models.py:284
-#: .\health_workforce\models.py:374 .\health_workforce\models.py:461
-#: .\indicators\models.py:219 .\indicators\models.py:422
-msgid "Period"
-msgstr ""
-
-#: .\elements\models.py:88 .\facilities\models.py:210
-#: .\health_workforce\models.py:286 .\health_workforce\models.py:376
-#: .\health_workforce\models.py:463 .\indicators\models.py:220
-#: .\indicators\models.py:423 .\publications\models.py:148
+#: .\elements\models.py:88 .\facilities\models.py:206
+#: .\health_services\models.py:74 .\health_workforce\models.py:286
+#: .\health_workforce\models.py:384 .\health_workforce\models.py:473
+#: .\indicators\models.py:221 .\indicators\models.py:481
+#: .\publications\models.py:156 .\uhc_clock\models.py:182
 msgid "Status"
 msgstr ""
 
@@ -330,16 +762,17 @@ msgid "Group Name"
 msgstr ""
 
 #: .\elements\models.py:176 .\facilities\models.py:29 .\facilities\models.py:72
-#: .\facilities\models.py:124 .\facilities\models.py:277
-#: .\facilities\models.py:320 .\facilities\models.py:353
-#: .\health_workforce\models.py:72 .\health_workforce\models.py:102
-#: .\health_workforce\models.py:220 .\health_workforce\models.py:356
-#: .\home\models.py:16 .\home\models.py:47 .\home\models.py:81
-#: .\home\models.py:118 .\indicators\models.py:39 .\indicators\models.py:75
-#: .\indicators\models.py:138 .\indicators\models.py:449
-#: .\publications\models.py:31 .\publications\models.py:78
-#: .\publications\models.py:202 .\regions\models.py:56 .\regions\models.py:92
-#: .\regions\models.py:128
+#: .\facilities\models.py:124 .\facilities\models.py:273
+#: .\facilities\models.py:316 .\facilities\models.py:349
+#: .\health_services\models.py:290 .\health_workforce\models.py:72
+#: .\health_workforce\models.py:102 .\health_workforce\models.py:220
+#: .\health_workforce\models.py:364 .\home\models.py:22 .\home\models.py:129
+#: .\home\models.py:160 .\home\models.py:194 .\home\models.py:239
+#: .\indicators\models.py:40 .\indicators\models.py:76
+#: .\indicators\models.py:139 .\indicators\models.py:556
+#: .\publications\models.py:31 .\publications\models.py:80
+#: .\publications\models.py:210 .\regions\models.py:56 .\regions\models.py:92
+#: .\regions\models.py:128 .\uhc_clock\models.py:38 .\uhc_clock\models.py:108
 msgid "Short Name"
 msgstr ""
 
@@ -375,10 +808,11 @@ msgstr ""
 
 #: .\facilities\models.py:31 .\health_workforce\models.py:74
 #: .\health_workforce\models.py:104 .\health_workforce\models.py:224
-#: .\indicators\models.py:41 .\indicators\models.py:140
-#: .\indicators\models.py:451 .\publications\models.py:33
-#: .\publications\models.py:130 .\publications\models.py:203
+#: .\indicators\models.py:42 .\indicators\models.py:141
+#: .\indicators\models.py:558 .\publications\models.py:33
+#: .\publications\models.py:137 .\publications\models.py:211
 #: .\regions\models.py:58 .\regions\models.py:130 .\regions\models.py:170
+#: .\uhc_clock\models.py:40
 msgid "Brief Description"
 msgstr ""
 
@@ -391,11 +825,12 @@ msgid "Facility type with the same                 name exists"
 msgstr ""
 
 #: .\facilities\models.py:63 .\facilities\models.py:113
-#: .\facilities\models.py:270 .\facilities\models.py:345
-#: .\health_workforce\models.py:68 .\health_workforce\models.py:97
-#: .\health_workforce\models.py:435 .\indicators\models.py:145
-#: .\indicators\models.py:491 .\indicators\models.py:520
-#: .\publications\models.py:36 .\publications\models.py:73
+#: .\facilities\models.py:266 .\facilities\models.py:341
+#: .\health_services\models.py:286 .\health_workforce\models.py:68
+#: .\health_workforce\models.py:97 .\health_workforce\models.py:445
+#: .\indicators\models.py:146 .\indicators\models.py:598
+#: .\indicators\models.py:627 .\publications\models.py:36
+#: .\publications\models.py:73
 msgid "Code"
 msgstr ""
 
@@ -447,7 +882,7 @@ msgstr ""
 msgid "Service Description"
 msgstr ""
 
-#: .\facilities\models.py:135 .\facilities\models.py:315
+#: .\facilities\models.py:135 .\facilities\models.py:311
 msgid "Service Domain"
 msgstr ""
 
@@ -463,8 +898,8 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#: .\facilities\models.py:155 .\health_workforce\models.py:340
-#: .\health_workforce\models.py:429
+#: .\facilities\models.py:155 .\health_workforce\models.py:348
+#: .\health_workforce\models.py:439
 msgid "Closed"
 msgstr ""
 
@@ -476,8 +911,8 @@ msgstr ""
 msgid "Facility Ownership"
 msgstr ""
 
-#: .\facilities\models.py:178 .\facilities\models.py:381
-#: .\facilities\models.py:434 .\facilities\models.py:478
+#: .\facilities\models.py:178 .\facilities\models.py:377
+#: .\facilities\models.py:430 .\facilities\models.py:473
 msgid "Facility Name"
 msgstr ""
 
@@ -490,232 +925,405 @@ msgid "Administrative Location"
 msgstr ""
 
 #: .\facilities\models.py:187
-msgid "Facility Type Description"
-msgstr ""
-
-#: .\facilities\models.py:189
 msgid "Contact Address"
 msgstr ""
 
-#: .\facilities\models.py:191 .\health_workforce\models.py:162
+#: .\facilities\models.py:189 .\health_workforce\models.py:162
+#: .\home\models.py:75
 msgid "Email"
 msgstr ""
 
-#: .\facilities\models.py:193
+#: .\facilities\models.py:191 .\home\models.py:77
 msgid "Phone Code"
 msgstr ""
 
-#: .\facilities\models.py:194
+#: .\facilities\models.py:192 .\home\models.py:78
 msgid ""
 "Specific country code for the phone number such as +242 is         "
 "automatically retrieved from database of AFRO member countries"
 msgstr ""
 
-#: .\facilities\models.py:196 .\health_workforce\models.py:164
+#: .\facilities\models.py:194 .\health_workforce\models.py:164
+#: .\home\models.py:80
 msgid "Phone Number"
 msgstr ""
 
-#: .\facilities\models.py:198
+#: .\facilities\models.py:196 .\home\models.py:82
 msgid "Telephone"
 msgstr ""
 
-#: .\facilities\models.py:200 .\health_workforce\models.py:168
+#: .\facilities\models.py:198 .\health_workforce\models.py:168
 #: .\regions\models.py:171
 msgid "Latitude"
 msgstr ""
 
-#: .\facilities\models.py:203 .\health_workforce\models.py:169
+#: .\facilities\models.py:200 .\health_workforce\models.py:169
 #: .\regions\models.py:172
 msgid "Longitude"
 msgstr ""
 
-#: .\facilities\models.py:206
+#: .\facilities\models.py:202
 msgid "Altitude (M)"
 msgstr ""
 
-#: .\facilities\models.py:207
+#: .\facilities\models.py:203
 msgid "Geo-source (LL source)"
 msgstr ""
 
-#: .\facilities\models.py:209
+#: .\facilities\models.py:205 .\home\models.py:84
 msgid "Web (URL)"
 msgstr ""
 
-#: .\facilities\models.py:220
+#: .\facilities\models.py:217
 msgid "Health Facility"
 msgstr ""
 
-#: .\facilities\models.py:221
+#: .\facilities\models.py:218
 msgid "    Health Facilities"
 msgstr ""
 
-#: .\facilities\models.py:257
+#: .\facilities\models.py:253
 msgid "Facility  with the same name exists"
 msgstr ""
 
-#: .\facilities\models.py:273
+#: .\facilities\models.py:269
 msgid "Service Provision Category"
 msgstr ""
 
-#: .\facilities\models.py:275 .\facilities\models.py:440
-#: .\facilities\models.py:484
+#: .\facilities\models.py:271 .\facilities\models.py:436
+#: .\facilities\models.py:479
 msgid "Units of Provision"
 msgstr ""
 
-#: .\facilities\models.py:289
+#: .\facilities\models.py:285
 msgid "Provision Unit"
 msgstr ""
 
-#: .\facilities\models.py:290
+#: .\facilities\models.py:286
 msgid "Provision Units"
 msgstr ""
 
-#: .\facilities\models.py:300
+#: .\facilities\models.py:296
 msgid "Unit of provision with the same                 name exists"
 msgstr ""
 
-#: .\facilities\models.py:312
+#: .\facilities\models.py:308
 msgid "Intervention Code"
 msgstr ""
 
-#: .\facilities\models.py:317
+#: .\facilities\models.py:313
 msgid "Intervention Name"
 msgstr ""
 
-#: .\facilities\models.py:332
+#: .\facilities\models.py:328
 msgid "Facility Servce Intervention"
 msgstr ""
 
-#: .\facilities\models.py:333
+#: .\facilities\models.py:329
 msgid " Service Interventions"
 msgstr ""
 
-#: .\facilities\models.py:348 .\facilities\models.py:387
+#: .\facilities\models.py:344 .\facilities\models.py:383
 msgid "Intervention Areas"
 msgstr ""
 
-#: .\facilities\models.py:350
+#: .\facilities\models.py:346
 msgid "Provision Area"
 msgstr ""
 
-#: .\facilities\models.py:365
+#: .\facilities\models.py:361
 msgid "Service Area"
 msgstr ""
 
-#: .\facilities\models.py:366
+#: .\facilities\models.py:362
 msgid " Service Areas"
 msgstr ""
 
-#: .\facilities\models.py:379
+#: .\facilities\models.py:375 .\home\models.py:61
 msgid "Admin User (Email)"
 msgstr ""
 
-#: .\facilities\models.py:383
+#: .\facilities\models.py:379
 msgid "Service Area Domain"
 msgstr ""
 
-#: .\facilities\models.py:391
+#: .\facilities\models.py:387
 msgid "Service provision Areas"
 msgstr ""
 
-#: .\facilities\models.py:392
+#: .\facilities\models.py:388
 msgid "Service Provided last 3 Months?"
 msgstr ""
 
-#: .\facilities\models.py:394
+#: .\facilities\models.py:390
 msgid "Specialized Unit Provided?"
 msgstr ""
 
-#: .\facilities\models.py:396
+#: .\facilities\models.py:392
 msgid "Staff Capacity Appropriate?"
 msgstr ""
 
-#: .\facilities\models.py:398
+#: .\facilities\models.py:394
 msgid "Infrastructure Capacity Appropriate?"
 msgstr ""
 
-#: .\facilities\models.py:400
+#: .\facilities\models.py:396
 msgid "Supplies Appropriate?"
 msgstr ""
 
-#: .\facilities\models.py:402 .\facilities\models.py:445
-#: .\facilities\models.py:489
+#: .\facilities\models.py:398 .\facilities\models.py:441
+#: .\facilities\models.py:484
 msgid "Assessment Date"
 msgstr ""
 
-#: .\facilities\models.py:404 .\facilities\models.py:447
-#: .\facilities\models.py:491 .\health_workforce\models.py:279
-#: .\health_workforce\models.py:369 .\health_workforce\models.py:455
-#: .\indicators\models.py:213
-msgid "This marks the start of reporting period"
-msgstr ""
-
-#: .\facilities\models.py:415
+#: .\facilities\models.py:411 .\facilities\models.py:513
 msgid "Service Availability"
 msgstr ""
 
-#: .\facilities\models.py:416
+#: .\facilities\models.py:412
 msgid "   Services Avilability"
 msgstr ""
 
-#: .\facilities\models.py:436
+#: .\facilities\models.py:432
 msgid "Service Capacity Domain"
 msgstr ""
 
-#: .\facilities\models.py:441 .\facilities\models.py:485
+#: .\facilities\models.py:437 .\facilities\models.py:480
 msgid "Number available"
 msgstr ""
 
-#: .\facilities\models.py:442 .\facilities\models.py:486
+#: .\facilities\models.py:438 .\facilities\models.py:481
 msgid "The input must be a zero or positive integer"
 msgstr ""
 
-#: .\facilities\models.py:443
+#: .\facilities\models.py:439
 msgid "Number Functional"
 msgstr ""
 
-#: .\facilities\models.py:444
+#: .\facilities\models.py:440
 msgid "Functional units used in the last month"
 msgstr ""
 
-#: .\facilities\models.py:458
+#: .\facilities\models.py:453
 msgid "Provision Capacity"
 msgstr ""
 
-#: .\facilities\models.py:459
+#: .\facilities\models.py:454
 msgid "   Provision Capacities"
 msgstr ""
 
-#: .\facilities\models.py:480
+#: .\facilities\models.py:475
 msgid "Service Readiness Domain"
 msgstr ""
 
-#: .\facilities\models.py:487
+#: .\facilities\models.py:482
 msgid "Number needed"
 msgstr ""
 
-#: .\facilities\models.py:488
+#: .\facilities\models.py:483
 msgid "Number of units needed for adequacy"
 msgstr ""
 
-#: .\facilities\models.py:502
+#: .\facilities\models.py:497 .\facilities\models.py:545
 msgid "Service Readiness"
 msgstr ""
 
-#: .\facilities\models.py:503
+#: .\facilities\models.py:498
 msgid "   Service Readiness"
 msgstr ""
 
-#: .\health_workforce\apps.py:6
-msgid "health_workforce"
+#: .\facilities\models.py:514
+msgid "  Services Availability"
+msgstr ""
+
+#: .\facilities\models.py:529
+msgid "Service Capacity"
+msgstr ""
+
+#: .\facilities\models.py:530
+msgid "  Service Capacity"
+msgstr ""
+
+#: .\facilities\models.py:546
+msgid "  Service Readiness"
+msgstr ""
+
+#: .\health_services\admin.py:112 .\health_services\models.py:61
+#: .\indicators\admin.py:235 .\indicators\models.py:203
+#: .\indicators\models.py:465
+msgid "Minimum Value"
+msgstr ""
+
+#: .\health_services\admin.py:114 .\health_services\models.py:63
+#: .\indicators\admin.py:237 .\indicators\models.py:205
+#: .\indicators\models.py:467
+msgid "Maximum Value"
+msgstr ""
+
+#: .\health_services\admin.py:118 .\health_services\models.py:53
+#: .\indicators\admin.py:241 .\indicators\models.py:197
+#: .\indicators\models.py:461
+msgid "Numerator Value"
+msgstr ""
+
+#: .\health_services\admin.py:120 .\health_services\models.py:55
+#: .\indicators\admin.py:243 .\indicators\models.py:199
+#: .\indicators\models.py:463
+msgid "Denominator Value"
+msgstr ""
+
+#: .\health_services\apps.py:7
+msgid "Health Services"
+msgstr ""
+
+#: .\health_services\models.py:59
+msgid "Calculated Value"
+msgstr ""
+
+#: .\health_services\models.py:68
+msgid "Reporting Periodicity"
+msgstr ""
+
+#: .\health_services\models.py:69
+msgid "Starting Date"
+msgstr ""
+
+#: .\health_services\models.py:70
+msgid "Start of reporting Period"
+msgstr ""
+
+#: .\health_services\models.py:71
+msgid "Ending Date"
+msgstr ""
+
+#: .\health_services\models.py:72
+msgid "End of reporting Period"
+msgstr ""
+
+#: .\health_services\models.py:77
+msgid "Show End Date?"
+msgstr ""
+
+#: .\health_services\models.py:94
+msgid "Single Record"
+msgstr ""
+
+#: .\health_services\models.py:95
+msgid "    Single-Record Form"
+msgstr ""
+
+#: .\health_services\models.py:218
+msgid "Multi-Records Form"
+msgstr ""
+
+#: .\health_services\models.py:219
+msgid "   Multi-Records Form"
+msgstr ""
+
+#: .\health_services\models.py:266 .\health_services\models.py:333
+msgid "HSC Indicator"
+msgstr ""
+
+#: .\health_services\models.py:267
+msgid " HSC Indicators"
+msgstr ""
+
+#: .\health_services\models.py:277 .\indicators\models.py:126
+#: .\publications\models.py:197 .\uhc_clock\models.py:99
+msgid "level 1"
+msgstr ""
+
+#: .\health_services\models.py:278 .\indicators\models.py:127
+#: .\publications\models.py:198 .\uhc_clock\models.py:100
+msgid "level 2"
+msgstr ""
+
+#: .\health_services\models.py:279 .\indicators\models.py:128
+#: .\publications\models.py:199
+msgid "level 3"
+msgstr ""
+
+#: .\health_services\models.py:280 .\indicators\models.py:129
+#: .\publications\models.py:200
+msgid "level 4"
+msgstr ""
+
+#: .\health_services\models.py:288
+msgid "Programme Name"
+msgstr ""
+
+#: .\health_services\models.py:294 .\health_services\models.py:337
+msgid "Level"
+msgstr ""
+
+#: .\health_services\models.py:297
+msgid "Main Programme"
+msgstr ""
+
+#: .\health_services\models.py:300
+msgid "HSC Indicators"
+msgstr ""
+
+#: .\health_services\models.py:309 .\health_services\models.py:336
+msgid "HSC Programme"
+msgstr ""
+
+#: .\health_services\models.py:310
+msgid " HSC Programmes"
+msgstr ""
+
+#: .\health_services\models.py:320
+msgid "Sorry! This Programme already exists"
+msgstr ""
+
+#: .\health_services\models.py:335 .\indicators\models.py:87
+#: .\indicators\models.py:428 .\uhc_clock\models.py:161
+msgid "Indicator Code"
+msgstr ""
+
+#: .\health_services\models.py:342 .\health_services\models.py:343
+msgid "Programs Lookup"
+msgstr ""
+
+#: .\health_services\templates\admin\health_services\healthservices_dataindicators\change_form.html:18
+#: .\templates\admin\base.html:63
+#: .\templates\registration\password_change_done.html:6
+#: .\templates\registration\password_change_form.html:7
+#: .\templates\registration\password_reset_complete.html:6
+#: .\templates\registration\password_reset_confirm.html:7
+#: .\templates\registration\password_reset_form.html:7
+msgid "Home"
+msgstr ""
+
+#: .\health_services\templates\admin\health_services\healthservices_dataindicators\change_form.html:21
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: .\health_services\templates\admin\health_services\healthservices_dataindicators\change_form.html:43
+#: .\templates\registration\password_change_form.html:21
+msgid "Please correct the error below."
+msgstr ""
+
+#: .\health_services\templates\admin\health_services\healthservices_dataindicators\change_form.html:43
+#: .\templates\registration\password_change_form.html:21
+msgid "Please correct the errors below."
+msgstr ""
+
+#: .\health_workforce\admin.py:232
+msgid "External File Link"
+msgstr ""
+
+#: .\health_workforce\apps.py:6 .\health_workforce\models.py:304
+msgid "Health Workforce"
 msgstr ""
 
 #: .\health_workforce\models.py:35 .\publications\models.py:46
-#: .\publications\models.py:125
+#: .\publications\models.py:76 .\publications\models.py:126
 msgid "Resource Type"
 msgstr ""
 
-#: .\health_workforce\models.py:36 .\publications\models.py:47
+#: .\health_workforce\models.py:36
 msgid "Resource Types"
 msgstr ""
 
@@ -727,8 +1335,8 @@ msgstr ""
 msgid "Resources/Guides"
 msgstr ""
 
-#: .\health_workforce\models.py:55 .\publications\models.py:93
-#: .\publications\models.py:127
+#: .\health_workforce\models.py:55 .\publications\models.py:95
+#: .\publications\models.py:132
 msgid "Resource Category"
 msgstr ""
 
@@ -736,7 +1344,7 @@ msgstr ""
 msgid "Resource Categories"
 msgstr ""
 
-#: .\health_workforce\models.py:71 .\indicators\models.py:448
+#: .\health_workforce\models.py:71 .\indicators\models.py:555
 msgid "Name"
 msgstr ""
 
@@ -778,12 +1386,6 @@ msgstr ""
 
 #: .\health_workforce\models.py:137
 msgid "Institution Code"
-msgstr ""
-
-#: .\health_workforce\models.py:139 .\health_workforce\models.py:267
-#: .\health_workforce\models.py:438 .\indicators\models.py:489
-#: .\indicators\models.py:518 .\regions\models.py:201
-msgid "Location"
 msgstr ""
 
 #: .\health_workforce\models.py:144
@@ -890,274 +1492,296 @@ msgstr ""
 msgid "The same occupation/cadre exists"
 msgstr ""
 
-#: .\health_workforce\models.py:253 .\indicators\models.py:27
-#: .\publications\models.py:114
-msgid "Pending"
-msgstr ""
-
-#: .\health_workforce\models.py:254 .\indicators\models.py:28
-#: .\publications\models.py:115
-msgid "Approved"
-msgstr ""
-
-#: .\health_workforce\models.py:255 .\indicators\models.py:29
-#: .\publications\models.py:116
-msgid "Rejected"
-msgstr ""
-
 #: .\health_workforce\models.py:265
 msgid "Occupation/Cadre"
 msgstr ""
 
-#: .\health_workforce\models.py:269 .\indicators\models.py:189
-msgid "Disaggregation Options"
-msgstr ""
-
-#: .\health_workforce\models.py:271 .\home\models.py:79 .\home\models.py:98
-#: .\indicators\models.py:192 .\indicators\models.py:398
-msgid "Data Source"
-msgstr ""
-
-#: .\health_workforce\models.py:273 .\home\models.py:161
-#: .\indicators\models.py:195 .\indicators\models.py:400
-msgid "Measure Type"
-msgstr ""
-
-#: .\health_workforce\models.py:276 .\health_workforce\models.py:366
-#: .\health_workforce\models.py:452 .\indicators\models.py:210
-msgid "Starting period"
-msgstr ""
-
-#: .\health_workforce\models.py:280 .\health_workforce\models.py:370
-#: .\health_workforce\models.py:456 .\indicators\models.py:214
-msgid "Ending Period"
-msgstr ""
-
-#: .\health_workforce\models.py:282 .\health_workforce\models.py:372
-#: .\health_workforce\models.py:459 .\indicators\models.py:217
-msgid ""
-"This marks the end of reporting. The value must be current             year "
-"or greater than the start year"
-msgstr ""
-
-#: .\health_workforce\models.py:296
-msgid "Health Workforce"
-msgstr ""
-
-#: .\health_workforce\models.py:297
+#: .\health_workforce\models.py:305
 msgid "    Health Workforce"
 msgstr ""
 
-#: .\health_workforce\models.py:310 .\indicators\models.py:253
+#: .\health_workforce\models.py:318 .\indicators\models.py:255
 msgid ""
 "Sorry! Start year cannot be less than 1900 or greater than current Year "
 msgstr ""
 
-#: .\health_workforce\models.py:313 .\indicators\models.py:256
+#: .\health_workforce\models.py:321 .\indicators\models.py:258
 msgid ""
 "Sorry! The ending year cannot be lower than the start year "
 "or                 greater than the current Year "
 msgstr ""
 
-#: .\health_workforce\models.py:317 .\indicators\models.py:260
+#: .\health_workforce\models.py:325 .\indicators\models.py:262
 msgid ""
 "Sorry! Ending period cannot be lower than the start period.                  "
 "Please make corrections"
 msgstr ""
 
-#: .\health_workforce\models.py:339 .\health_workforce\models.py:428
+#: .\health_workforce\models.py:347 .\health_workforce\models.py:438
 msgid "Open"
 msgstr ""
 
-#: .\health_workforce\models.py:341 .\health_workforce\models.py:430
+#: .\health_workforce\models.py:349 .\health_workforce\models.py:440
 msgid "Suspended"
 msgstr ""
 
-#: .\health_workforce\models.py:346
+#: .\health_workforce\models.py:354
 msgid "Event Code"
 msgstr ""
 
-#: .\health_workforce\models.py:350
+#: .\health_workforce\models.py:358
 msgid "Target Focus"
 msgstr ""
 
-#: .\health_workforce\models.py:352
+#: .\health_workforce\models.py:360
 msgid "Event Location"
 msgstr ""
 
-#: .\health_workforce\models.py:354
+#: .\health_workforce\models.py:362
 msgid "Name of Event"
 msgstr ""
 
-#: .\health_workforce\models.py:355
+#: .\health_workforce\models.py:363
 msgid "International Year of the Nurse and the Midwife"
 msgstr ""
 
-#: .\health_workforce\models.py:358 .\indicators\models.py:136
-#: .\indicators\models.py:371 .\indicators\models.py:487
+#: .\health_workforce\models.py:366 .\indicators\models.py:137
+#: .\indicators\models.py:429 .\indicators\models.py:594
 msgid "Theme"
 msgstr ""
 
-#: .\health_workforce\models.py:360 .\health_workforce\models.py:446
+#: .\health_workforce\models.py:368 .\health_workforce\models.py:456
 msgid "Upload File/Video(s)"
 msgstr ""
 
-#: .\health_workforce\models.py:362
+#: .\health_workforce\models.py:370
 msgid "Web Address (URL)"
 msgstr ""
 
-#: .\health_workforce\models.py:364 .\health_workforce\models.py:450
+#: .\health_workforce\models.py:372 .\health_workforce\models.py:460
 msgid "Upload Picture/Banner(s)"
 msgstr ""
 
-#: .\health_workforce\models.py:386
+#: .\health_workforce\models.py:394
 msgid "Nursing & Midwifery"
 msgstr ""
 
-#: .\health_workforce\models.py:387
+#: .\health_workforce\models.py:395
 msgid "Nursing and Midwifery"
 msgstr ""
 
-#: .\health_workforce\models.py:401 .\health_workforce\models.py:404
-#: .\health_workforce\models.py:488 .\health_workforce\models.py:491
+#: .\health_workforce\models.py:409 .\health_workforce\models.py:412
+#: .\health_workforce\models.py:498 .\health_workforce\models.py:501
 msgid "Sorry! The start period year must be current or in future"
 msgstr ""
 
-#: .\health_workforce\models.py:407 .\health_workforce\models.py:494
+#: .\health_workforce\models.py:415 .\health_workforce\models.py:504
 msgid "Sorry! End period cannot be lower than start period!"
 msgstr ""
 
-#: .\health_workforce\models.py:440
+#: .\health_workforce\models.py:450
 msgid "Announcment Title"
 msgstr ""
 
-#: .\health_workforce\models.py:442
+#: .\health_workforce\models.py:452
 msgid "Short Title"
 msgstr ""
 
-#: .\health_workforce\models.py:444
+#: .\health_workforce\models.py:454
 msgid "Message"
 msgstr ""
 
-#: .\health_workforce\models.py:448
+#: .\health_workforce\models.py:458
 msgid "Web Link (URL)"
 msgstr ""
 
-#: .\health_workforce\models.py:473
+#: .\health_workforce\models.py:483
 msgid "Announcement"
 msgstr ""
 
-#: .\health_workforce\models.py:474
+#: .\health_workforce\models.py:484 .\home\models.py:70
 msgid "Announcements"
 msgstr ""
 
-#: .\home\admin.py:155
-msgid "Import Data File... "
+#: .\home\admin.py:236
+msgid "Upload via File.. "
 msgstr ""
 
-#: .\home\admin.py:223
-msgid "Import via URL..."
+#: .\home\admin.py:293
+msgid "Import via URL.."
 msgstr ""
 
 #: .\home\apps.py:6
 msgid "home"
 msgstr ""
 
-#: .\home\models.py:10 .\home\models.py:14 .\home\models.py:42
-#: .\publications\models.py:76
-msgid "Category Name"
+#: .\home\models.py:20
+msgid "Period Name"
 msgstr ""
 
-#: .\home\models.py:29
-msgid "Disaggregation Category"
+#: .\home\models.py:33
+msgid "Period Type"
 msgstr ""
 
-#: .\home\models.py:30
-msgid "  Disaggregation Categories"
+#: .\home\models.py:34
+msgid "   Period Types"
 msgstr ""
 
-#: .\home\models.py:45
-msgid "Modality Name"
+#: .\home\models.py:44
+msgid "Sorry! Period type with the same name exists"
 msgstr ""
 
-#: .\home\models.py:60
-msgid "   Disaggregation Options"
+#: .\home\models.py:64 .\publications\models.py:135
+msgid "Title"
+msgstr ""
+
+#: .\home\models.py:66
+msgid "Custom Header"
 msgstr ""
 
 #: .\home\models.py:68
-msgid "Global"
-msgstr ""
-
-#: .\home\models.py:69
-msgid "Regional"
-msgstr ""
-
-#: .\home\models.py:70
-msgid "National"
+msgid "Custom Footer"
 msgstr ""
 
 #: .\home\models.py:71
-msgid "Sub-national"
+msgid "Coat of Arms"
 msgstr ""
 
-#: .\home\models.py:72
-msgid "Non-specific"
+#: .\home\models.py:73
+msgid "Physical Address"
 msgstr ""
 
-#: .\home\models.py:83
-msgid "Source Level"
+#: .\home\models.py:93
+msgid "Health Observatory"
 msgstr ""
 
-#: .\home\models.py:85
-msgid "Level can be global, regional, national, subnational"
+#: .\home\models.py:94
+msgid "    Health Observatories"
 msgstr ""
 
-#: .\home\models.py:87
-msgid "No definition"
+#: .\home\models.py:113
+msgid "NHO  with the same name exists"
 msgstr ""
 
-#: .\home\models.py:99
-msgid "    Data Sources"
+#: .\home\models.py:123 .\home\models.py:127 .\home\models.py:155
+#: .\publications\models.py:78
+msgid "Category Name"
 msgstr ""
 
-#: .\home\models.py:108
-msgid "Sorry! This data source exists"
-msgstr ""
-
-#: .\home\models.py:116
-msgid "Value Name"
-msgstr ""
-
-#: .\home\models.py:130
-msgid " Data Value"
-msgstr ""
-
-#: .\home\models.py:131
-msgid "Data Value Types"
+#: .\home\models.py:142
+msgid "Disaggregation Category"
 msgstr ""
 
 #: .\home\models.py:143
+msgid "  Disaggregation Categories"
+msgstr ""
+
+#: .\home\models.py:158
+msgid "Modality Name"
+msgstr ""
+
+#: .\home\models.py:173
+msgid "   Disaggregation Options"
+msgstr ""
+
+#: .\home\models.py:181
+msgid "Global"
+msgstr ""
+
+#: .\home\models.py:182
+msgid "Regional"
+msgstr ""
+
+#: .\home\models.py:183
+msgid "National"
+msgstr ""
+
+#: .\home\models.py:184
+msgid "Sub-national"
+msgstr ""
+
+#: .\home\models.py:185
+msgid "Non-specific"
+msgstr ""
+
+#: .\home\models.py:196
+msgid "Source Level"
+msgstr ""
+
+#: .\home\models.py:198
+msgid "Level can be global, regional, national, subnational"
+msgstr ""
+
+#: .\home\models.py:200
+msgid "Not available"
+msgstr ""
+
+#: .\home\models.py:212
+msgid "    Data Sources"
+msgstr ""
+
+#: .\home\models.py:229
+msgid "Sorry! This data source exists"
+msgstr ""
+
+#: .\home\models.py:237
+msgid "Value Name"
+msgstr ""
+
+#: .\home\models.py:251
+msgid " Data Value"
+msgstr ""
+
+#: .\home\models.py:252
+msgid "Data Value Types"
+msgstr ""
+
+#: .\home\models.py:264
 msgid "Measure Name"
 msgstr ""
 
-#: .\home\models.py:144
+#: .\home\models.py:265
 msgid ""
 "Name can be indicator types like unit,             Percentage, Per Thousand, "
 "Per Ten Thousand,Per Hundred Thousand etc"
 msgstr ""
 
-#: .\home\models.py:146
+#: .\home\models.py:267
 msgid "Ratio"
 msgstr ""
 
-#: .\home\models.py:147
+#: .\home\models.py:268
 msgid ""
 "Ratio can be             factors like 1 for unit, 100, 1000,10000 or higher "
 "values"
 msgstr ""
 
-#: .\home\models.py:162
+#: .\home\models.py:283
 msgid " Measure Types"
+msgstr ""
+
+#: .\home\templates\index.html:17
+msgid "DCT Training Tool"
+msgstr ""
+
+#: .\home\templates\index.html:46 .\home\templates\indexx.html:46
+msgid "Password"
+msgstr ""
+
+#: .\home\templates\index.html:54 .\home\templates\indexx.html:54
+msgid "Login"
+msgstr ""
+
+#: .\home\templates\index.html:57 .\home\templates\indexx.html:57
+msgid "Choose language"
+msgstr ""
+
+#: .\home\templates\index.html:74 .\home\templates\indexx.html:74
+msgid "Forgot your password?"
+msgstr ""
+
+#: .\home\templates\indexx.html:17
+msgid "iAHO Data Capture Tool"
 msgstr ""
 
 #: .\home\templates\login.html:10
@@ -1172,234 +1796,202 @@ msgstr ""
 msgid "indicators"
 msgstr ""
 
-#: .\indicators\models.py:37
+#: .\indicators\models.py:38 .\uhc_clock\models.py:36
 msgid "Reference Name"
 msgstr ""
 
-#: .\indicators\models.py:38
+#: .\indicators\models.py:39
 msgid "Global List of 100 Core Health Indicators"
 msgstr ""
 
-#: .\indicators\models.py:52 .\indicators\models.py:91
+#: .\indicators\models.py:53 .\indicators\models.py:92
 msgid "Indicator Reference"
 msgstr ""
 
-#: .\indicators\models.py:53
+#: .\indicators\models.py:54
 msgid "Indicator References"
 msgstr ""
 
-#: .\indicators\models.py:63
+#: .\indicators\models.py:64 .\uhc_clock\models.py:62
 msgid "Sorry! This indicator reference exists"
 msgstr ""
 
-#: .\indicators\models.py:73 .\indicators\models.py:185
-#: .\indicators\models.py:368 .\indicators\models.py:392
-msgid "Indicator Name"
-msgstr ""
-
-#: .\indicators\models.py:77
+#: .\indicators\models.py:78
 msgid "Indicator Definition"
 msgstr ""
 
-#: .\indicators\models.py:79
+#: .\indicators\models.py:80
 msgid "Primary Sources"
 msgstr ""
 
-#: .\indicators\models.py:81
+#: .\indicators\models.py:82
 msgid "Numerator Description"
 msgstr ""
 
-#: .\indicators\models.py:83
+#: .\indicators\models.py:84
 msgid "Denominator Description"
 msgstr ""
 
-#: .\indicators\models.py:86
-msgid "Regional Code"
+#: .\indicators\models.py:89
+msgid "Standard Code"
 msgstr ""
 
-#: .\indicators\models.py:88
-msgid "Global Code"
-msgstr ""
-
-#: .\indicators\models.py:100 .\indicators\models.py:516
+#: .\indicators\models.py:101 .\indicators\models.py:623
 msgid "Indicator"
 msgstr ""
 
-#: .\indicators\models.py:101
+#: .\indicators\models.py:102
 msgid "  Indicators"
 msgstr ""
 
-#: .\indicators\models.py:117
+#: .\indicators\models.py:118
 msgid "Sorry! Indicator with this name exists"
 msgstr ""
 
-#: .\indicators\models.py:125 .\publications\models.py:189
-msgid "level 1"
-msgstr ""
-
-#: .\indicators\models.py:126 .\publications\models.py:190
-msgid "level 2"
-msgstr ""
-
-#: .\indicators\models.py:127 .\publications\models.py:191
-msgid "level 3"
-msgstr ""
-
-#: .\indicators\models.py:128 .\publications\models.py:192
-msgid "level 4"
-msgstr ""
-
-#: .\indicators\models.py:129 .\publications\models.py:193
+#: .\indicators\models.py:130 .\publications\models.py:201
 msgid "level 5"
 msgstr ""
 
-#: .\indicators\models.py:130 .\publications\models.py:194
+#: .\indicators\models.py:131 .\publications\models.py:202
 msgid "level 6"
 msgstr ""
 
-#: .\indicators\models.py:142 .\indicators\models.py:372
-#: .\publications\models.py:205
+#: .\indicators\models.py:143 .\indicators\models.py:430
+#: .\publications\models.py:213 .\uhc_clock\models.py:112
 msgid "Theme Level"
 msgstr ""
 
-#: .\indicators\models.py:147 .\publications\models.py:211
+#: .\indicators\models.py:148 .\publications\models.py:219
+#: .\uhc_clock\models.py:120
 msgid "Parent Theme"
 msgstr ""
 
-#: .\indicators\models.py:151
-msgid "Indicators"
-msgstr ""
-
-#: .\indicators\models.py:160
+#: .\indicators\models.py:161
 msgid "Indicator Theme"
 msgstr ""
 
-#: .\indicators\models.py:161
+#: .\indicators\models.py:162
 msgid " Indicator Themes"
 msgstr ""
 
-#: .\indicators\models.py:171
+#: .\indicators\models.py:172 .\uhc_clock\models.py:151
 msgid "Sorry! This indicators theme exists"
 msgstr ""
 
-#: .\indicators\models.py:196 .\indicators\models.py:403
-msgid "Numerator Value"
-msgstr ""
-
-#: .\indicators\models.py:198 .\indicators\models.py:405
-msgid "Denominator Value"
-msgstr ""
-
-#: .\indicators\models.py:200
-msgid "Numeric Value"
-msgstr ""
-
-#: .\indicators\models.py:202 .\indicators\models.py:407
-msgid "Minimum Value"
-msgstr ""
-
-#: .\indicators\models.py:204 .\indicators\models.py:409
-msgid "Maximum Value"
-msgstr ""
-
-#: .\indicators\models.py:208 .\indicators\models.py:413
+#: .\indicators\models.py:209 .\indicators\models.py:471
 msgid "String Value"
 msgstr ""
 
-#: .\indicators\models.py:238
+#: .\indicators\models.py:240
 msgid "Indicator Data Record"
 msgstr ""
 
-#: .\indicators\models.py:239
+#: .\indicators\models.py:241
 msgid "    Single-record Form"
 msgstr ""
 
-#: .\indicators\models.py:267
+#: .\indicators\models.py:269
 msgid ""
 "Data Integrity Problem! You must provide a Maximum that "
 "is                      greater that Minimum value "
 msgstr ""
 
-#: .\indicators\models.py:271
+#: .\indicators\models.py:273
 msgid ""
 "Data Integrity Problem! Minimum value cannot be greater                      "
 "that the nominal value"
 msgstr ""
 
-#: .\indicators\models.py:275
+#: .\indicators\models.py:278
 msgid ""
 "Data Entry Problem! Both numeric and string values cannot                 be "
 "empty. Please supply data to both or either!"
 msgstr ""
 
-#: .\indicators\models.py:370
-msgid "Indicator Code"
+#: .\indicators\models.py:360
+msgid "Data Grid Form"
 msgstr ""
 
-#: .\indicators\models.py:377
+#: .\indicators\models.py:361
+msgid "   Multi-records Form"
+msgstr ""
+
+#: .\indicators\models.py:413
+msgid "Customization Form"
+msgstr ""
+
+#: .\indicators\models.py:414
+msgid "    Customization Form"
+msgstr ""
+
+#: .\indicators\models.py:435
 msgid "Theme Lookup"
 msgstr ""
 
-#: .\indicators\models.py:378
+#: .\indicators\models.py:436
 msgid "Themes Lookup"
 msgstr ""
 
-#: .\indicators\models.py:401
-msgid "Value"
-msgstr ""
-
-#: .\indicators\models.py:415
+#: .\indicators\models.py:473
 msgid "Starting Period"
 msgstr ""
 
-#: .\indicators\models.py:417
+#: .\indicators\models.py:475
 msgid "This Year marks the start of the reporting period"
 msgstr ""
 
-#: .\indicators\models.py:420
+#: .\indicators\models.py:478
 msgid ""
 "This Year marks the end of reporting.         The value must be current year "
 "or greater than the start year"
 msgstr ""
 
-#: .\indicators\models.py:433
+#: .\indicators\models.py:491
 msgid "Archive"
 msgstr ""
 
-#: .\indicators\models.py:434
+#: .\indicators\models.py:492
 msgid "Indicators Archive"
 msgstr ""
 
-#: .\indicators\models.py:462 .\indicators\models.py:485
-#: .\indicators\models.py:514
+#: .\indicators\models.py:523
+msgid "Priority Level"
+msgstr ""
+
+#: .\indicators\models.py:533 .\indicators\models.py:536
+msgid "Indicators Customization"
+msgstr ""
+
+#: .\indicators\models.py:569 .\indicators\models.py:592
+#: .\indicators\models.py:621
 msgid "Narrative Type"
 msgstr ""
 
-#: .\indicators\models.py:463
+#: .\indicators\models.py:570
 msgid "Narrative Types"
 msgstr ""
 
-#: .\indicators\models.py:474
+#: .\indicators\models.py:581
 msgid "Sorry! This narrative type exists"
 msgstr ""
 
-#: .\indicators\models.py:492 .\indicators\models.py:521
+#: .\indicators\models.py:599 .\indicators\models.py:628
 msgid "Narrative Text"
 msgstr ""
 
-#: .\indicators\models.py:501
+#: .\indicators\models.py:608
 msgid "Theme Narrative"
 msgstr ""
 
-#: .\indicators\models.py:502
+#: .\indicators\models.py:609
 msgid "Theme Narratives"
 msgstr ""
 
-#: .\indicators\models.py:530
+#: .\indicators\models.py:637
 msgid "Indicator Narrative"
 msgstr ""
 
-#: .\indicators\models.py:531
+#: .\indicators\models.py:638
 msgid "Indicators Narrative"
 msgstr ""
 
@@ -1411,86 +2003,106 @@ msgstr ""
 msgid "publications"
 msgstr ""
 
+#: .\publications\models.py:47
+msgid "  Resource Types"
+msgstr ""
+
 #: .\publications\models.py:57
 msgid "Resource type with the same                 name exists"
 msgstr ""
 
-#: .\publications\models.py:94
+#: .\publications\models.py:96
 msgid " Resource Categories"
 msgstr ""
 
-#: .\publications\models.py:104
+#: .\publications\models.py:106
 msgid "Resource category with the same                 name exists"
 msgstr ""
 
-#: .\publications\models.py:129
-msgid "Title"
-msgstr ""
-
-#: .\publications\models.py:131
-msgid "Abstract/Summary"
-msgstr ""
-
-#: .\publications\models.py:132
-msgid "Author/Owner"
-msgstr ""
-
-#: .\publications\models.py:134
-msgid "Year Published"
-msgstr ""
-
-#: .\publications\models.py:138
-msgid "This marks year of publication"
-msgstr ""
-
-#: .\publications\models.py:141
-msgid "File"
-msgstr ""
-
-#: .\publications\models.py:143
-msgid "Cover Picture"
-msgstr ""
-
-#: .\publications\models.py:147
+#: .\publications\models.py:128
 msgid "Resource Location"
 msgstr ""
 
-#: .\publications\models.py:163
+#: .\publications\models.py:138
+msgid "Abstract/Summary"
+msgstr ""
+
+#: .\publications\models.py:139
+msgid "Author/Owner"
+msgstr ""
+
+#: .\publications\models.py:141
+msgid "Year Published"
+msgstr ""
+
+#: .\publications\models.py:145
+msgid "This marks year of publication"
+msgstr ""
+
+#: .\publications\models.py:146
+msgid "Upload File"
+msgstr ""
+
+#: .\publications\models.py:148
+msgid "External Link"
+msgstr ""
+
+#: .\publications\models.py:150
+msgid "Cover Picture"
+msgstr ""
+
+#: .\publications\models.py:171
 msgid "Knowledge Resource"
 msgstr ""
 
-#: .\publications\models.py:164
+#: .\publications\models.py:172
 msgid "   Knowledge Resources"
 msgstr ""
 
-#: .\publications\models.py:174
+#: .\publications\models.py:182
 msgid ""
 "Sorry! The publishing year cannot be lower than 1900 or                  "
 "greater than the current Year "
 msgstr ""
 
-#: .\publications\models.py:180
+#: .\publications\models.py:188
 msgid "Knowledge resource with the same                 title already exists"
 msgstr ""
 
-#: .\publications\models.py:200 .\publications\models.py:223
+#: .\publications\models.py:208 .\publications\models.py:231
 msgid "Resource Theme"
 msgstr ""
 
-#: .\publications\models.py:208
+#: .\publications\models.py:216
 msgid "Theme Code"
 msgstr ""
 
-#: .\publications\models.py:214
+#: .\publications\models.py:222
 msgid "Resources"
 msgstr ""
 
-#: .\publications\models.py:224
+#: .\publications\models.py:232
 msgid "  Resource Themes"
 msgstr ""
 
-#: .\publications\models.py:234
+#: .\publications\models.py:242
 msgid "Resource Theme with the same                 name exists"
+msgstr ""
+
+#: .\publications\models.py:252
+msgid "Resource Name"
+msgstr ""
+
+#: .\publications\models.py:254
+msgid "Tagged To:"
+msgstr ""
+
+#: .\publications\models.py:259
+msgid "Resource Tag"
+msgstr ""
+
+#: .\publications\models.py:260
+msgid "Resource Tags"
 msgstr ""
 
 #: .\regions\apps.py:6
@@ -1519,6 +2131,10 @@ msgstr ""
 
 #: .\regions\models.py:69
 msgid "Income Group"
+msgstr ""
+
+#: .\regions\models.py:70
+msgid "Income Groups"
 msgstr ""
 
 #: .\regions\models.py:80
@@ -1601,10 +2217,6 @@ msgstr ""
 msgid "Location with similar name exists"
 msgstr ""
 
-#: .\regions\models.py:222
-msgid "Country"
-msgstr ""
-
 #: .\regions\models.py:223
 msgid ""
 "You are not allowed to make changes to this Field because it             is "
@@ -1649,15 +2261,6 @@ msgstr ""
 msgid "Log out"
 msgstr ""
 
-#: .\templates\admin\base.html:63
-#: .\templates\registration\password_change_done.html:6
-#: .\templates\registration\password_change_form.html:7
-#: .\templates\registration\password_reset_complete.html:6
-#: .\templates\registration\password_reset_confirm.html:7
-#: .\templates\registration\password_reset_form.html:7
-msgid "Home"
-msgstr ""
-
 #: .\templates\admin\settings\ahodctuserlogs\submit_line.html:6
 msgid "Delete"
 msgstr ""
@@ -1669,14 +2272,6 @@ msgstr ""
 
 #: .\templates\registration\password_change_done.html:14
 msgid "Your password was changed."
-msgstr ""
-
-#: .\templates\registration\password_change_form.html:21
-msgid "Please correct the error below."
-msgstr ""
-
-#: .\templates\registration\password_change_form.html:21
-msgid "Please correct the errors below."
 msgstr ""
 
 #: .\templates\registration\password_change_form.html:26
@@ -1770,4 +2365,100 @@ msgstr ""
 
 #: .\templates\registration\password_reset_form.html:24
 msgid "Reset Password"
+msgstr ""
+
+#: .\uhc_clock\apps.py:6
+msgid "UHC-Clock"
+msgstr ""
+
+#: .\uhc_clock\models.py:37
+msgid "Day [Health Impact and Outcome]"
+msgstr ""
+
+#: .\uhc_clock\models.py:51
+msgid "UHC Clock Indicator Group"
+msgstr ""
+
+#: .\uhc_clock\models.py:52
+msgid "  UHC Clock Indicator Groups"
+msgstr ""
+
+#: .\uhc_clock\models.py:70
+msgid "Input"
+msgstr ""
+
+#: .\uhc_clock\models.py:71
+msgid "Process"
+msgstr ""
+
+#: .\uhc_clock\models.py:72
+msgid "Output"
+msgstr ""
+
+#: .\uhc_clock\models.py:73
+msgid "Outcomes"
+msgstr ""
+
+#: .\uhc_clock\models.py:74
+msgid "Impact"
+msgstr ""
+
+#: .\uhc_clock\models.py:79
+msgid "Indicator Group"
+msgstr ""
+
+#: .\uhc_clock\models.py:80
+msgid "Indicator Type"
+msgstr ""
+
+#: .\uhc_clock\models.py:87
+msgid "UHC Clock Indicator"
+msgstr ""
+
+#: .\uhc_clock\models.py:88
+msgid "   UHC Clock Indicators"
+msgstr ""
+
+#: .\uhc_clock\models.py:106
+msgid "Theme Name"
+msgstr ""
+
+#: .\uhc_clock\models.py:117
+msgid "UHC Indicator Group"
+msgstr ""
+
+#: .\uhc_clock\models.py:140
+msgid "UHC Theme"
+msgstr ""
+
+#: .\uhc_clock\models.py:141
+msgid "  UHC Clock Themes"
+msgstr ""
+
+#: .\uhc_clock\models.py:177
+msgid "End Year"
+msgstr ""
+
+#: .\uhc_clock\models.py:180 .\uhc_clock\models.py:202
+msgid "UHC Clock Theme"
+msgstr ""
+
+#: .\uhc_clock\models.py:187
+msgid "UHC Clock Fact"
+msgstr ""
+
+#: .\uhc_clock\models.py:188
+msgid "   UHC Clock Facts"
+msgstr ""
+
+#: .\uhc_clock\models.py:200
+msgid "Country/Location"
+msgstr ""
+
+#: .\uhc_clock\models.py:217
+msgid "Country Selection"
+msgstr ""
+
+#: .\uhc_clock\models.py:218
+msgid "UHC Clock Country Selections"
 msgstr ""

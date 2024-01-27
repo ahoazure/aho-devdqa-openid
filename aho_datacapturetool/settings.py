@@ -15,7 +15,6 @@ if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
 
 SECRET_KEY = os.environ['SECRET']
-# SECRET_KEY = 'jz&%c@07o%z_mo&qs2t@-io)vm5ul_0j*kwm@#&m0m4nf7j5a^'
 
 DEBUG = True # make this false to test autocomplete js issue; missing in blob
 
@@ -151,7 +150,7 @@ SWAGGER_SETTINGS = {
 MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware', #added 0n 26/01/2023
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware', #added 0n 26/01/2023
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware', # added
     'django.middleware.common.CommonMiddleware',
@@ -194,7 +193,7 @@ DATABASES = {
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'init_command': 'SET storage_engine=INNODB;',
-            'ssl': {'ca': '/home/site/cert/BaltimoreCyberTrustRoot.crt.pem'}
+            'ssl': {'ca': '/home/site/cert/BaltimoreTrustDigiCertifcateCombo.crt.pem'}
             },
     }
 }

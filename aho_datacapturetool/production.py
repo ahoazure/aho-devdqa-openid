@@ -65,7 +65,7 @@ DATABASES = {
         'PASSWORD': os.environ['DBPASS'],
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': {'ca': '/home/site/cert/BaltimoreTrustDigiCertifcateCombo.pem'}
+            'ssl': {'ca': '/home/site/cert/DigiCertGlobalRootCA.crt.pem'}
             },
     }
 }

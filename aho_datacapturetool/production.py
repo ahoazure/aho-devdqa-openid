@@ -65,7 +65,7 @@ DATABASES = {
         'PASSWORD': os.environ['DBPASS'],
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': {'disabled': True}
+            'ssl': {}
             },
     }
 }
